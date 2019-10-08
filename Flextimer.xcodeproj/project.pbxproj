@@ -1,0 +1,489 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C10D1A2234AFCD30026DD50 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C10D1A1234AFCD30026DD50 /* ButtonView.swift */; };
+		1C1AEB41234B572600FFB348 /* WorkRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1AEB40234B572600FFB348 /* WorkRecord.swift */; };
+		1C1AEB43234B5FF100FFB348 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1AEB42234B5FF100FFB348 /* RealmService.swift */; };
+		1C23D0B5234B0CAF000CB037 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C23D0B4234B0CAF000CB037 /* Date.swift */; };
+		9C2597C1CD3E682736144F88 /* Pods_Flextimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4430D25C294FC2114B53953B /* Pods_Flextimer.framework */; };
+		BF680FB4234CC5ED006F44FF /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF680FB3234CC5ED006F44FF /* TimeView.swift */; };
+		BF7ECBBD234CC9190078AE6C /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ECBBC234CC9190078AE6C /* TimerView.swift */; };
+		BF7ECBBF234CE0EE0078AE6C /* MyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ECBBE234CE0EE0078AE6C /* MyTimer.swift */; };
+		BF7ECBC1234CE3420078AE6C /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ECBC0234CE3420078AE6C /* TimeInterval.swift */; };
+		BFDA4AE3234CB5E700A7211C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDA4AE2234CB5E700A7211C /* UserData.swift */; };
+		BFEDCC952346865C0043E0B0 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEDCC942346865C0043E0B0 /* SettingView.swift */; };
+		BFF96FDA23464A66002F5802 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF96FD923464A66002F5802 /* AppDelegate.swift */; };
+		BFF96FDC23464A66002F5802 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF96FDB23464A66002F5802 /* SceneDelegate.swift */; };
+		BFF96FDE23464A66002F5802 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF96FDD23464A66002F5802 /* ContentView.swift */; };
+		BFF96FE023464A68002F5802 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFF96FDF23464A68002F5802 /* Assets.xcassets */; };
+		BFF96FE323464A68002F5802 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFF96FE223464A68002F5802 /* Preview Assets.xcassets */; };
+		BFF96FE623464A68002F5802 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF96FE423464A68002F5802 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1C10D1A1234AFCD30026DD50 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		1C1AEB40234B572600FFB348 /* WorkRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkRecord.swift; sourceTree = "<group>"; };
+		1C1AEB42234B5FF100FFB348 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		1C23D0B4234B0CAF000CB037 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		4430D25C294FC2114B53953B /* Pods_Flextimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flextimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87F7E2D88B8929A88AA77E76 /* Pods-Flextimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flextimer.release.xcconfig"; path = "Target Support Files/Pods-Flextimer/Pods-Flextimer.release.xcconfig"; sourceTree = "<group>"; };
+		BF680FB3234CC5ED006F44FF /* TimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
+		BF7ECBBC234CC9190078AE6C /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		BF7ECBBE234CE0EE0078AE6C /* MyTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTimer.swift; sourceTree = "<group>"; };
+		BF7ECBC0234CE3420078AE6C /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
+		BFDA4AE2234CB5E700A7211C /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		BFEDCC942346865C0043E0B0 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		BFF96FD623464A66002F5802 /* Flextimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flextimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFF96FD923464A66002F5802 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BFF96FDB23464A66002F5802 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BFF96FDD23464A66002F5802 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BFF96FDF23464A68002F5802 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BFF96FE223464A68002F5802 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BFF96FE523464A68002F5802 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BFF96FE723464A68002F5802 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF2392A6C1922842F5BEC072 /* Pods-Flextimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flextimer.debug.xcconfig"; path = "Target Support Files/Pods-Flextimer/Pods-Flextimer.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BFF96FD323464A66002F5802 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C2597C1CD3E682736144F88 /* Pods_Flextimer.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01A3B50145F900FFD43E5F23 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DF2392A6C1922842F5BEC072 /* Pods-Flextimer.debug.xcconfig */,
+				87F7E2D88B8929A88AA77E76 /* Pods-Flextimer.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		1C1AEB44234B6EA600FFB348 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				1C1AEB40234B572600FFB348 /* WorkRecord.swift */,
+				1C1AEB42234B5FF100FFB348 /* RealmService.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		1C1AEB45234B6EC400FFB348 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BFF96FDD23464A66002F5802 /* ContentView.swift */,
+				1CCEEE30234B0300007E3247 /* SupportViews */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1C23D0B6234B0CB2000CB037 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1C23D0B4234B0CAF000CB037 /* Date.swift */,
+				BF7ECBC0234CE3420078AE6C /* TimeInterval.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		1CCEEE30234B0300007E3247 /* SupportViews */ = {
+			isa = PBXGroup;
+			children = (
+				BFEDCC942346865C0043E0B0 /* SettingView.swift */,
+				1C10D1A1234AFCD30026DD50 /* ButtonView.swift */,
+				BF680FB3234CC5ED006F44FF /* TimeView.swift */,
+				BF7ECBBC234CC9190078AE6C /* TimerView.swift */,
+			);
+			path = SupportViews;
+			sourceTree = "<group>";
+		};
+		8C96921728ADCE0A342BC1C6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4430D25C294FC2114B53953B /* Pods_Flextimer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BFF96FCD23464A66002F5802 = {
+			isa = PBXGroup;
+			children = (
+				BFF96FD823464A66002F5802 /* Flextimer */,
+				BFF96FD723464A66002F5802 /* Products */,
+				01A3B50145F900FFD43E5F23 /* Pods */,
+				8C96921728ADCE0A342BC1C6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BFF96FD723464A66002F5802 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BFF96FD623464A66002F5802 /* Flextimer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BFF96FD823464A66002F5802 /* Flextimer */ = {
+			isa = PBXGroup;
+			children = (
+				BFF96FD923464A66002F5802 /* AppDelegate.swift */,
+				BFF96FDB23464A66002F5802 /* SceneDelegate.swift */,
+				BFDA4AE2234CB5E700A7211C /* UserData.swift */,
+				BF7ECBBE234CE0EE0078AE6C /* MyTimer.swift */,
+				1C1AEB44234B6EA600FFB348 /* Realm */,
+				1C1AEB45234B6EC400FFB348 /* View */,
+				1C23D0B6234B0CB2000CB037 /* Extension */,
+				BFF96FDF23464A68002F5802 /* Assets.xcassets */,
+				BFF96FE423464A68002F5802 /* LaunchScreen.storyboard */,
+				BFF96FE723464A68002F5802 /* Info.plist */,
+				BFF96FE123464A68002F5802 /* Preview Content */,
+			);
+			path = Flextimer;
+			sourceTree = "<group>";
+		};
+		BFF96FE123464A68002F5802 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BFF96FE223464A68002F5802 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BFF96FD523464A66002F5802 /* Flextimer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFF96FEA23464A68002F5802 /* Build configuration list for PBXNativeTarget "Flextimer" */;
+			buildPhases = (
+				2CF3282E3F8BFEAC123B291F /* [CP] Check Pods Manifest.lock */,
+				BFF96FD223464A66002F5802 /* Sources */,
+				BFF96FD323464A66002F5802 /* Frameworks */,
+				BFF96FD423464A66002F5802 /* Resources */,
+				2A9D4F951D7D4E721B7267E7 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Flextimer;
+			productName = Flextimer;
+			productReference = BFF96FD623464A66002F5802 /* Flextimer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFF96FCE23464A66002F5802 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = "Suzy Mararon Park";
+				TargetAttributes = {
+					BFF96FD523464A66002F5802 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+				};
+			};
+			buildConfigurationList = BFF96FD123464A66002F5802 /* Build configuration list for PBXProject "Flextimer" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BFF96FCD23464A66002F5802;
+			productRefGroup = BFF96FD723464A66002F5802 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BFF96FD523464A66002F5802 /* Flextimer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BFF96FD423464A66002F5802 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFF96FE623464A68002F5802 /* LaunchScreen.storyboard in Resources */,
+				BFF96FE323464A68002F5802 /* Preview Assets.xcassets in Resources */,
+				BFF96FE023464A68002F5802 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2A9D4F951D7D4E721B7267E7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Flextimer/Pods-Flextimer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Flextimer/Pods-Flextimer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Flextimer/Pods-Flextimer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2CF3282E3F8BFEAC123B291F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Flextimer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BFF96FD223464A66002F5802 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFF96FDA23464A66002F5802 /* AppDelegate.swift in Sources */,
+				1C1AEB41234B572600FFB348 /* WorkRecord.swift in Sources */,
+				1C23D0B5234B0CAF000CB037 /* Date.swift in Sources */,
+				BF7ECBBF234CE0EE0078AE6C /* MyTimer.swift in Sources */,
+				BFDA4AE3234CB5E700A7211C /* UserData.swift in Sources */,
+				BFEDCC952346865C0043E0B0 /* SettingView.swift in Sources */,
+				1C10D1A2234AFCD30026DD50 /* ButtonView.swift in Sources */,
+				BF7ECBBD234CC9190078AE6C /* TimerView.swift in Sources */,
+				BF7ECBC1234CE3420078AE6C /* TimeInterval.swift in Sources */,
+				BF680FB4234CC5ED006F44FF /* TimeView.swift in Sources */,
+				BFF96FDC23464A66002F5802 /* SceneDelegate.swift in Sources */,
+				BFF96FDE23464A66002F5802 /* ContentView.swift in Sources */,
+				1C1AEB43234B5FF100FFB348 /* RealmService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BFF96FE423464A68002F5802 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFF96FE523464A68002F5802 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BFF96FE823464A68002F5802 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BFF96FE923464A68002F5802 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BFF96FEB23464A68002F5802 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF2392A6C1922842F5BEC072 /* Pods-Flextimer.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Flextimer/Preview Content\"";
+				DEVELOPMENT_TEAM = 98S7TU46JD;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Flextimer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.suzypark.Flextimer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BFF96FEC23464A68002F5802 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87F7E2D88B8929A88AA77E76 /* Pods-Flextimer.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Flextimer/Preview Content\"";
+				DEVELOPMENT_TEAM = 98S7TU46JD;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Flextimer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.suzypark.Flextimer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BFF96FD123464A66002F5802 /* Build configuration list for PBXProject "Flextimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFF96FE823464A68002F5802 /* Debug */,
+				BFF96FE923464A68002F5802 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BFF96FEA23464A68002F5802 /* Build configuration list for PBXNativeTarget "Flextimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFF96FEB23464A68002F5802 /* Debug */,
+				BFF96FEC23464A68002F5802 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFF96FCE23464A66002F5802 /* Project object */;
+}
