@@ -10,69 +10,56 @@ import Foundation
 import RealmSwift
 
 class RealmService {
-    
-    private init() {}
-    static let shared = RealmService()
-    
-    var realm = try! Realm()
-    
-    func create<T: Object>(_ object: T) {
-        do {
-            try realm.write {
-                realm.add(object)
-            }
-        } catch {
-            print(error)
-        }
+  
+  private init() {}
+  static let shared = RealmService()
+  
+  var realm = try! Realm()
+  
+  func create<T: Object>(_ object: T) {
+    do {
+      try realm.write {
+        realm.add(object)
+        Log.complete("realm.create \(object)")
+      }
+    } catch {
+      Log.err(error)
     }
-    
-    func update<T: Object>(_ object: T, with dictionary: [String: Any?]) {
-        do {
-            try realm.write {
-                for (key, value) in dictionary {
-                    object.setValue(value, forKey: key)
-                }
-            }
-        } catch {
-            print(error)
+  }
+  
+  func update<T: Object>(_ object: T, with dictionary: [String: Any?]) {
+    do {
+      try realm.write {
+        for (key, value) in dictionary {
+          object.setValue(value, forKey: key)
         }
+        Log.complete("realm.update \(dictionary)")
+      }
+    } catch {
+      Log.err(error)
     }
-    
-    func delete<T: Object>(_ object: T) {
-        do {
-            try realm.write {
-                realm.delete(object)
-            }
-        } catch {
-            print(error)
-        }
+  }
+  
+  func delete<T: Object>(_ object: T) {
+    do {
+      try realm.write {
+        realm.delete(object)
+        Log.complete("realm.delete \(object)")
+      }
+    } catch {
+      Log.err(error)
     }
+  }
+  
+  func isWorking() -> Bool {
+    let isEmpty = RealmService.shared.realm.objects(WorkRecord.self)
+      .filter { $0.endDate == nil }
+      .isEmpty
     
-    func isWorking() -> Bool {
-        let todayStart = Calendar.current.startOfDay(for: Date())
-        let todayEnd: Date = {
-            let components = DateComponents(day: 1, second: -1)
-            return Calendar.current.date(byAdding: components, to: todayStart)!
-        }()
-        
-        if RealmService.shared.realm.objects(WorkRecord.self)
-            .filter("date BETWEEN %@", [todayStart, todayEnd]).count > 0 {
-            return true
-        }
-        return false
+    if isEmpty {
+      return false
+    } else {
+      return true
     }
-    
-//    func post(_ error: Error) {
-//        NotificationCenter.default.post(name: NSNotification.Name("RealmError"), object: error)
-//    }
-//
-//    func observeRealmErrors(in vc: UIViewController, completion: @escaping(Error?) -> Void) {
-//        NotificationCenter.default.addObserver(forName: NSNotification.Name("RealmError"), object: nil, queue: nil) { notification in
-//            completion(notification.object as? Error)
-//        }
-//    }
-//
-//    func stopObservingErrors(in vc: UIViewController) {
-//        NotificationCenter.default.removeObserver(vc, name: NSNotification.Name("RealmError"), object: nil)
-//    }
+  }
 }

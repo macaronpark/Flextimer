@@ -12,16 +12,11 @@ import RealmSwift
 @objcMembers class WorkRecord: Object {
   
   @objc dynamic var date: Date = Date()
-  let hours = RealmOptional<Int>()
+  @objc dynamic var endDate: Date? = nil
+  @objc dynamic var workingHours: Int = 0
   
-  convenience init(_ date: Date, hours: Int? = nil) {
+  convenience init(_ date: Date) {
     self.init()
     self.date = date
-    self.hours.value = hours
   }
-  
-  //    func hoursString() -> String? {
-  //        guard let hours = hours.value else { return nil }
-  //        return String(hours)
-  //    }
 }

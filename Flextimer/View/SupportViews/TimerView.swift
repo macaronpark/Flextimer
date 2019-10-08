@@ -9,11 +9,12 @@
 import SwiftUI
 
 struct TimerView: View {
-  @EnvironmentObject var userData: UserData
-  let timer = MyTimer()
   
+  @EnvironmentObject var userData: UserData
   @State private var currentTime: String = ""
   
+  let timer = CurrentTimer()
+
   var body: some View {
     VStack {
       Text("\(currentTime)")
@@ -28,12 +29,10 @@ struct TimerView: View {
       .foregroundColor(Color.gray.opacity(0.4))
     }
     .onReceive(timer.currentTimePublisher) { newCurrentTime in
-      
-      let interval = newCurrentTime.timeIntervalSince(
-        self.userData.startDate ?? Date()
-      )
-
-      self.currentTime = interval.toReadableString()
+      if let startDate = self.userData.startDate {
+        let interval = newCurrentTime.timeIntervalSince(startDate)
+        self.currentTime = interval.toString()
+      }
     }
   }
 }

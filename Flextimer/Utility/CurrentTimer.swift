@@ -9,7 +9,7 @@
 import SwiftUI
 import Combine
 
-class MyTimer {
+class CurrentTimer {
     let currentTimePublisher = Timer.TimerPublisher(interval: 1.0, runLoop: .main, mode: .default)
     let cancellable: AnyCancellable?
 

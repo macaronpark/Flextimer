@@ -14,11 +14,11 @@ final class UserData: ObservableObject  {
   /// 일주일에 일하는 일 수
   @Published var workdaysCount: Int = 5
   /// 하루에 일하는 시간
-  @Published var officeHours: Int = 9
+  @Published var workingHours: Int = 9
   
   /// 현재 근무 중 인지
   @Published var isWorking: Bool = false
-  /// 오늘 근무 시작 date
+  /// 현재 근무 시작 date
   @Published var startDate: Date?
   
   /// 오늘 근무 시작 시간을 '오전 0시 0분'으로 변환한 string
@@ -29,7 +29,7 @@ final class UserData: ObservableObject  {
   var callOutTime: String {
     let callOutDate = Calendar.current.date(
       byAdding: .hour,
-      value: +self.officeHours,
+      value: +self.workingHours,
       to: self.startDate ?? Date()
     )
     return Formatter.shm.string(from: callOutDate ?? Date())

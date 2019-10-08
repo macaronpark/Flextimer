@@ -40,6 +40,8 @@ struct ContentView: View {
       
     }.onAppear {
       
+      let r = RealmService.shared.realm.objects(WorkRecord.self)
+      Log.debug("\(r)")
       
     }
   }

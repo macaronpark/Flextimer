@@ -19,12 +19,12 @@ struct SettingView: View {
         Group {
           HStack {
             Text("주 \(userData.workdaysCount)일")
-            Text("\(userData.workdaysCount * userData.officeHours)시간").fontWeight(.bold)
+            Text("\(userData.workdaysCount * userData.workingHours)시간").fontWeight(.bold)
           }
           
           HStack {
             Text("일")
-            Text("\(userData.officeHours)시간").fontWeight(.bold)
+            Text("\(userData.workingHours)시간").fontWeight(.bold)
             Text("기준")
           }
         }

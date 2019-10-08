@@ -16,8 +16,7 @@ struct TimeView: View {
   var body: some View {
   
     VStack(alignment: .trailing) {
-      
-      
+
         HStack {
           Spacer()
           Text("출근")
@@ -32,10 +31,8 @@ struct TimeView: View {
         }
         .foregroundColor(.gray)
       
-      
     }
     .padding([.leading, .trailing], 40)
-    
   }
 }
 

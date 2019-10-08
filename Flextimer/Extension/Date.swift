@@ -8,21 +8,6 @@
 
 import Foundation
 
-enum Formatter {
-
-  static var shm: DateFormatter {
-    let dateFormatter = DateFormatter()
-    dateFormatter.locale = Locale.current
-    dateFormatter.dateFormat = "a h시 m분"
-    dateFormatter.amSymbol = "오전"
-    dateFormatter.pmSymbol = "오후"
-    return dateFormatter
-  }
-
-}
-
-
-
 extension Date {
 
   enum Weekday: String {
