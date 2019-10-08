@@ -11,6 +11,7 @@ import Combine
 import Foundation
 
 final class UserData: ObservableObject  {
+  
   /// 일주일에 일하는 일 수
   @Published var workdaysCount: Int = 5
   /// 하루에 일하는 시간
@@ -26,24 +27,25 @@ final class UserData: ObservableObject  {
     return Formatter.shm.string(from: self.startDate ?? Date())
   }
   
-  var callOutTime: String {
+  /// 예상 퇴근 시간
+  var estimatedCallOutTime: Date {
     let callOutDate = Calendar.current.date(
       byAdding: .hour,
       value: +self.workingHours,
       to: self.startDate ?? Date()
-    )
-    return Formatter.shm.string(from: callOutDate ?? Date())
+    ) ?? Date()
+    return callOutDate
   }
   
   init() {
+    // 현재 근무 중 인지 판단
     self.isWorking = RealmService.shared.isWorking()
-    
+    // 현재 근무 중이라면 퇴근 기록이 없는 마지막 레코드를 가져온다
     if self.isWorking {
-      
-      // todo: 밤 12시가 지나면 초기화 시키는 이슈 해결하기
-      guard let record = RealmService.shared.realm.objects(WorkRecord.self).last else { return }
-      self.startDate = record.date
+      let record = RealmService.shared.realm.objects(WorkRecord.self).filter { $0.endDate == nil }
+      if !record.isEmpty, let lastRecord = record.last {
+        self.startDate = lastRecord.date
+      }
     }
   }
 }
-

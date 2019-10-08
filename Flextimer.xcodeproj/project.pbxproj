@@ -19,6 +19,8 @@
 		BF7ECBC6234CF89B0078AE6C /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ECBC4234CF8480078AE6C /* Log.swift */; };
 		BF7ECBC8234CFD9D0078AE6C /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ECBC7234CFD9D0078AE6C /* Formatter.swift */; };
 		BFDA4AE3234CB5E700A7211C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDA4AE2234CB5E700A7211C /* UserData.swift */; };
+		BFE16AAD234D109D006F94C1 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE16AAC234D109D006F94C1 /* AppColor.swift */; };
+		BFE16AAF234D11CD006F94C1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE16AAE234D11CD006F94C1 /* Color.swift */; };
 		BFEDCC952346865C0043E0B0 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEDCC942346865C0043E0B0 /* SettingView.swift */; };
 		BFF96FDA23464A66002F5802 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF96FD923464A66002F5802 /* AppDelegate.swift */; };
 		BFF96FDC23464A66002F5802 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF96FDB23464A66002F5802 /* SceneDelegate.swift */; };
@@ -42,6 +44,8 @@
 		BF7ECBC4234CF8480078AE6C /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		BF7ECBC7234CFD9D0078AE6C /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		BFDA4AE2234CB5E700A7211C /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		BFE16AAC234D109D006F94C1 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		BFE16AAE234D11CD006F94C1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		BFEDCC942346865C0043E0B0 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		BFF96FD623464A66002F5802 /* Flextimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flextimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFF96FD923464A66002F5802 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 		1C23D0B6234B0CB2000CB037 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				BFE16AAE234D11CD006F94C1 /* Color.swift */,
 				1C23D0B4234B0CAF000CB037 /* Date.swift */,
 				BF7ECBC0234CE3420078AE6C /* TimeInterval.swift */,
 			);
@@ -132,6 +137,7 @@
 		BF7ECBC3234CF8370078AE6C /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				BFE16AAC234D109D006F94C1 /* AppColor.swift */,
 				BF7ECBBE234CE0EE0078AE6C /* CurrentTimer.swift */,
 				BF7ECBC7234CFD9D0078AE6C /* Formatter.swift */,
 				BF7ECBC4234CF8480078AE6C /* Log.swift */,
@@ -302,7 +308,9 @@
 				1C1AEB41234B572600FFB348 /* WorkRecord.swift in Sources */,
 				1C23D0B5234B0CAF000CB037 /* Date.swift in Sources */,
 				BF7ECBBF234CE0EE0078AE6C /* CurrentTimer.swift in Sources */,
+				BFE16AAF234D11CD006F94C1 /* Color.swift in Sources */,
 				BFDA4AE3234CB5E700A7211C /* UserData.swift in Sources */,
+				BFE16AAD234D109D006F94C1 /* AppColor.swift in Sources */,
 				BFEDCC952346865C0043E0B0 /* SettingView.swift in Sources */,
 				1C10D1A2234AFCD30026DD50 /* ButtonView.swift in Sources */,
 				BF7ECBBD234CC9190078AE6C /* TimerView.swift in Sources */,

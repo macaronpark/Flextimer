@@ -12,26 +12,32 @@ struct TimerView: View {
   
   @EnvironmentObject var userData: UserData
   @State private var currentTime: String = ""
+  @State private var timeToCallOut: String = ""
   
   let timer = CurrentTimer()
 
   var body: some View {
     VStack {
-      Text("\(currentTime)")
+      Text("\(self.currentTime)")
         .font(.largeTitle)
-        .padding(.bottom, 4)
+        .padding(.bottom, 8)
       
       HStack {
-        Text("퇴근까지")
-        Text("00시간 00분")
-        Text("존버")
+        Text(" 퇴근까지")
+        Text("\(self.timeToCallOut)")
       }
+      .font(.body)
       .foregroundColor(Color.gray.opacity(0.4))
     }
     .onReceive(timer.currentTimePublisher) { newCurrentTime in
       if let startDate = self.userData.startDate {
+        // 총 근무 시간 업데이트
         let interval = newCurrentTime.timeIntervalSince(startDate)
-        self.currentTime = interval.toString()
+        self.currentTime = interval.toString(.total)
+        // 남은 근무 시간(픽스 근무 시간 - 총 근무 시간) 업데이트
+        let workingHoursInterval = TimeInterval(self.userData.workingHours * 60 * 60)
+        let remainInterval = workingHoursInterval - interval
+        self.timeToCallOut = remainInterval.toString(.remain)
       }
     }
   }

@@ -27,8 +27,9 @@ struct TimeView: View {
         HStack {
           Spacer()
           Text("예상 퇴근")
-          Text("\(userData.callOutTime)")
+          Text("\(Formatter.shm.string(from: userData.estimatedCallOutTime))")
         }
+        .font(.body)
         .foregroundColor(.gray)
       
     }

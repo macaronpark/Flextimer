@@ -28,9 +28,9 @@ struct ButtonView: View {
           self.userData.isWorking = true
         }) {
           Text("출근").frame(width: buttonWidth, height: 40)
-        } 
+        }
         .disabled(userData.isWorking)
-        .background(userData.isWorking ? Color.gray.opacity(0.2) : Color.gray)
+        .background(userData.isWorking ? AppColor.orange.opacity(0.2) : AppColor.orange)
         
         // 퇴근 버튼
         Button(action: {
@@ -45,7 +45,7 @@ struct ButtonView: View {
           Text("퇴근").frame(width: buttonWidth, height: 40)
         }
         .disabled(!userData.isWorking)
-        .background(!userData.isWorking ? Color.gray.opacity(0.2) : Color.gray)
+        .background(!userData.isWorking ? AppColor.orange.opacity(0.2) : AppColor.orange)
       }
       .cornerRadius(8)
       .foregroundColor(.white)
