@@ -38,15 +38,15 @@ extension TimeInterval {
     // 분 단위가 두 자리일 경우 '0시간 00분 ' 형태로 리턴
     let minutesCount = String(minutes).compactMap { $0.wholeNumberValue }.count
     if minutesCount > 1 {
-      return String(format: "%0.1d시간 %0.2d분 ", hours, minutes)
+      return String(format: "%0.1d시간 %0.2d분", hours, minutes)
     }
     
     // 분 단위가 한 자리이면서 0일 경우 '0시간 ' 형태로 리턴
     if minutes == 0 {
-      return String(format: "%0.1d시간 ", hours)
+      return String(format: "%0.1d시간", hours)
     }
     
     // 분 단위가 한 자리일 경우 '0시간 0분 ' 형태로 리턴
-    return String(format: "%0.1d시간 %0.1d분 ", hours, minutes)
+    return String(format: "%0.1d시간 %0.1d분", hours, minutes)
   }
 }

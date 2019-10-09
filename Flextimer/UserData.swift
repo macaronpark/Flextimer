@@ -21,6 +21,7 @@ final class UserData: ObservableObject  {
   @Published var isWorking: Bool = false
   /// 현재 근무 시작 date
   @Published var startDate: Date?
+  @Published var remainTime: String = ""
   
   /// 오늘 근무 시작 시간을 '오전 0시 0분'으로 변환한 string
   var startTime: String {
@@ -28,13 +29,13 @@ final class UserData: ObservableObject  {
   }
   
   /// 예상 퇴근 시간
-  var estimatedCallOutTime: Date {
+  var estimatedCallOutTime: String {
     let callOutDate = Calendar.current.date(
       byAdding: .hour,
       value: +self.workingHours,
       to: self.startDate ?? Date()
     ) ?? Date()
-    return callOutDate
+    return Formatter.shm.string(from: callOutDate)
   }
   
   init() {

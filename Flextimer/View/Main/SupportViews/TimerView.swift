@@ -12,23 +12,19 @@ struct TimerView: View {
   
   @EnvironmentObject var userData: UserData
   @State private var currentTime: String = ""
-  @State private var timeToCallOut: String = ""
   @State private var preDescription: String = ""
   
   let timer = CurrentTimer()
   
   var body: some View {
     VStack {
+      Text("\(self.preDescription)")
+        .font(.body)
+        .foregroundColor(Color.gray)
+      
       Text("\(self.currentTime)")
         .font(Font.system(size: 60, weight: .light, design: .monospaced))
         .foregroundColor(AppColor.orange)
-      
-      HStack {
-        Text("\(self.preDescription)")
-        Text("\(self.timeToCallOut)")
-      }
-      .font(.body)
-      .foregroundColor(Color.gray)
     }
     .onReceive(timer.currentTimePublisher) { newCurrentTime in
       self.updateStates(newCurrentTime)
@@ -43,9 +39,9 @@ struct TimerView: View {
       // 남은 근무 시간(픽스 근무 시간 - 총 근무 시간) 업데이트
       let workingHoursInterval = TimeInterval(self.userData.workingHours * 60 * 60)
       let remainInterval = workingHoursInterval - interval
-      self.timeToCallOut = remainInterval.toString(.remain)
-      //
-      self.preDescription = " 퇴근까지"
+      self.userData.remainTime = remainInterval.toString(.remain) + " 남았어요"
+      
+      self.preDescription = "지금은 근무 중"
     }
   }
 }

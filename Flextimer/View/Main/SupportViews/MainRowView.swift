@@ -9,29 +9,27 @@
 import SwiftUI
 import Combine
 
-struct RowView: View {
+struct MainRowView: View {
   
   @EnvironmentObject var userData: UserData
   
-  // title, sub, color
-  
+  var row: Row
   var body: some View {
     
     VStack {
-      
       HStack {
-        Text("title")
+        Text(row.title)
         Spacer()
-        Text("value")
-        
+        Text(row.detail)
       }
-      .font(.body)
-      .padding(.vertical, 8)
+      .font(Font.system(size: 16))
+      .foregroundColor(row.color)
+      .padding(.vertical, 4)
       .padding(.horizontal, 20)
       
       HStack {
         Spacer()
-        AppColor.placeholderGray.frame(width: UIScreen.main.bounds.width - 48, height: 1)
+        AppColor.placeholderGray.frame(width: UIScreen.main.bounds.width - 20, height: 1)
       }
     }
   }
@@ -39,6 +37,7 @@ struct RowView: View {
 
 struct RowView_Previews: PreviewProvider {
   static var previews: some View {
-    RowView().environmentObject(UserData())
+    MainRowView(row: Row(id: 1, title: "test", detail: "test", color: .black))
+      .environmentObject(UserData())
   }
 }

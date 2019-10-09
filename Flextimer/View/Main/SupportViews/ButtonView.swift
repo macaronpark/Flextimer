@@ -12,8 +12,7 @@ import RealmSwift
 struct ButtonView: View {
   
   @EnvironmentObject var userData: UserData
-  
-  var buttonWidth = (UIScreen.main.bounds.width - 40 - 16) / 2
+  private var buttonWidth = (UIScreen.main.bounds.width - 40 - 16) / 2
   
   var body: some View {
     HStack(spacing: 16) {
@@ -31,7 +30,7 @@ struct ButtonView: View {
           .foregroundColor(.white)
         }
         .disabled(userData.isWorking)
-        .background(userData.isWorking ? AppColor.orange.opacity(0.2) : AppColor.orange)
+        .background(userData.isWorking ? AppColor.orange.opacity(0.1) : AppColor.orange)
         
         // 퇴근 버튼
         Button(action: {
@@ -47,7 +46,7 @@ struct ButtonView: View {
           .foregroundColor(.white)
         }
         .disabled(!userData.isWorking)
-        .background(!userData.isWorking ? AppColor.orange.opacity(0.2) : AppColor.orange)
+        .background(!userData.isWorking ? AppColor.orange.opacity(0.1) : AppColor.orange)
       }
       .cornerRadius(4)
     }

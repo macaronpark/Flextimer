@@ -12,7 +12,15 @@
 		1C1AEB43234B5FF100FFB348 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1AEB42234B5FF100FFB348 /* RealmService.swift */; };
 		1C23D0B5234B0CAF000CB037 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C23D0B4234B0CAF000CB037 /* Date.swift */; };
 		9C2597C1CD3E682736144F88 /* Pods_Flextimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4430D25C294FC2114B53953B /* Pods_Flextimer.framework */; };
-		BF4678B0234D576E00B61A9C /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4678AF234D576E00B61A9C /* RowView.swift */; };
+		BF18D7D7234DC98A00FFB49F /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4129D8234DC88D00425149 /* SettingView.swift */; };
+		BF18D7DA234DEA4800FFB49F /* SettingRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF18D7D9234DEA4700FFB49F /* SettingRowView.swift */; };
+		BF18D7DD234DF2FA00FFB49F /* SettingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF18D7DC234DF2FA00FFB49F /* SettingRow.swift */; };
+		BF18D7E1234E032600FFB49F /* WorkdayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF18D7E0234E032600FFB49F /* WorkdayPickerView.swift */; };
+		BF18D7E5234E1D1000FFB49F /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF18D7E4234E1D1000FFB49F /* RootView.swift */; };
+		BF18D7E7234E21EC00FFB49F /* Creteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF18D7E6234E21EC00FFB49F /* Creteria.swift */; };
+		BF4129D3234DB78D00425149 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4129D2234DB78D00425149 /* Row.swift */; };
+		BF4129D5234DB8D900425149 /* RowListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4129D4234DB8D900425149 /* RowListView.swift */; };
+		BF4678B0234D576E00B61A9C /* MainRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4678AF234D576E00B61A9C /* MainRowView.swift */; };
 		BF7ECBBD234CC9190078AE6C /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ECBBC234CC9190078AE6C /* TimerView.swift */; };
 		BF7ECBBF234CE0EE0078AE6C /* CurrentTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ECBBE234CE0EE0078AE6C /* CurrentTimer.swift */; };
 		BF7ECBC1234CE3420078AE6C /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ECBC0234CE3420078AE6C /* TimeInterval.swift */; };
@@ -21,10 +29,10 @@
 		BFDA4AE3234CB5E700A7211C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDA4AE2234CB5E700A7211C /* UserData.swift */; };
 		BFE16AAD234D109D006F94C1 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE16AAC234D109D006F94C1 /* AppColor.swift */; };
 		BFE16AAF234D11CD006F94C1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE16AAE234D11CD006F94C1 /* Color.swift */; };
-		BFEDCC952346865C0043E0B0 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEDCC942346865C0043E0B0 /* SettingView.swift */; };
+		BFEDCC952346865C0043E0B0 /* CreteriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEDCC942346865C0043E0B0 /* CreteriaView.swift */; };
 		BFF96FDA23464A66002F5802 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF96FD923464A66002F5802 /* AppDelegate.swift */; };
 		BFF96FDC23464A66002F5802 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF96FDB23464A66002F5802 /* SceneDelegate.swift */; };
-		BFF96FDE23464A66002F5802 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF96FDD23464A66002F5802 /* ContentView.swift */; };
+		BFF96FDE23464A66002F5802 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF96FDD23464A66002F5802 /* MainView.swift */; };
 		BFF96FE023464A68002F5802 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFF96FDF23464A68002F5802 /* Assets.xcassets */; };
 		BFF96FE323464A68002F5802 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFF96FE223464A68002F5802 /* Preview Assets.xcassets */; };
 		BFF96FE623464A68002F5802 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF96FE423464A68002F5802 /* LaunchScreen.storyboard */; };
@@ -37,7 +45,15 @@
 		1C23D0B4234B0CAF000CB037 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		4430D25C294FC2114B53953B /* Pods_Flextimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flextimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87F7E2D88B8929A88AA77E76 /* Pods-Flextimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flextimer.release.xcconfig"; path = "Target Support Files/Pods-Flextimer/Pods-Flextimer.release.xcconfig"; sourceTree = "<group>"; };
-		BF4678AF234D576E00B61A9C /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
+		BF18D7D9234DEA4700FFB49F /* SettingRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRowView.swift; sourceTree = "<group>"; };
+		BF18D7DC234DF2FA00FFB49F /* SettingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRow.swift; sourceTree = "<group>"; };
+		BF18D7E0234E032600FFB49F /* WorkdayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkdayPickerView.swift; sourceTree = "<group>"; };
+		BF18D7E4234E1D1000FFB49F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		BF18D7E6234E21EC00FFB49F /* Creteria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creteria.swift; sourceTree = "<group>"; };
+		BF4129D2234DB78D00425149 /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
+		BF4129D4234DB8D900425149 /* RowListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowListView.swift; sourceTree = "<group>"; };
+		BF4129D8234DC88D00425149 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		BF4678AF234D576E00B61A9C /* MainRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRowView.swift; sourceTree = "<group>"; };
 		BF7ECBBC234CC9190078AE6C /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		BF7ECBBE234CE0EE0078AE6C /* CurrentTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTimer.swift; sourceTree = "<group>"; };
 		BF7ECBC0234CE3420078AE6C /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
@@ -46,11 +62,11 @@
 		BFDA4AE2234CB5E700A7211C /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		BFE16AAC234D109D006F94C1 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		BFE16AAE234D11CD006F94C1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		BFEDCC942346865C0043E0B0 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		BFEDCC942346865C0043E0B0 /* CreteriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreteriaView.swift; sourceTree = "<group>"; };
 		BFF96FD623464A66002F5802 /* Flextimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flextimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFF96FD923464A66002F5802 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFF96FDB23464A66002F5802 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BFF96FDD23464A66002F5802 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BFF96FDD23464A66002F5802 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		BFF96FDF23464A68002F5802 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFF96FE223464A68002F5802 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BFF96FE523464A68002F5802 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -91,8 +107,9 @@
 		1C1AEB45234B6EC400FFB348 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BFF96FDD23464A66002F5802 /* ContentView.swift */,
-				1CCEEE30234B0300007E3247 /* SupportViews */,
+				BF18D7E4234E1D1000FFB49F /* RootView.swift */,
+				BF4129D6234DC85900425149 /* Main */,
+				BF4129D7234DC87800425149 /* Setting */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -110,10 +127,11 @@
 		1CCEEE30234B0300007E3247 /* SupportViews */ = {
 			isa = PBXGroup;
 			children = (
-				BFEDCC942346865C0043E0B0 /* SettingView.swift */,
+				BFEDCC942346865C0043E0B0 /* CreteriaView.swift */,
 				1C10D1A1234AFCD30026DD50 /* ButtonView.swift */,
 				BF7ECBBC234CC9190078AE6C /* TimerView.swift */,
-				BF4678AF234D576E00B61A9C /* RowView.swift */,
+				BF4678AF234D576E00B61A9C /* MainRowView.swift */,
+				BF4129D4234DB8D900425149 /* RowListView.swift */,
 			);
 			path = SupportViews;
 			sourceTree = "<group>";
@@ -126,12 +144,50 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BF7ECBC2234CF2DA0078AE6C /* Data */ = {
+		BF18D7D8234DEA3700FFB49F /* SupporViews */ = {
 			isa = PBXGroup;
 			children = (
-				BFDA4AE2234CB5E700A7211C /* UserData.swift */,
+				BF18D7E0234E032600FFB49F /* WorkdayPickerView.swift */,
+				BF18D7D9234DEA4700FFB49F /* SettingRowView.swift */,
 			);
-			path = Data;
+			path = SupporViews;
+			sourceTree = "<group>";
+		};
+		BF18D7DB234DF2EC00FFB49F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF18D7E6234E21EC00FFB49F /* Creteria.swift */,
+				BF18D7DC234DF2FA00FFB49F /* SettingRow.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BF4129D6234DC85900425149 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				BFF96FDD23464A66002F5802 /* MainView.swift */,
+				BF7ECBC2234CF2DA0078AE6C /* Model */,
+				1CCEEE30234B0300007E3247 /* SupportViews */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		BF4129D7234DC87800425149 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				BF4129D8234DC88D00425149 /* SettingView.swift */,
+				BF18D7DB234DF2EC00FFB49F /* Model */,
+				BF18D7D8234DEA3700FFB49F /* SupporViews */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		BF7ECBC2234CF2DA0078AE6C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF4129D2234DB78D00425149 /* Row.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BF7ECBC3234CF8370078AE6C /* Utility */ = {
@@ -168,8 +224,8 @@
 			children = (
 				BFF96FD923464A66002F5802 /* AppDelegate.swift */,
 				BFF96FDB23464A66002F5802 /* SceneDelegate.swift */,
+				BFDA4AE2234CB5E700A7211C /* UserData.swift */,
 				1C1AEB44234B6EA600FFB348 /* Realm */,
-				BF7ECBC2234CF2DA0078AE6C /* Data */,
 				1C1AEB45234B6EC400FFB348 /* View */,
 				BF7ECBC3234CF8370078AE6C /* Utility */,
 				1C23D0B6234B0CB2000CB037 /* Extension */,
@@ -305,21 +361,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFF96FDA23464A66002F5802 /* AppDelegate.swift in Sources */,
+				BF18D7DD234DF2FA00FFB49F /* SettingRow.swift in Sources */,
+				BF18D7D7234DC98A00FFB49F /* SettingView.swift in Sources */,
+				BF18D7DA234DEA4800FFB49F /* SettingRowView.swift in Sources */,
 				1C1AEB41234B572600FFB348 /* WorkRecord.swift in Sources */,
 				1C23D0B5234B0CAF000CB037 /* Date.swift in Sources */,
 				BF7ECBBF234CE0EE0078AE6C /* CurrentTimer.swift in Sources */,
 				BFE16AAF234D11CD006F94C1 /* Color.swift in Sources */,
+				BF18D7E5234E1D1000FFB49F /* RootView.swift in Sources */,
 				BFDA4AE3234CB5E700A7211C /* UserData.swift in Sources */,
 				BFE16AAD234D109D006F94C1 /* AppColor.swift in Sources */,
-				BFEDCC952346865C0043E0B0 /* SettingView.swift in Sources */,
+				BFEDCC952346865C0043E0B0 /* CreteriaView.swift in Sources */,
+				BF18D7E1234E032600FFB49F /* WorkdayPickerView.swift in Sources */,
+				BF18D7E7234E21EC00FFB49F /* Creteria.swift in Sources */,
 				1C10D1A2234AFCD30026DD50 /* ButtonView.swift in Sources */,
 				BF7ECBBD234CC9190078AE6C /* TimerView.swift in Sources */,
+				BF4129D5234DB8D900425149 /* RowListView.swift in Sources */,
+				BF4129D3234DB78D00425149 /* Row.swift in Sources */,
 				BF7ECBC6234CF89B0078AE6C /* DebugPrint.swift in Sources */,
 				BF7ECBC1234CE3420078AE6C /* TimeInterval.swift in Sources */,
-				BF4678B0234D576E00B61A9C /* RowView.swift in Sources */,
+				BF4678B0234D576E00B61A9C /* MainRowView.swift in Sources */,
 				BFF96FDC23464A66002F5802 /* SceneDelegate.swift in Sources */,
 				BF7ECBC8234CFD9D0078AE6C /* Formatter.swift in Sources */,
-				BFF96FDE23464A66002F5802 /* ContentView.swift in Sources */,
+				BFF96FDE23464A66002F5802 /* MainView.swift in Sources */,
 				1C1AEB43234B5FF100FFB348 /* RealmService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,6 +526,7 @@
 				DEVELOPMENT_TEAM = 98S7TU46JD;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Flextimer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -483,6 +548,7 @@
 				DEVELOPMENT_TEAM = 98S7TU46JD;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Flextimer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

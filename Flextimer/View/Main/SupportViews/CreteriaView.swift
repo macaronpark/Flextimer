@@ -9,7 +9,7 @@
 import SwiftUI
 import RealmSwift
 
-struct SettingView: View {
+struct CreteriaView: View {
   
   @EnvironmentObject var userData: UserData
   
@@ -32,8 +32,8 @@ struct SettingView: View {
   }
 }
 
-struct SettingView_Previews: PreviewProvider {
+struct CreteriaView_Previews: PreviewProvider {
   static var previews: some View {
-    SettingView().environmentObject(UserData())
+    CreteriaView().environmentObject(UserData())
   }
 }

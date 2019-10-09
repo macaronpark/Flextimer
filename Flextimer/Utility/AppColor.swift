@@ -10,5 +10,6 @@ import SwiftUI
 
 enum AppColor {
   static let orange = Color(hex: "F8613B")
-  static let placeholderGray = Color(hex: "e5e5e5")
+  static let placeholderGray = Color(hex: "DADBDC")
+  static let backgroundGray = Color(hex: "F1F2F6")
 }
