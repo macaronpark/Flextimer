@@ -13,7 +13,7 @@ struct ButtonView: View {
   
   @EnvironmentObject var userData: UserData
   
-  var buttonWidth = (UIScreen.main.bounds.width - 80 - 16) / 2
+  var buttonWidth = (UIScreen.main.bounds.width - 40 - 16) / 2
   
   var body: some View {
     HStack(spacing: 16) {
@@ -27,7 +27,8 @@ struct ButtonView: View {
           self.userData.startDate = now
           self.userData.isWorking = true
         }) {
-          Text("출근").frame(width: buttonWidth, height: 40)
+          Text("출근").frame(width: buttonWidth, height: 42)
+          .foregroundColor(.white)
         }
         .disabled(userData.isWorking)
         .background(userData.isWorking ? AppColor.orange.opacity(0.2) : AppColor.orange)
@@ -42,15 +43,15 @@ struct ButtonView: View {
             self.userData.isWorking = false
           }
         }) {
-          Text("퇴근").frame(width: buttonWidth, height: 40)
+          Text("퇴근").frame(width: buttonWidth, height: 42)
+          .foregroundColor(.white)
         }
         .disabled(!userData.isWorking)
         .background(!userData.isWorking ? AppColor.orange.opacity(0.2) : AppColor.orange)
       }
-      .cornerRadius(8)
-      .foregroundColor(.white)
+      .cornerRadius(4)
     }
-    .padding(.horizontal, 40)
+    .padding(.horizontal, 20)
   }
 }
 

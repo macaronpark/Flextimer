@@ -1,5 +1,5 @@
 //
-//  Log.swift
+//  WorkRecord.swift
 //  Flextimer
 //
 //  Created by Suzy Park on 2019/10/07.

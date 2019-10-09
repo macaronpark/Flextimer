@@ -6,7 +6,7 @@
 //  Copyright © 2019 Suzy Mararon Park. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 import RealmSwift
 
 class RealmService {
@@ -20,10 +20,10 @@ class RealmService {
     do {
       try realm.write {
         realm.add(object)
-        Log.complete("realm.create \(object)")
+        DebugPrint.complete("realm.create \(object)")
       }
     } catch {
-      Log.err(error)
+      DebugPrint.err(error)
     }
   }
   
@@ -33,10 +33,10 @@ class RealmService {
         for (key, value) in dictionary {
           object.setValue(value, forKey: key)
         }
-        Log.complete("realm.update \(dictionary)")
+        DebugPrint.complete("realm.update \(dictionary)")
       }
     } catch {
-      Log.err(error)
+      DebugPrint.err(error)
     }
   }
   
@@ -44,10 +44,10 @@ class RealmService {
     do {
       try realm.write {
         realm.delete(object)
-        Log.complete("realm.delete \(object)")
+        DebugPrint.complete("realm.delete \(object)")
       }
     } catch {
-      Log.err(error)
+      DebugPrint.err(error)
     }
   }
   

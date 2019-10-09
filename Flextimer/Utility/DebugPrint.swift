@@ -1,5 +1,5 @@
 //
-//  Log.swift
+//  DebugPrint.swift
 //  Flextimer
 //
 //  Created by Suzy Mararon Park on 2019/10/09.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Log {
+class DebugPrint {
   
   class func err(_ err: Error, _ str: String = "") {
     #if DEBUG

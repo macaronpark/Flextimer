@@ -19,29 +19,35 @@ struct ContentView: View {
       
       VStack {
         SettingView()
-          .padding(.top, 40)
-        ButtonView()
-          .padding(.top, 8)
+        ButtonView().padding(.top, 24)
         
         if self.userData.isWorking {
-          TimeView()
-            .padding(.top, 40)
-          
+          Spacer()
+          TimerView().padding(.top, 24)
           Spacer()
           
-          TimerView()
-          
-          Spacer()
+          RowView()
+          RowView()
+          RowView()
         }
         
         Spacer()
       }
       .navigationBarTitle(Text("오늘의 근태"), displayMode: .large)
+      .navigationBarItems(trailing:
+        Button(action: {
+          print("Help tapped!")
+        }) {
+          Image("setting")
+          .renderingMode(.init(Image.TemplateRenderingMode.original))
+          .resizable()
+          .frame(width: 24, height: 24)
+      })
       
     }.onAppear {
       
       let r = RealmService.shared.realm.objects(WorkRecord.self)
-      Log.debug("\(r)")
+      DebugPrint.debug("\(r)")
       
     }
   }
@@ -49,7 +55,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    ContentView()
-      .environmentObject(UserData())
+    ContentView().environmentObject(UserData())
   }
 }

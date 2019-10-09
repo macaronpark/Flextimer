@@ -12,11 +12,11 @@
 		1C1AEB43234B5FF100FFB348 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1AEB42234B5FF100FFB348 /* RealmService.swift */; };
 		1C23D0B5234B0CAF000CB037 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C23D0B4234B0CAF000CB037 /* Date.swift */; };
 		9C2597C1CD3E682736144F88 /* Pods_Flextimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4430D25C294FC2114B53953B /* Pods_Flextimer.framework */; };
-		BF680FB4234CC5ED006F44FF /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF680FB3234CC5ED006F44FF /* TimeView.swift */; };
+		BF4678B0234D576E00B61A9C /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4678AF234D576E00B61A9C /* RowView.swift */; };
 		BF7ECBBD234CC9190078AE6C /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ECBBC234CC9190078AE6C /* TimerView.swift */; };
 		BF7ECBBF234CE0EE0078AE6C /* CurrentTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ECBBE234CE0EE0078AE6C /* CurrentTimer.swift */; };
 		BF7ECBC1234CE3420078AE6C /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ECBC0234CE3420078AE6C /* TimeInterval.swift */; };
-		BF7ECBC6234CF89B0078AE6C /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ECBC4234CF8480078AE6C /* Log.swift */; };
+		BF7ECBC6234CF89B0078AE6C /* DebugPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ECBC4234CF8480078AE6C /* DebugPrint.swift */; };
 		BF7ECBC8234CFD9D0078AE6C /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ECBC7234CFD9D0078AE6C /* Formatter.swift */; };
 		BFDA4AE3234CB5E700A7211C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDA4AE2234CB5E700A7211C /* UserData.swift */; };
 		BFE16AAD234D109D006F94C1 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE16AAC234D109D006F94C1 /* AppColor.swift */; };
@@ -37,11 +37,11 @@
 		1C23D0B4234B0CAF000CB037 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		4430D25C294FC2114B53953B /* Pods_Flextimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flextimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87F7E2D88B8929A88AA77E76 /* Pods-Flextimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flextimer.release.xcconfig"; path = "Target Support Files/Pods-Flextimer/Pods-Flextimer.release.xcconfig"; sourceTree = "<group>"; };
-		BF680FB3234CC5ED006F44FF /* TimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
+		BF4678AF234D576E00B61A9C /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
 		BF7ECBBC234CC9190078AE6C /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		BF7ECBBE234CE0EE0078AE6C /* CurrentTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTimer.swift; sourceTree = "<group>"; };
 		BF7ECBC0234CE3420078AE6C /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
-		BF7ECBC4234CF8480078AE6C /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		BF7ECBC4234CF8480078AE6C /* DebugPrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugPrint.swift; sourceTree = "<group>"; };
 		BF7ECBC7234CFD9D0078AE6C /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		BFDA4AE2234CB5E700A7211C /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		BFE16AAC234D109D006F94C1 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
@@ -112,8 +112,8 @@
 			children = (
 				BFEDCC942346865C0043E0B0 /* SettingView.swift */,
 				1C10D1A1234AFCD30026DD50 /* ButtonView.swift */,
-				BF680FB3234CC5ED006F44FF /* TimeView.swift */,
 				BF7ECBBC234CC9190078AE6C /* TimerView.swift */,
+				BF4678AF234D576E00B61A9C /* RowView.swift */,
 			);
 			path = SupportViews;
 			sourceTree = "<group>";
@@ -140,7 +140,7 @@
 				BFE16AAC234D109D006F94C1 /* AppColor.swift */,
 				BF7ECBBE234CE0EE0078AE6C /* CurrentTimer.swift */,
 				BF7ECBC7234CFD9D0078AE6C /* Formatter.swift */,
-				BF7ECBC4234CF8480078AE6C /* Log.swift */,
+				BF7ECBC4234CF8480078AE6C /* DebugPrint.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -314,9 +314,9 @@
 				BFEDCC952346865C0043E0B0 /* SettingView.swift in Sources */,
 				1C10D1A2234AFCD30026DD50 /* ButtonView.swift in Sources */,
 				BF7ECBBD234CC9190078AE6C /* TimerView.swift in Sources */,
-				BF7ECBC6234CF89B0078AE6C /* Log.swift in Sources */,
+				BF7ECBC6234CF89B0078AE6C /* DebugPrint.swift in Sources */,
 				BF7ECBC1234CE3420078AE6C /* TimeInterval.swift in Sources */,
-				BF680FB4234CC5ED006F44FF /* TimeView.swift in Sources */,
+				BF4678B0234D576E00B61A9C /* RowView.swift in Sources */,
 				BFF96FDC23464A66002F5802 /* SceneDelegate.swift in Sources */,
 				BF7ECBC8234CFD9D0078AE6C /* Formatter.swift in Sources */,
 				BFF96FDE23464A66002F5802 /* ContentView.swift in Sources */,

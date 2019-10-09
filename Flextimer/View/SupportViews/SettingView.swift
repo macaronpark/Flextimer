@@ -15,39 +15,25 @@ struct SettingView: View {
   
   var body: some View {
     HStack {
-      VStack(alignment: .leading, spacing: 2) {
-        Group {
-          HStack {
-            Text("주 \(userData.workdaysCount)일")
-            Text("\(userData.workdaysCount * userData.workingHours)시간").fontWeight(.bold)
-          }
-          
-          HStack {
-            Text("일")
-            Text("\(userData.workingHours)시간").fontWeight(.bold)
-            Text("기준")
-          }
-        }
-        .font(.footnote)
-        .foregroundColor(Color.gray.opacity(0.4))
+      HStack {
+        Text("일 \(userData.workingHours)시간")
+        Text("・")
+        Text("주 \(userData.workdaysCount)일")
+        Text("・")
+        Text("\(userData.workdaysCount * userData.workingHours)시간 기준")
       }
-      Spacer()
+      .font(.footnote)
+      .foregroundColor(Color.gray)
       
-      Button(action: {
-        
-      }) {
-        Image("setting")
-          .renderingMode(.init(Image.TemplateRenderingMode.original))
-          .resizable()
-          .frame(width: 20, height: 20)
-      }
+      Spacer()
     }
-    .padding(.horizontal, 40)
+    .padding(.horizontal, 20)
+    .padding(.vertical, 8)
   }
 }
 
 struct SettingView_Previews: PreviewProvider {
   static var previews: some View {
-    SettingView()
+    SettingView().environmentObject(UserData())
   }
 }
