@@ -29,7 +29,9 @@ struct MainRowView: View {
       
       HStack {
         Spacer()
-        AppColor.placeholderGray.frame(width: UIScreen.main.bounds.width - 20, height: 1)
+        Color.gray
+          .opacity(0.3)
+          .frame(width: UIScreen.main.bounds.width - 20, height: 1)
       }
     }
   }

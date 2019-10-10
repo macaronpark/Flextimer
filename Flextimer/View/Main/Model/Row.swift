@@ -12,5 +12,5 @@ struct Row: Identifiable {
   var id: Int
   var title: String
   var detail: String
-  var color: Color
+  var color: Color?
 }

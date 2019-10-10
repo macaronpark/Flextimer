@@ -13,15 +13,14 @@ import RealmSwift
 struct MainView: View {
   // option + cmd + p: make the preview window reload
   @EnvironmentObject var userData: UserData
-  @State private var selection: Int? = nil
+//  @State private var selection: Int? = nil
   
   var body: some View {
       VStack {
-        CreteriaView()
-        ButtonView().padding(.top, 24)
-        
+        CreteriaView().padding(.bottom, 24)
+        ButtonView()
+        Spacer()
         if self.userData.isWorking {
-          Spacer()
           TimerView()
           Spacer()
           RowListView()
@@ -33,6 +32,6 @@ struct MainView: View {
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    MainView().environmentObject(UserData()).previewDevice("iphone 8")
+    MainView().previewDevice("iphone 8")
   }
 }

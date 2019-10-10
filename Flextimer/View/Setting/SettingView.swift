@@ -8,16 +8,29 @@
 
 import SwiftUI
 import Combine
-import UIKit
 import RealmSwift
 
 struct SettingView: View {
   
-  @ObservedObject var creteria = Creteria()
   @EnvironmentObject var userData: UserData
   
+  var strengths = ["Mild", "Medium", "Mature"]
+  @State private var selectedStrength = 0
+  
   var body: some View {
-      WorkdayPickerView().navigationBarTitle(Text("설정"))
+//    Text("")
+    Form {
+      Section {
+        Picker(selection: $selectedStrength, label: Text("Strength")) {
+          Text("")
+          Text("")
+          Text("")
+//          ForEach(0 ..< strengths.count) {
+//            Text(self.strengths[$0]).tag($0)
+//          }
+        }
+      }
+    }.navigationBarTitle(Text("설정"))
   }
 }
 

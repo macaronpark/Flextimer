@@ -15,8 +15,11 @@ import RealmSwift
   @objc dynamic var endDate: Date? = nil
   @objc dynamic var workingHours: Int = 0
   
-  convenience init(_ date: Date) {
+  convenience init(_ date: Date, endDate: Date? = nil) {
     self.init()
     self.date = date
+    if endDate != nil {
+      self.endDate = endDate
+    }
   }
 }
