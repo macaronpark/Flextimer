@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXA-t7-8Rd">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXA-t7-8Rd" customClass="WidgetButton" customModule="자율출퇴근러" customModuleProvider="target">
                                 <rect key="frame" x="10" y="2" width="144" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="fRH-Hp-k5e"/>
@@ -24,7 +24,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVp-De-0Bi">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVp-De-0Bi" customClass="WidgetButton" customModule="자율출퇴근러" customModuleProvider="target">
                                 <rect key="frame" x="166" y="2" width="144" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="k9H-Ba-piP"/>

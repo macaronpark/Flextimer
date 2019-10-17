@@ -12,6 +12,8 @@
 		1C1AEB43234B5FF100FFB348 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1AEB42234B5FF100FFB348 /* RealmService.swift */; };
 		1C23D0B5234B0CAF000CB037 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C23D0B4234B0CAF000CB037 /* Date.swift */; };
 		1C445C7C2359253F0043A978 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE16AAC234D109D006F94C1 /* AppColor.swift */; };
+		1C445C7F23592B2F0043A978 /* WidgetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C445C7E23592B2F0043A978 /* WidgetButton.swift */; };
+		1C445C81235930D10043A978 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C445C80235930D10043A978 /* UIButton.swift */; };
 		A0D57989D9DEFACD49EE16D6 /* Pods_Flextimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4430D25C294FC2114B53953B /* Pods_Flextimer.framework */; };
 		B14170AB58BA09784447F94E /* Pods_Flextimer_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B058166C14D1321615F8A5 /* Pods_Flextimer_Widget.framework */; };
 		BF18D7D7234DC98A00FFB49F /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4129D8234DC88D00425149 /* SettingView.swift */; };
@@ -85,6 +87,8 @@
 		1C1AEB40234B572600FFB348 /* WorkRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkRecord.swift; sourceTree = "<group>"; };
 		1C1AEB42234B5FF100FFB348 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		1C23D0B4234B0CAF000CB037 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		1C445C7E23592B2F0043A978 /* WidgetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetButton.swift; sourceTree = "<group>"; };
+		1C445C80235930D10043A978 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		4430D25C294FC2114B53953B /* Pods_Flextimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flextimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87F7E2D88B8929A88AA77E76 /* Pods-Flextimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flextimer.release.xcconfig"; path = "Target Support Files/Pods-Flextimer/Pods-Flextimer.release.xcconfig"; sourceTree = "<group>"; };
 		9F5AFA222ABA8F6BE2CE3595 /* Pods-Flextimer-Widget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flextimer-Widget.debug.xcconfig"; path = "Target Support Files/Pods-Flextimer-Widget/Pods-Flextimer-Widget.debug.xcconfig"; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 				BFE16AAE234D11CD006F94C1 /* Color.swift */,
 				1C23D0B4234B0CAF000CB037 /* Date.swift */,
 				BFDED1572358AC1A003AFA67 /* UIColor.swift */,
+				1C445C80235930D10043A978 /* UIButton.swift */,
 				BF7ECBC0234CE3420078AE6C /* TimeInterval.swift */,
 				BFDED1552358A9A9003AFA67 /* Int.swift */,
 			);
@@ -282,9 +287,10 @@
 			isa = PBXGroup;
 			children = (
 				BFDED1732358BD0C003AFA67 /* Widget.entitlements */,
+				BFDED1652358AFD2003AFA67 /* MainInterface.storyboard */,
 				BFDED1632358AFD2003AFA67 /* TodayViewController.swift */,
 				BFDED1742358C86E003AFA67 /* Today_Action.swift */,
-				BFDED1652358AFD2003AFA67 /* MainInterface.storyboard */,
+				1C445C7E23592B2F0043A978 /* WidgetButton.swift */,
 				BFDED1682358AFD2003AFA67 /* Info.plist */,
 			);
 			path = Widget;
@@ -518,12 +524,14 @@
 				BFDED17A2358C97D003AFA67 /* DebugPrint.swift in Sources */,
 				BFDED1792358C974003AFA67 /* RealmService.swift in Sources */,
 				BFDED17C2358D027003AFA67 /* Formatter.swift in Sources */,
+				1C445C81235930D10043A978 /* UIButton.swift in Sources */,
 				1C445C7C2359253F0043A978 /* AppColor.swift in Sources */,
 				BFDED17B2358C99A003AFA67 /* Date.swift in Sources */,
 				BFDED17F2358D50E003AFA67 /* UserData.swift in Sources */,
 				BFDED1772358C938003AFA67 /* UIColor.swift in Sources */,
 				BFDED17E2358D250003AFA67 /* Int.swift in Sources */,
 				BFDED1782358C96C003AFA67 /* WorkRecord.swift in Sources */,
+				1C445C7F23592B2F0043A978 /* WidgetButton.swift in Sources */,
 				BFDED1752358C86E003AFA67 /* Today_Action.swift in Sources */,
 				BFDED1762358C936003AFA67 /* Color.swift in Sources */,
 			);

@@ -13,8 +13,8 @@ import RealmSwift
 
 class TodayViewController: UIViewController, NCWidgetProviding {
   
-  @IBOutlet weak var startButton: UIButton!
-  @IBOutlet weak var endButton: UIButton!
+  @IBOutlet weak var startButton: WidgetButton!
+  @IBOutlet weak var endButton: WidgetButton!
   @IBOutlet weak var startTimeLabel: UILabel!
   @IBOutlet weak var remainTimeLabel: UILabel!
   @IBOutlet weak var alertLabel: UILabel!
@@ -37,23 +37,16 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   }
   
   fileprivate func setupButtons() {
-    [self.startButton,
-     self.endButton].forEach {
-      $0?.backgroundColor = UIColor.orange
-      $0?.layer.cornerRadius = 6
-    }
+    self.startButton.setBasicConfig(.start)
+    self.endButton.setBasicConfig(.end)
     self.startButton.addTarget(self, action: #selector(tapStartButton), for: .touchUpInside)
     self.endButton.addTarget(self, action: #selector(tapEndButton), for: .touchUpInside)
   }
   
   fileprivate func setupUI(_ isWorking: Bool) {
     // todo: refactoring🤢🤮
-    // 출근 버튼 enable, backgroundColor
     self.startButton.isEnabled = isWorking ? false: true
-    self.startButton.backgroundColor = isWorking ? AppColor.widgetGray: AppColor.uiOrange
-    // 퇴근 버튼 enable, backgroundColor
     self.endButton.isEnabled = isWorking ? true: false
-    self.endButton.backgroundColor = isWorking ? AppColor.uiOrange: AppColor.widgetGray
     // 출근 시간, 퇴근까지 남은 시간 타이틀, 디테일 라벨 표출
     self.startTimeLabel.isHidden = !isWorking
     self.remainTimeLabel.isHidden = !isWorking
