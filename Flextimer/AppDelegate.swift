@@ -19,6 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     self.appAppearanceCofigure()
     
+    let fileURL = FileManager.default
+    .containerURL(forSecurityApplicationGroupIdentifier: "group.com.suzypark.Flextimer")!
+    .appendingPathComponent("shared.realm")
+
+    Realm.Configuration.defaultConfiguration = Realm.Configuration(fileURL: fileURL)
     return true
   }
   

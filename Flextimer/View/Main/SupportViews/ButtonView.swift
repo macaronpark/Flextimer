@@ -47,20 +47,20 @@ struct ButtonView: View {
             title: Text("오늘 이미 출근한 기록이 있네요🧐"),
             message: Text("기록을 삭제하고 다시 출근할까요?"),
             primaryButton: .cancel(Text("취소")),
-            secondaryButton: .default(Text("출근"),
-                                      action: {
-                                        if let lastRecord = RealmService.shared.getLatestTodayWorkRecord() {
-                                          RealmService.shared.delete(lastRecord)
-                                          self.userData.isWorking = false
-                                        }
-                                        
-                                        let now = Date().trimSeconds() ?? Date()
-                                        let newWorkRecord = WorkRecord(now)
-                                        RealmService.shared.create(newWorkRecord)
-                                        
-                                        self.userData.startDate = now
-                                        self.userData.isWorking = true
-            }))
+            secondaryButton: .default(Text("출근")) {
+              // action
+              if let lastRecord = RealmService.shared.getLatestTodayWorkRecord() {
+                RealmService.shared.delete(lastRecord)
+                self.userData.isWorking = false
+              }
+              
+              let now = Date().trimSeconds() ?? Date()
+              let newWorkRecord = WorkRecord(now)
+              RealmService.shared.create(newWorkRecord)
+              
+              self.userData.startDate = now
+              self.userData.isWorking = true
+            })
         }
         .disabled(userData.isWorking)
         .background(userData.isWorking ? AppColor.orange.opacity(0.1) : AppColor.orange)
@@ -77,6 +77,7 @@ struct ButtonView: View {
             title: Text("지금 퇴근할까요?🚪"),
             primaryButton: .cancel(Text("취소")),
             secondaryButton: .default(Text("퇴근")) {
+              // action
               let result = RealmService.shared.realm.objects(WorkRecord.self)
                 .filter { $0.endDate == nil }
               if let record = result.last {
@@ -85,8 +86,7 @@ struct ButtonView: View {
                 self.userData.isWorking = false
                 self.userData.ingTimeInterval = nil
               }
-            }
-          )
+            })
         }
         .disabled(!userData.isWorking)
         .background(!userData.isWorking ? AppColor.orange.opacity(0.1) : AppColor.orange)

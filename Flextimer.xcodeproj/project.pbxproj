@@ -11,7 +11,8 @@
 		1C1AEB41234B572600FFB348 /* WorkRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1AEB40234B572600FFB348 /* WorkRecord.swift */; };
 		1C1AEB43234B5FF100FFB348 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1AEB42234B5FF100FFB348 /* RealmService.swift */; };
 		1C23D0B5234B0CAF000CB037 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C23D0B4234B0CAF000CB037 /* Date.swift */; };
-		9C2597C1CD3E682736144F88 /* Pods_Flextimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4430D25C294FC2114B53953B /* Pods_Flextimer.framework */; };
+		A0D57989D9DEFACD49EE16D6 /* Pods_Flextimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4430D25C294FC2114B53953B /* Pods_Flextimer.framework */; };
+		B14170AB58BA09784447F94E /* Pods_Flextimer_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B058166C14D1321615F8A5 /* Pods_Flextimer_Widget.framework */; };
 		BF18D7D7234DC98A00FFB49F /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4129D8234DC88D00425149 /* SettingView.swift */; };
 		BF18D7E5234E1D1000FFB49F /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF18D7E4234E1D1000FFB49F /* RootView.swift */; };
 		BF28A0D82358A177004654AA /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28A0D72358A177004654AA /* AppAppearance.swift */; };
@@ -30,8 +31,18 @@
 		BFDED1612358AFD2003AFA67 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFDED1602358AFD2003AFA67 /* NotificationCenter.framework */; };
 		BFDED1642358AFD2003AFA67 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDED1632358AFD2003AFA67 /* TodayViewController.swift */; };
 		BFDED1672358AFD2003AFA67 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFDED1652358AFD2003AFA67 /* MainInterface.storyboard */; };
-		BFDED16B2358AFD2003AFA67 /* Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BFDED15F2358AFD2003AFA67 /* Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		BFDED1712358B6DB003AFA67 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDED1702358B6DB003AFA67 /* UIColor.swift */; };
+		BFDED16B2358AFD2003AFA67 /* 자율출퇴근러.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BFDED15F2358AFD2003AFA67 /* 자율출퇴근러.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BFDED1752358C86E003AFA67 /* Today_Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDED1742358C86E003AFA67 /* Today_Action.swift */; };
+		BFDED1762358C936003AFA67 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE16AAE234D11CD006F94C1 /* Color.swift */; };
+		BFDED1772358C938003AFA67 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDED1572358AC1A003AFA67 /* UIColor.swift */; };
+		BFDED1782358C96C003AFA67 /* WorkRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1AEB40234B572600FFB348 /* WorkRecord.swift */; };
+		BFDED1792358C974003AFA67 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1AEB42234B5FF100FFB348 /* RealmService.swift */; };
+		BFDED17A2358C97D003AFA67 /* DebugPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ECBC4234CF8480078AE6C /* DebugPrint.swift */; };
+		BFDED17B2358C99A003AFA67 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C23D0B4234B0CAF000CB037 /* Date.swift */; };
+		BFDED17C2358D027003AFA67 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ECBC7234CFD9D0078AE6C /* Formatter.swift */; };
+		BFDED17D2358D1EA003AFA67 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ECBC0234CE3420078AE6C /* TimeInterval.swift */; };
+		BFDED17E2358D250003AFA67 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDED1552358A9A9003AFA67 /* Int.swift */; };
+		BFDED17F2358D50E003AFA67 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDA4AE2234CB5E700A7211C /* UserData.swift */; };
 		BFE16AAD234D109D006F94C1 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE16AAC234D109D006F94C1 /* AppColor.swift */; };
 		BFE16AAF234D11CD006F94C1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE16AAE234D11CD006F94C1 /* Color.swift */; };
 		BFEDCC952346865C0043E0B0 /* CreteriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEDCC942346865C0043E0B0 /* CreteriaView.swift */; };
@@ -61,7 +72,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				BFDED16B2358AFD2003AFA67 /* Widget.appex in Embed App Extensions */,
+				BFDED16B2358AFD2003AFA67 /* 자율출퇴근러.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,6 +86,7 @@
 		1C23D0B4234B0CAF000CB037 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		4430D25C294FC2114B53953B /* Pods_Flextimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flextimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87F7E2D88B8929A88AA77E76 /* Pods-Flextimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flextimer.release.xcconfig"; path = "Target Support Files/Pods-Flextimer/Pods-Flextimer.release.xcconfig"; sourceTree = "<group>"; };
+		9F5AFA222ABA8F6BE2CE3595 /* Pods-Flextimer-Widget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flextimer-Widget.debug.xcconfig"; path = "Target Support Files/Pods-Flextimer-Widget/Pods-Flextimer-Widget.debug.xcconfig"; sourceTree = "<group>"; };
 		BF18D7E4234E1D1000FFB49F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		BF28A0D72358A177004654AA /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 		BF4129D2234DB78D00425149 /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
@@ -90,14 +102,14 @@
 		BFDED1552358A9A9003AFA67 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		BFDED1572358AC1A003AFA67 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		BFDED1592358AD21003AFA67 /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
-		BFDED15F2358AFD2003AFA67 /* Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFDED15F2358AFD2003AFA67 /* 자율출퇴근러.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "자율출퇴근러.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFDED1602358AFD2003AFA67 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		BFDED1632358AFD2003AFA67 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		BFDED1662358AFD2003AFA67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		BFDED1682358AFD2003AFA67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BFDED1702358B6DB003AFA67 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		BFDED1722358BCCF003AFA67 /* Flextimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flextimer.entitlements; sourceTree = "<group>"; };
 		BFDED1732358BD0C003AFA67 /* Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Widget.entitlements; sourceTree = "<group>"; };
+		BFDED1742358C86E003AFA67 /* Today_Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Today_Action.swift; sourceTree = "<group>"; };
 		BFE16AAC234D109D006F94C1 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		BFE16AAE234D11CD006F94C1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		BFEDCC942346865C0043E0B0 /* CreteriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreteriaView.swift; sourceTree = "<group>"; };
@@ -110,7 +122,9 @@
 		BFF96FE223464A68002F5802 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BFF96FE523464A68002F5802 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BFF96FE723464A68002F5802 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C46A467080250DEDD0884778 /* Pods-Flextimer-Widget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flextimer-Widget.release.xcconfig"; path = "Target Support Files/Pods-Flextimer-Widget/Pods-Flextimer-Widget.release.xcconfig"; sourceTree = "<group>"; };
 		DF2392A6C1922842F5BEC072 /* Pods-Flextimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flextimer.debug.xcconfig"; path = "Target Support Files/Pods-Flextimer/Pods-Flextimer.debug.xcconfig"; sourceTree = "<group>"; };
+		F6B058166C14D1321615F8A5 /* Pods_Flextimer_Widget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flextimer_Widget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +133,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFDED1612358AFD2003AFA67 /* NotificationCenter.framework in Frameworks */,
+				B14170AB58BA09784447F94E /* Pods_Flextimer_Widget.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C2597C1CD3E682736144F88 /* Pods_Flextimer.framework in Frameworks */,
+				A0D57989D9DEFACD49EE16D6 /* Pods_Flextimer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +153,8 @@
 			children = (
 				DF2392A6C1922842F5BEC072 /* Pods-Flextimer.debug.xcconfig */,
 				87F7E2D88B8929A88AA77E76 /* Pods-Flextimer.release.xcconfig */,
+				9F5AFA222ABA8F6BE2CE3595 /* Pods-Flextimer-Widget.debug.xcconfig */,
+				C46A467080250DEDD0884778 /* Pods-Flextimer-Widget.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -191,6 +208,7 @@
 			children = (
 				4430D25C294FC2114B53953B /* Pods_Flextimer.framework */,
 				BFDED1602358AFD2003AFA67 /* NotificationCenter.framework */,
+				F6B058166C14D1321615F8A5 /* Pods_Flextimer_Widget.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -264,8 +282,8 @@
 			children = (
 				BFDED1732358BD0C003AFA67 /* Widget.entitlements */,
 				BFDED1632358AFD2003AFA67 /* TodayViewController.swift */,
+				BFDED1742358C86E003AFA67 /* Today_Action.swift */,
 				BFDED1652358AFD2003AFA67 /* MainInterface.storyboard */,
-				BFDED1702358B6DB003AFA67 /* UIColor.swift */,
 				BFDED1682358AFD2003AFA67 /* Info.plist */,
 			);
 			path = Widget;
@@ -295,7 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				BFF96FD623464A66002F5802 /* Flextimer.app */,
-				BFDED15F2358AFD2003AFA67 /* Widget.appex */,
+				BFDED15F2358AFD2003AFA67 /* 자율출퇴근러.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -332,6 +350,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BFDED16C2358AFD2003AFA67 /* Build configuration list for PBXNativeTarget "Widget" */;
 			buildPhases = (
+				82B815BA4AE77D64DE5C9718 /* [CP] Check Pods Manifest.lock */,
 				BFDED15B2358AFD2003AFA67 /* Sources */,
 				BFDED15C2358AFD2003AFA67 /* Frameworks */,
 				BFDED15D2358AFD2003AFA67 /* Resources */,
@@ -342,7 +361,7 @@
 			);
 			name = Widget;
 			productName = Widget;
-			productReference = BFDED15F2358AFD2003AFA67 /* Widget.appex */;
+			productReference = BFDED15F2358AFD2003AFA67 /* 자율출퇴근러.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		BFF96FD523464A66002F5802 /* Flextimer */ = {
@@ -464,6 +483,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		82B815BA4AE77D64DE5C9718 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Flextimer-Widget-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -472,7 +513,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFDED1642358AFD2003AFA67 /* TodayViewController.swift in Sources */,
-				BFDED1712358B6DB003AFA67 /* UIColor.swift in Sources */,
+				BFDED17D2358D1EA003AFA67 /* TimeInterval.swift in Sources */,
+				BFDED17A2358C97D003AFA67 /* DebugPrint.swift in Sources */,
+				BFDED1792358C974003AFA67 /* RealmService.swift in Sources */,
+				BFDED17C2358D027003AFA67 /* Formatter.swift in Sources */,
+				BFDED17B2358C99A003AFA67 /* Date.swift in Sources */,
+				BFDED17F2358D50E003AFA67 /* UserData.swift in Sources */,
+				BFDED1772358C938003AFA67 /* UIColor.swift in Sources */,
+				BFDED17E2358D250003AFA67 /* Int.swift in Sources */,
+				BFDED1782358C96C003AFA67 /* WorkRecord.swift in Sources */,
+				BFDED1752358C86E003AFA67 /* Today_Action.swift in Sources */,
+				BFDED1762358C936003AFA67 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,6 +592,7 @@
 /* Begin XCBuildConfiguration section */
 		BFDED16D2358AFD2003AFA67 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F5AFA222ABA8F6BE2CE3595 /* Pods-Flextimer-Widget.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -552,7 +604,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.suzypark.Flextimer.Widget;
-				PRODUCT_NAME = Widget;
+				PRODUCT_NAME = "자율출퇴근러";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -561,6 +613,7 @@
 		};
 		BFDED16E2358AFD2003AFA67 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C46A467080250DEDD0884778 /* Pods-Flextimer-Widget.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -572,7 +625,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.suzypark.Flextimer.Widget;
-				PRODUCT_NAME = Widget;
+				PRODUCT_NAME = "자율출퇴근러";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -697,7 +750,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DF2392A6C1922842F5BEC072 /* Pods-Flextimer.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Flextimer/Flextimer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -721,7 +774,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 87F7E2D88B8929A88AA77E76 /* Pods-Flextimer.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Flextimer/Flextimer.entitlements;
 				CODE_SIGN_STYLE = Automatic;

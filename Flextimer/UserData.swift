@@ -23,7 +23,7 @@ final class UserData: ObservableObject {
   /// 출근기록이 있다면: 퇴근까지 남은 시간
   @Published var remainTime: String = ""
   /// 출근기록이 있다면: 출근부터 현재까지의 타임 인터벌
-  @Published var ingTimeInterval: TimeInterval?
+  @Published var ingTimeInterval: TimeInterval? = nil
   
   /// 오늘 근무 시작 시간을 '오전 0시 0분'으로 변환한 string
   var startTime: String {

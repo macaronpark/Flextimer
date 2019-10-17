@@ -51,19 +51,16 @@ class RealmService {
     }
   }
   
+  /// 오늘자 기록이 있고, 해당 기록에 endDate가 없다면(근무 중 이라면) true를 반환
   func isWorking() -> Bool {
-    let isEmpty = RealmService.shared.realm.objects(WorkRecord.self)
-      .filter { $0.endDate == nil }
-      .isEmpty
-    
-    if isEmpty {
-      return false
-    } else {
+    if let todayRecord = RealmService.shared.getLatestTodayWorkRecord(),
+      todayRecord.endDate == nil {
       return true
     }
+    return false
   }
   
-  /// Realm 내 가장 최신 기록이 오늘의 기록이라면 해당 기록을 리턴한다
+  /// Realm 내 가장 최신 기록이 오늘의 기록이라면 해당 기록을 반환
   func getLatestTodayWorkRecord() -> WorkRecord? {
     let lastRecord = RealmService
       .shared.realm.objects(WorkRecord.self)
@@ -79,6 +76,7 @@ class RealmService {
     return nil
   }
   
+  /// Date()가 속한 주의 첫 월요일 0시를 기준으로 해당 주의 기록을 반환
   func logForThisWeek() -> [WorkRecord] {
     let records = RealmService.shared.realm.objects(WorkRecord.self)
     let arr = Array(records).filter { $0.date >= Date().getMondayThisWeek() && $0.endDate != nil }

@@ -6,6 +6,11 @@ target 'Flextimer' do
   use_frameworks!
 
   # Pods for Flextimer
-  pod 'RealmSwift'
+  pod 'RealmSwift' 
 
+  target 'Widget' do
+    pod 'RealmSwift'
+  end
+ 
 end
+
