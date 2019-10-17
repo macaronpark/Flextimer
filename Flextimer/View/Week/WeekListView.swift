@@ -37,7 +37,7 @@ struct WeekListView: View {
         // 남은 근무시간
         MainRowView(row: Row(
           id: self.records.count + 1,
-          title: "이번 주 남은 근무 시간",
+          title: "이 주의 남은 근무 시간",
           detail: getRemainTime(),
           color: AppColor.orange)
         ).padding(.top, 24)

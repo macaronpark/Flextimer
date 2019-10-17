@@ -22,7 +22,7 @@ enum Formatter {
   static var dayName: DateFormatter {
     let dateFormatter = DateFormatter()
     dateFormatter.locale = Locale(identifier: "ko_KR")
-    dateFormatter.dateFormat = "MM월 dd일(EE)"
+    dateFormatter.dateFormat = "MM월 dd일 EE"
     return dateFormatter
   }
 }

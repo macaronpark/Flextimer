@@ -11,6 +11,7 @@
 		1C1AEB41234B572600FFB348 /* WorkRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1AEB40234B572600FFB348 /* WorkRecord.swift */; };
 		1C1AEB43234B5FF100FFB348 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1AEB42234B5FF100FFB348 /* RealmService.swift */; };
 		1C23D0B5234B0CAF000CB037 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C23D0B4234B0CAF000CB037 /* Date.swift */; };
+		1C445C7C2359253F0043A978 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE16AAC234D109D006F94C1 /* AppColor.swift */; };
 		A0D57989D9DEFACD49EE16D6 /* Pods_Flextimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4430D25C294FC2114B53953B /* Pods_Flextimer.framework */; };
 		B14170AB58BA09784447F94E /* Pods_Flextimer_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B058166C14D1321615F8A5 /* Pods_Flextimer_Widget.framework */; };
 		BF18D7D7234DC98A00FFB49F /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4129D8234DC88D00425149 /* SettingView.swift */; };
@@ -517,6 +518,7 @@
 				BFDED17A2358C97D003AFA67 /* DebugPrint.swift in Sources */,
 				BFDED1792358C974003AFA67 /* RealmService.swift in Sources */,
 				BFDED17C2358D027003AFA67 /* Formatter.swift in Sources */,
+				1C445C7C2359253F0043A978 /* AppColor.swift in Sources */,
 				BFDED17B2358C99A003AFA67 /* Date.swift in Sources */,
 				BFDED17F2358D50E003AFA67 /* UserData.swift in Sources */,
 				BFDED1772358C938003AFA67 /* UIColor.swift in Sources */,

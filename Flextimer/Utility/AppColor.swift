@@ -14,4 +14,5 @@ enum AppColor {
   static let uiOrange = UIColor(hex: "F8613B")
   static let placeholderGray = Color(hex: "DADBDC")
   static let backgroundGray = Color(hex: "F1F2F6")
+  static let widgetGray = UIColor.gray.withAlphaComponent(0.4)
 }

@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 
 extension TodayViewController {
+  
+  @objc func timerHandler() {
+    self.widgetPerformUpdate { result in }
+  }
 
   @objc func tapStartButton(_ sender: UIButton) {
     if let _ = RealmService.shared.getLatestTodayWorkRecord() {
@@ -21,13 +25,7 @@ extension TodayViewController {
       let now = Date().trimSeconds() ?? Date()
       let newWorkRecord = WorkRecord(now)
       RealmService.shared.create(newWorkRecord)
-      // todo: ??
-      self.widgetPerformUpdate { result in
-        DebugPrint.debug("\(result)")
-      }
-      // If an error is encountered, use NCUpdateResult.Failed
-      // If there's no update required, use NCUpdateResult.NoData
-      // If there's an update, use NCUpdateResult.NewData
+      self.widgetPerformUpdate { result in }
     }
   }
   
@@ -36,10 +34,7 @@ extension TodayViewController {
     if let record = result.last {
       let endDate = ["endDate": Date().trimSeconds() ?? Date()]
       RealmService.shared.update(record, with: endDate)
-    }
-    // todo: ??
-    self.widgetPerformUpdate { result in
-      DebugPrint.debug("\(result)")
+      self.widgetPerformUpdate { result in }
     }
   }
 }

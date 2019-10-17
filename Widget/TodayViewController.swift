@@ -10,21 +10,23 @@ import UIKit
 import NotificationCenter
 import RealmSwift
 
+
 class TodayViewController: UIViewController, NCWidgetProviding {
   
   @IBOutlet weak var startButton: UIButton!
   @IBOutlet weak var endButton: UIButton!
-  @IBOutlet weak var startTitleLabel: UILabel!
   @IBOutlet weak var startTimeLabel: UILabel!
-  @IBOutlet weak var endTitleLabel: UILabel!
   @IBOutlet weak var remainTimeLabel: UILabel!
   @IBOutlet weak var alertLabel: UILabel!
+  
+  weak var timer: Timer?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     self.setupRealm()
     self.setupButtons()
     self.setupUI(RealmService.shared.isWorking())
+    self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerHandler), userInfo: nil, repeats: true)
   }
   
   fileprivate func setupRealm() {
@@ -44,17 +46,16 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     self.endButton.addTarget(self, action: #selector(tapEndButton), for: .touchUpInside)
   }
   
-  fileprivate func setupUI(_ isWorking: Bool, completion: (()->Void)? = nil) {
+  fileprivate func setupUI(_ isWorking: Bool) {
+    // todo: refactoring🤢🤮
     // 출근 버튼 enable, backgroundColor
     self.startButton.isEnabled = isWorking ? false: true
-    self.startButton.backgroundColor = isWorking ? .gray: .orange
+    self.startButton.backgroundColor = isWorking ? AppColor.widgetGray: AppColor.uiOrange
     // 퇴근 버튼 enable, backgroundColor
     self.endButton.isEnabled = isWorking ? true: false
-    self.endButton.backgroundColor = isWorking ? .orange: .gray
+    self.endButton.backgroundColor = isWorking ? AppColor.uiOrange: AppColor.widgetGray
     // 출근 시간, 퇴근까지 남은 시간 타이틀, 디테일 라벨 표출
-    self.startTitleLabel.isHidden = !isWorking
     self.startTimeLabel.isHidden = !isWorking
-    self.endTitleLabel.isHidden = !isWorking
     self.remainTimeLabel.isHidden = !isWorking
     self.alertLabel.isHidden = true
     
@@ -62,22 +63,20 @@ class TodayViewController: UIViewController, NCWidgetProviding {
       let record = RealmService.shared.realm.objects(WorkRecord.self).filter { $0.endDate == nil }
       if !record.isEmpty, let lastRecord = record.last {
         // 출근 시간 set
-        self.startTimeLabel.text = Formatter.shm.string(from: lastRecord.date)
+        self.startTimeLabel.text = "출근: \(Formatter.shm.string(from: lastRecord.date))"
         // 퇴근까지 남은 시간 set
         let startInterval = Date().timeIntervalSince(lastRecord.date)
         /// todo: totalWorkingTime -> 설정 기능 들어가면 연동되게 바꾸기
         let totalWorkingTime = 9
         let totalInterval = totalWorkingTime.toTimeInterval()
         let remainInterval = totalInterval - startInterval
-        // todo: 남은 시간 갱신은 위젯이 didLoad 될 때만 됨. 분 단위로 바꿀 수 있는 방법 알아보기
-        self.remainTimeLabel.text = remainInterval.toString(.remain) + " 남았어요 (9시간 기준)"
+        self.remainTimeLabel.text = "퇴근까지 \(remainInterval.toString(.remain)) 남았어요 (9시간 기준)"
       }
     }
   }
   
   func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-    self.setupUI(RealmService.shared.isWorking()) {
-      completionHandler(NCUpdateResult.noData)
-    }
+    self.setupUI(RealmService.shared.isWorking())
+    completionHandler(NCUpdateResult.noData)
   }
 }
