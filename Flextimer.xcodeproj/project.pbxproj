@@ -30,7 +30,6 @@
 		BFF7793A234F62BC00B229A2 /* WeekListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF77939234F62BC00B229A2 /* WeekListView.swift */; };
 		BFF96FDA23464A66002F5802 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF96FD923464A66002F5802 /* AppDelegate.swift */; };
 		BFF96FDC23464A66002F5802 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF96FDB23464A66002F5802 /* SceneDelegate.swift */; };
-		BFF96FDE23464A66002F5802 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF96FDD23464A66002F5802 /* MainView.swift */; };
 		BFF96FE023464A68002F5802 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFF96FDF23464A68002F5802 /* Assets.xcassets */; };
 		BFF96FE323464A68002F5802 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFF96FE223464A68002F5802 /* Preview Assets.xcassets */; };
 		BFF96FE623464A68002F5802 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF96FE423464A68002F5802 /* LaunchScreen.storyboard */; };
@@ -62,7 +61,6 @@
 		BFF96FD623464A66002F5802 /* Flextimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flextimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFF96FD923464A66002F5802 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFF96FDB23464A66002F5802 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BFF96FDD23464A66002F5802 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		BFF96FDF23464A68002F5802 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFF96FE223464A68002F5802 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BFF96FE523464A68002F5802 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 		1CCEEE30234B0300007E3247 /* SupportViews */ = {
 			isa = PBXGroup;
 			children = (
-				BFF96FDD23464A66002F5802 /* MainView.swift */,
 				BFEDCC942346865C0043E0B0 /* CreteriaView.swift */,
 				1C10D1A1234AFCD30026DD50 /* ButtonView.swift */,
 				BF7ECBBC234CC9190078AE6C /* TimerView.swift */,
@@ -383,7 +380,6 @@
 				BFF77938234F600500B229A2 /* WeekView.swift in Sources */,
 				BFF7793A234F62BC00B229A2 /* WeekListView.swift in Sources */,
 				BF7ECBC8234CFD9D0078AE6C /* Formatter.swift in Sources */,
-				BFF96FDE23464A66002F5802 /* MainView.swift in Sources */,
 				1C1AEB43234B5FF100FFB348 /* RealmService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

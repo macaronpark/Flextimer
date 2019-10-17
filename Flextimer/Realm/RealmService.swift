@@ -10,56 +10,69 @@ import SwiftUI
 import RealmSwift
 
 class RealmService {
-  
-  private init() {}
-  static let shared = RealmService()
-  
-  var realm = try! Realm()
-  
-  func create<T: Object>(_ object: T) {
-    do {
-      try realm.write {
-        realm.add(object)
-        DebugPrint.complete("realm.create \(object)")
-      }
-    } catch {
-      DebugPrint.err(error)
-    }
-  }
-  
-  func update<T: Object>(_ object: T, with dictionary: [String: Any?]) {
-    do {
-      try realm.write {
-        for (key, value) in dictionary {
-          object.setValue(value, forKey: key)
+
+    private init() { }
+    static let shared = RealmService()
+
+    var realm = try! Realm()
+
+    func create<T: Object>(_ object: T) {
+        do {
+            try realm.write {
+                realm.add(object)
+                DebugPrint.complete("realm.create \(object)")
+            }
+        } catch {
+            DebugPrint.err(error)
         }
-        DebugPrint.complete("realm.update \(dictionary)")
-      }
-    } catch {
-      DebugPrint.err(error)
     }
-  }
-  
-  func delete<T: Object>(_ object: T) {
-    do {
-      try realm.write {
-        realm.delete(object)
-        DebugPrint.complete("realm.delete \(object)")
-      }
-    } catch {
-      DebugPrint.err(error)
+
+    func update<T: Object>(_ object: T, with dictionary: [String: Any?]) {
+        do {
+            try realm.write {
+                for (key, value) in dictionary {
+                    object.setValue(value, forKey: key)
+                }
+                DebugPrint.complete("realm.update \(dictionary)")
+            }
+        } catch {
+            DebugPrint.err(error)
+        }
     }
-  }
-  
-  func isWorking() -> Bool {
-    let isEmpty = RealmService.shared.realm.objects(WorkRecord.self)
-      .filter { $0.endDate == nil }
-      .isEmpty
-    
-    if isEmpty {
-      return false
-    } else {
-      return true
+
+    func delete<T: Object>(_ object: T) {
+        do {
+            try realm.write {
+                realm.delete(object)
+                DebugPrint.complete("realm.delete \(object)")
+            }
+        } catch {
+            DebugPrint.err(error)
+        }
     }
-  }
+
+    func isWorking() -> Bool {
+        let isEmpty = RealmService.shared.realm.objects(WorkRecord.self)
+            .filter { $0.endDate == nil }
+            .isEmpty
+
+        if isEmpty {
+            return false
+        } else {
+            return true
+        }
+    }
+
+    func getLatestWorkRecord() -> WorkRecord? {
+        if let lastRecord = RealmService.shared.realm.objects(WorkRecord.self).sorted(byKeyPath: "date", ascending: true).last {
+            return lastRecord
+        }
+        return nil
+    }
+
+    func logForThisWeek() -> [WorkRecord] {
+        let records = RealmService.shared.realm.objects(WorkRecord.self)
+        let arr = Array(records).filter { $0.date >= Date().getMondayThisWeek() && $0.endDate != nil }
+        return arr
+    }
 }

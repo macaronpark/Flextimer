@@ -35,6 +35,7 @@ struct TimerView: View {
     if let startDate = self.userData.startDate {
       // 총 근무 시간 업데이트
       let interval = output.timeIntervalSince(startDate)
+      self.userData.ingTimeInterval = interval
       self.currentTime = interval.toString(.total)
       // 남은 근무 시간(픽스 근무 시간 - 총 근무 시간) 업데이트
       let workingHoursInterval = TimeInterval(self.userData.workingHours * 60 * 60)

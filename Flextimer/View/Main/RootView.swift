@@ -36,21 +36,10 @@ struct RootView: View {
     .onAppear {
       let r = RealmService.shared.realm.objects(WorkRecord.self)
       DebugPrint.debug("\(r)")
-      
-//      let realm = try! Realm()
-//      try! realm.write {
-//          realm.deleteAll()
-//      }
     }
   }
   
   private func link<Destination: View>(destination: Destination) -> some View {
-//    NavigationLink(destination: destination) {
-//      Image("setting")
-//        .renderingMode(.init(Image.TemplateRenderingMode.original))
-//        .resizable()
-//        .frame(width: 24, height: 24)
-//    }
     NavigationLink(destination: destination) {
       Text("기록")
     }
