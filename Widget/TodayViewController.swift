@@ -44,7 +44,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     self.endButton.addTarget(self, action: #selector(tapEndButton), for: .touchUpInside)
   }
   
-  fileprivate func setupUI(_ isWorking: Bool) {
+  fileprivate func setupUI(_ isWorking: Bool, completion: (()->Void)? = nil) {
     // 출근 버튼 enable, backgroundColor
     self.startButton.isEnabled = isWorking ? false: true
     self.startButton.backgroundColor = isWorking ? .gray: .orange
@@ -76,13 +76,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   }
   
   func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-    // Perform any setup necessary in order to update the view.
-    
-    // If an error is encountered, use NCUpdateResult.Failed
-    // If there's no update required, use NCUpdateResult.NoData
-    // If there's an update, use NCUpdateResult.NewData
-    
-    completionHandler(NCUpdateResult.newData)
+    self.setupUI(RealmService.shared.isWorking()) {
+      completionHandler(NCUpdateResult.noData)
+    }
   }
-  
 }

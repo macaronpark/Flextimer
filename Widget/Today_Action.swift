@@ -21,6 +21,13 @@ extension TodayViewController {
       let now = Date().trimSeconds() ?? Date()
       let newWorkRecord = WorkRecord(now)
       RealmService.shared.create(newWorkRecord)
+      // todo: ??
+      self.widgetPerformUpdate { result in
+        DebugPrint.debug("\(result)")
+      }
+      // If an error is encountered, use NCUpdateResult.Failed
+      // If there's no update required, use NCUpdateResult.NoData
+      // If there's an update, use NCUpdateResult.NewData
     }
   }
   
@@ -29,6 +36,10 @@ extension TodayViewController {
     if let record = result.last {
       let endDate = ["endDate": Date().trimSeconds() ?? Date()]
       RealmService.shared.update(record, with: endDate)
+    }
+    // todo: ??
+    self.widgetPerformUpdate { result in
+      DebugPrint.debug("\(result)")
     }
   }
 }
