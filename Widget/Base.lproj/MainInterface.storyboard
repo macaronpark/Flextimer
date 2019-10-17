@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="cwh-vc-ff4">
+            <objects>
+                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="Widget" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXA-t7-8Rd">
+                                <rect key="frame" x="10" y="2" width="144" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="fRH-Hp-k5e"/>
+                                </constraints>
+                                <state key="normal" title="출근">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVp-De-0Bi">
+                                <rect key="frame" x="166" y="2" width="144" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="k9H-Ba-piP"/>
+                                </constraints>
+                                <state key="normal" title="퇴근">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="출근" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Isr-tp-hyi">
+                                <rect key="frame" x="10" y="56" width="24.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="퇴근까지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C4n-aJ-Tks">
+                                <rect key="frame" x="10" y="77" width="48.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="wVp-De-0Bi" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" constant="2" id="5Sd-bX-XFX"/>
+                            <constraint firstAttribute="centerX" secondItem="JXA-t7-8Rd" secondAttribute="trailing" constant="6" id="7YK-QA-bya"/>
+                            <constraint firstItem="Isr-tp-hyi" firstAttribute="top" secondItem="JXA-t7-8Rd" secondAttribute="bottom" constant="8" id="EYM-XR-FMV"/>
+                            <constraint firstItem="wVp-De-0Bi" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="centerX" constant="6" id="OkV-IR-Etn"/>
+                            <constraint firstItem="JXA-t7-8Rd" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="10" id="VCz-Fh-Oy2"/>
+                            <constraint firstAttribute="trailing" secondItem="wVp-De-0Bi" secondAttribute="trailing" constant="10" id="YgG-2k-hza"/>
+                            <constraint firstItem="Isr-tp-hyi" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="10" id="f68-db-LpN"/>
+                            <constraint firstItem="C4n-aJ-Tks" firstAttribute="top" secondItem="Isr-tp-hyi" secondAttribute="bottom" constant="4" id="sR5-yI-nSH"/>
+                            <constraint firstItem="C4n-aJ-Tks" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="10" id="ufb-6p-JbW"/>
+                            <constraint firstItem="JXA-t7-8Rd" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" constant="2" id="vbZ-1I-mZl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="110"/>
+                    <connections>
+                        <outlet property="endButton" destination="wVp-De-0Bi" id="18m-Vv-IME"/>
+                        <outlet property="endTitleButton" destination="C4n-aJ-Tks" id="viu-Dl-fOx"/>
+                        <outlet property="startButton" destination="JXA-t7-8Rd" id="Dcg-Vo-05g"/>
+                        <outlet property="startTitleLabel" destination="Isr-tp-hyi" id="2sP-y9-FHx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="125.89285714285714"/>
+        </scene>
+    </scenes>
+</document>
