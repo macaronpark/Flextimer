@@ -11,9 +11,9 @@ import Combine
 
 struct MainRowView: View {
   
+  var row: Row
   @EnvironmentObject var userData: UserData
   
-  var row: Row
   var body: some View {
     
     VStack {
@@ -29,17 +29,20 @@ struct MainRowView: View {
       
       HStack {
         Spacer()
+        // separator
         Color.gray
           .opacity(0.3)
-          .frame(width: UIScreen.main.bounds.width - 20, height: 1)
+          .frame(width: (ScreenSize.width - 20), height: 1)
       }
     }
   }
 }
 
+#if DEBUG
 struct RowView_Previews: PreviewProvider {
   static var previews: some View {
     MainRowView(row: Row(id: 1, title: "test", detail: "test", color: .black))
       .environmentObject(UserData())
   }
 }
+#endif

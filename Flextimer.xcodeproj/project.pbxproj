@@ -14,6 +14,7 @@
 		9C2597C1CD3E682736144F88 /* Pods_Flextimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4430D25C294FC2114B53953B /* Pods_Flextimer.framework */; };
 		BF18D7D7234DC98A00FFB49F /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4129D8234DC88D00425149 /* SettingView.swift */; };
 		BF18D7E5234E1D1000FFB49F /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF18D7E4234E1D1000FFB49F /* RootView.swift */; };
+		BF28A0D82358A177004654AA /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28A0D72358A177004654AA /* AppAppearance.swift */; };
 		BF4129D3234DB78D00425149 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4129D2234DB78D00425149 /* Row.swift */; };
 		BF4129D5234DB8D900425149 /* RowListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4129D4234DB8D900425149 /* RowListView.swift */; };
 		BF4678B0234D576E00B61A9C /* MainRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4678AF234D576E00B61A9C /* MainRowView.swift */; };
@@ -23,6 +24,9 @@
 		BF7ECBC6234CF89B0078AE6C /* DebugPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ECBC4234CF8480078AE6C /* DebugPrint.swift */; };
 		BF7ECBC8234CFD9D0078AE6C /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ECBC7234CFD9D0078AE6C /* Formatter.swift */; };
 		BFDA4AE3234CB5E700A7211C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDA4AE2234CB5E700A7211C /* UserData.swift */; };
+		BFDED1562358A9A9003AFA67 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDED1552358A9A9003AFA67 /* Int.swift */; };
+		BFDED1582358AC1A003AFA67 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDED1572358AC1A003AFA67 /* UIColor.swift */; };
+		BFDED15A2358AD21003AFA67 /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDED1592358AD21003AFA67 /* ScreenSize.swift */; };
 		BFE16AAD234D109D006F94C1 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE16AAC234D109D006F94C1 /* AppColor.swift */; };
 		BFE16AAF234D11CD006F94C1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE16AAE234D11CD006F94C1 /* Color.swift */; };
 		BFEDCC952346865C0043E0B0 /* CreteriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEDCC942346865C0043E0B0 /* CreteriaView.swift */; };
@@ -43,6 +47,7 @@
 		4430D25C294FC2114B53953B /* Pods_Flextimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flextimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87F7E2D88B8929A88AA77E76 /* Pods-Flextimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flextimer.release.xcconfig"; path = "Target Support Files/Pods-Flextimer/Pods-Flextimer.release.xcconfig"; sourceTree = "<group>"; };
 		BF18D7E4234E1D1000FFB49F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		BF28A0D72358A177004654AA /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 		BF4129D2234DB78D00425149 /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		BF4129D4234DB8D900425149 /* RowListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowListView.swift; sourceTree = "<group>"; };
 		BF4129D8234DC88D00425149 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -53,6 +58,9 @@
 		BF7ECBC4234CF8480078AE6C /* DebugPrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugPrint.swift; sourceTree = "<group>"; };
 		BF7ECBC7234CFD9D0078AE6C /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		BFDA4AE2234CB5E700A7211C /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		BFDED1552358A9A9003AFA67 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
+		BFDED1572358AC1A003AFA67 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		BFDED1592358AD21003AFA67 /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
 		BFE16AAC234D109D006F94C1 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		BFE16AAE234D11CD006F94C1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		BFEDCC942346865C0043E0B0 /* CreteriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreteriaView.swift; sourceTree = "<group>"; };
@@ -111,9 +119,12 @@
 		1C23D0B6234B0CB2000CB037 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				BF28A0D72358A177004654AA /* AppAppearance.swift */,
 				BFE16AAE234D11CD006F94C1 /* Color.swift */,
 				1C23D0B4234B0CAF000CB037 /* Date.swift */,
+				BFDED1572358AC1A003AFA67 /* UIColor.swift */,
 				BF7ECBC0234CE3420078AE6C /* TimeInterval.swift */,
+				BFDED1552358A9A9003AFA67 /* Int.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -152,6 +163,16 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		BF28A0D92358A1D1004654AA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BFF96FDF23464A68002F5802 /* Assets.xcassets */,
+				BFF96FE423464A68002F5802 /* LaunchScreen.storyboard */,
+				BFF96FE723464A68002F5802 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		BF4129D6234DC85900425149 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,8 +206,9 @@
 			children = (
 				BFE16AAC234D109D006F94C1 /* AppColor.swift */,
 				BF7ECBBE234CE0EE0078AE6C /* CurrentTimer.swift */,
-				BF7ECBC7234CFD9D0078AE6C /* Formatter.swift */,
 				BF7ECBC4234CF8480078AE6C /* DebugPrint.swift */,
+				BF7ECBC7234CFD9D0078AE6C /* Formatter.swift */,
+				BFDED1592358AD21003AFA67 /* ScreenSize.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -228,9 +250,7 @@
 				1C1AEB45234B6EC400FFB348 /* View */,
 				BF7ECBC3234CF8370078AE6C /* Utility */,
 				1C23D0B6234B0CB2000CB037 /* Extension */,
-				BFF96FDF23464A68002F5802 /* Assets.xcassets */,
-				BFF96FE423464A68002F5802 /* LaunchScreen.storyboard */,
-				BFF96FE723464A68002F5802 /* Info.plist */,
+				BF28A0D92358A1D1004654AA /* Resources */,
 				BFF96FE123464A68002F5802 /* Preview Content */,
 			);
 			path = Flextimer;
@@ -359,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFDED15A2358AD21003AFA67 /* ScreenSize.swift in Sources */,
 				BFF96FDA23464A66002F5802 /* AppDelegate.swift in Sources */,
 				BF18D7D7234DC98A00FFB49F /* SettingView.swift in Sources */,
 				1C1AEB41234B572600FFB348 /* WorkRecord.swift in Sources */,
@@ -374,13 +395,16 @@
 				BF4129D5234DB8D900425149 /* RowListView.swift in Sources */,
 				BF4129D3234DB78D00425149 /* Row.swift in Sources */,
 				BF7ECBC6234CF89B0078AE6C /* DebugPrint.swift in Sources */,
+				BFDED1562358A9A9003AFA67 /* Int.swift in Sources */,
 				BF7ECBC1234CE3420078AE6C /* TimeInterval.swift in Sources */,
 				BF4678B0234D576E00B61A9C /* MainRowView.swift in Sources */,
 				BFF96FDC23464A66002F5802 /* SceneDelegate.swift in Sources */,
+				BFDED1582358AC1A003AFA67 /* UIColor.swift in Sources */,
 				BFF77938234F600500B229A2 /* WeekView.swift in Sources */,
 				BFF7793A234F62BC00B229A2 /* WeekListView.swift in Sources */,
 				BF7ECBC8234CFD9D0078AE6C /* Formatter.swift in Sources */,
 				1C1AEB43234B5FF100FFB348 /* RealmService.swift in Sources */,
+				BF28A0D82358A177004654AA /* AppAppearance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,7 +545,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Flextimer/Preview Content\"";
 				DEVELOPMENT_TEAM = 98S7TU46JD;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Flextimer/Info.plist;
+				INFOPLIST_FILE = Flextimer/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -543,7 +567,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Flextimer/Preview Content\"";
 				DEVELOPMENT_TEAM = 98S7TU46JD;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Flextimer/Info.plist;
+				INFOPLIST_FILE = Flextimer/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

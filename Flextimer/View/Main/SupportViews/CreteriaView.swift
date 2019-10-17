@@ -32,8 +32,10 @@ struct CreteriaView: View {
   }
 }
 
+#if DEBUG
 struct CreteriaView_Previews: PreviewProvider {
   static var previews: some View {
     CreteriaView().environmentObject(UserData())
   }
 }
+#endif
