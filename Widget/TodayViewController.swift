@@ -61,7 +61,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         let startInterval = Date().timeIntervalSince(lastRecord.date)
         /// todo: totalWorkingTime -> 설정 기능 들어가면 연동되게 바꾸기
         let totalWorkingTime = 9
-        let totalInterval = totalWorkingTime.toTimeInterval()
+        let totalInterval = totalWorkingTime.toRoundedTimeInterval()
         let remainInterval = totalInterval - startInterval
         self.remainTimeLabel.text = "퇴근까지 \(remainInterval.toString(.remain)) 남았어요 (9시간 기준)"
       }

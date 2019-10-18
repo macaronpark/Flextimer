@@ -47,7 +47,7 @@ struct WeekListView: View {
   }
   
   private func getWorkingHour(_ start: Date, end: Date) -> String {
-    let interval = end.timeIntervalSince(start)
+    let interval = end.timeIntervalSince(start).rounded()
     return interval.toString(.week)
   }
   
@@ -55,13 +55,13 @@ struct WeekListView: View {
     // 남은 근무 시간 구하기
     // 1. records의 end-start 인터벌 총 더하기
     var itvSum = TimeInterval()
-    self.records.forEach { itvSum += $0.endDate?.timeIntervalSince($0.date) ?? TimeInterval() }
+    self.records.forEach { itvSum += $0.endDate?.timeIntervalSince($0.date).rounded() ?? TimeInterval() }
     // 1-1.현재 근무 중이라면 오늘 근무한 시간 인터벌을 총 인터벌에 더해준다
     if let todayIngTimeInterval = self.userData.ingTimeInterval {
       itvSum += todayIngTimeInterval
     }
     // 2. userData의 총근무시간을 타임인터벌로 만들어서
-    let weekInterval = (self.userData.workdaysCount * self.userData.workingHours).toTimeInterval()
+    let weekInterval = (self.userData.workdaysCount * self.userData.workingHours).toRoundedTimeInterval()
     // 3. 총타임인터블 - 1 -> string
     return (weekInterval - itvSum).toString(.week)
   }

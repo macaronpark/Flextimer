@@ -9,8 +9,8 @@
 import Foundation
 
 extension Int {
-  /// 시간(hour)의 크기를 나타내는 Int를 TimeInterval로 리턴
-  func toTimeInterval() -> TimeInterval {
-    return TimeInterval(self * 60 * 60)
+  /// 시간(hour)의 크기를 나타내는 Int를 TimeInterval.rounded()로 리턴
+  func toRoundedTimeInterval() -> TimeInterval {
+    return TimeInterval(self * 60 * 60).rounded()
   }
 }
