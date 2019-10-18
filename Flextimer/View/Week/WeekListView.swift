@@ -63,7 +63,7 @@ struct WeekListView: View {
     // 2. userData의 총근무시간을 타임인터벌로 만들어서
     let weekInterval = (self.userData.workdaysCount * self.userData.workingHours).toRoundedTimeInterval()
     // 3. 총타임인터블 - 1 -> string
-    return (weekInterval - itvSum).toString(.week)
+    return (weekInterval - itvSum).toString(.remain)
   }
 }
 

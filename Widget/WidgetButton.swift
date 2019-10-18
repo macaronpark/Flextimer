@@ -29,7 +29,7 @@ class WidgetButton: UIButton {
   func setBasicConfig(_ type: WidgetButtonType) {
     self.setTitle(type.title, for: .normal)
     self.setTitleColor(.white, for: .normal)
-    self.setTitleColor(UIColor.white.withAlphaComponent(0.1), for: .disabled)
+    self.setTitleColor(UIColor.white.withAlphaComponent(0.2), for: .disabled)
     self.setBackgroundColor(color: AppColor.widgetGray, forState: .disabled)
     self.setBackgroundColor(color: AppColor.uiOrange, forState: .normal)
     self.layer.cornerRadius = 6
