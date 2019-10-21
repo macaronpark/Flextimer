@@ -12,7 +12,15 @@ import UIKit
 extension TodayViewController {
   
   @objc func timerHandler() {
-    self.widgetPerformUpdate { result in }
+    let current = Date()
+    let calendar = Calendar.current
+    let creteriaComp = calendar.component(.minute, from: self.timeCreteria)
+    let currentComp = calendar.component(.minute, from: current)
+    
+    if creteriaComp != currentComp {
+      self.timeCreteria = current
+      self.widgetPerformUpdate { result in }
+    }
   }
 
   @objc func tapStartButton(_ sender: UIButton) {

@@ -20,6 +20,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   @IBOutlet weak var alertLabel: UILabel!
   
   weak var timer: Timer?
+  /// 위젯 레이아웃의 분단위 업데이트를 위한 기준 타임
+  var timeCreteria = Date()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -45,8 +47,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   
   fileprivate func setupUI(_ isWorking: Bool) {
     // todo: refactoring🤢🤮
-    self.startButton.isEnabled = isWorking ? false: true
-    self.endButton.isEnabled = isWorking ? true: false
+    self.startButton.isEnabled = !isWorking
+    self.endButton.isEnabled = isWorking
     // 출근 시간, 퇴근까지 남은 시간 타이틀, 디테일 라벨 표출
     self.startTimeLabel.isHidden = !isWorking
     self.remainTimeLabel.isHidden = !isWorking
