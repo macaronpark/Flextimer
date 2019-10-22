@@ -27,6 +27,7 @@ extension TimeInterval {
     
     // seconds format %0.2d 다음에 문자를 넣지 않으면 00:00:...으로 표출되는 이슈가 있었음
     // seconds format에 공백 문자열을 추가하여 해결
+    let secondsCount = String(seconds).compactMap { $0.wholeNumberValue }.count
     let minutesCount = String(minutes).compactMap { $0.wholeNumberValue }.count
     let hoursCount = String(hours).compactMap { $0.wholeNumberValue }.count
     
@@ -35,19 +36,11 @@ extension TimeInterval {
       // '00:00:00' 동일한 형태로 리턴
       return String(format: " %0.2d:%0.2d:%0.2d ", hours, minutes, seconds)
       
-    case .remain:
-      // 0시 x분인 경우: 0시 절사
-      if hours == 0, minutes != 0 {
-        return String(format: "%0.\(minutesCount)d분", minutes + 1)
+    case .remain, .week:
+      // 0시 0분 x초인 경우: 0시 0분 절사
+      if hours == 0, minutes == 0, seconds != 0 {
+        return String(format: "%0.\(secondsCount)d초", seconds)
       }
-      // x시 0분인 경우: 0분 절사
-      if hours != 0, minutes == 0 {
-        return String(format: "%0.\(hoursCount)d시간 1분", hours)
-      }
-      // 그 외 'x시 x분' 형태로 리턴
-      return String(format: " %0.\(hoursCount)d시간 %0.\(minutesCount)d분", hours, minutes + 1)
-    
-    case .week:
       // 0시 x분인 경우: 0시 절사
       if hours == 0, minutes != 0 {
         return String(format: "%0.\(minutesCount)d분", minutes)
