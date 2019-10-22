@@ -10,11 +10,13 @@ import UIKit
 import NotificationCenter
 import RealmSwift
 
-
+// todo: Rx
 class TodayViewController: UIViewController, NCWidgetProviding {
   
   @IBOutlet weak var startButton: WidgetButton!
   @IBOutlet weak var endButton: WidgetButton!
+  @IBOutlet weak var okButton: WidgetButton!
+  @IBOutlet weak var cancelButton: WidgetButton!
   @IBOutlet weak var startTimeLabel: UILabel!
   @IBOutlet weak var remainTimeLabel: UILabel!
   @IBOutlet weak var alertLabel: UILabel!
@@ -41,8 +43,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   fileprivate func setupButtons() {
     self.startButton.setBasicConfig(.start)
     self.endButton.setBasicConfig(.end)
+    self.okButton.setBasicConfig(.done)
+    self.cancelButton.setBasicConfig(.cancel)
     self.startButton.addTarget(self, action: #selector(tapStartButton), for: .touchUpInside)
     self.endButton.addTarget(self, action: #selector(tapEndButton), for: .touchUpInside)
+    self.okButton.addTarget(self, action: #selector(tapOkButton), for: .touchUpInside)
+    self.cancelButton.addTarget(self, action: #selector(tapCancelButton), for: .touchUpInside)
   }
   
   fileprivate func setupUI(_ isWorking: Bool) {

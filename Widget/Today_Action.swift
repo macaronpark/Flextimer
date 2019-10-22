@@ -38,11 +38,24 @@ extension TodayViewController {
   }
   
   @objc func tapEndButton(_ sender: UIButton) {
+    self.okButton.isHidden = false
+    self.cancelButton.isHidden = false
+  }
+  
+  @objc func tapOkButton(_ sender: UIButton) {
     let result = RealmService.shared.realm.objects(WorkRecord.self).filter { $0.endDate == nil }
     if let record = result.last {
       let endDate = ["endDate": Date().trimSeconds() ?? Date()]
       RealmService.shared.update(record, with: endDate)
       self.widgetPerformUpdate { result in }
     }
+    
+    self.okButton.isHidden = false
+    self.cancelButton.isHidden = false
+  }
+
+  @objc func tapCancelButton(_ sender: UIButton) {
+    self.okButton.isHidden = true
+    self.cancelButton.isHidden = true
   }
 }
