@@ -34,7 +34,7 @@
 		BFDED1612358AFD2003AFA67 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFDED1602358AFD2003AFA67 /* NotificationCenter.framework */; };
 		BFDED1642358AFD2003AFA67 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDED1632358AFD2003AFA67 /* TodayViewController.swift */; };
 		BFDED1672358AFD2003AFA67 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFDED1652358AFD2003AFA67 /* MainInterface.storyboard */; };
-		BFDED16B2358AFD2003AFA67 /* 자율출퇴근러.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BFDED15F2358AFD2003AFA67 /* 자율출퇴근러.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BFDED16B2358AFD2003AFA67 /* Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BFDED15F2358AFD2003AFA67 /* Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BFDED1752358C86E003AFA67 /* Today_Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDED1742358C86E003AFA67 /* Today_Action.swift */; };
 		BFDED1762358C936003AFA67 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE16AAE234D11CD006F94C1 /* Color.swift */; };
 		BFDED1772358C938003AFA67 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDED1572358AC1A003AFA67 /* UIColor.swift */; };
@@ -75,7 +75,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				BFDED16B2358AFD2003AFA67 /* 자율출퇴근러.appex in Embed App Extensions */,
+				BFDED16B2358AFD2003AFA67 /* Widget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,7 +107,7 @@
 		BFDED1552358A9A9003AFA67 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		BFDED1572358AC1A003AFA67 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		BFDED1592358AD21003AFA67 /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
-		BFDED15F2358AFD2003AFA67 /* 자율출퇴근러.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "자율출퇴근러.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFDED15F2358AFD2003AFA67 /* Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFDED1602358AFD2003AFA67 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		BFDED1632358AFD2003AFA67 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		BFDED1662358AFD2003AFA67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -320,7 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				BFF96FD623464A66002F5802 /* Flextimer.app */,
-				BFDED15F2358AFD2003AFA67 /* 자율출퇴근러.appex */,
+				BFDED15F2358AFD2003AFA67 /* Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -368,7 +368,7 @@
 			);
 			name = Widget;
 			productName = Widget;
-			productReference = BFDED15F2358AFD2003AFA67 /* 자율출퇴근러.appex */;
+			productReference = BFDED15F2358AFD2003AFA67 /* Widget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		BFF96FD523464A66002F5802 /* Flextimer */ = {
@@ -605,8 +605,10 @@
 			baseConfigurationReference = 9F5AFA222ABA8F6BE2CE3595 /* Pods-Flextimer-Widget.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 98S7TU46JD;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = 64NX5H9B23;
 				INFOPLIST_FILE = Widget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -614,7 +616,8 @@
 					"@executable_path/../../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.suzypark.Flextimer.Widget;
-				PRODUCT_NAME = "자율출퇴근러";
+				PRODUCT_NAME = Widget;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -626,8 +629,11 @@
 			baseConfigurationReference = C46A467080250DEDD0884778 /* Pods-Flextimer-Widget.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 98S7TU46JD;
+				CURRENT_PROJECT_VERSION = 8;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 64NX5H9B23;
 				INFOPLIST_FILE = Widget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -635,7 +641,8 @@
 					"@executable_path/../../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.suzypark.Flextimer.Widget;
-				PRODUCT_NAME = "자율출퇴근러";
+				PRODUCT_NAME = Widget;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -764,8 +771,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Flextimer/Flextimer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"Flextimer/Preview Content\"";
-				DEVELOPMENT_TEAM = 98S7TU46JD;
+				DEVELOPMENT_TEAM = 64NX5H9B23;
+				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Flextimer/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -773,10 +782,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.suzypark.Flextimer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Flextimer;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -788,8 +798,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Flextimer/Flextimer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 8;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_ASSET_PATHS = "\"Flextimer/Preview Content\"";
-				DEVELOPMENT_TEAM = 98S7TU46JD;
+				DEVELOPMENT_TEAM = 64NX5H9B23;
+				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Flextimer/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -797,10 +810,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.suzypark.Flextimer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Flextimer;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

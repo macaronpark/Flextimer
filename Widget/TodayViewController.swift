@@ -35,7 +35,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   
   fileprivate func setupRealm() {
     let fileURL = FileManager.default
-    .containerURL(forSecurityApplicationGroupIdentifier: "group.com.suzypark.Flextimer")!
+    .containerURL(forSecurityApplicationGroupIdentifier: "group.suzypark.Flextimer")!
     .appendingPathComponent("shared.realm")
     Realm.Configuration.defaultConfiguration = Realm.Configuration(fileURL: fileURL)
   }
