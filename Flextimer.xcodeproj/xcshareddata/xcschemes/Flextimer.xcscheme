@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BFF96FD523464A66002F5802"
-               BuildableName = "&#x110c;&#x1161;&#x110b;&#x1172;&#x11af;&#x110e;&#x116e;&#x11af;&#x1110;&#x116c;&#x1100;&#x1173;&#x11ab;&#x1105;&#x1165;.app"
+               BuildableName = "Flextimer.app"
                BlueprintName = "Flextimer"
                ReferencedContainer = "container:Flextimer.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BFF96FD523464A66002F5802"
-            BuildableName = "&#x110c;&#x1161;&#x110b;&#x1172;&#x11af;&#x110e;&#x116e;&#x11af;&#x1110;&#x116c;&#x1100;&#x1173;&#x11ab;&#x1105;&#x1165;.app"
+            BuildableName = "Flextimer.app"
             BlueprintName = "Flextimer"
             ReferencedContainer = "container:Flextimer.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BFF96FD523464A66002F5802"
-            BuildableName = "&#x110c;&#x1161;&#x110b;&#x1172;&#x11af;&#x110e;&#x116e;&#x11af;&#x1110;&#x116c;&#x1100;&#x1173;&#x11ab;&#x1105;&#x1165;.app"
+            BuildableName = "Flextimer.app"
             BlueprintName = "Flextimer"
             ReferencedContainer = "container:Flextimer.xcodeproj">
          </BuildableReference>

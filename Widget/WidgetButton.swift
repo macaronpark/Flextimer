@@ -14,8 +14,8 @@ class WidgetButton: UIButton {
   enum WidgetButtonType {
     case start
     case end
-    case done
-    case cancel
+//    case done
+//    case cancel
 
     var title: String {
       switch self {
@@ -23,10 +23,10 @@ class WidgetButton: UIButton {
         return "출근"
       case .end:
         return "퇴근"
-      case .done:
-        return "확인"
-      case .cancel:
-        return "취소"
+//      case .done:
+//        return "확인"
+//      case .cancel:
+//        return "취소"
       }
     }
   }
@@ -35,17 +35,17 @@ class WidgetButton: UIButton {
   func setBasicConfig(_ type: WidgetButtonType) {
     self.setTitle(type.title, for: .normal)
 
-    switch type {
-    case .start, .end, .done:
+//    switch type {
+//    case .start, .end, .done:
       self.setTitleColor(.white, for: .normal)
       self.setTitleColor(UIColor.white.withAlphaComponent(0.2), for: .disabled)
       self.setBackgroundColor(color: AppColor.widgetGray, forState: .disabled)
       self.setBackgroundColor(color: AppColor.uiOrange, forState: .normal)
       
-    default:
-      self.setTitleColor(AppColor.uiOrange, for: .normal)
-      self.setBackgroundColor(color: .white, forState: .normal)
-    }
+//    default:
+//      self.setTitleColor(AppColor.uiOrange, for: .normal)
+//      self.setBackgroundColor(color: .white, forState: .normal)
+//    }
 
     self.layer.cornerRadius = 6
     self.clipsToBounds = true

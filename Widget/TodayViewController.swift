@@ -43,14 +43,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   fileprivate func setupButtons() {
     self.startButton.setBasicConfig(.start)
     self.endButton.setBasicConfig(.end)
-    self.okButton.setBasicConfig(.done)
-    self.cancelButton.setBasicConfig(.cancel)
+//    self.okButton.setBasicConfig(.done)
+//    self.cancelButton.setBasicConfig(.cancel)
     self.startButton.addTarget(self, action: #selector(tapStartButton), for: .touchUpInside)
     self.endButton.addTarget(self, action: #selector(tapEndButton), for: .touchUpInside)
-    self.okButton.addTarget(self, action: #selector(tapOkButton), for: .touchUpInside)
-    self.cancelButton.addTarget(self, action: #selector(tapCancelButton), for: .touchUpInside)
+//    self.okButton.addTarget(self, action: #selector(tapOkButton), for: .touchUpInside)
+//    self.cancelButton.addTarget(self, action: #selector(tapCancelButton), for: .touchUpInside)
   }
-  
+
   fileprivate func setupUI(_ isWorking: Bool) {
     // todo: refactoring🤢🤮
     self.startButton.isEnabled = !isWorking
