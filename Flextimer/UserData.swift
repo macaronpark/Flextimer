@@ -11,9 +11,9 @@ import Combine
 import Foundation
 
 final class UserData: ObservableObject {
-  
-  /// 일주일에 일하는 일 수
-  @Published var workdaysCount: Int = 5
+  /// 일주일 중 일하는 요일
+  @Published var workdays: [Int] = RealmService.shared.userInfo().workdays.compactMap { Int($0) }
+//  @Published var workdaysCount: Int = 5
   /// 하루에 일하는 시간
   @Published var workingHours: Int = 9
   /// 현재 근무 중 인지

@@ -19,6 +19,8 @@
 		BF18D7D7234DC98A00FFB49F /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4129D8234DC88D00425149 /* SettingView.swift */; };
 		BF18D7E5234E1D1000FFB49F /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF18D7E4234E1D1000FFB49F /* RootView.swift */; };
 		BF28A0D82358A177004654AA /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28A0D72358A177004654AA /* AppAppearance.swift */; };
+		BF40806923658C5700547A3A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40806823658C5700547A3A /* UserInfo.swift */; };
+		BF40806B23658D4400547A3A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40806823658C5700547A3A /* UserInfo.swift */; };
 		BF4129D3234DB78D00425149 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4129D2234DB78D00425149 /* Row.swift */; };
 		BF4129D5234DB8D900425149 /* RowListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4129D4234DB8D900425149 /* RowListView.swift */; };
 		BF4678B0234D576E00B61A9C /* MainRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4678AF234D576E00B61A9C /* MainRowView.swift */; };
@@ -94,6 +96,7 @@
 		9F5AFA222ABA8F6BE2CE3595 /* Pods-Flextimer-Widget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flextimer-Widget.debug.xcconfig"; path = "Target Support Files/Pods-Flextimer-Widget/Pods-Flextimer-Widget.debug.xcconfig"; sourceTree = "<group>"; };
 		BF18D7E4234E1D1000FFB49F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		BF28A0D72358A177004654AA /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
+		BF40806823658C5700547A3A /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		BF4129D2234DB78D00425149 /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		BF4129D4234DB8D900425149 /* RowListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowListView.swift; sourceTree = "<group>"; };
 		BF4129D8234DC88D00425149 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -167,6 +170,7 @@
 		1C1AEB44234B6EA600FFB348 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				BF40806823658C5700547A3A /* UserInfo.swift */,
 				1C1AEB40234B572600FFB348 /* WorkRecord.swift */,
 				1C1AEB42234B5FF100FFB348 /* RealmService.swift */,
 			);
@@ -523,6 +527,7 @@
 				BFDED17D2358D1EA003AFA67 /* TimeInterval.swift in Sources */,
 				BFDED17A2358C97D003AFA67 /* DebugPrint.swift in Sources */,
 				BFDED1792358C974003AFA67 /* RealmService.swift in Sources */,
+				BF40806B23658D4400547A3A /* UserInfo.swift in Sources */,
 				BFDED17C2358D027003AFA67 /* Formatter.swift in Sources */,
 				1C445C81235930D10043A978 /* UIButton.swift in Sources */,
 				1C445C7C2359253F0043A978 /* AppColor.swift in Sources */,
@@ -566,6 +571,7 @@
 				BFF7793A234F62BC00B229A2 /* WeekListView.swift in Sources */,
 				BF7ECBC8234CFD9D0078AE6C /* Formatter.swift in Sources */,
 				1C1AEB43234B5FF100FFB348 /* RealmService.swift in Sources */,
+				BF40806923658C5700547A3A /* UserInfo.swift in Sources */,
 				BF28A0D82358A177004654AA /* AppAppearance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

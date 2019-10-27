@@ -18,14 +18,21 @@ struct CreteriaView: View {
       HStack {
         Text("일 \(userData.workingHours)시간")
         Text("・")
-        Text("주 \(userData.workdaysCount)일")
+        Text("주 \(userData.workdays.count)일")
         Text("・")
-        Text("\(userData.workdaysCount * userData.workingHours)시간 기준")
+        Text("\(userData.workdays.count * userData.workingHours)시간 기준")
       }
       .font(.footnote)
       .foregroundColor(Color.gray)
       
       Spacer()
+      
+      NavigationLink(destination: SettingView()) {
+        Image("setting")
+          .renderingMode(.original)
+          .resizable()
+          .frame(width: 20, height: 20)
+      }
     }
     .padding(.horizontal, 20)
     .padding(.vertical, 8)

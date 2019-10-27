@@ -82,4 +82,13 @@ class RealmService {
     let arr = Array(records).filter { $0.date >= Date().getMondayThisWeek() && $0.endDate != nil }
     return arr
   }
+  
+  func userInfo() -> UserInfo {
+    if let userInfo = RealmService.shared.realm.objects(UserInfo.self).last {
+      return userInfo
+    } else {
+      let newUserInfo = UserInfo([0, 1, 2, 3, 4], workingHours: 9)
+      return newUserInfo
+    }
+  }
 }
