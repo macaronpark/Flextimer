@@ -18,20 +18,15 @@ struct WeekListView: View {
   var body: some View {
     VStack {
       VStack {
-        // 오늘 이전의 이번 주 기록
-        ForEach(0..<self.records.count) { index in
-          MainRowView(row: Row(
-            title: "\(Formatter.dayName.string(from: self.records[index].date))",
-            detail: "\(self.getWorkingHour(self.records[index].date, end: self.records[index].endDate ?? Date()))", color: .gray))
-        }
         
-        // 오늘 기록
-        if self.userData.ingTimeInterval != nil {
-          MainRowView(row: Row(
-            title: Formatter.dayName.string(from: Date()),
-            detail: self.userData.ingTimeInterval?.toString(.week) ?? ""))
+        ForEach(self.getWorkingDates(), id: \.self) { date in
+            MainRowView(row: Row(
+                title: Formatter.dayName.string(from: date),
+                detail: self.detail(date),
+                color: Calendar.current.isDateInToday(date) ? nil: .gray
+            ))
         }
-        
+
         // 남은 근무시간
         MainRowView(row: Row(
           title: "이 주의 남은 근무 시간",
@@ -42,7 +37,29 @@ struct WeekListView: View {
       Spacer()
     }
   }
-  
+    
+    func detail(_ date: Date) -> String {
+        if Calendar.current.isDateInToday(date) {
+            return self.userData.ingTimeInterval?.toString(.week) ?? ""
+        } else {
+            let record = self.records.filter({ Calendar.current.isDate($0.date, inSameDayAs: date) })
+            if let recordd = record.last {
+                return self.getWorkingHour(recordd.date, end: recordd.endDate ?? Date())
+            } else {
+                return ""
+            }
+        }
+    }
+    
+    func getWorkingDates() -> [Date] {
+        let dates = Date.datesOfThisWeek()
+        var workDates = [Date]()
+        for i in self.userData.workdays {
+            workDates.append(dates[i])
+        }
+        return workDates
+    }
+
   private func getWorkingHour(_ start: Date, end: Date) -> String {
     let interval = end.timeIntervalSince(start).rounded()
     return interval.toString(.week)
