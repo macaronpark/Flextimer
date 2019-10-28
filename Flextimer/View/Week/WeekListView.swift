@@ -12,7 +12,7 @@ import SwiftUI
 struct WeekListView: View {
   
   private var records = RealmService.shared.logForThisWeek()
-  @State private var showingModal = false
+//  @State private var showingModal = false
   @State private var totalWorkingTime: TimeInterval = 0
   @EnvironmentObject var userData: UserData
   
@@ -26,8 +26,8 @@ struct WeekListView: View {
             detail: self.detail(date),
             color: Calendar.current.isDateInToday(date) ? nil: .gray
           ))
-            .onTapGesture { self.showingModal = true }
-            .sheet(isPresented: self.$showingModal) { WeekDetailView() }
+//            .onTapGesture { self.showingModal = true }
+//            .sheet(isPresented: self.$showingModal) { WeekDetailView() }
         }
         
         // 남은 근무시간
