@@ -11,6 +11,7 @@
 		1C1AEB41234B572600FFB348 /* WorkRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1AEB40234B572600FFB348 /* WorkRecord.swift */; };
 		1C1AEB43234B5FF100FFB348 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1AEB42234B5FF100FFB348 /* RealmService.swift */; };
 		1C23D0B5234B0CAF000CB037 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C23D0B4234B0CAF000CB037 /* Date.swift */; };
+		1C3F623623671AC300417C7F /* WeekDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3F623523671AC300417C7F /* WeekDetailView.swift */; };
 		1C445C7C2359253F0043A978 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE16AAC234D109D006F94C1 /* AppColor.swift */; };
 		1C445C7F23592B2F0043A978 /* WidgetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C445C7E23592B2F0043A978 /* WidgetButton.swift */; };
 		1C445C81235930D10043A978 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C445C80235930D10043A978 /* UIButton.swift */; };
@@ -89,6 +90,7 @@
 		1C1AEB40234B572600FFB348 /* WorkRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkRecord.swift; sourceTree = "<group>"; };
 		1C1AEB42234B5FF100FFB348 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		1C23D0B4234B0CAF000CB037 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		1C3F623523671AC300417C7F /* WeekDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDetailView.swift; sourceTree = "<group>"; };
 		1C445C7E23592B2F0043A978 /* WidgetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetButton.swift; sourceTree = "<group>"; };
 		1C445C80235930D10043A978 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		4430D25C294FC2114B53953B /* Pods_Flextimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flextimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -305,6 +307,7 @@
 			children = (
 				BFF77937234F600500B229A2 /* WeekView.swift */,
 				BFF77939234F62BC00B229A2 /* WeekListView.swift */,
+				1C3F623523671AC300417C7F /* WeekDetailView.swift */,
 			);
 			path = Week;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				BFEDCC952346865C0043E0B0 /* CreteriaView.swift in Sources */,
 				1C10D1A2234AFCD30026DD50 /* ButtonView.swift in Sources */,
 				BF7ECBBD234CC9190078AE6C /* TimerView.swift in Sources */,
+				1C3F623623671AC300417C7F /* WeekDetailView.swift in Sources */,
 				BF4129D5234DB8D900425149 /* RowListView.swift in Sources */,
 				BF4129D3234DB78D00425149 /* Row.swift in Sources */,
 				BF7ECBC6234CF89B0078AE6C /* DebugPrint.swift in Sources */,

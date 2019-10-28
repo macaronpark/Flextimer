@@ -10,21 +10,24 @@ import SwiftUI
 
 // todo: refactoring 🤢🤮
 struct WeekListView: View {
-  
+    
   private var records = RealmService.shared.logForThisWeek()
+  @State private var showingModal = false
   @State private var totalWorkingTime: TimeInterval = 0
   @EnvironmentObject var userData: UserData
   
   var body: some View {
     VStack {
       VStack {
-        
+    
         ForEach(self.getWorkingDates(), id: \.self) { date in
             MainRowView(row: Row(
                 title: Formatter.dayName.string(from: date),
                 detail: self.detail(date),
                 color: Calendar.current.isDateInToday(date) ? nil: .gray
             ))
+            .onTapGesture { self.showingModal = true }
+            .sheet(isPresented: self.$showingModal) { WeekDetailView() }
         }
 
         // 남은 근무시간
