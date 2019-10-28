@@ -71,7 +71,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         let totalWorkingTime = 9
         let totalInterval = totalWorkingTime.toRoundedTimeInterval()
         let remainInterval = totalInterval - startInterval
-        self.remainTimeLabel.text = "퇴근까지 \(remainInterval.toString(.remain)) 남았어요 (9시간 기준)"
+        
+        if remainInterval.isLess(than: 0.0) {
+            self.remainTimeLabel.text = "앗!\((-remainInterval).toString(.remain))째 초과근무 중"
+        } else {
+            self.remainTimeLabel.text = "퇴근까지 \(remainInterval.toString(.remain)) 남았어요 (9시간 기준)"
+        }
       }
     }
   }

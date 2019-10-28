@@ -21,7 +21,6 @@ struct WeekListView: View {
         // 오늘 이전의 이번 주 기록
         ForEach(0..<self.records.count) { index in
           MainRowView(row: Row(
-            id: index,
             title: "\(Formatter.dayName.string(from: self.records[index].date))",
             detail: "\(self.getWorkingHour(self.records[index].date, end: self.records[index].endDate ?? Date()))", color: .gray))
         }
@@ -29,14 +28,12 @@ struct WeekListView: View {
         // 오늘 기록
         if self.userData.ingTimeInterval != nil {
           MainRowView(row: Row(
-            id: self.records.count,
             title: Formatter.dayName.string(from: Date()),
             detail: self.userData.ingTimeInterval?.toString(.week) ?? ""))
         }
         
         // 남은 근무시간
         MainRowView(row: Row(
-          id: self.records.count + 1,
           title: "이 주의 남은 근무 시간",
           detail: getRemainTime(),
           color: AppColor.orange)

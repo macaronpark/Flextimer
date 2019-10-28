@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct Row: Identifiable {
-  var id: Int
+  var id = UUID()
   var title: String
   var detail: String
   var color: Color?

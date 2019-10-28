@@ -14,9 +14,9 @@ struct RowListView: View {
   
   var body: some View {
     VStack {
-      MainRowView(row: Row(id: 1, title: "출근", detail: self.userData.startTime, color: .gray))
-      MainRowView(row: Row(id: 2, title: "예상퇴근", detail: self.userData.estimatedCallOutTime))
-      MainRowView(row: Row(id: 3, title: "퇴근까지", detail: self.userData.remainTime, color: AppColor.orange))
+      MainRowView(row: Row(title: "출근", detail: self.userData.startTime, color: .gray))
+      MainRowView(row: Row(title: "예상퇴근", detail: self.userData.estimatedCallOutTime))
+      MainRowView(row: Row(title: "퇴근까지", detail: self.userData.remainTime, color: AppColor.orange))
       Text(" ") // 마진 확보
     }
   }

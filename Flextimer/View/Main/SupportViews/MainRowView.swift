@@ -41,7 +41,7 @@ struct MainRowView: View {
 #if DEBUG
 struct RowView_Previews: PreviewProvider {
   static var previews: some View {
-    MainRowView(row: Row(id: 1, title: "test", detail: "test", color: .black))
+    MainRowView(row: Row(title: "test", detail: "test", color: .black))
       .environmentObject(UserData())
   }
 }

@@ -43,7 +43,13 @@ struct TimerView: View {
       // 남은 근무 시간(픽스 근무 시간 - 총 근무 시간) 업데이트
       let workingHoursInterval = self.userData.workingHours.toRoundedTimeInterval()
       let remainInterval = workingHoursInterval - interval
-      self.userData.remainTime = remainInterval.toString(.remain) + " 남았어요"
+        
+        if remainInterval.isLess(than: 0.0) {
+            self.userData.remainTime = (-remainInterval).toString(.remain) + "째 초과근무 중"
+        } else {
+            self.userData.remainTime = remainInterval.toString(.remain) + " 남았어요"
+        }
+        
       self.workingDescription = "지금은 근무 중"
     }
   }
