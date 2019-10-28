@@ -79,7 +79,13 @@ class RealmService {
   /// Date()가 속한 주의 첫 월요일 0시를 기준으로 해당 주의 기록을 반환
   func logForThisWeek() -> [WorkRecord] {
     let records = RealmService.shared.realm.objects(WorkRecord.self)
-    let arr = Array(records).filter { $0.date >= Date().getMondayThisWeek() && $0.endDate != nil }
+
+    var comp = Calendar.current.dateComponents([.hour, .minute], from: Date())
+    comp.hour = 0
+    comp.minute = 0
+    let date = Calendar.current.date(from: comp) ?? Date()
+    
+    let arr = Array(records).filter { $0.date >= date.getMondayThisWeek() && $0.endDate != nil }
     return arr
   }
   

@@ -10,7 +10,7 @@ import SwiftUI
 
 // todo: refactoring 🤢🤮
 struct WeekListView: View {
-    
+  
   private var records = RealmService.shared.logForThisWeek()
   @State private var showingModal = false
   @State private var totalWorkingTime: TimeInterval = 0
@@ -19,17 +19,17 @@ struct WeekListView: View {
   var body: some View {
     VStack {
       VStack {
-    
+        
         ForEach(self.getWorkingDates(), id: \.self) { date in
-            MainRowView(row: Row(
-                title: Formatter.dayName.string(from: date),
-                detail: self.detail(date),
-                color: Calendar.current.isDateInToday(date) ? nil: .gray
-            ))
+          MainRowView(row: Row(
+            title: Formatter.dayName.string(from: date),
+            detail: self.detail(date),
+            color: Calendar.current.isDateInToday(date) ? nil: .gray
+          ))
             .onTapGesture { self.showingModal = true }
             .sheet(isPresented: self.$showingModal) { WeekDetailView() }
         }
-
+        
         // 남은 근무시간
         MainRowView(row: Row(
           title: "이 주의 남은 근무 시간",
@@ -40,29 +40,34 @@ struct WeekListView: View {
       Spacer()
     }
   }
-    
-    func detail(_ date: Date) -> String {
-        if Calendar.current.isDateInToday(date) {
-            return self.userData.ingTimeInterval?.toString(.week) ?? ""
-        } else {
-            let record = self.records.filter({ Calendar.current.isDate($0.date, inSameDayAs: date) })
-            if let recordd = record.last {
-                return self.getWorkingHour(recordd.date, end: recordd.endDate ?? Date())
-            } else {
-                return ""
-            }
-        }
+  
+  func detail(_ date: Date) -> String {
+    if Calendar.current.isDateInToday(date) {
+      let record = self.records.filter({ Calendar.current.isDate($0.date, inSameDayAs: date) })
+      if (record.last?.endDate != nil) {
+        return self.getWorkingHour(record.last?.date ?? Date(), end: record.last?.endDate ?? Date())
+      } else {
+        return self.userData.ingTimeInterval?.toString(.week) ?? ""
+      }
+    } else {
+      let record = self.records.filter({ Calendar.current.isDate($0.date, inSameDayAs: date) })
+      if let recordd = record.last {
+        return self.getWorkingHour(recordd.date, end: recordd.endDate ?? Date())
+      } else {
+        return ""
+      }
     }
-    
-    func getWorkingDates() -> [Date] {
-        let dates = Date.datesOfThisWeek()
-        var workDates = [Date]()
-        for i in self.userData.workdays {
-            workDates.append(dates[i])
-        }
-        return workDates
+  }
+  
+  func getWorkingDates() -> [Date] {
+    let dates = Date.datesOfThisWeek()
+    var workDates = [Date]()
+    for i in self.userData.workdays {
+      workDates.append(dates[i])
     }
-
+    return workDates
+  }
+  
   private func getWorkingHour(_ start: Date, end: Date) -> String {
     let interval = end.timeIntervalSince(start).rounded()
     return interval.toString(.week)

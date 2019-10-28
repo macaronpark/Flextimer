@@ -9,28 +9,28 @@
 import Foundation
 
 extension Date {
+  
+  static func datesOfThisWeek() -> [Date] {
+    let calendar = Calendar.current
+    var dates: [Date] = []
+    var date = Date.getMondayThisWeek(Date())()
+    let toDate = calendar.date(byAdding: .day, value: 6, to: date) ?? Date()
     
-    static func datesOfThisWeek() -> [Date] {
-        let calendar = Calendar.current
-        var dates: [Date] = []
-        var date = Date.getMondayThisWeek(Date())()
-        let toDate = calendar.date(byAdding: .day, value: 6, to: date) ?? Date()
-
-        while date <= toDate {
-            dates.append(date)
-            guard let newDate = Calendar.current.date(byAdding: .day, value: 1, to: date) else { break }
-            date = newDate
-        }
-        return dates
+    while date <= toDate {
+      dates.append(date)
+      guard let newDate = Calendar.current.date(byAdding: .day, value: 1, to: date) else { break }
+      date = newDate
     }
-    
-    func trimSeconds() -> Date? {
-        let calendar = Calendar(identifier: .gregorian)
-        var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self)
-        components.second = 0
-        return calendar.date(from: components)
-    }
-
+    return dates
+  }
+  
+  func trimSeconds() -> Date? {
+    let calendar = Calendar(identifier: .gregorian)
+    var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self)
+    components.second = 0
+    return calendar.date(from: components)
+  }
+  
   enum Weekday: String {
     case monday, tuesday, wednesday, thursday, friday, saturday, sunday
   }
@@ -47,7 +47,7 @@ extension Date {
     let monday = Weekday.monday.rawValue
     let weekdaysName = Date().getWeekdaysInEnglish().map { $0.lowercased() }
     let searchWeekdayIndex = weekdaysName.firstIndex(of: monday)! + 1
-    let calendar = Calendar(identifier: .gregorian)
+    let calendar = Calendar.current
     
     if calendar.component(.weekday, from: self) == searchWeekdayIndex {
       return self
