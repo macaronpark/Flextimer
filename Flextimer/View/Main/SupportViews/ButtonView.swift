@@ -31,7 +31,7 @@ struct ButtonView: View {
             self.showingStartAlert = true
           } else {
             // - 기록이 없다면: 새로운 WorkRecord를 생성
-            let now = Date().trimSeconds() ?? Date()
+            let now = Date()
             let newWorkRecord = WorkRecord(now)
             RealmService.shared.create(newWorkRecord)
             
@@ -54,7 +54,7 @@ struct ButtonView: View {
                 self.userData.isWorking = false
               }
               
-              let now = Date().trimSeconds() ?? Date()
+              let now = Date()
               let newWorkRecord = WorkRecord(now)
               RealmService.shared.create(newWorkRecord)
               
@@ -81,7 +81,7 @@ struct ButtonView: View {
               let result = RealmService.shared.realm.objects(WorkRecord.self)
                 .filter { $0.endDate == nil }
               if let record = result.last {
-                let endDate = ["endDate": Date().trimSeconds() ?? Date()]
+                let endDate = ["endDate": Date()]
                 RealmService.shared.update(record, with: endDate)
                 self.userData.isWorking = false
                 self.userData.ingTimeInterval = nil

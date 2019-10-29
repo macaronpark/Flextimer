@@ -24,12 +24,12 @@ extension Date {
     return dates
   }
   
-  func trimSeconds() -> Date? {
-    let calendar = Calendar(identifier: .gregorian)
-    var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self)
-    components.second = 0
-    return calendar.date(from: components)
-  }
+//  func trimSeconds() -> Date? {
+//    let calendar = Calendar(identifier: .gregorian)
+//    var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self)
+//    components.second = 0
+//    return calendar.date(from: components)
+//  }
   
   enum Weekday: String {
     case monday, tuesday, wednesday, thursday, friday, saturday, sunday

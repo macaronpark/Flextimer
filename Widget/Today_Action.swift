@@ -30,7 +30,7 @@ extension TodayViewController {
       self.alertLabel.text = "오늘 이미 근무한 기록이 있네요? 앱에서 '출근'버튼을 눌러서 확인해주세요"
     } else {
       // 기록이 없다면: 새로운 WorkRecord를 생성
-      let now = Date().trimSeconds() ?? Date()
+      let now = Date()
       let newWorkRecord = WorkRecord(now)
       RealmService.shared.create(newWorkRecord)
       self.widgetPerformUpdate { result in }
@@ -42,7 +42,7 @@ extension TodayViewController {
 //    self.cancelButton.isHidden = false
     let result = RealmService.shared.realm.objects(WorkRecord.self).filter { $0.endDate == nil }
     if let record = result.last {
-      let endDate = ["endDate": Date().trimSeconds() ?? Date()]
+      let endDate = ["endDate": Date()]
       RealmService.shared.update(record, with: endDate)
       self.widgetPerformUpdate { result in }
     }

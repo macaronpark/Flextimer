@@ -36,8 +36,7 @@ struct TimerView: View {
   func updateStates(_ output: Timer.TimerPublisher.Output) {
     if let startDate = self.userData.startDate {
       // 총 근무 시간 업데이트
-      let trimmedStartDate = startDate.trimSeconds() ?? startDate
-      let interval = output.timeIntervalSince(trimmedStartDate).rounded()
+      let interval = output.timeIntervalSince(startDate).rounded()
       self.userData.ingTimeInterval = interval
       self.currentTime = interval.toString(.total)
       // 남은 근무 시간(픽스 근무 시간 - 총 근무 시간) 업데이트
