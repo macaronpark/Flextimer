@@ -11,23 +11,28 @@ import SwiftUI
 // todo: refactoring 🤢🤮
 struct WeekListView: View {
   
-  private var records = RealmService.shared.logForThisWeek()
-//  @State private var showingModal = false
+  @State private var date = Date()
+  let logsForThisWeek = RealmService.shared.logForThisWeek()
+  @State private var showingModal = false
   @State private var totalWorkingTime: TimeInterval = 0
   @EnvironmentObject var userData: UserData
   
   var body: some View {
     VStack {
       VStack {
-        
         ForEach(self.getWorkingDates(), id: \.self) { date in
           MainRowView(row: Row(
             title: Formatter.dayName.string(from: date),
             detail: self.detail(date),
             color: Calendar.current.isDateInToday(date) ? nil: .gray
           ))
-//            .onTapGesture { self.showingModal = true }
-//            .sheet(isPresented: self.$showingModal) { WeekDetailView() }
+            .onTapGesture {
+                if self.logsForThisWeek.filter({ Calendar.current.isDate($0.date, inSameDayAs: date) }).count != 0 {
+                    self.date = date
+                    self.showingModal = true
+                }
+          }
+          .sheet(isPresented: self.$showingModal) { WeekDetailView(date: self.date) }
         }
         
         // 남은 근무시간
@@ -41,25 +46,21 @@ struct WeekListView: View {
     }
   }
   
-  func detail(_ date: Date) -> String {
-    if Calendar.current.isDateInToday(date) {
-      let record = self.records.filter({ Calendar.current.isDate($0.date, inSameDayAs: date) })
-      if (record.last?.endDate != nil) {
-        return self.getWorkingHour(record.last?.date ?? Date(), end: record.last?.endDate ?? Date())
-      } else {
-        return self.userData.ingTimeInterval?.toString(.week) ?? ""
-      }
+  private func detail(_ date: Date) -> String {
+    let records = self.logsForThisWeek.filter { Calendar.current.isDate($0.date, inSameDayAs: date) }
+    
+    guard let record = records.last else {
+        return (Calendar.current.isDateInToday(date)) ? self.userData.ingTimeInterval?.toString(.week) ?? "": ""
+    }
+    
+    if (record.endDate != nil) {
+        return self.getWorkingHour(record.date, end: record.endDate)
     } else {
-      let record = self.records.filter({ Calendar.current.isDate($0.date, inSameDayAs: date) })
-      if let recordd = record.last {
-        return self.getWorkingHour(recordd.date, end: recordd.endDate ?? Date())
-      } else {
-        return ""
-      }
+        return self.userData.ingTimeInterval?.toString(.week) ?? ""
     }
   }
   
-  func getWorkingDates() -> [Date] {
+  private func getWorkingDates() -> [Date] {
     let dates = Date.datesOfThisWeek()
     var workDates = [Date]()
     for i in self.userData.workdays {
@@ -68,7 +69,10 @@ struct WeekListView: View {
     return workDates
   }
   
-  private func getWorkingHour(_ start: Date, end: Date) -> String {
+  private func getWorkingHour(_ start: Date?, end: Date?) -> String {
+    guard let start = start,
+        let end = end else { return "" }
+    
     let interval = end.timeIntervalSince(start).rounded()
     return interval.toString(.week)
   }
@@ -77,7 +81,7 @@ struct WeekListView: View {
     // 남은 근무 시간 구하기
     // 1. records의 end-start 인터벌 총 더하기
     var itvSum = TimeInterval()
-    self.records.forEach { itvSum += $0.endDate?.timeIntervalSince($0.date).rounded() ?? TimeInterval() }
+    self.logsForThisWeek.forEach { itvSum += $0.endDate?.timeIntervalSince($0.date).rounded() ?? TimeInterval() }
     // 1-1.현재 근무 중이라면 오늘 근무한 시간 인터벌을 총 인터벌에 더해준다
     if let todayIngTimeInterval = self.userData.ingTimeInterval {
       itvSum += todayIngTimeInterval

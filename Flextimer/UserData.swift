@@ -13,9 +13,9 @@ import Foundation
 final class UserData: ObservableObject {
   /// 일주일 중 일하는 요일
   @Published var workdays: [Int] = RealmService.shared.userInfo().workdays.compactMap { Int($0) }
-//  @Published var workdaysCount: Int = 5
   /// 하루에 일하는 시간
   @Published var workingHours: Int = 9
+    
   /// 현재 근무 중 인지
   @Published var isWorking: Bool = false
   /// 출근기록이 있다면: 근무 시작 date
