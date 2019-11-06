@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let fileURL = FileManager.default
     .containerURL(forSecurityApplicationGroupIdentifier: "group.suzypark.Flextimer")!
+        
     .appendingPathComponent("shared.realm")
 
     Realm.Configuration.defaultConfiguration = Realm.Configuration(fileURL: fileURL)

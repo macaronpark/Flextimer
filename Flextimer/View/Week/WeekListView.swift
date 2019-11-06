@@ -80,8 +80,9 @@ struct WeekListView: View {
   private func getRemainTime() -> String {
     // 남은 근무 시간 구하기
     // 1. records의 end-start 인터벌 총 더하기
-    var itvSum = TimeInterval()
-    self.logsForThisWeek.forEach { itvSum += $0.endDate?.timeIntervalSince($0.date).rounded() ?? TimeInterval() }
+    var itvSum = self.logsForThisWeek
+        .map{$0.endDate?.timeIntervalSince($0.date).rounded() ?? 0}
+        .reduce(TimeInterval(), +)
     // 1-1.현재 근무 중이라면 오늘 근무한 시간 인터벌을 총 인터벌에 더해준다
     if let todayIngTimeInterval = self.userData.ingTimeInterval {
       itvSum += todayIngTimeInterval
