@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C01733523791F5500663D5C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C01733423791F5500663D5C /* WebView.swift */; };
 		1C10D1A2234AFCD30026DD50 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C10D1A1234AFCD30026DD50 /* ButtonView.swift */; };
 		1C1AEB41234B572600FFB348 /* WorkRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1AEB40234B572600FFB348 /* WorkRecord.swift */; };
 		1C1AEB43234B5FF100FFB348 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1AEB42234B5FF100FFB348 /* RealmService.swift */; };
@@ -86,6 +87,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1C01733423791F5500663D5C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		1C10D1A1234AFCD30026DD50 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		1C1AEB40234B572600FFB348 /* WorkRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkRecord.swift; sourceTree = "<group>"; };
 		1C1AEB42234B5FF100FFB348 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 		BF18D7D8234DEA3700FFB49F /* SupporViews */ = {
 			isa = PBXGroup;
 			children = (
+				1C01733423791F5500663D5C /* WebView.swift */,
 			);
 			path = SupporViews;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 				BFF77938234F600500B229A2 /* WeekView.swift in Sources */,
 				BFF7793A234F62BC00B229A2 /* WeekListView.swift in Sources */,
 				BF7ECBC8234CFD9D0078AE6C /* Formatter.swift in Sources */,
+				1C01733523791F5500663D5C /* WebView.swift in Sources */,
 				1C1AEB43234B5FF100FFB348 /* RealmService.swift in Sources */,
 				BF40806923658C5700547A3A /* UserInfo.swift in Sources */,
 				BF28A0D82358A177004654AA /* AppAppearance.swift in Sources */,

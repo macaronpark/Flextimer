@@ -6,6 +6,7 @@
 //  Copyright © 2019 Suzy Mararon Park. All rights reserved.
 //
 
+import UIKit
 import SwiftUI
 import Combine
 import RealmSwift
@@ -47,6 +48,19 @@ struct SettingView: View {
           }
         }
       }
+        
+    Section(header: Text("기타")) {
+        NavigationLink(destination: OpensourceView()) {
+            Text("Opensources")
+        }
+
+        Text("github.com/macaronpark")
+            .onTapGesture {
+                if let url = URL(string: "https://github.com/macaronpark") {
+                    UIApplication.shared.open(url)
+                }
+            }
+        }
     }.navigationBarTitle(Text("설정"))
   }
 }
