@@ -12,7 +12,6 @@ import Combine
 import RealmSwift
 
 struct SettingView: View {
-  
   @EnvironmentObject var userData: UserData
   let days = ["월", "화", "수", "목", "금", "토", "일"]
 
@@ -50,12 +49,30 @@ struct SettingView: View {
       }
         
     Section(header: Text("기타")) {
-        NavigationLink(destination: OpensourceView()) {
-            Text("Opensources")
+        
+        HStack {
+            Text("버전")
+            Spacer()
+            Text(isUpdateAvailable() ? "🚀 업데이트 하러가기": "\(clientVersion)(최신버전)")
+                .foregroundColor(isUpdateAvailable() ? Color.primary: Color.secondary)
+        }.onTapGesture {
+            if self.isUpdateAvailable() {
+                let urlStr = "https://itunes.apple.com/app/id1484457501"
+                guard let url = URL(string: urlStr) else { return }
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
         }
-
-        Text("github.com/macaronpark")
-            .onTapGesture {
+        
+        NavigationLink(destination: OpensourceView()) {
+            Text("오픈소스")
+        }
+        
+        HStack {
+            Text("개발자")
+            Spacer()
+            Text("github.com/macaronpark").foregroundColor(.gray)
+            
+        }.onTapGesture {
                 if let url = URL(string: "https://github.com/macaronpark") {
                     UIApplication.shared.open(url)
                 }
@@ -63,6 +80,24 @@ struct SettingView: View {
         }
     }.navigationBarTitle(Text("설정"))
   }
+    
+    
+    var clientVersion: String {
+        return Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+    }
+    
+    func isUpdateAvailable() -> Bool {
+        // todo: 앱 스토어 번들 ID 필요
+        guard let url = URL(string: "http://itunes.apple.com/lookup?bundleId=모이고하스피톨번들ID"),
+            let data = try? Data(contentsOf: url),
+            let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any],
+            let results = json["results"] as? [[String: Any]], results.count > 0,
+            let appStoreVersion = results[0]["version"] as? String else {
+                return false
+        }
+        return !(clientVersion == appStoreVersion) ? true : false
+    }
+    
 }
 
 #if DEBUG
