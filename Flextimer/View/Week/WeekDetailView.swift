@@ -9,30 +9,27 @@
 import SwiftUI
 
 struct WeekDetailView: View {
-  
-  var date: Date?
-  @State private var today = Date()
-    
-    
-  var body: some View {
-    NavigationView {
-      Form {
-        Section {
-            DatePicker(selection: $today, displayedComponents: .hourAndMinute) {
-                Text("출근 시간")
+
+    @ObservedObject var viewModel: WeekDetailViewModel
+
+    var body: some View {
+        NavigationView {
+            Form {
+                Section {
+                    DatePicker(selection: $viewModel.startDate, displayedComponents: .hourAndMinute) {
+                        Text("출근 시간")
+                    }
+                }
+
+                Section {
+                    DatePicker(selection: $viewModel.endDate, displayedComponents: .hourAndMinute) {
+                        Text("퇴근 시간")
+                    }
+                }
             }
+            .navigationBarTitle(Formatter.dayName.string(from: self.viewModel.startDate))
         }
-        
-        Section {
-          DatePicker(selection: $today, displayedComponents: .hourAndMinute) {
-              Text("퇴근 시간")
-          }
-        }
-      }
-      .navigationBarTitle(Formatter.dayName.string(from: date ?? Date()))
-      .onAppear { print(self.date) }
     }
-  }
 }
 
 //struct WeekDetailView_Previews: PreviewProvider {

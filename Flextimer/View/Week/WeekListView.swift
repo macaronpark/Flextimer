@@ -10,7 +10,7 @@ import SwiftUI
 
 // todo: refactoring 🤢🤮
 struct WeekListView: View {
-  
+  @ObservedObject var viewModel: WeekDetailViewModel
   @State private var date = Date()
   let logsForThisWeek = RealmService.shared.logForThisWeek()
   @State private var showingModal = false
@@ -27,12 +27,15 @@ struct WeekListView: View {
             color: Calendar.current.isDateInToday(date) ? nil: .gray
           ))
             .onTapGesture {
-                if self.logsForThisWeek.filter({ Calendar.current.isDate($0.date, inSameDayAs: date) }).count != 0 {
-                    self.date = date
-                    self.showingModal = true
+                self.logsForThisWeek.forEach { record in
+                    if Calendar.current.isDate(record.date, inSameDayAs: date) {
+                        self.viewModel.record.send(record)
+                        self.showingModal = true
+                    }
+                    
                 }
           }
-          .sheet(isPresented: self.$showingModal) { WeekDetailView(date: self.date) }
+          .sheet(isPresented: self.$showingModal) { WeekDetailView(viewModel: self.viewModel) }
         }
         
         // 남은 근무시간
@@ -97,7 +100,7 @@ struct WeekListView: View {
 #if DEBUG
 struct WeekListView_Previews: PreviewProvider {
   static var previews: some View {
-    WeekListView().environmentObject(UserData())
+    WeekListView(viewModel: WeekDetailViewModel()).environmentObject(UserData())
   }
 }
 #endif

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct WeekView: View {
     var body: some View {
-       WeekListView()
+        WeekListView(viewModel: WeekDetailViewModel())
       .navigationBarTitle(Text("이 주의 근태"))
     }
 }
