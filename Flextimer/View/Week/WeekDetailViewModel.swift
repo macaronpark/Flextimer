@@ -10,35 +10,41 @@ import Foundation
 import Combine
 
 class WeekDetailViewModel: ObservableObject {
-
-    @Published var startDate: Date = Date()
-    @Published var endDate: Date = Date()
-    var realmObject: WorkRecord = WorkRecord()
-
-    let record = PassthroughSubject<WorkRecord, Never>()
+  
+  @Published var startDate: Date = Date()
+  @Published var endDate: Date = Date()
+  
+  var isStartEdited = false
+  var isEndEdited = false
+  
+  var realmObject: WorkRecord = WorkRecord()
+  
+  let record = PassthroughSubject<WorkRecord, Never>()
+  
+  private var cancellables = Set<AnyCancellable>()
+  
+  init() {
+    record.sink { (record) in
+      self.startDate = record.date
+      self.endDate = record.endDate ?? Date()
+      self.realmObject = record
+      
+      self.isEndEdited = false
+      self.isStartEdited = false
+    }.store(in: &cancellables)
     
-    private var cancellables = Set<AnyCancellable>()
+    $startDate.sink { _ in
+      self.isStartEdited = true
+    }.store(in: &cancellables)
     
-    init() {
-        record.sink { (record) in
-            self.startDate = record.date
-            self.endDate = record.endDate ?? Date()
-            self.realmObject = record
-        }.store(in: &cancellables)
-        
-        $startDate.sink { date in
-          print(date)
-        }.store(in: &cancellables)
-    }
+    $endDate.sink { _ in
+      self.isEndEdited = true
+    }.store(in: &cancellables)
     
-    enum DateType {
-        case start
-        case end
-    }
-    
-//    func updateDate(_ date: Date, dateType: DateType) {
-//        let key = (dateType == .start) ? "date": "endDate"
-//        let object = record.sen
-//        RealmService.shared.update(object, with: [key : date])
-//    }
+  }
+  
+  enum DateType {
+    case start
+    case end
+  }
 }

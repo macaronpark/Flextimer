@@ -38,6 +38,7 @@ struct SettingView: View {
 
                 let sorted = self.userData.workdays.sorted { $0 < $1 }
                 self.userData.workdays = sorted
+
                 RealmService.shared.update(
                   RealmService.shared.userInfo(),
                   with: ["workdays": sorted]

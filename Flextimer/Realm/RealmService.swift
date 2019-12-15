@@ -53,11 +53,22 @@ class RealmService {
   
   /// 오늘자 기록이 있고, 해당 기록에 endDate가 없다면(근무 중 이라면) true를 반환
   func isWorking() -> Bool {
-    if let todayRecord = RealmService.shared.getLatestTodayWorkRecord(),
-      todayRecord.endDate == nil {
+    
+    let lastRecord = RealmService
+    .shared.realm.objects(WorkRecord.self)
+    .sorted(byKeyPath: "date", ascending: true)
+    .last
+    
+    if let noEndRecord = lastRecord, noEndRecord.endDate == nil {
       return true
     }
     return false
+    
+//    if let todayRecord = RealmService.shared.getLatestTodayWorkRecord(),
+//      todayRecord.endDate == nil {
+//      return true
+//    }
+//    return false
   }
   
   /// Realm 내 가장 최신 기록이 오늘의 기록이라면 해당 기록을 반환
@@ -84,7 +95,7 @@ class RealmService {
       let date = Calendar.current.date(from: comp) ?? Date()
     
     let records = RealmService.shared.realm.objects(WorkRecord.self)
-        .filter("date >= %@ && endDate != nil", date.getMondayThisWeek())
+        .filter("date >= %@", date.getMondayThisWeek())
     
     return Array(records)
   }
@@ -94,6 +105,7 @@ class RealmService {
       return userInfo
     } else {
       let newUserInfo = UserInfo([0, 1, 2, 3, 4], workingHours: 9)
+      RealmService.shared.create(newUserInfo)
       return newUserInfo
     }
   }
