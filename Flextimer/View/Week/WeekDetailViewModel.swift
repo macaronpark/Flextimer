@@ -26,10 +26,9 @@ class WeekDetailViewModel: ObservableObject {
             self.realmObject = record
         }.store(in: &cancellables)
         
-//        $startDate.sink { date in
-//            // 🤢🤮
-//            RealmService.shared.update(self.realmObject, with: ["date" : date])
-//        }.store(in: &cancellables)
+        $startDate.sink { date in
+          print(date)
+        }.store(in: &cancellables)
     }
     
     enum DateType {

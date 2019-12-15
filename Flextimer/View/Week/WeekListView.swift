@@ -10,6 +10,7 @@ import SwiftUI
 
 // todo: refactoring 🤢🤮
 struct WeekListView: View {
+  
   @ObservedObject var viewModel: WeekDetailViewModel
   @State private var date = Date()
   let logsForThisWeek = RealmService.shared.logForThisWeek()
@@ -35,7 +36,7 @@ struct WeekListView: View {
                     
                 }
           }
-          .sheet(isPresented: self.$showingModal) { WeekDetailView(viewModel: self.viewModel) }
+          .sheet(isPresented: self.$showingModal) { WeekDetailView(viewModel: self.viewModel, isPresented: self.$showingModal) }
         }
         
         // 남은 근무시간
