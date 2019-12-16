@@ -10,10 +10,14 @@ import Foundation
 
 extension Date {
   
+  enum Weekday: String {
+    case monday, tuesday, wednesday, thursday, friday, saturday, sunday
+  }
+  
   static func datesOfThisWeek() -> [Date] {
     let calendar = Calendar.current
     var dates: [Date] = []
-    var date = Date.getMondayThisWeek(Date())()
+    var date = Date.getThisWeekMonday(Date())()
     let toDate = calendar.date(byAdding: .day, value: 6, to: date) ?? Date()
     
     while date <= toDate {
@@ -23,18 +27,7 @@ extension Date {
     }
     return dates
   }
-  
-//  func trimSeconds() -> Date? {
-//    let calendar = Calendar(identifier: .gregorian)
-//    var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self)
-//    components.second = 0
-//    return calendar.date(from: components)
-//  }
-  
-  enum Weekday: String {
-    case monday, tuesday, wednesday, thursday, friday, saturday, sunday
-  }
-  
+
   func getWeekdaysInEnglish() -> [String] {
     var calendar = Calendar(identifier: .gregorian)
     calendar.locale = Locale(identifier: "en_US")
@@ -42,14 +35,13 @@ extension Date {
   }
   
   // https://stackoverflow.com/questions/33397101/how-to-get-mondays-date-of-the-current-week-in-swift
-  
-  func getMondayThisWeek() -> Date {
+  func getThisWeekMonday() -> Date {
     let monday = Weekday.monday.rawValue
     let weekdaysName = Date().getWeekdaysInEnglish().map { $0.lowercased() }
     let searchWeekdayIndex = weekdaysName.firstIndex(of: monday)! + 1
     let calendar = Calendar.current
     
-    if calendar.component(.weekday, from: self) == searchWeekdayIndex {
+    if (calendar.component(.weekday, from: self) == searchWeekdayIndex) {
       return self
     }
     

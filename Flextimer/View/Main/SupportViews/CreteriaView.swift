@@ -9,6 +9,7 @@
 import SwiftUI
 import RealmSwift
 
+/// 근무 일, 시간을 표출하는 View
 struct CreteriaView: View {
   
   @EnvironmentObject var userData: UserData
@@ -16,11 +17,11 @@ struct CreteriaView: View {
   var body: some View {
     HStack {
       HStack {
-        Text("일 \(userData.workingHours + 1)시간")
+        Text("일 \(userData.workingHours.value + 1)시간")
         Text("・")
         Text("주 \(userData.workdays.count)일")
         Text("・")
-        Text("\(userData.workdays.count * (userData.workingHours + 1))시간 기준")
+        Text("\(userData.workdays.count * (userData.workingHours.value + 1))시간 기준")
       }
       .font(.footnote)
       .foregroundColor(Color.gray)

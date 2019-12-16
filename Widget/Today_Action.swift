@@ -24,7 +24,7 @@ extension TodayViewController {
   }
 
   @objc func tapStartButton(_ sender: UIButton) {
-    if let _ = RealmService.shared.getLatestTodayWorkRecord() {
+    if let _ = RealmService.shared.getTodayRecord() {
       self.alertLabel.isHidden = false
       self.alertLabel.textColor = .red
       self.alertLabel.text = "오늘 이미 근무한 기록이 있네요? 앱에서 '출근'버튼을 눌러서 확인해주세요"

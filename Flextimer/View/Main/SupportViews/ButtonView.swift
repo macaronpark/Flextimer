@@ -10,6 +10,7 @@ import SwiftUI
 import RealmSwift
 
 // todo: refactoring 🤢🤮
+/// 출, 퇴근 버튼 View
 struct ButtonView: View {
   
   @EnvironmentObject var userData: UserData
@@ -27,7 +28,7 @@ struct ButtonView: View {
         Button(action: {
           // 오늘 자 기록을 기준으로 분기
           // - 기록이 있다면: 경고 얼럴트
-          if let _ = RealmService.shared.getLatestTodayWorkRecord() {
+          if let _ = RealmService.shared.getTodayRecord() {
             self.showingStartAlert = true
           } else {
             // - 기록이 없다면: 새로운 WorkRecord를 생성
@@ -49,7 +50,7 @@ struct ButtonView: View {
             primaryButton: .cancel(Text("취소")),
             secondaryButton: .default(Text("출근")) {
               // action
-              if let lastRecord = RealmService.shared.getLatestTodayWorkRecord() {
+              if let lastRecord = RealmService.shared.getTodayRecord() {
                 RealmService.shared.delete(lastRecord)
                 self.userData.isWorking = false
               }

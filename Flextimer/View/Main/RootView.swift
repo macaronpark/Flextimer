@@ -16,12 +16,11 @@ struct RootView: View {
   var body: some View {
     NavigationView {
       VStack {
-        // 근무 일, 시간을 표출하는 View
         CreteriaView()
-        // 출, 퇴근 버튼 View
         ButtonView().padding(.top, 24)
         Spacer()
-        // 근무 중일 경우 아래 View를 표출
+        
+        // 근무 중일 경우 타이머, 출근/예상퇴근/퇴근까지 남은시간 표출
         if self.userData.isWorking {
           TimerView()
           Spacer()

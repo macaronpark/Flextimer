@@ -237,13 +237,6 @@
 			path = SupporViews;
 			sourceTree = "<group>";
 		};
-		BF18D7DB234DF2EC00FFB49F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		BF28A0D92358A1D1004654AA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,7 +261,6 @@
 			isa = PBXGroup;
 			children = (
 				BF4129D8234DC88D00425149 /* SettingView.swift */,
-				BF18D7DB234DF2EC00FFB49F /* Model */,
 				BF18D7D8234DEA3700FFB49F /* SupporViews */,
 			);
 			path = Setting;

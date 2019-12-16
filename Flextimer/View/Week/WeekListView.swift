@@ -13,7 +13,7 @@ struct WeekListView: View {
   
   @ObservedObject var viewModel: WeekDetailViewModel
   @State private var date = Date()
-  let logsForThisWeek = RealmService.shared.logForThisWeek()
+  let logsForThisWeek = RealmService.shared.getThisWeekRecords()
   @State private var showingModal = false
   @State private var totalWorkingTime: TimeInterval = 0
   @EnvironmentObject var userData: UserData
@@ -93,7 +93,7 @@ struct WeekListView: View {
       itvSum += todayIngTimeInterval
     }
     // 2. userData의 총근무시간을 타임인터벌로 만들어서
-    let weekInterval = (self.userData.workdays.count * (self.userData.workingHours + 1)).toRoundedTimeInterval()
+    let weekInterval = (self.userData.workdays.count * (self.userData.workingHours.value + 1)).toRoundedTimeInterval()
     // 3. 총타임인터블 - 1 -> string
     return (weekInterval - itvSum).toString(.remain)
   }

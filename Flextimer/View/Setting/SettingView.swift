@@ -19,84 +19,81 @@ struct SettingView: View {
   let days = ["월", "화", "수", "목", "금", "토", "일"]
   
   var body: some View {
-    Form {
-      Section(header: Text("일일 근무 시간")) {
-        Picker(selection: $userData.workingHours, label: Text("")) {
-          ForEach(0 ..< hours.count) {
+    VStack {
+      // for padding
+      Text(" ")
+      
+      Form {
+        Section(header: Text("일일 근무 시간")) {
+          Picker(selection: $userData.workingHours.value, label: Text("")) {
+            ForEach(0 ..< self.hours.count, id: \.self) {
               Text(self.hours[$0])
-          }
-        }.onReceive([self.userData.workingHours].publisher.last()) { value in
-          let workHour = value + 1
-
-          RealmService.shared.update(
-            RealmService.shared.userInfo(),
-            with: ["workingHours": workHour]
-          )
-        }
-      }
-      
-      Section(header: Text("주 근무 요일")) {
-        HStack {
-          ForEach(0 ..< days.count) { idx in
-            Spacer()
-            Text(self.days[idx])
-              .padding(8)
-              .background(self.userData.workdays.contains(idx) ? AppColor.orange: Color.gray)
-              .foregroundColor(.white)
-              .cornerRadius(6)
-              .onTapGesture {
-                
-                if self.userData.workdays.contains(idx) {
-                  if let index = self.userData.workdays.firstIndex(of: idx) {
-                    self.userData.workdays.remove(at: index)
-                  }
-                } else {
-                  self.userData.workdays.append(idx)
-                }
-                
-                let sorted = self.userData.workdays.sorted { $0 < $1 }
-                self.userData.workdays = sorted
-                
-                RealmService.shared.update(
-                  RealmService.shared.userInfo(),
-                  with: ["workdays": sorted]
-                )
             }
+          }
+        }
+        
+        Section(header: Text("주 근무 요일")) {
+          HStack {
+            ForEach(0 ..< self.days.count) { idx in
+              Spacer()
+              Text(self.days[idx])
+                .padding(8)
+                .background(self.userData.workdays.contains(idx) ? AppColor.orange: Color.gray)
+                .foregroundColor(.white)
+                .cornerRadius(6)
+                .onTapGesture {
+                  
+                  if self.userData.workdays.contains(idx) {
+                    if let index = self.userData.workdays.firstIndex(of: idx) {
+                      self.userData.workdays.remove(at: index)
+                    }
+                  } else {
+                    self.userData.workdays.append(idx)
+                  }
+                  
+                  let sorted = self.userData.workdays.sorted { $0 < $1 }
+                  self.userData.workdays = sorted
+                  
+                  RealmService.shared.update(
+                    RealmService.shared.userInfo,
+                    with: ["workdays": sorted]
+                  )
+              }
+              Spacer()
+            }
+          }
+        }
+        
+        Section(header: Text("기타")) {
+          HStack {
+            Text("버전")
             Spacer()
+            Text(isUpdateAvailable() ? "🚀 업데이트 하러가기": "\(clientVersion)(최신버전)")
+              .foregroundColor(isUpdateAvailable() ? Color.primary: Color.secondary)
+          }.onTapGesture {
+            if self.isUpdateAvailable() {
+              let urlStr = "https://itunes.apple.com/app/id1484457501"
+              guard let url = URL(string: urlStr) else { return }
+              UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
           }
-        }
-      }
-      
-      Section(header: Text("기타")) {
-        HStack {
-          Text("버전")
-          Spacer()
-          Text(isUpdateAvailable() ? "🚀 업데이트 하러가기": "\(clientVersion)(최신버전)")
-            .foregroundColor(isUpdateAvailable() ? Color.primary: Color.secondary)
-        }.onTapGesture {
-          if self.isUpdateAvailable() {
-            let urlStr = "https://itunes.apple.com/app/id1484457501"
-            guard let url = URL(string: urlStr) else { return }
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-          }
-        }
-        
-        NavigationLink(destination: OpensourceView()) {
-          Text("오픈소스")
-        }
-        
-        HStack {
-          Text("개발자")
-          Spacer()
-          Text("github.com/macaronpark").foregroundColor(.gray)
           
-        }.onTapGesture {
-          if let url = URL(string: "https://github.com/macaronpark") {
-            UIApplication.shared.open(url)
+          NavigationLink(destination: OpensourceView()) {
+            Text("오픈소스")
+          }
+          
+          HStack {
+            Text("개발자")
+            Spacer()
+            Text("github.com/macaronpark").foregroundColor(.gray)
+          }.onTapGesture {
+            if let url = URL(string: "https://github.com/macaronpark") {
+              UIApplication.shared.open(url)
+            }
           }
         }
-      }
-    }.navigationBarTitle(Text("설정"))
+      }.navigationBarTitle(Text("설정"), displayMode: .inline)
+    }
   }
   
   
@@ -115,7 +112,6 @@ struct SettingView: View {
     }
     return !(clientVersion == appStoreVersion) ? true : false
   }
-  
 }
 
 #if DEBUG
