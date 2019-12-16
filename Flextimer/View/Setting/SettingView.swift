@@ -12,11 +12,29 @@ import Combine
 import RealmSwift
 
 struct SettingView: View {
+  
   @EnvironmentObject var userData: UserData
+  
+  let hours = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
   let days = ["월", "화", "수", "목", "금", "토", "일"]
-
+  
   var body: some View {
     Form {
+      Section(header: Text("일일 근무 시간")) {
+        Picker(selection: $userData.workingHours, label: Text("")) {
+          ForEach(0 ..< hours.count) {
+              Text(self.hours[$0])
+          }
+        }.onReceive([self.userData.workingHours].publisher.last()) { value in
+          let workHour = value + 1
+
+          RealmService.shared.update(
+            RealmService.shared.userInfo(),
+            with: ["workingHours": workHour]
+          )
+        }
+      }
+      
       Section(header: Text("주 근무 요일")) {
         HStack {
           ForEach(0 ..< days.count) { idx in
@@ -27,7 +45,7 @@ struct SettingView: View {
               .foregroundColor(.white)
               .cornerRadius(6)
               .onTapGesture {
-
+                
                 if self.userData.workdays.contains(idx) {
                   if let index = self.userData.workdays.firstIndex(of: idx) {
                     self.userData.workdays.remove(at: index)
@@ -35,10 +53,10 @@ struct SettingView: View {
                 } else {
                   self.userData.workdays.append(idx)
                 }
-
+                
                 let sorted = self.userData.workdays.sorted { $0 < $1 }
                 self.userData.workdays = sorted
-
+                
                 RealmService.shared.update(
                   RealmService.shared.userInfo(),
                   with: ["workdays": sorted]
@@ -48,57 +66,56 @@ struct SettingView: View {
           }
         }
       }
-        
-    Section(header: Text("기타")) {
-        
+      
+      Section(header: Text("기타")) {
         HStack {
-            Text("버전")
-            Spacer()
-            Text(isUpdateAvailable() ? "🚀 업데이트 하러가기": "\(clientVersion)(최신버전)")
-                .foregroundColor(isUpdateAvailable() ? Color.primary: Color.secondary)
+          Text("버전")
+          Spacer()
+          Text(isUpdateAvailable() ? "🚀 업데이트 하러가기": "\(clientVersion)(최신버전)")
+            .foregroundColor(isUpdateAvailable() ? Color.primary: Color.secondary)
         }.onTapGesture {
-            if self.isUpdateAvailable() {
-                let urlStr = "https://itunes.apple.com/app/id1484457501"
-                guard let url = URL(string: urlStr) else { return }
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            }
+          if self.isUpdateAvailable() {
+            let urlStr = "https://itunes.apple.com/app/id1484457501"
+            guard let url = URL(string: urlStr) else { return }
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+          }
         }
         
         NavigationLink(destination: OpensourceView()) {
-            Text("오픈소스")
+          Text("오픈소스")
         }
         
         HStack {
-            Text("개발자")
-            Spacer()
-            Text("github.com/macaronpark").foregroundColor(.gray)
-            
+          Text("개발자")
+          Spacer()
+          Text("github.com/macaronpark").foregroundColor(.gray)
+          
         }.onTapGesture {
-                if let url = URL(string: "https://github.com/macaronpark") {
-                    UIApplication.shared.open(url)
-                }
-            }
+          if let url = URL(string: "https://github.com/macaronpark") {
+            UIApplication.shared.open(url)
+          }
         }
+      }
     }.navigationBarTitle(Text("설정"))
   }
-    
-    
-    var clientVersion: String {
-        return Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+  
+  
+  var clientVersion: String {
+    return Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+  }
+  
+  func isUpdateAvailable() -> Bool {
+    // todo: 앱 스토어 번들 ID 필요
+    guard let url = URL(string: "http://itunes.apple.com/lookup?bundleId=모이고하스피톨번들ID"),
+      let data = try? Data(contentsOf: url),
+      let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any],
+      let results = json["results"] as? [[String: Any]], results.count > 0,
+      let appStoreVersion = results[0]["version"] as? String else {
+        return false
     }
-    
-    func isUpdateAvailable() -> Bool {
-        // todo: 앱 스토어 번들 ID 필요
-        guard let url = URL(string: "http://itunes.apple.com/lookup?bundleId=모이고하스피톨번들ID"),
-            let data = try? Data(contentsOf: url),
-            let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any],
-            let results = json["results"] as? [[String: Any]], results.count > 0,
-            let appStoreVersion = results[0]["version"] as? String else {
-                return false
-        }
-        return !(clientVersion == appStoreVersion) ? true : false
-    }
-    
+    return !(clientVersion == appStoreVersion) ? true : false
+  }
+  
 }
 
 #if DEBUG

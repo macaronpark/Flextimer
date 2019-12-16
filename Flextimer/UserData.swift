@@ -14,7 +14,7 @@ final class UserData: ObservableObject {
   /// 일주일 중 일하는 요일
   @Published var workdays: [Int] = RealmService.shared.userInfo().workdays.compactMap { Int($0) }
   /// 하루에 일하는 시간
-  @Published var workingHours: Int = 9
+  @Published var workingHours: Int = RealmService.shared.userInfo().workingHours - 1
     
   /// 현재 근무 중 인지
   @Published var isWorking: Bool = false
@@ -34,12 +34,12 @@ final class UserData: ObservableObject {
   var estimatedCallOutTime: String {
     let callOutDate = Calendar.current.date(
       byAdding: .hour,
-      value: +self.workingHours,
+      value: +self.workingHours + 1,
       to: self.startDate ?? Date()
       ) ?? Date()
     return Formatter.shm.string(from: callOutDate)
   }
-  
+
   init() {
     // 현재 근무 중 인지 판단
     self.isWorking = RealmService.shared.isWorking()

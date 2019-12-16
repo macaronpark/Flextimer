@@ -16,11 +16,11 @@ struct CreteriaView: View {
   var body: some View {
     HStack {
       HStack {
-        Text("일 \(userData.workingHours)시간")
+        Text("일 \(userData.workingHours + 1)시간")
         Text("・")
         Text("주 \(userData.workdays.count)일")
         Text("・")
-        Text("\(userData.workdays.count * userData.workingHours)시간 기준")
+        Text("\(userData.workdays.count * (userData.workingHours + 1))시간 기준")
       }
       .font(.footnote)
       .foregroundColor(Color.gray)

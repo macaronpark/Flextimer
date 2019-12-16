@@ -40,7 +40,7 @@ struct TimerView: View {
       self.userData.ingTimeInterval = interval
       self.currentTime = interval.toString(.total)
       // 남은 근무 시간(픽스 근무 시간 - 총 근무 시간) 업데이트
-      let workingHoursInterval = self.userData.workingHours.toRoundedTimeInterval()
+      let workingHoursInterval = (self.userData.workingHours + 1).toRoundedTimeInterval()
       let remainInterval = workingHoursInterval - interval
         
         if remainInterval.isLess(than: 0.0) {
