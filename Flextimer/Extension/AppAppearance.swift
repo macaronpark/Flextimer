@@ -12,6 +12,10 @@ import UIKit
 extension AppDelegate {
 
   func appAppearanceCofigure() {
-    UINavigationBar.appearance().tintColor = AppColor.uiOrange
+    UINavigationBar.appearance().tintColor = Color.immutableOrange
+    
+    UITabBar.appearance().barTintColor = Color.systemBackground
+    UITabBar.appearance().tintColor = Color.immutableOrange
+    UITabBar.appearance().isTranslucent = false
   }
 }

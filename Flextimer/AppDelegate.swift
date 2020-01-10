@@ -12,31 +12,40 @@ import RealmSwift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   
+  var window: UIWindow?
+  
   func application(
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
-    self.appAppearanceCofigure()
     
-    let fileURL = FileManager.default
-    .containerURL(forSecurityApplicationGroupIdentifier: "group.suzypark.Flextimer")!
-    .appendingPathComponent("shared.realm")
-    Realm.Configuration.defaultConfiguration = Realm.Configuration(fileURL: fileURL)
+    window = UIWindow(frame: UIScreen.main.bounds)
+    window?.rootViewController = TabBarController()
+    window?.makeKeyAndVisible()
+    
+    self.appAppearanceCofigure()
+    self.initializeRealm()
+    
+    //    let fileURL = FileManager.default
+    //    .containerURL(forSecurityApplicationGroupIdentifier: "group.suzypark.Flextimer")!
+    //    .appendingPathComponent("shared.realm")
+    //    Realm.Configuration.defaultConfiguration = Realm.Configuration(fileURL: fileURL)
     
     return true
   }
   
-  // MARK: UISceneSession Lifecycle
-  
-  func application(
-    _ application: UIApplication,
-    configurationForConnecting connectingSceneSession: UISceneSession,
-    options: UIScene.ConnectionOptions
-  ) -> UISceneConfiguration {
-
-    return UISceneConfiguration(
-      name: "Default Configuration",
-      sessionRole: connectingSceneSession.role
+  private func initializeRealm() {
+    let config = Realm.Configuration(
+      fileURL: Realm.Configuration.defaultConfiguration.fileURL!,
+      deleteRealmIfMigrationNeeded: true
     )
+    
+    let realm = try! Realm(configuration: config)
+    
+    guard realm.isEmpty else { return }
+    print("ddd")
+//    try! realm.write {
+//      realm.add(DepartmentLibrary())
+//    }
   }
 }
