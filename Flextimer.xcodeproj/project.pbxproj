@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,7 +15,6 @@
 		1C445C81235930D10043A978 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C445C80235930D10043A978 /* UIButton.swift */; };
 		A0D57989D9DEFACD49EE16D6 /* Pods_Flextimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4430D25C294FC2114B53953B /* Pods_Flextimer.framework */; };
 		B14170AB58BA09784447F94E /* Pods_Flextimer_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B058166C14D1321615F8A5 /* Pods_Flextimer_Widget.framework */; };
-		BF01F85323C9B04A00CCF577 /* Siren in Frameworks */ = {isa = PBXBuildFile; productRef = BF01F85223C9B04A00CCF577 /* Siren */; };
 		BF28A0D82358A177004654AA /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28A0D72358A177004654AA /* Delegate.swift */; };
 		BF40806923658C5700547A3A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40806823658C5700547A3A /* UserInfo.swift */; };
 		BF40806B23658D4400547A3A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40806823658C5700547A3A /* UserInfo.swift */; };
@@ -51,6 +50,8 @@
 		BFAC857723C8C75100C1663F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC857623C8C75100C1663F /* BaseViewController.swift */; };
 		BFAC857923C8C79D00C1663F /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC857823C8C79D00C1663F /* HistoryViewController.swift */; };
 		BFAC857B23C8C85400C1663F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC857A23C8C85400C1663F /* Logger.swift */; };
+		BFBCA15023C9C53300FC6774 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCA14F23C9C53300FC6774 /* SceneDelegate.swift */; };
+		BFBCA15223C9CEEE00FC6774 /* SettingURLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCA15123C9CEEE00FC6774 /* SettingURLModel.swift */; };
 		BFDA4AE3234CB5E700A7211C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDA4AE2234CB5E700A7211C /* UserData.swift */; };
 		BFDED1562358A9A9003AFA67 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDED1552358A9A9003AFA67 /* Int.swift */; };
 		BFDED1582358AC1A003AFA67 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDED1572358AC1A003AFA67 /* UIColor.swift */; };
@@ -150,6 +151,8 @@
 		BFAC857623C8C75100C1663F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		BFAC857823C8C79D00C1663F /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		BFAC857A23C8C85400C1663F /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		BFBCA14F23C9C53300FC6774 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BFBCA15123C9CEEE00FC6774 /* SettingURLModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingURLModel.swift; sourceTree = "<group>"; };
 		BFDA4AE2234CB5E700A7211C /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		BFDED1552358A9A9003AFA67 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		BFDED1572358AC1A003AFA67 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -190,7 +193,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF01F85323C9B04A00CCF577 /* Siren in Frameworks */,
 				A0D57989D9DEFACD49EE16D6 /* Pods_Flextimer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,6 +382,7 @@
 			children = (
 				BF7E987523C8F38E002E722D /* SettingCellModel.swift */,
 				BF7E987F23C8F4CA002E722D /* SettingViewModel.swift */,
+				BFBCA15123C9CEEE00FC6774 /* SettingURLModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 			children = (
 				BFDED1722358BCCF003AFA67 /* Flextimer.entitlements */,
 				BFF96FD923464A66002F5802 /* AppDelegate.swift */,
+				BFBCA14F23C9C53300FC6774 /* SceneDelegate.swift */,
 				BFDA4AE2234CB5E700A7211C /* UserData.swift */,
 				1C1AEB44234B6EA600FFB348 /* Realm */,
 				BFAC857023C8BF7700C1663F /* Presentation */,
@@ -526,7 +530,6 @@
 			);
 			name = Flextimer;
 			packageProductDependencies = (
-				BF01F85223C9B04A00CCF577 /* Siren */,
 			);
 			productName = Flextimer;
 			productReference = BFF96FD623464A66002F5802 /* Flextimer.app */;
@@ -560,7 +563,6 @@
 			);
 			mainGroup = BFF96FCD23464A66002F5802;
 			packageReferences = (
-				BF01F85123C9B04A00CCF577 /* XCRemoteSwiftPackageReference "Siren" */,
 			);
 			productRefGroup = BFF96FD723464A66002F5802 /* Products */;
 			projectDirPath = "";
@@ -686,6 +688,7 @@
 				BFAC857B23C8C85400C1663F /* Logger.swift in Sources */,
 				BF44450823C8D5DC00286305 /* TodayOptionView.swift in Sources */,
 				BF65DD3023C985F600B3EA0B /* DayNameButton.swift in Sources */,
+				BFBCA15023C9C53300FC6774 /* SceneDelegate.swift in Sources */,
 				BF44450A23C8D67800286305 /* Font.swift in Sources */,
 				BFDED15A2358AD21003AFA67 /* ScreenSize.swift in Sources */,
 				BF7E986623C8E8A1002E722D /* BaseTableViewCell.swift in Sources */,
@@ -696,6 +699,7 @@
 				BF44450C23C8D8FC00286305 /* TodayButtonsView.swift in Sources */,
 				BF65DD3223C9A21900B3EA0B /* Setting_StackView.swift in Sources */,
 				1C1AEB41234B572600FFB348 /* WorkRecord.swift in Sources */,
+				BFBCA15223C9CEEE00FC6774 /* SettingURLModel.swift in Sources */,
 				BF7E987D23C8F494002E722D /* SettingCell.swift in Sources */,
 				BF7E987623C8F38E002E722D /* SettingCellModel.swift in Sources */,
 				BF44451123C8DF2900286305 /* TodayView.swift in Sources */,
@@ -762,7 +766,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9F5AFA222ABA8F6BE2CE3595 /* Pods-Flextimer-Widget.debug.xcconfig */;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -788,7 +792,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C46A467080250DEDD0884778 /* Pods-Flextimer-Widget.release.xcconfig */;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -930,13 +934,14 @@
 			baseConfigurationReference = DF2392A6C1922842F5BEC072 /* Pods-Flextimer.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Flextimer/Flextimer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 64NX5H9B23;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Flextimer/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -957,6 +962,7 @@
 			baseConfigurationReference = 87F7E2D88B8929A88AA77E76 /* Pods-Flextimer.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Flextimer/Flextimer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -964,7 +970,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 64NX5H9B23;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Flextimer/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1011,25 +1017,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		BF01F85123C9B04A00CCF577 /* XCRemoteSwiftPackageReference "Siren" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ArtSabintsev/Siren";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.2.3;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		BF01F85223C9B04A00CCF577 /* Siren */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BF01F85123C9B04A00CCF577 /* XCRemoteSwiftPackageReference "Siren" */;
-			productName = Siren;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BFF96FCE23464A66002F5802 /* Project object */;
 }

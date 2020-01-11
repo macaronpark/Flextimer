@@ -15,25 +15,8 @@ extension SettingViewController: UITableViewDelegate {
     didSelectRowAt
     indexPath: IndexPath)
   {
-
-    switch (indexPath.section, indexPath.row) {
-    case (2, 0):
-        if let url = URL(string: "https://itunes.apple.com/app/id1484457501") {
-          UIApplication.shared.open(url)
-      }
-      
-    case (2, 1):
-      if let url = URL(string: "https://github.com/macaronpark") {
-        UIApplication.shared.open(url)
-      }
-      
-    case (2, 2):
-      if let url = URL(string: "https://www.notion.so/Opensources-5f23792b38334a17b6795a00dc20de7b") {
-        UIApplication.shared.open(url)
-      }
-      
-    default:
-      break
+    if let url = SettingURLModel(indexPath).url {
+      UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
   }
 }

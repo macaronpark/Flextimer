@@ -8,24 +8,35 @@
 
 import Foundation
 import UIKit
+//import Siren
+import RealmSwift
 
-import Siren
-
-extension AppDelegate {
+extension SceneDelegate {
+  
+//  func setupSiren() {
+//    let siren = Siren.shared
+//    siren.wail()
+//    siren.presentationManager = PresentationManager(forceLanguageLocalization: .korean)
+//    siren.presentationManager = PresentationManager(alertTintColor: Color.immutableOrange, appName: "자율출퇴근러")
+//    siren.rulesManager = RulesManager(globalRules: .critical)
+//  }
+  
+  func initializeRealm() {
+    let config = Realm.Configuration(
+      fileURL: Realm.Configuration.defaultConfiguration.fileURL!,
+      deleteRealmIfMigrationNeeded: true
+    )
+    
+    let realm = try! Realm(configuration: config)
+    guard realm.isEmpty else { return }
+    
+    Logger.complete("Realm has been configured")
+    //    try! realm.write {
+    //      realm.add(DepartmentLibrary())
+    //    }
+  }
 
   func appAppearanceCofigure() {
     UINavigationBar.appearance().tintColor = Color.immutableOrange
-    
-    UITabBar.appearance().barTintColor = Color.systemBackground
-    UITabBar.appearance().tintColor = Color.immutableOrange
-    UITabBar.appearance().isTranslucent = false
-  }
-  
-  func setupSiren() {
-    let siren = Siren.shared
-    siren.wail()
-    siren.presentationManager = PresentationManager(forceLanguageLocalization: .korean)
-    siren.presentationManager = PresentationManager(alertTintColor: Color.immutableOrange, appName: "자율출퇴근러")
-    siren.rulesManager = RulesManager(globalRules: .annoying)
   }
 }
