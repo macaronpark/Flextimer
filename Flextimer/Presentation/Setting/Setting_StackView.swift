@@ -11,27 +11,44 @@ import UIKit
 extension SettingViewController {
   
   func bindStackViewButtons() {
-    if let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? SettingDayNameCell {
+    let indexPath = IndexPath(row: 0, section: 1)
+    if let cell = self.tableView.cellForRow(at: indexPath) as? SettingDayNameCell {
       
-      let mondayButton = cell.mon
-      let tuesdayButton = cell.tue
-      let wednesButton = cell.wed
-      let thursdayButton = cell.thu
-      let fridayButton = cell.fri
-      let saturdayButton = cell.sat
-      let sundayButton = cell.sun
+      let monButton = cell.buttons[0]
+      let tueButton = cell.buttons[1]
+      let wedButton = cell.buttons[2]
+      let thuButton = cell.buttons[3]
+      let friButton = cell.buttons[4]
+      let satButton = cell.buttons[5]
+      let sunButton = cell.buttons[6]
       
-      mondayButton.rx.tap.bind(onNext: {
-        mondayButton.selectedUpdate()
-        print(mondayButton.isSelected)
-      }).disposed(by: self.disposeBag)
+      monButton.rx.tap
+        .bind(onNext: { monButton.toggle() })
+        .disposed(by: self.disposeBag)
       
-      tuesdayButton.rx.tap.bind(onNext: { tuesdayButton.selectedUpdate() }).disposed(by: self.disposeBag)
-      wednesButton.rx.tap.bind(onNext: { wednesButton.selectedUpdate() }).disposed(by: self.disposeBag)
-      thursdayButton.rx.tap.bind(onNext: { thursdayButton.selectedUpdate() }).disposed(by: self.disposeBag)
-      fridayButton.rx.tap.bind(onNext: { fridayButton.selectedUpdate() }).disposed(by: self.disposeBag)
-      saturdayButton.rx.tap.bind(onNext: { saturdayButton.selectedUpdate() }).disposed(by: self.disposeBag)
-      sundayButton.rx.tap.bind(onNext: { sundayButton.selectedUpdate() }).disposed(by: self.disposeBag)
+      tueButton.rx.tap
+      .bind(onNext: { tueButton.toggle() })
+      .disposed(by: self.disposeBag)
+      
+      wedButton.rx.tap
+      .bind(onNext: { wedButton.toggle() })
+      .disposed(by: self.disposeBag)
+      
+      thuButton.rx.tap
+      .bind(onNext: { thuButton.toggle() })
+      .disposed(by: self.disposeBag)
+      
+      friButton.rx.tap
+      .bind(onNext: { friButton.toggle() })
+      .disposed(by: self.disposeBag)
+      
+      satButton.rx.tap
+      .bind(onNext: { satButton.toggle() })
+      .disposed(by: self.disposeBag)
+      
+      sunButton.rx.tap
+      .bind(onNext: { sunButton.toggle() })
+      .disposed(by: self.disposeBag)
     }
   }
 }

@@ -8,10 +8,15 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
+
 class DayNameButton: UIButton {
   
-  init(_ title: String) {
+  init(_ title: String, idx: Int) {
     super.init(frame: .zero)
+    self.tag = idx
+    self.isSelected = RealmService.shared.userInfo.workdaysPerWeekIdxs.contains(idx)
     self.setBackgroundColor(color: Color.immutableOrange, forState: .selected)
     self.setBackgroundColor(color: Color.immutableLightGray, forState: .normal)
     self.setTitle(title, for: .normal)
@@ -26,7 +31,26 @@ class DayNameButton: UIButton {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func selectedUpdate() {
+  func toggle() {
     self.isSelected = !isSelected
+    updateRealm(self.tag)
+  }
+  
+  fileprivate func updateRealm(_ idx: Int) {
+    var workdaysPerWeekIdxs = [Int](RealmService.shared.userInfo.workdaysPerWeekIdxs)
+    
+    if workdaysPerWeekIdxs.contains(idx) {
+      if let idx = workdaysPerWeekIdxs.firstIndex(of: idx) {
+        workdaysPerWeekIdxs.remove(at: idx)
+      }
+    } else {
+      workdaysPerWeekIdxs.append(idx)
+    }
+    
+    let updateIdxs = workdaysPerWeekIdxs.sorted { $0 < $1 }
+    RealmService.shared.update(
+      RealmService.shared.userInfo,
+      with: ["workdaysPerWeekIdxs": updateIdxs]
+    )
   }
 }
