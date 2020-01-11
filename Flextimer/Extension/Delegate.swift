@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+import Siren
+
 extension AppDelegate {
 
   func appAppearanceCofigure() {
@@ -17,5 +19,13 @@ extension AppDelegate {
     UITabBar.appearance().barTintColor = Color.systemBackground
     UITabBar.appearance().tintColor = Color.immutableOrange
     UITabBar.appearance().isTranslucent = false
+  }
+  
+  func setupSiren() {
+    let siren = Siren.shared
+    siren.wail()
+    siren.presentationManager = PresentationManager(forceLanguageLocalization: .korean)
+    siren.presentationManager = PresentationManager(alertTintColor: Color.immutableOrange, appName: "자율출퇴근러")
+    siren.rulesManager = RulesManager(globalRules: .annoying)
   }
 }

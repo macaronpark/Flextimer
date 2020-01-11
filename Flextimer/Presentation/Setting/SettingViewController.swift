@@ -10,16 +10,15 @@ import UIKit
 
 class SettingViewController: BaseViewController {
   
-  let viewModel = SettingViewModel()
-  
-  lazy var closeBarButton = UIBarButtonItem(barButtonSystemItem: .close, target: nil, action: nil)
+  lazy var viewModel = SettingViewModel()
+  let closeBarButton = UIBarButtonItem(barButtonSystemItem: .close, target: nil, action: nil)
   
   lazy var tableView = UITableView(frame: .zero, style: .grouped).then {
     $0.delegate = self
     $0.dataSource = self
     $0.backgroundColor = .clear
-    $0.register(SettingBasicCell.self)
-    $0.register(SettingLabelCell.self)
+    $0.register(SettingDayNameCell.self)
+    $0.register(SettingCell.self)
   }
   
   override func setupConstraints() {
@@ -30,6 +29,12 @@ class SettingViewController: BaseViewController {
       $0.top.equalToSuperview()
       $0.leading.trailing.bottom.equalToSuperview()
     }
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    self.bindStackViewButtons()
   }
   
   override func setupNaviBar() {
@@ -46,5 +51,4 @@ class SettingViewController: BaseViewController {
       .bind { self.dismiss(animated: true, completion: nil) }
       .disposed(by: self.disposeBag)
   }
-  
 }

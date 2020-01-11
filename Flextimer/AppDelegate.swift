@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import Siren
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window = UIWindow(frame: UIScreen.main.bounds)
     window?.rootViewController = TabBarController()
     window?.makeKeyAndVisible()
+    
+    self.setupSiren()
     
     self.appAppearanceCofigure()
     self.initializeRealm()
@@ -43,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let realm = try! Realm(configuration: config)
     
     guard realm.isEmpty else { return }
-    print("ddd")
+    Logger.complete("Realm has been configured")
 //    try! realm.write {
 //      realm.add(DepartmentLibrary())
 //    }

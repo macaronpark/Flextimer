@@ -13,11 +13,11 @@ import RxSwift
 
 class TodayViewController: BaseViewController {
   
-  lazy var settingBarButton = UIBarButtonItem(
+  let settingBarButton = UIBarButtonItem(
     image: UIImage(named: "navi_setting")?.withRenderingMode(.alwaysOriginal),
     style: .plain,
     target: nil,
-    action:nil
+    action: nil
   )
   
   let todayView = TodayView()
@@ -50,8 +50,9 @@ class TodayViewController: BaseViewController {
     
     self.settingBarButton.rx.tap
       .map { UINavigationController(rootViewController: SettingViewController()) }
-      .bind { self.present($0, animated: true, completion: nil) }
-      .disposed(by: self.disposeBag)
+      .bind { [weak self] in
+        self?.navigationController?.present($0, animated: true, completion: nil)
+    }
+    .disposed(by: self.disposeBag)
   }
-  
 }

@@ -15,12 +15,26 @@ extension SettingViewController: UITableViewDelegate {
     didSelectRowAt
     indexPath: IndexPath)
   {
-    guard let nvc = self.navigationController,
-      let action = self.viewModel.sections[indexPath.section].rows[indexPath.row].action else {
-        return
+
+    switch (indexPath.section, indexPath.row) {
+    case (2, 0):
+        if let url = URL(string: "https://itunes.apple.com/app/id1484457501") {
+          UIApplication.shared.open(url)
+      }
+      
+    case (2, 1):
+      if let url = URL(string: "https://github.com/macaronpark") {
+        UIApplication.shared.open(url)
+      }
+      
+    case (2, 2):
+      if let url = URL(string: "https://www.notion.so/Opensources-5f23792b38334a17b6795a00dc20de7b") {
+        UIApplication.shared.open(url)
+      }
+      
+    default:
+      break
     }
-    
-    action(nvc)
   }
 }
 
@@ -35,7 +49,8 @@ extension SettingViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return self.viewModel.sections[section].title
+    let title = ["일일 근무 시간", "주간 근무 요일", "기타"]
+    return title[section]
   }
   
   func tableView(
@@ -43,7 +58,7 @@ extension SettingViewController: UITableViewDataSource {
     numberOfRowsInSection
     section: Int
   ) -> Int {
-    return self.viewModel.sections[section].rows.count
+    return self.viewModel.sections[section].count
   }
   
   func tableView(
@@ -51,24 +66,13 @@ extension SettingViewController: UITableViewDataSource {
     cellForRowAt
     indexPath: IndexPath) -> UITableViewCell
   {
-    let row = self.viewModel.sections[indexPath.section].rows[indexPath.row]
-    
-    switch row.component {
-    case .indicator:
-      let cell = tableView.dequeueCell(ofType: SettingBasicCell.self, indexPath: indexPath)
-      cell.accessoryType = .disclosureIndicator
-      cell.updateUI(row)
-      return cell
-      
-    case .label:
-      let cell = tableView.dequeueCell(ofType: SettingLabelCell.self, indexPath: indexPath)
-      cell.updateUI(row)
-      return cell
-      
-    case .none:
-      let cell = tableView.dequeueCell(ofType: SettingBasicCell.self, indexPath: indexPath)
-      cell.updateUI(row)
+    if (indexPath.section == 1) {
+      let cell = tableView.dequeueCell(ofType: SettingDayNameCell.self, indexPath: indexPath)
       return cell
     }
+    
+    let cell = tableView.dequeueCell(ofType: SettingCell.self, indexPath: indexPath)
+    cell.updateUI(self.viewModel.sections[indexPath.section][indexPath.row])
+    return cell
   }
 }
