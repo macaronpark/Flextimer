@@ -14,8 +14,11 @@ class TabBarController: UITabBarController{
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    let userInfo = RealmService.shared.userInfo
+    let todayViewModel = TodayViewModel(userInfo)
+    
     self.setupAppearance()
-    let todayVC = TodayViewController()
+    let todayVC = TodayViewController(todayViewModel)
     let todayNVC = UINavigationController(rootViewController: todayVC)
     todayNVC.tabBarItem = UITabBarItem(title: "오늘의 근태", image: UIImage(named: "tab_today"), tag: 0)
     

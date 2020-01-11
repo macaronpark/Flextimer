@@ -10,13 +10,19 @@ import UIKit
 
 import SnapKit
 import Then
+import RxSwift
+import RxCocoa
 
 class TodayOptionView: UIView {
   
-  let workhoursPerDayLabel = UILabel().then {
+  let hourOfworkhoursPerDayLabel = UILabel().then {
     $0.font = Font.REGURAL_14
     $0.textColor = Color.grayText
-    $0.text = "일 9시간 30분"
+  }
+  
+  let minuteOfworkhoursPerDayLabel = UILabel().then {
+    $0.font = Font.REGURAL_14
+    $0.textColor = Color.grayText
   }
   
   let firstSeparatorLabel = UILabel().then {
@@ -28,7 +34,6 @@ class TodayOptionView: UIView {
   let workdaysPerWeekLabel = UILabel().then {
     $0.font = Font.REGURAL_14
     $0.textColor = Color.grayText
-    $0.text = "주 5일"
   }
   
   let secondSeparatorLabel = UILabel().then {
@@ -40,35 +45,39 @@ class TodayOptionView: UIView {
   let totalWorkhoursPerWeekLabel = UILabel().then {
     $0.font = Font.REGURAL_14
     $0.textColor = Color.grayText
-    $0.text = "45시간 기준"
   }
   
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    self.addSubview(self.workhoursPerDayLabel)
+    self.addSubview(self.hourOfworkhoursPerDayLabel)
+    self.addSubview(self.minuteOfworkhoursPerDayLabel)
     self.addSubview(self.firstSeparatorLabel)
     self.addSubview(self.workdaysPerWeekLabel)
     self.addSubview(self.secondSeparatorLabel)
     self.addSubview(self.totalWorkhoursPerWeekLabel)
     
-    self.workhoursPerDayLabel.snp.makeConstraints {
+    self.hourOfworkhoursPerDayLabel.snp.makeConstraints {
       $0.top.leading.bottom.equalToSuperview()
     }
+    self.minuteOfworkhoursPerDayLabel.snp.makeConstraints {
+      $0.top.equalTo(self.hourOfworkhoursPerDayLabel)
+      $0.leading.equalTo(self.hourOfworkhoursPerDayLabel.snp.trailing)
+    }
     self.firstSeparatorLabel.snp.makeConstraints {
-      $0.top.equalTo(self.workhoursPerDayLabel)
-      $0.leading.equalTo(self.workhoursPerDayLabel.snp.trailing)
+      $0.top.equalTo(self.hourOfworkhoursPerDayLabel)
+      $0.leading.equalTo(self.minuteOfworkhoursPerDayLabel.snp.trailing)
     }
     self.workdaysPerWeekLabel.snp.makeConstraints {
-      $0.top.equalTo(self.workhoursPerDayLabel)
+      $0.top.equalTo(self.hourOfworkhoursPerDayLabel)
       $0.leading.equalTo(self.firstSeparatorLabel.snp.trailing)
     }
     self.secondSeparatorLabel.snp.makeConstraints {
-      $0.top.equalTo(self.workhoursPerDayLabel)
+      $0.top.equalTo(self.hourOfworkhoursPerDayLabel)
       $0.leading.equalTo(self.workdaysPerWeekLabel.snp.trailing)
     }
     self.totalWorkhoursPerWeekLabel.snp.makeConstraints {
-      $0.top.equalTo(self.workhoursPerDayLabel)
+      $0.top.equalTo(self.hourOfworkhoursPerDayLabel)
       $0.leading.equalTo(self.secondSeparatorLabel.snp.trailing)
       $0.trailing.greaterThanOrEqualTo(self)
     }
@@ -78,4 +87,21 @@ class TodayOptionView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
+//  func updateUI(_ viewModel: TodayViewModel) {
+//    self.hourOfworkhoursPerDayLabel.text = viewModel.hourOfWorkhoursADay
+//    self.minuteOfworkhoursPerDayLabel.text = viewModel.minuteOfWorkhoursADay
+//    self.workdaysPerWeekLabel.text = viewModel.numberOfWorkdaysAWeek
+//    self.totalWorkhoursPerWeekLabel.text = viewModel.totalWorkhours
+//  }
+}
+
+extension Reactive where Base: TodayOptionView {
+  var viewModel: Binder<TodayViewModel> {
+    return Binder(self.base) { base, viewModel in
+      base.hourOfworkhoursPerDayLabel.text = viewModel.hourOfWorkhoursADay
+      base.minuteOfworkhoursPerDayLabel.text = viewModel.minuteOfWorkhoursADay
+      base.workdaysPerWeekLabel.text = viewModel.numberOfWorkdaysAWeek
+      base.totalWorkhoursPerWeekLabel.text = viewModel.totalWorkhours
+    }
+  }
 }

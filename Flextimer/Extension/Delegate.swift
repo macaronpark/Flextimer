@@ -22,18 +22,28 @@ extension SceneDelegate {
 //  }
   
   func initializeRealm() {
-    let config = Realm.Configuration(
+        let config = Realm.Configuration(
       fileURL: Realm.Configuration.defaultConfiguration.fileURL!,
-      deleteRealmIfMigrationNeeded: true
-    )
+      schemaVersion: 0,
+      // Set the block which will be called automatically when opening a Realm with
+      // a schema version lower than the one set above
+      migrationBlock: { migration, oldSchemaVersion in
+        // We haven’t migrated anything yet, so oldSchemaVersion == 0
+        if (oldSchemaVersion < 0) {
+          // Nothing to do!
+          // Realm will automatically detect new properties and removed properties
+          // And will update the schema on disk automatically
+        }
+    })
     
-    let realm = try! Realm(configuration: config)
-    guard realm.isEmpty else { return }
+    do {
+      let _ = try Realm(configuration: config)
+      Logger.complete("Realm has been configured")
+    } catch let error as NSError {
+      Logger.debug(error.localizedDescription)
+    }
     
-    Logger.complete("Realm has been configured")
-    //    try! realm.write {
-    //      realm.add(DepartmentLibrary())
-    //    }
+    
   }
 
   func appAppearanceCofigure() {

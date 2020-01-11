@@ -6,21 +6,33 @@
 //  Copyright © 2019 Suzy Mararon Park. All rights reserved.
 //
 
-//import Foundation
-//import RealmSwift
-//
-//@objcMembers class UserInfo: Object {
-//  
-//  // 일주일 중 근무하는 요일 (월: 0, 화: 1...)
-//  let workdays = List<Int>()
-//  
-//  // 일일 근무 시간
-//  @objc dynamic var workingHours: Int = 9
-//  
-//  convenience init(_ workdays: [Int], workingHours: Int) {
-//    self.init()
-//    
-//    self.workdays.append(objectsIn: workdays)
-//    self.workingHours = workingHours
-//  }
-//}
+import Foundation
+import RealmSwift
+
+/// - 주당 근무 요일 인덱스, 일일 근무 시간_hour/minute
+/// - primaryKey: 0로 단일 객체 유지
+@objcMembers class UserInfo: Object {
+  
+  dynamic var id = 0
+  
+  /// 주당 근무 요일 인덱스 (월: 0, 화: 1...)
+  let workdaysPerWeekIdxs = List<Int>()
+  
+  /// 일일 근무 시간_hour
+  @objc dynamic var hourOfWorkhoursADay: Int = 9
+  
+  /// 일일 근무 시간_minute
+  @objc dynamic var minuteOfWorkhoursADay: Int = 0
+  
+  override static func primaryKey() -> String? {
+      return "id"
+  }
+  
+  convenience init(_ workdaysPerWeekIdxs: [Int], hourOfWorkhoursADay: Int, minuteOfWorkhoursADay: Int) {
+    self.init()
+    
+    self.workdaysPerWeekIdxs.append(objectsIn: workdaysPerWeekIdxs)
+    self.hourOfWorkhoursADay = hourOfWorkhoursADay
+    self.minuteOfWorkhoursADay = minuteOfWorkhoursADay
+  }
+}

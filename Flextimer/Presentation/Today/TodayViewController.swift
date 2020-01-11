@@ -13,6 +13,9 @@ import RxSwift
 
 class TodayViewController: BaseViewController {
   
+  let todayView = TodayView()
+  var todayViewModel: TodayViewModel!
+  
   let settingBarButton = UIBarButtonItem(
     image: UIImage(named: "navi_setting")?.withRenderingMode(.alwaysOriginal),
     style: .plain,
@@ -20,21 +23,25 @@ class TodayViewController: BaseViewController {
     action: nil
   )
   
-  let todayView = TodayView()
+  
+  // MARK: - Init
+  
+  override init() {
+    super.init()
+  }
+  
+  convenience init(_ viewModel: TodayViewModel) {
+    self.init()
+    
+    self.todayViewModel = viewModel
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
   
   
   // MARK: - Lifecycles
-  
-  override func setupConstraints() {
-    super.setupConstraints()
-    
-    self.view.addSubview(self.todayView)
-    self.todayView.snp.makeConstraints {
-      $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
-      $0.leading.trailing.equalToSuperview()
-      $0.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
-    }
-  }
   
   override func setupNaviBar() {
     super.setupNaviBar()
@@ -46,6 +53,7 @@ class TodayViewController: BaseViewController {
   
   
   // MARK: - Bind
+  
   override func bind() {
     super.bind()
     
@@ -55,5 +63,21 @@ class TodayViewController: BaseViewController {
         self?.navigationController?.present($0, animated: true, completion: nil)
     }
     .disposed(by: self.disposeBag)
+  
+    self.todayView.optionView.rx.viewModel.onNext(self.todayViewModel)
+  }
+  
+  
+  // MARK: - Constraints
+  
+  override func setupConstraints() {
+    super.setupConstraints()
+    
+    self.view.addSubview(self.todayView)
+    self.todayView.snp.makeConstraints {
+      $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+      $0.leading.trailing.equalToSuperview()
+      $0.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+    }
   }
 }

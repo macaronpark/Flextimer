@@ -16,6 +16,8 @@
 		A0D57989D9DEFACD49EE16D6 /* Pods_Flextimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4430D25C294FC2114B53953B /* Pods_Flextimer.framework */; };
 		B14170AB58BA09784447F94E /* Pods_Flextimer_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B058166C14D1321615F8A5 /* Pods_Flextimer_Widget.framework */; };
 		BF28A0D82358A177004654AA /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28A0D72358A177004654AA /* Delegate.swift */; };
+		BF3D682023CA1BA4005F6055 /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D681F23CA1BA4005F6055 /* TodayViewModel.swift */; };
+		BF3D682223CA3265005F6055 /* FilterNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D682123CA3265005F6055 /* FilterNil.swift */; };
 		BF40806923658C5700547A3A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40806823658C5700547A3A /* UserInfo.swift */; };
 		BF40806B23658D4400547A3A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40806823658C5700547A3A /* UserInfo.swift */; };
 		BF44450823C8D5DC00286305 /* TodayOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44450723C8D5DC00286305 /* TodayOptionView.swift */; };
@@ -114,6 +116,8 @@
 		9F5AFA222ABA8F6BE2CE3595 /* Pods-Flextimer-Widget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flextimer-Widget.debug.xcconfig"; path = "Target Support Files/Pods-Flextimer-Widget/Pods-Flextimer-Widget.debug.xcconfig"; sourceTree = "<group>"; };
 		BF18D7E4234E1D1000FFB49F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		BF28A0D72358A177004654AA /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
+		BF3D681F23CA1BA4005F6055 /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
+		BF3D682123CA3265005F6055 /* FilterNil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterNil.swift; sourceTree = "<group>"; };
 		BF40806823658C5700547A3A /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		BF4129D2234DB78D00425149 /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		BF4129D4234DB8D900425149 /* RowListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowListView.swift; sourceTree = "<group>"; };
@@ -242,6 +246,7 @@
 				BFDED1552358A9A9003AFA67 /* Int.swift */,
 				BFAC857A23C8C85400C1663F /* Logger.swift */,
 				BF7E986923C8EA75002E722D /* UITableView.swift */,
+				BF3D682123CA3265005F6055 /* FilterNil.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -308,6 +313,7 @@
 		BF44450523C8D58700286305 /* Today */ = {
 			isa = PBXGroup;
 			children = (
+				BF3D681F23CA1BA4005F6055 /* TodayViewModel.swift */,
 				BF7E986423C8E864002E722D /* View */,
 				BFAC857323C8C71400C1663F /* TodayViewController.swift */,
 			);
@@ -702,6 +708,7 @@
 				BFBCA15223C9CEEE00FC6774 /* SettingURLModel.swift in Sources */,
 				BF7E987D23C8F494002E722D /* SettingCell.swift in Sources */,
 				BF7E987623C8F38E002E722D /* SettingCellModel.swift in Sources */,
+				BF3D682023CA1BA4005F6055 /* TodayViewModel.swift in Sources */,
 				BF44451123C8DF2900286305 /* TodayView.swift in Sources */,
 				BFAC857423C8C71400C1663F /* TodayViewController.swift in Sources */,
 				1C23D0B5234B0CAF000CB037 /* Date.swift in Sources */,
@@ -727,6 +734,7 @@
 				BF28A0D82358A177004654AA /* Delegate.swift in Sources */,
 				BF44451523C8DFA000286305 /* TodayListCellView.swift in Sources */,
 				BF7E986F23C8ECA4002E722D /* HistoryDateCheckView.swift in Sources */,
+				BF3D682223CA3265005F6055 /* FilterNil.swift in Sources */,
 				BF7E987423C8F1BE002E722D /* Setting_TableView.swift in Sources */,
 				BF7E986C23C8EAB2002E722D /* History_TableView.swift in Sources */,
 			);
