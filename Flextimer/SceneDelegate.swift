@@ -23,6 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       self.window = window
       window.makeKeyAndVisible()
 
+      
 //      self.setupSiren()
       self.appAppearanceCofigure()
       self.initializeRealm()
