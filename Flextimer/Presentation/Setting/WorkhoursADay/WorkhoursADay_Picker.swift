@@ -1,5 +1,5 @@
 //
-//  Workdayhours_Picker.swift
+//  WorkhoursADay_Picker.swift
 //  Flextimer
 //
 //  Created by Suzy Mararon Park on 2020/01/12.

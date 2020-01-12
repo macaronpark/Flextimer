@@ -19,7 +19,7 @@ extension SettingViewController: UITableViewDelegate {
   {
     if (indexPath.section == 0) {
       DispatchQueue.main.async {
-        let vc = WorkdayhoursADayViewController(RealmService.shared.userInfo)
+        let vc = WorkhoursADayViewController(RealmService.shared.userInfo)
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
         self.navigationController?.present(vc, animated: true, completion: nil)
