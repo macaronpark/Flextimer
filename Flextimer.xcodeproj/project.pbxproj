@@ -29,9 +29,9 @@
 		BF44451323C8DF6F00286305 /* TodayListStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44451223C8DF6F00286305 /* TodayListStackView.swift */; };
 		BF44451523C8DFA000286305 /* TodayListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44451423C8DFA000286305 /* TodayListCellView.swift */; };
 		BF4497DA23CAE8350024DF53 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4497D923CAE8350024DF53 /* NotificationCenter.swift */; };
-		BF4497DC23CAEC770024DF53 /* WorkdayhoursADayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4497DB23CAEC770024DF53 /* WorkdayhoursADayViewController.swift */; };
+		BF4497DC23CAEC770024DF53 /* WorkhoursADayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4497DB23CAEC770024DF53 /* WorkhoursADayViewController.swift */; };
 		BF4497DE23CAEFC90024DF53 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4497DD23CAEFC90024DF53 /* PickerView.swift */; };
-		BF4497E023CAFFF00024DF53 /* Workdayhours_Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4497DF23CAFFF00024DF53 /* Workdayhours_Picker.swift */; };
+		BF4497E023CAFFF00024DF53 /* WorkhoursADay_Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4497DF23CAFFF00024DF53 /* WorkhoursADay_Picker.swift */; };
 		BF65DD2E23C97ECE00B3EA0B /* SettingDayNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65DD2D23C97ECE00B3EA0B /* SettingDayNameCell.swift */; };
 		BF65DD3023C985F600B3EA0B /* DayNameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65DD2F23C985F600B3EA0B /* DayNameButton.swift */; };
 		BF65DD3223C9A21900B3EA0B /* Setting_StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65DD3123C9A21900B3EA0B /* Setting_StackView.swift */; };
@@ -134,9 +134,9 @@
 		BF44451223C8DF6F00286305 /* TodayListStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayListStackView.swift; sourceTree = "<group>"; };
 		BF44451423C8DFA000286305 /* TodayListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayListCellView.swift; sourceTree = "<group>"; };
 		BF4497D923CAE8350024DF53 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
-		BF4497DB23CAEC770024DF53 /* WorkdayhoursADayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkdayhoursADayViewController.swift; sourceTree = "<group>"; };
+		BF4497DB23CAEC770024DF53 /* WorkhoursADayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkhoursADayViewController.swift; sourceTree = "<group>"; };
 		BF4497DD23CAEFC90024DF53 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
-		BF4497DF23CAFFF00024DF53 /* Workdayhours_Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workdayhours_Picker.swift; sourceTree = "<group>"; };
+		BF4497DF23CAFFF00024DF53 /* WorkhoursADay_Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkhoursADay_Picker.swift; sourceTree = "<group>"; };
 		BF4678AF234D576E00B61A9C /* MainRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRowView.swift; sourceTree = "<group>"; };
 		BF65DD2B23C8FC1E00B3EA0B /* InfoUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoUtil.swift; sourceTree = "<group>"; };
 		BF65DD2D23C97ECE00B3EA0B /* SettingDayNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDayNameCell.swift; sourceTree = "<group>"; };
@@ -339,6 +339,28 @@
 			path = History;
 			sourceTree = "<group>";
 		};
+		BF4497E123CB159D0024DF53 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				BF7E987E23C8F4B5002E722D /* Model */,
+				BF65DD3323C9A3DF00B3EA0B /* View */,
+				BF7E987123C8F091002E722D /* SettingViewController.swift */,
+				BF7E987323C8F1BE002E722D /* Setting_TableView.swift */,
+				BF65DD3123C9A21900B3EA0B /* Setting_StackView.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		BF4497E223CB15A20024DF53 /* WorkhoursADay */ = {
+			isa = PBXGroup;
+			children = (
+				BF4497DD23CAEFC90024DF53 /* PickerView.swift */,
+				BF4497DB23CAEC770024DF53 /* WorkhoursADayViewController.swift */,
+				BF4497DF23CAFFF00024DF53 /* WorkhoursADay_Picker.swift */,
+			);
+			path = WorkhoursADay;
+			sourceTree = "<group>";
+		};
 		BF65DD3323C9A3DF00B3EA0B /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,14 +395,8 @@
 		BF7E987023C8F070002E722D /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				BF7E987E23C8F4B5002E722D /* Model */,
-				BF65DD3323C9A3DF00B3EA0B /* View */,
-				BF7E987123C8F091002E722D /* SettingViewController.swift */,
-				BF7E987323C8F1BE002E722D /* Setting_TableView.swift */,
-				BF65DD3123C9A21900B3EA0B /* Setting_StackView.swift */,
-				BF4497DD23CAEFC90024DF53 /* PickerView.swift */,
-				BF4497DB23CAEC770024DF53 /* WorkdayhoursADayViewController.swift */,
-				BF4497DF23CAFFF00024DF53 /* Workdayhours_Picker.swift */,
+				BF4497E123CB159D0024DF53 /* Setting */,
+				BF4497E223CB15A20024DF53 /* WorkhoursADay */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -721,7 +737,7 @@
 				BFBCA15223C9CEEE00FC6774 /* SettingURLModel.swift in Sources */,
 				BF7E987D23C8F494002E722D /* SettingCell.swift in Sources */,
 				BF7E987623C8F38E002E722D /* SettingCellModel.swift in Sources */,
-				BF4497DC23CAEC770024DF53 /* WorkdayhoursADayViewController.swift in Sources */,
+				BF4497DC23CAEC770024DF53 /* WorkhoursADayViewController.swift in Sources */,
 				BF4497DE23CAEFC90024DF53 /* PickerView.swift in Sources */,
 				BF3D682023CA1BA4005F6055 /* TodayViewModel.swift in Sources */,
 				BF44451123C8DF2900286305 /* TodayView.swift in Sources */,
@@ -744,7 +760,7 @@
 				BF7ECBC8234CFD9D0078AE6C /* Formatter.swift in Sources */,
 				1C1AEB43234B5FF100FFB348 /* RealmService.swift in Sources */,
 				BFAC857923C8C79D00C1663F /* HistoryViewController.swift in Sources */,
-				BF4497E023CAFFF00024DF53 /* Workdayhours_Picker.swift in Sources */,
+				BF4497E023CAFFF00024DF53 /* WorkhoursADay_Picker.swift in Sources */,
 				BF7E987823C8F40E002E722D /* CellComponent.swift in Sources */,
 				BF40806923658C5700547A3A /* UserInfo.swift in Sources */,
 				BF28A0D82358A177004654AA /* Delegate.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension WorkdayhoursADayViewController: UIPickerViewDelegate {
+extension WorkhoursADayViewController: UIPickerViewDelegate {
   func pickerView(
     _ pickerView: UIPickerView,
     titleForRow row: Int,
@@ -38,7 +38,7 @@ extension WorkdayhoursADayViewController: UIPickerViewDelegate {
   }
 }
 
-extension WorkdayhoursADayViewController: UIPickerViewDataSource {
+extension WorkhoursADayViewController: UIPickerViewDataSource {
   func numberOfComponents(in pickerView: UIPickerView) -> Int {
     return 2
   }
