@@ -71,4 +71,11 @@ final class SettingCell: BaseTableViewCell {
     self.titleLabel.text = model.title ?? ""
     self.subLabel.text = model.text ?? ""
   }
+  
+  func updateWorkhoursUI(_ model: UserInfo) {
+    let hourOnly = "\(model.hourOfWorkhoursADay)시간"
+    let hourAndMinute = "\(model.hourOfWorkhoursADay)시간 \(RealmService.shared.userInfo.minuteOfWorkhoursADay)분"
+    let workhourADayString = (model.minuteOfWorkhoursADay == 0) ? hourOnly: hourAndMinute
+    self.subLabel.text = workhourADayString
+  }
 }

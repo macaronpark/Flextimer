@@ -36,3 +36,22 @@ import RealmSwift
     self.minuteOfWorkhoursADay = minuteOfWorkhoursADay
   }
 }
+
+enum UserInfoEnum {
+  case workdaysPerWeekIdxs
+  case hourOfWorkhoursADay
+  case minuteOfWorkhoursADay
+  
+  var str: String {
+    switch self {
+    case .workdaysPerWeekIdxs:
+      return "workdaysPerWeekIdxs"
+      
+    case .hourOfWorkhoursADay:
+      return "hourOfWorkhoursADay"
+    
+    case .minuteOfWorkhoursADay:
+      return "minuteOfWorkhoursADay"
+    }
+  }
+}

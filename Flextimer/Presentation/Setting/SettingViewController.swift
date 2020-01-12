@@ -10,7 +10,7 @@ import UIKit
 
 class SettingViewController: BaseViewController {
   
-  lazy var viewModel = SettingViewModel()
+  lazy var viewModel = SettingViewModel(RealmService.shared.userInfo)
   let closeBarButton = UIBarButtonItem(barButtonSystemItem: .close, target: nil, action: nil)
   
   lazy var tableView = UITableView(frame: .zero, style: .grouped).then {
@@ -31,17 +31,44 @@ class SettingViewController: BaseViewController {
     }
   }
   
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    self.registerNotification()
+  }
+  
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     
     self.bindStackViewButtons()
   }
-  
+
   override func setupNaviBar() {
     super.setupNaviBar()
     
     self.title = "설정"
     self.navigationItem.leftBarButtonItem = self.closeBarButton
+  }
+  
+  // MARK: - Notification
+  
+  func registerNotification() {
+    NotificationCenter.default.addObserver(
+      self, selector: #selector(didUpdateWorkhousNotification(_:)),
+      name: RNotiKey.didUpdateHourOfWorkhoursADay,
+      object: nil
+    )
+    
+    NotificationCenter.default.addObserver(
+      self, selector: #selector(didUpdateWorkhousNotification(_:)),
+      name: RNotiKey.didUpdateMinuteOfWorkhoursADay,
+      object: nil
+    )
+  }
+  
+  @objc func didUpdateWorkhousNotification(_ notification: NSNotification) {
+    let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? SettingCell
+    cell?.updateWorkhoursUI(RealmService.shared.userInfo)
   }
   
   override func bind() {

@@ -8,6 +8,7 @@
 
 import UIKit
 
+import RealmSwift
 import RxCocoa
 import RxSwift
 
@@ -15,6 +16,7 @@ class TodayViewController: BaseViewController {
   
   let todayView = TodayView()
   var todayViewModel: TodayViewModel!
+  var notificationToken: NotificationToken? = nil
   
   let settingBarButton = UIBarButtonItem(
     image: UIImage(named: "navi_setting")?.withRenderingMode(.alwaysOriginal),
@@ -40,8 +42,18 @@ class TodayViewController: BaseViewController {
     fatalError("init(coder:) has not been implemented")
   }
   
+  deinit {
+    NotificationCenter.default.removeObserver(self)
+  }
+  
   
   // MARK: - Lifecycles
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    self.registerNotification()
+  }
   
   override func setupNaviBar() {
     super.setupNaviBar()
@@ -49,6 +61,41 @@ class TodayViewController: BaseViewController {
     self.title = "오늘의 근태"
     self.navigationController?.navigationBar.prefersLargeTitles = true
     self.navigationItem.setRightBarButton(self.settingBarButton, animated: true)
+  }
+  
+  
+  // MARK: - Notification
+  
+  func registerNotification() {
+    NotificationCenter.default.addObserver(
+      self, selector: #selector(didUpdateOptionsNotification(_:)),
+      name: NSNotification.Name.didUpdateOptions,
+      object: nil
+    )
+    
+    NotificationCenter.default.addObserver(
+      self, selector: #selector(didUpdateWorkhousNotification(_:)),
+      name: RNotiKey.didUpdateHourOfWorkhoursADay,
+      object: nil
+    )
+    
+    NotificationCenter.default.addObserver(
+      self, selector: #selector(didUpdateWorkhousNotification(_:)),
+      name: RNotiKey.didUpdateMinuteOfWorkhoursADay,
+      object: nil
+    )
+  }
+  
+  @objc func didUpdateOptionsNotification(_ notification: NSNotification) {
+    //    let realm = try! Realm()
+    //      datasource = realm.objects(AnObject.self)
+    //      tableView.reloadData()
+    self.todayView.optionView.rx.viewModel.onNext(self.todayViewModel)
+  }
+  
+  @objc func didUpdateWorkhousNotification(_ notification: NSNotification) {
+    self.todayView.optionView.rx.viewModel.onNext(self.todayViewModel)
+//    cell?.updateWorkhoursUI(RealmService.shared.userInfo)
   }
   
   
@@ -63,8 +110,9 @@ class TodayViewController: BaseViewController {
         self?.navigationController?.present($0, animated: true, completion: nil)
     }
     .disposed(by: self.disposeBag)
-  
-    self.todayView.optionView.rx.viewModel.onNext(self.todayViewModel)
+    
+    self.todayView.optionView.rx.viewModel
+      .onNext(self.todayViewModel)
   }
   
   

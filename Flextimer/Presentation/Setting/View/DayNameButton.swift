@@ -20,7 +20,7 @@ class DayNameButton: UIButton {
     self.setBackgroundColor(color: Color.immutableOrange, forState: .selected)
     self.setBackgroundColor(color: Color.immutableLightGray, forState: .normal)
     self.setTitle(title, for: .normal)
-    self.setTitleColor(Color.primaryText, for: .normal)
+    self.setTitleColor(Color.immutableWhite, for: .normal)
     self.layer.cornerRadius = 4
     self.clipsToBounds = true
     self.translatesAutoresizingMaskIntoConstraints = false
@@ -33,7 +33,7 @@ class DayNameButton: UIButton {
   
   func toggle() {
     self.isSelected = !isSelected
-    updateRealm(self.tag)
+    self.updateRealm(self.tag)
   }
   
   fileprivate func updateRealm(_ idx: Int) {
@@ -52,5 +52,9 @@ class DayNameButton: UIButton {
       RealmService.shared.userInfo,
       with: ["workdaysPerWeekIdxs": updateIdxs]
     )
+    
+    DispatchQueue.main.async {
+      NotificationCenter.default.post(name: NSNotification.Name.didUpdateOptions, object: nil)
+    }
   }
 }

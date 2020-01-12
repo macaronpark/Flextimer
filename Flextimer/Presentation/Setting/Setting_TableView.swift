@@ -8,6 +8,8 @@
 
 import UIKit
 
+import RxCocoa
+
 extension SettingViewController: UITableViewDelegate {
   
   func tableView(
@@ -15,8 +17,17 @@ extension SettingViewController: UITableViewDelegate {
     didSelectRowAt
     indexPath: IndexPath)
   {
-    if let url = SettingURLModel(indexPath).url {
-      UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    if (indexPath.section == 0) {
+      DispatchQueue.main.async {
+        let vc = WorkdayhoursADayViewController(RealmService.shared.userInfo)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        self.navigationController?.present(vc, animated: true, completion: nil)
+      }
+      
+      if let url = SettingURLModel(indexPath).url {
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+      }
     }
   }
 }
