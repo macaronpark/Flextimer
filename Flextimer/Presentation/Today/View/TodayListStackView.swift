@@ -13,9 +13,9 @@ import RxCocoa
 
 class TodayListStackView: UIStackView {
   
-  let startCell = TodayListCellView("출근", description: "오전 9시 30분", color: Color.secondText)
-  let endCell = TodayListCellView("퇴근 예상", description: "오후 6시 30분", color: Color.primaryText)
-  let remainTimeCell = TodayListCellView("남은시간", description: "3시간 20분 33초", color: Color.immutableOrange)
+  let startCell = TodayListCellView("출근", description: "--:--", color: Color.secondText)
+  let endCell = TodayListCellView("퇴근 예상", description: "--:--", color: Color.primaryText)
+  let remainTimeCell = TodayListCellView("남은시간", description: "--:--", color: Color.immutableOrange)
   
   override init(frame: CGRect) {
     super.init(frame: frame)

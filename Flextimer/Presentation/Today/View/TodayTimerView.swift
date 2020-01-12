@@ -49,16 +49,13 @@ class TodayTimerView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func updateUI(_ time: String) {
-    self.timerLabel.text = time
-  }
 }
 
 extension Reactive where Base: TodayTimerView {
   var viewModel: Binder<TimeInterval> {
     return Binder(self.base) { base, interval in
-      base.timerLabel.text = interval.toString(.total)
-      base.descriptionLabel.text = "지금은 근무 중"
+      base.timerLabel.text = (interval > 0) ? interval.toString(.total): "00:00:00"
+      base.descriptionLabel.text = (interval > 0) ? "지금은 근무 중": "근무를 시작하려면 '출근'버튼을 눌러주세요"
     }
   }
 }

@@ -14,7 +14,6 @@ import RxSwift
 
 class TodayViewController: BaseViewController {
   
-//  var timer : Timer?
   var timer: Observable<Int>?
   let todayView = TodayView()
   var todayViewModel: TodayViewModel!
@@ -131,32 +130,41 @@ class TodayViewController: BaseViewController {
         }
     }.disposed(by: self.disposeBag)
 
-     
+    self.todayView.buttonsView.endButton.rx.tap
+      .bind(onNext: { self.showEndAlert() })
+      .disposed(by: self.disposeBag)
+    
+    
+    
   }
-  
-//  @objc func timerCallBack() {
-//    let interval = Date().timeIntervalSince(self.todayViewModel.workRecordOfToday?.startDate ?? Date()).rounded()
-//    self.todayView.timerView.updateUI(interval.toString(.total))
-    
-    
-//     if let startDate = self.userData.startDate {
-    //      // 총 근무 시간 업데이트
-    //      let interval = output.timeIntervalSince(startDate).rounded()
-    //      self.userData.ingTimeInterval = interval
-    //      self.currentTime = interval.toString(.total)
-    //      // 남은 근무 시간(픽스 근무 시간 - 총 근무 시간) 업데이트
-    //      let workingHoursInterval = (self.userData.workingHours.value + 1).toRoundedTimeInterval()
-    //      let remainInterval = workingHoursInterval - interval
-    //
-    //        if remainInterval.isLess(than: 0.0) {
-    //            self.userData.remainTime = (-remainInterval).toString(.remain) + "째 초과근무 중"
-    //        } else {
-    //            self.userData.remainTime = remainInterval.toString(.remain) + " 남았어요"
-    //        }
-//  }
   
   func showStartAlert() {
     
+  }
+  
+  func showEndAlert() {
+    let alert = UIAlertController(title: nil, message: "퇴근...할까요?💖", preferredStyle: .alert)
+    alert.view.tintColor = Color.immutableOrange
+    let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+    let ok = UIAlertAction(title: "확인", style: .default) { _ in
+      let record =  RealmService.shared.realm
+        .objects(WorkRecord.self)
+        .filter { $0.endDate == nil }
+        .last
+      
+      if let record = record {
+        RealmService.shared.update(record, with: ["endDate": Date()])
+//        self.todayView.buttonsView.startButton.isEnabled = true
+//        self.todayView.buttonsView.endButton.isEnabled = false
+//        self.todayView.stackView.rx.viewModel.onNext(self.todayViewModel)
+//        self.todayView.stackView.remainTimeCell.descriptionLabel.text = "--:--"
+//        self.todayView.timerView.rx.viewModel.onNext(-1)
+//        self.timer = nil
+      }
+    }
+    alert.addAction(cancel)
+    alert.addAction(ok)
+    self.navigationController?.present(alert, animated: true, completion: nil)
   }
   
   
