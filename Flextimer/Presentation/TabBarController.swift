@@ -20,11 +20,21 @@ class TabBarController: UITabBarController{
     
     let workRecordOfToday: WorkRecord? = RealmService.shared.realm
       .objects(WorkRecord.self)
-      .filter { Calendar.current.isDateInToday($0.startDate) && $0.endDate == nil}
-      .last
+      .filter { record in
+        if (Calendar.current.isDateInToday(record.startDate) && record.endDate == nil) {
+          return true
+        }
+        
+        if (record.endDate == nil) {
+          return true
+        }
+        
+        return false
+    }
+    .last
     
     let todayViewModel = TodayViewModel(userInfo, workRecordOfToday: workRecordOfToday ?? nil)
-
+    
     // setup Tabbar
     
     self.setupAppearance()
