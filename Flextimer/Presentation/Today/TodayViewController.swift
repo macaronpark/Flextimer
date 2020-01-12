@@ -96,6 +96,11 @@ class TodayViewController: BaseViewController {
     
     self.timer?
       .map { _ in Date().timeIntervalSince(self.todayViewModel.workRecordOfToday?.startDate ?? Date()).rounded() }
+      .bind(to: self.todayView.stackView.rx.updateRemainTime)
+      .disposed(by: self.disposeBag)
+    
+    self.timer?
+      .map { _ in Date().timeIntervalSince(self.todayViewModel.workRecordOfToday?.startDate ?? Date()).rounded() }
       .bind(to: self.todayView.timerView.rx.viewModel)
       .disposed(by: self.disposeBag)
     
@@ -148,8 +153,6 @@ class TodayViewController: BaseViewController {
     //        } else {
     //            self.userData.remainTime = remainInterval.toString(.remain) + " 남았어요"
     //        }
-    //
-    //      self.workingDescription = "지금은 근무 중"
 //  }
   
   func showStartAlert() {

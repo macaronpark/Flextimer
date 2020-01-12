@@ -51,7 +51,23 @@ extension Reactive where Base: TodayListStackView {
     return Binder(self.base) { base, viewModel in
       base.startCell.descriptionLabel.text = viewModel.startTime
       base.endCell.descriptionLabel.text = viewModel.endTime
-      base.remainTimeCell.descriptionLabel.text = viewModel.remainTime
+    }
+  }
+  
+  var updateRemainTime: Binder<TimeInterval> {
+    return Binder(self.base) { base, interval in
+      // 총 근무 시간 == interval
+      // 남은 근무 시간(픽스 근무 시간 - 총 근무 시간) 업데이트
+      let h = RealmService.shared.userInfo.hourOfWorkhoursADay.toRoundedTimeInterval(.hour)
+      let m = RealmService.shared.userInfo.minuteOfWorkhoursADay.toRoundedTimeInterval(.minute)
+      let totalWorkHourInterval = h + m
+       let remainInterval = totalWorkHourInterval - interval
+      
+      if remainInterval.isLess(than: 0.0) {
+        base.remainTimeCell.descriptionLabel.text = (-remainInterval).toString(.remain) + "째 초과근무 중"
+      } else {
+        base.remainTimeCell.descriptionLabel.text = remainInterval.toString(.remain) + " 남았어요"
+      }
     }
   }
 }
