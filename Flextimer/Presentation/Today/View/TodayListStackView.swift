@@ -8,6 +8,9 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
+
 class TodayListStackView: UIStackView {
   
   let startCell = TodayListCellView("출근", description: "오전 9시 30분", color: Color.secondText)
@@ -41,5 +44,14 @@ class TodayListStackView: UIStackView {
   required init(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
+}
+
+extension Reactive where Base: TodayListStackView {
+  var viewModel: Binder<TodayViewModel> {
+    return Binder(self.base) { base, viewModel in
+      base.startCell.descriptionLabel.text = viewModel.startTime
+      base.endCell.descriptionLabel.text = viewModel.endTime
+      base.remainTimeCell.descriptionLabel.text = viewModel.remainTime
+    }
+  }
 }

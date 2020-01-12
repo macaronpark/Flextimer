@@ -8,6 +8,9 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
+
 class TodayTimerView: UIView {
   
   let descriptionLabel = UILabel().then {
@@ -44,5 +47,18 @@ class TodayTimerView: UIView {
   
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+  }
+  
+  func updateUI(_ time: String) {
+    self.timerLabel.text = time
+  }
+}
+
+extension Reactive where Base: TodayTimerView {
+  var viewModel: Binder<TimeInterval> {
+    return Binder(self.base) { base, interval in
+      base.timerLabel.text = interval.toString(.total)
+      base.descriptionLabel.text = "지금은 근무 중"
+    }
   }
 }

@@ -14,6 +14,8 @@ import RxSwift
 
 class TodayViewController: BaseViewController {
   
+//  var timer : Timer?
+  var timer: Observable<Int>?
   let todayView = TodayView()
   var todayViewModel: TodayViewModel!
   var notificationToken: NotificationToken? = nil
@@ -62,47 +64,43 @@ class TodayViewController: BaseViewController {
     self.navigationController?.navigationBar.prefersLargeTitles = true
     self.navigationItem.setRightBarButton(self.settingBarButton, animated: true)
   }
-  
-  
-  // MARK: - Notification
-  
-  func registerNotification() {
-    NotificationCenter.default.addObserver(
-      self, selector: #selector(didUpdateOptionsNotification(_:)),
-      name: NSNotification.Name.didUpdateOptions,
-      object: nil
-    )
-    
-    NotificationCenter.default.addObserver(
-      self, selector: #selector(didUpdateWorkhousNotification(_:)),
-      name: RNotiKey.didUpdateHourOfWorkhoursADay,
-      object: nil
-    )
-    
-    NotificationCenter.default.addObserver(
-      self, selector: #selector(didUpdateWorkhousNotification(_:)),
-      name: RNotiKey.didUpdateMinuteOfWorkhoursADay,
-      object: nil
-    )
-  }
-  
-  @objc func didUpdateOptionsNotification(_ notification: NSNotification) {
-    //    let realm = try! Realm()
-    //      datasource = realm.objects(AnObject.self)
-    //      tableView.reloadData()
-    self.todayView.optionView.rx.viewModel.onNext(self.todayViewModel)
-  }
-  
-  @objc func didUpdateWorkhousNotification(_ notification: NSNotification) {
-    self.todayView.optionView.rx.viewModel.onNext(self.todayViewModel)
-//    cell?.updateWorkhoursUI(RealmService.shared.userInfo)
-  }
-  
+
   
   // MARK: - Bind
   
   override func bind() {
     super.bind()
+    
+    let isWorking = Observable
+      .of(self.todayViewModel.isWorking)
+      .asObservable()
+      
+    isWorking
+      .map { !$0 }
+      .bind(to: self.todayView.buttonsView.startButton.rx.isEnabled)
+      .disposed(by: self.disposeBag)
+    
+    isWorking
+      .map { $0 }
+      .bind(to: self.todayView.buttonsView.endButton.rx.isEnabled)
+      .disposed(by: self.disposeBag)
+    
+    isWorking
+      .map { $0 }
+      .bind { [weak self] isWorking in
+        guard let self = self else { return }
+        if isWorking {
+          self.timer = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
+        }
+    }.disposed(by: self.disposeBag)
+    
+    self.timer?
+      .map { _ in Date().timeIntervalSince(self.todayViewModel.workRecordOfToday?.startDate ?? Date()).rounded() }
+      .bind(to: self.todayView.timerView.rx.viewModel)
+      .disposed(by: self.disposeBag)
+    
+    self.todayView.optionView.rx.viewModel.onNext(self.todayViewModel)
+    self.todayView.stackView.rx.viewModel.onNext(self.todayViewModel)
     
     self.settingBarButton.rx.tap
       .map { UINavigationController(rootViewController: SettingViewController()) }
@@ -111,8 +109,51 @@ class TodayViewController: BaseViewController {
     }
     .disposed(by: self.disposeBag)
     
-    self.todayView.optionView.rx.viewModel
-      .onNext(self.todayViewModel)
+    let workRecordInToday = RealmService.shared.realm
+    .objects(WorkRecord.self)
+    .filter { Calendar.current.isDateInToday($0.startDate) }
+    .last
+    
+    self.todayView.buttonsView.startButton.rx.tap
+      .map { (workRecordInToday != nil) ? true: false }
+      .bind { [weak self] isTodayRecord in
+        guard let self = self else { return }
+        if isTodayRecord {
+          self.showStartAlert()
+        } else {
+          let newWorkRecord = WorkRecord(Date())
+          RealmService.shared.create(newWorkRecord)
+        }
+    }.disposed(by: self.disposeBag)
+
+     
+  }
+  
+//  @objc func timerCallBack() {
+//    let interval = Date().timeIntervalSince(self.todayViewModel.workRecordOfToday?.startDate ?? Date()).rounded()
+//    self.todayView.timerView.updateUI(interval.toString(.total))
+    
+    
+//     if let startDate = self.userData.startDate {
+    //      // 총 근무 시간 업데이트
+    //      let interval = output.timeIntervalSince(startDate).rounded()
+    //      self.userData.ingTimeInterval = interval
+    //      self.currentTime = interval.toString(.total)
+    //      // 남은 근무 시간(픽스 근무 시간 - 총 근무 시간) 업데이트
+    //      let workingHoursInterval = (self.userData.workingHours.value + 1).toRoundedTimeInterval()
+    //      let remainInterval = workingHoursInterval - interval
+    //
+    //        if remainInterval.isLess(than: 0.0) {
+    //            self.userData.remainTime = (-remainInterval).toString(.remain) + "째 초과근무 중"
+    //        } else {
+    //            self.userData.remainTime = remainInterval.toString(.remain) + " 남았어요"
+    //        }
+    //
+    //      self.workingDescription = "지금은 근무 중"
+//  }
+  
+  func showStartAlert() {
+    
   }
   
   

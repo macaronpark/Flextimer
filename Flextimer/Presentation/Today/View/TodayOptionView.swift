@@ -86,13 +86,6 @@ class TodayOptionView: UIView {
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
-//  func updateUI(_ viewModel: TodayViewModel) {
-//    self.hourOfworkhoursPerDayLabel.text = viewModel.hourOfWorkhoursADay
-//    self.minuteOfworkhoursPerDayLabel.text = viewModel.minuteOfWorkhoursADay
-//    self.workdaysPerWeekLabel.text = viewModel.numberOfWorkdaysAWeek
-//    self.totalWorkhoursPerWeekLabel.text = viewModel.totalWorkhours
-//  }
 }
 
 extension Reactive where Base: TodayOptionView {

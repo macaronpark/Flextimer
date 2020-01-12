@@ -14,8 +14,18 @@ class TabBarController: UITabBarController{
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    // setup ViewModel
+    
     let userInfo = RealmService.shared.userInfo
-    let todayViewModel = TodayViewModel(userInfo)
+    
+    let workRecordOfToday: WorkRecord? = RealmService.shared.realm
+      .objects(WorkRecord.self)
+      .filter { Calendar.current.isDateInToday($0.startDate) && $0.endDate == nil}
+      .last
+    
+    let todayViewModel = TodayViewModel(userInfo, workRecordOfToday: workRecordOfToday ?? nil)
+
+    // setup Tabbar
     
     self.setupAppearance()
     let todayVC = TodayViewController(todayViewModel)

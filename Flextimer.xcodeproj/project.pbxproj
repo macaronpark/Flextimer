@@ -59,6 +59,7 @@
 		BFBCA15023C9C53300FC6774 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCA14F23C9C53300FC6774 /* SceneDelegate.swift */; };
 		BFBCA15223C9CEEE00FC6774 /* SettingURLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCA15123C9CEEE00FC6774 /* SettingURLModel.swift */; };
 		BFDA4AE3234CB5E700A7211C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDA4AE2234CB5E700A7211C /* UserData.swift */; };
+		BFDDF01323CB353200744F2C /* TodayViewController_Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDDF01223CB353200744F2C /* TodayViewController_Notification.swift */; };
 		BFDED1562358A9A9003AFA67 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDED1552358A9A9003AFA67 /* Int.swift */; };
 		BFDED1582358AC1A003AFA67 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDED1572358AC1A003AFA67 /* UIColor.swift */; };
 		BFDED15A2358AD21003AFA67 /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDED1592358AD21003AFA67 /* ScreenSize.swift */; };
@@ -166,6 +167,7 @@
 		BFBCA14F23C9C53300FC6774 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BFBCA15123C9CEEE00FC6774 /* SettingURLModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingURLModel.swift; sourceTree = "<group>"; };
 		BFDA4AE2234CB5E700A7211C /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		BFDDF01223CB353200744F2C /* TodayViewController_Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController_Notification.swift; sourceTree = "<group>"; };
 		BFDED1552358A9A9003AFA67 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		BFDED1572358AC1A003AFA67 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		BFDED1592358AD21003AFA67 /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 				BF3D681F23CA1BA4005F6055 /* TodayViewModel.swift */,
 				BF7E986423C8E864002E722D /* View */,
 				BFAC857323C8C71400C1663F /* TodayViewController.swift */,
+				BFDDF01223CB353200744F2C /* TodayViewController_Notification.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -753,6 +756,7 @@
 				BFDED1562358A9A9003AFA67 /* Int.swift in Sources */,
 				BF44450D23C8D9A800286305 /* UIButton.swift in Sources */,
 				BF7ECBC1234CE3420078AE6C /* TimeInterval.swift in Sources */,
+				BFDDF01323CB353200744F2C /* TodayViewController_Notification.swift in Sources */,
 				BF7E988023C8F4CA002E722D /* SettingViewModel.swift in Sources */,
 				BF7E987223C8F091002E722D /* SettingViewController.swift in Sources */,
 				BFDED1582358AC1A003AFA67 /* UIColor.swift in Sources */,
