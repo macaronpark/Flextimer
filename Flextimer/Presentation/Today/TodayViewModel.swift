@@ -71,47 +71,6 @@ class TodayViewModel {
     return "--:--"
   }
   
-//  var remainTime: String {
-//    // 총 근무 중인 시간
-//    let interval = Date().timeIntervalSince(self.workRecordOfToday?.startDate ?? Date()).rounded()
-//    
-//    // 일일 근무 시간
-//    let hourInterval = TimeInterval(self.userInfo.hourOfWorkhoursADay / 3600).rounded()
-//    let minuteInterval = TimeInterval((self.userInfo.minuteOfWorkhoursADay / 60) % 60).rounded()
-//    let totalInterval = hourInterval + minuteInterval
-//    
-//    // 남은 근무 시간(픽스 근무 시간 - 총 근무 시간) 업데이트
-//    
-//    //      // 남은 근무 시간(픽스 근무 시간 - 총 근무 시간) 업데이트
-//    //      let workingHoursInterval = (self.userData.workingHours.value + 1).toRoundedTimeInterval()
-//    //      let remainInterval = workingHoursInterval - interval
-//    //
-//    //        if remainInterval.isLess(than: 0.0) {
-//    //            self.userData.remainTime = (-remainInterval).toString(.remain) + "째 초과근무 중"
-//    //        } else {
-//    //            self.userData.remainTime = remainInterval.toString(.remain) + " 남았어요"
-//    //        }
-//    
-//    
-//    return "--:--"
-//  }
-  
-  //    if let startDate = self.userData.startDate {
-  //      // 총 근무 시간 업데이트
-  //      let interval = output.timeIntervalSince(startDate).rounded()
-  //      self.userData.ingTimeInterval = interval
-  //      self.currentTime = interval.toString(.total)
-  //      // 남은 근무 시간(픽스 근무 시간 - 총 근무 시간) 업데이트
-  //      let workingHoursInterval = (self.userData.workingHours.value + 1).toRoundedTimeInterval()
-  //      let remainInterval = workingHoursInterval - interval
-  //
-  //        if remainInterval.isLess(than: 0.0) {
-  //            self.userData.remainTime = (-remainInterval).toString(.remain) + "째 초과근무 중"
-  //        } else {
-  //            self.userData.remainTime = remainInterval.toString(.remain) + " 남았어요"
-  //        }
-  //
-  //      self.workingDescription = "지금은 근무 중"
   
   // MARK: - Init
   

@@ -59,17 +59,25 @@ class TodayButtonsView: UIView {
 }
 
 extension Reactive where Base: TodayButtonsView {
-  var viewModel: Binder<TodayViewModel> {
-    return Binder(self.base) { base, viewModel in
-      base.startButton.isEnabled = (viewModel.isWorking) ? false: true
-      base.endButton.isEnabled = (viewModel.isWorking) ? true: false
+  
+//  var viewModel: Binder<TodayViewModel> {
+//    return Binder(self.base) { base, viewModel in
+//      base.startButton.isEnabled = (viewModel.isWorking) ? false: true
+//      base.endButton.isEnabled = (viewModel.isWorking) ? true: false
+//    }
+//  }
+  
+  var viewModel: Binder<Bool> {
+    return Binder(self.base) { base, isWorking in
+      base.startButton.isEnabled = (isWorking) ? false: true
+      base.endButton.isEnabled = (isWorking) ? true: false
     }
   }
   
-  var isWorking: Binder<Bool> {
-    return Binder(self.base) { base, isWorking in
-      base.startButton.isEnabled = !isWorking
-      base.endButton.isEnabled = isWorking
-    }
-  }
+//  var isWorking: Binder<Bool> {
+//    return Binder(self.base) { base, isWorking in
+//      base.startButton.isEnabled = !isWorking
+//      base.endButton.isEnabled = isWorking
+//    }
+//  }
 }

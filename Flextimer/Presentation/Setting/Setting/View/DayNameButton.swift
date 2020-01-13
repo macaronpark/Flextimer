@@ -16,7 +16,7 @@ class DayNameButton: UIButton {
   init(_ title: String, idx: Int) {
     super.init(frame: .zero)
     self.tag = idx
-    self.isEnabled = RealmService.shared.userInfo.workdaysPerWeekIdxs.contains(idx)
+    self.isSelected = RealmService.shared.userInfo.workdaysPerWeekIdxs.contains(idx)
     self.setBackgroundColor(color: Color.immutableOrange, forState: .selected)
     self.setBackgroundColor(color: Color.immutableLightGray, forState: .normal)
     self.setTitle(title, for: .normal)
@@ -32,8 +32,7 @@ class DayNameButton: UIButton {
   }
   
   func toggle() {
-    let enableState = !(self.isEnabled)
-    self.isEnabled = enableState
+    self.isSelected = !(self.isSelected)
     self.updateRealm(self.tag)
   }
   

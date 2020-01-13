@@ -15,7 +15,6 @@ import RxSwift
 class TodayViewController: BaseViewController {
   
   let isWorking = BehaviorRelay(value: false)
-//  var timer: Observable<Int>?
   let todayView = TodayView()
   var todayViewModel: TodayViewModel!
   var notificationToken: NotificationToken? = nil
@@ -71,70 +70,39 @@ class TodayViewController: BaseViewController {
   override func bind() {
     super.bind()
     
-    let isWorking = Observable
-      .of(self.todayViewModel.isWorking)
+    self.todayView.optionView.rx.viewModel
+      .onNext(self.todayViewModel)
+    
+    // 초기화
+    Observable
+      .just(self.todayViewModel.isWorking)
       .asObservable()
-    
-    isWorking
-      .map { !$0 }
-      .bind(to: self.todayView.buttonsView.startButton.rx.isEnabled)
+      .bind(to: self.isWorking)
       .disposed(by: self.disposeBag)
     
-    isWorking
-      .map { $0 }
-      .bind(to: self.todayView.buttonsView.endButton.rx.isEnabled)
+    let share = self.isWorking.asObservable()
+    
+    share
+      .debug("🧐isWorking🧐")
+      .bind(to: self.todayView.buttonsView.rx.viewModel)
       .disposed(by: self.disposeBag)
     
-    isWorking
-      .bind(to: self.isWorking).disposed(by: self.disposeBag)
-    //    isWorking
-    //      .map { $0 }
-    //      .bind { [weak self] isWorking in
-    //        guard let self = self else { return }
-    //        if isWorking {
-    //          self.timer = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
-    //        }
-    //    }.disposed(by: self.disposeBag)
+    share
+      .map { (self.todayViewModel, $0) }
+      .bind(to: self.todayView.stackView.rx.viewModel)
+      .disposed(by: disposeBag)
     
-    isWorking.asObservable()
-      .debug("isRunning")
-      .flatMapLatest {  isRunning in
-        isRunning ? Observable<Int>.interval(1, scheduler: MainScheduler.instance) : .empty()
-    }
-//    .enumerated()
-//    .flatMap { (int, index) in Observable.just(index) }
-      .map { _ in Date().timeIntervalSince(self.todayViewModel.workRecordOfToday?.startDate ?? Date()).rounded() }
-      
-      .bind { itv in
-        self.todayView.stackView.rx.updateRemainTime.onNext(itv)
-        self.todayView.timerView.rx.viewModel.onNext(itv)
-    }
-//    .subscribe()
-    .disposed(by: disposeBag)
-    
-    //    self.timer?
-    //      .map { _ in Date().timeIntervalSince(self.todayViewModel.workRecordOfToday?.startDate ?? Date()).rounded() }
-    //      .do(onNext: { print($0, "1")} )
-    //      .filter { $0 != 0 }
-    //      .bind(to: self.todayView.stackView.rx.updateRemainTime)
-    //      .disposed(by: self.disposeBag)
-    //
-    //    self.timer?
-    //      .map { _ in Date().timeIntervalSince(self.todayViewModel.workRecordOfToday?.startDate ?? Date()).rounded() }
-    //      .do(onNext: { print($0, "2")} )
-    //      .filter { $0 != 0 }
-    //      .bind(to: self.todayView.timerView.rx.viewModel)
-    //      .disposed(by: self.disposeBag)
-    
-    self.todayView.optionView.rx.viewModel.onNext(self.todayViewModel)
-    self.todayView.stackView.rx.viewModel.onNext(self.todayViewModel)
-    
-    self.settingBarButton.rx.tap
-      .map { UINavigationController(rootViewController: SettingViewController()) }
-      .bind { [weak self] in
-        self?.navigationController?.present($0, animated: true, completion: nil)
-    }
-    .disposed(by: self.disposeBag)
+    share
+      .filter { $0 == false }
+      .bind(to: self.todayView.timerView.rx.resetTimer)
+      .disposed(by: disposeBag)
+
+    share
+      .debug("timer")
+      .flatMapLatest { $0 ? Observable<Int>.interval(1, scheduler: MainScheduler.instance): .empty() }
+      .map { _ in self.todayViewModel }
+      .bind(to: self.todayView.timerView.rx.viewModel)
+      .disposed(by: disposeBag)
     
     let workRecordInToday = RealmService.shared.realm
       .objects(WorkRecord.self)
@@ -157,8 +125,12 @@ class TodayViewController: BaseViewController {
       .bind(onNext: { self.showEndAlert() })
       .disposed(by: self.disposeBag)
     
-    
-    
+    self.settingBarButton.rx.tap
+      .map { UINavigationController(rootViewController: SettingViewController()) }
+      .bind { [weak self] in
+        self?.navigationController?.present($0, animated: true, completion: nil)
+    }
+    .disposed(by: self.disposeBag)
   }
   
   // MARK: - Constraints

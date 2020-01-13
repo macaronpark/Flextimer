@@ -47,31 +47,30 @@ class TodayListStackView: UIStackView {
 }
 
 extension Reactive where Base: TodayListStackView {
-  var viewModel: Binder<TodayViewModel> {
-    return Binder(self.base) { base, viewModel in
-      base.startCell.descriptionLabel.text = viewModel.startTime
-      base.endCell.descriptionLabel.text = viewModel.endTime
+  var viewModel: Binder<(viewModel: TodayViewModel, isWorking: Bool)> {
+    return Binder(self.base) { base, model in
+      base.startCell.descriptionLabel.text = (model.isWorking) ? model.viewModel.startTime: "--:--"
+      base.endCell.descriptionLabel.text = (model.isWorking) ? model.viewModel.endTime: "--:--"
+      let remains = self.remains(from: model.viewModel.workRecordOfToday?.startDate)
+      base.remainTimeCell.descriptionLabel.text = (model.isWorking) ? remains: "--:--"
     }
   }
   
-  var updateRemainTime: Binder<TimeInterval?> {
-    return Binder(self.base) { base, interval in
-      guard let interval = interval else {
-        base.remainTimeCell.descriptionLabel.text = "--:--"
-        return
-      }
-      // 총 근무 시간 == interval
-      // 남은 근무 시간(픽스 근무 시간 - 총 근무 시간) 업데이트
-      let h = RealmService.shared.userInfo.hourOfWorkhoursADay.toRoundedTimeInterval(.hour)
-      let m = RealmService.shared.userInfo.minuteOfWorkhoursADay.toRoundedTimeInterval(.minute)
-      let totalWorkHourInterval = h + m
-       let remainInterval = totalWorkHourInterval - interval
-      
-      if remainInterval.isLess(than: 0.0) {
-        base.remainTimeCell.descriptionLabel.text = (-remainInterval).toString(.remain) + "째 초과근무 중"
-      } else {
-        base.remainTimeCell.descriptionLabel.text = remainInterval.toString(.remain) + " 남았어요"
-      }
+  func remains(from date: Date?) -> String {
+    guard let date = date else {
+      return "--:--"
     }
+    
+    let interval = Date().timeIntervalSince(date).rounded()
+    // 남은 시간: 일일 근무 시간 - interval
+    let h = RealmService.shared.userInfo.hourOfWorkhoursADay.toRoundedTimeInterval(.hour)
+    let m = RealmService.shared.userInfo.minuteOfWorkhoursADay.toRoundedTimeInterval(.minute)
+    let totalWorkHourInterval = h + m
+    let remainInterval = totalWorkHourInterval - interval
+    
+    if remainInterval.isLess(than: 0.0) {
+      return (-remainInterval).toString(.remain) + "째 초과근무 중"
+    }
+    return remainInterval.toString(.remain) + " 남았어요"
   }
 }

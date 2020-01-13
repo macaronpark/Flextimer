@@ -48,11 +48,10 @@ extension TodayViewController {
   }
   
   @objc func didUpdateWorkRecordNotification(_ notification: NSNotification) {
-    
     // setup ViewModel
     let userInfo = RealmService.shared.userInfo
     
-    let workRecordOfToday: WorkRecord? = RealmService.shared.realm
+    let record: WorkRecord? = RealmService.shared.realm
       .objects(WorkRecord.self)
       .filter { record in
         if (Calendar.current.isDateInToday(record.startDate) && record.endDate == nil) {
@@ -67,30 +66,13 @@ extension TodayViewController {
     }
     .last
     
-    let isWorking = workRecordOfToday != nil
-    self.todayView.buttonsView.rx.isWorking.onNext(isWorking)
-    
-    guard (workRecordOfToday != nil) else {
-      // 퇴근
+    guard let workRecordOfToday = record else {
+      // 퇴근 처리
       self.isWorking.accept(false)
       return
     }
-    // 출근
-    self.todayViewModel = TodayViewModel(userInfo, workRecordOfToday: workRecordOfToday ?? nil)
+    // 출근 처리
+    self.todayViewModel = TodayViewModel(userInfo, workRecordOfToday: workRecordOfToday)
     self.isWorking.accept(true)
-    print("a")
-    
-    
-//    self.todayViewModel = TodayViewModel(userInfo, workRecordOfToday: workRecordOfToday ?? nil)
-
-//    self.timer = nil
-//    self.todayView.timerView.rx.initialization.onNext(self.todayViewModel)
-//    self.timer = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
-    
-//    if self.todayViewModel.isWorking {
-//      print("is Working")
-//    } else {
-//      print("is not Working")
-//    }
   }
 }
