@@ -54,8 +54,12 @@ extension Reactive where Base: TodayListStackView {
     }
   }
   
-  var updateRemainTime: Binder<TimeInterval> {
+  var updateRemainTime: Binder<TimeInterval?> {
     return Binder(self.base) { base, interval in
+      guard let interval = interval else {
+        base.remainTimeCell.descriptionLabel.text = "--:--"
+        return
+      }
       // 총 근무 시간 == interval
       // 남은 근무 시간(픽스 근무 시간 - 총 근무 시간) 업데이트
       let h = RealmService.shared.userInfo.hourOfWorkhoursADay.toRoundedTimeInterval(.hour)

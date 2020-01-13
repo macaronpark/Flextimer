@@ -77,6 +77,7 @@
 		BFDED17E2358D250003AFA67 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDED1552358A9A9003AFA67 /* Int.swift */; };
 		BFDED17F2358D50E003AFA67 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDA4AE2234CB5E700A7211C /* UserData.swift */; };
 		BFE16AAD234D109D006F94C1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE16AAC234D109D006F94C1 /* Color.swift */; };
+		BFF2A9AC23CCB5A800F3B071 /* TodayViewController_Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF2A9AB23CCB5A800F3B071 /* TodayViewController_Alert.swift */; };
 		BFF96FDA23464A66002F5802 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF96FD923464A66002F5802 /* AppDelegate.swift */; };
 		BFF96FE023464A68002F5802 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFF96FDF23464A68002F5802 /* Assets.xcassets */; };
 		BFF96FE623464A68002F5802 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF96FE423464A68002F5802 /* LaunchScreen.storyboard */; };
@@ -181,6 +182,7 @@
 		BFDED1742358C86E003AFA67 /* Today_Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Today_Action.swift; sourceTree = "<group>"; };
 		BFE16AAC234D109D006F94C1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		BFEDCC942346865C0043E0B0 /* CreteriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreteriaView.swift; sourceTree = "<group>"; };
+		BFF2A9AB23CCB5A800F3B071 /* TodayViewController_Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController_Alert.swift; sourceTree = "<group>"; };
 		BFF77937234F600500B229A2 /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
 		BFF77939234F62BC00B229A2 /* WeekListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekListView.swift; sourceTree = "<group>"; };
 		BFF96FD623464A66002F5802 /* Flextimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flextimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -327,6 +329,7 @@
 				BF3D681F23CA1BA4005F6055 /* TodayViewModel.swift */,
 				BF7E986423C8E864002E722D /* View */,
 				BFAC857323C8C71400C1663F /* TodayViewController.swift */,
+				BFF2A9AB23CCB5A800F3B071 /* TodayViewController_Alert.swift */,
 				BFDDF01223CB353200744F2C /* TodayViewController_Notification.swift */,
 			);
 			path = Today;
@@ -763,6 +766,7 @@
 				BF65DD3423C9AA7100B3EA0B /* InfoUtil.swift in Sources */,
 				BF7ECBC8234CFD9D0078AE6C /* Formatter.swift in Sources */,
 				1C1AEB43234B5FF100FFB348 /* RealmService.swift in Sources */,
+				BFF2A9AC23CCB5A800F3B071 /* TodayViewController_Alert.swift in Sources */,
 				BFAC857923C8C79D00C1663F /* HistoryViewController.swift in Sources */,
 				BF4497E023CAFFF00024DF53 /* WorkhoursADay_Picker.swift in Sources */,
 				BF7E987823C8F40E002E722D /* CellComponent.swift in Sources */,

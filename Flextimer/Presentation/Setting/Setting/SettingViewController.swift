@@ -31,6 +31,10 @@ class SettingViewController: BaseViewController {
     }
   }
   
+  deinit {
+    NotificationCenter.default.removeObserver(self)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     

@@ -63,7 +63,7 @@ class TodayViewController: BaseViewController {
     self.navigationController?.navigationBar.prefersLargeTitles = true
     self.navigationItem.setRightBarButton(self.settingBarButton, animated: true)
   }
-
+  
   
   // MARK: - Bind
   
@@ -73,7 +73,7 @@ class TodayViewController: BaseViewController {
     let isWorking = Observable
       .of(self.todayViewModel.isWorking)
       .asObservable()
-      
+    
     isWorking
       .map { !$0 }
       .bind(to: self.todayView.buttonsView.startButton.rx.isEnabled)
@@ -114,9 +114,9 @@ class TodayViewController: BaseViewController {
     .disposed(by: self.disposeBag)
     
     let workRecordInToday = RealmService.shared.realm
-    .objects(WorkRecord.self)
-    .filter { Calendar.current.isDateInToday($0.startDate) }
-    .last
+      .objects(WorkRecord.self)
+      .filter { Calendar.current.isDateInToday($0.startDate) }
+      .last
     
     self.todayView.buttonsView.startButton.rx.tap
       .map { (workRecordInToday != nil) ? true: false }
@@ -129,7 +129,7 @@ class TodayViewController: BaseViewController {
           RealmService.shared.create(newWorkRecord)
         }
     }.disposed(by: self.disposeBag)
-
+    
     self.todayView.buttonsView.endButton.rx.tap
       .bind(onNext: { self.showEndAlert() })
       .disposed(by: self.disposeBag)
@@ -138,46 +138,17 @@ class TodayViewController: BaseViewController {
     
   }
   
-  func showStartAlert() {
-    
-  }
+// MARK: - Constraints
+
+override func setupConstraints() {
+  super.setupConstraints()
   
-  func showEndAlert() {
-    let alert = UIAlertController(title: nil, message: "퇴근...할까요?💖", preferredStyle: .alert)
-    alert.view.tintColor = Color.immutableOrange
-    let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-    let ok = UIAlertAction(title: "확인", style: .default) { _ in
-      let record =  RealmService.shared.realm
-        .objects(WorkRecord.self)
-        .filter { $0.endDate == nil }
-        .last
-      
-      if let record = record {
-        RealmService.shared.update(record, with: ["endDate": Date()])
-//        self.todayView.buttonsView.startButton.isEnabled = true
-//        self.todayView.buttonsView.endButton.isEnabled = false
-//        self.todayView.stackView.rx.viewModel.onNext(self.todayViewModel)
-//        self.todayView.stackView.remainTimeCell.descriptionLabel.text = "--:--"
-//        self.todayView.timerView.rx.viewModel.onNext(-1)
-//        self.timer = nil
-      }
-    }
-    alert.addAction(cancel)
-    alert.addAction(ok)
-    self.navigationController?.present(alert, animated: true, completion: nil)
-  }
-  
-  
-  // MARK: - Constraints
-  
-  override func setupConstraints() {
-    super.setupConstraints()
-    
-    self.view.addSubview(self.todayView)
-    self.todayView.snp.makeConstraints {
-      $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
-      $0.leading.trailing.equalToSuperview()
-      $0.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
-    }
+  self.view.addSubview(self.todayView)
+  self.todayView.snp.makeConstraints {
+    $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+    $0.leading.trailing.equalToSuperview()
+    $0.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
   }
 }
+}
+

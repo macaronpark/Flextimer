@@ -16,4 +16,5 @@ extension NSNotification.Name {
   static let didUpdateOptions = NSNotification.Name("didUpdateOptions")
   static let didUpdateHourOfWorkhoursADay = NSNotification.Name("didUpdateHourOfWorkhoursADay")
   static let didUpdateMinuteOfWorkhoursADay = NSNotification.Name("didUpdateMinuteOfWorkhoursADay")
+  static let didUpdateWorkRecord = NSNotification.Name("didUpdateWorkRecord")
 }

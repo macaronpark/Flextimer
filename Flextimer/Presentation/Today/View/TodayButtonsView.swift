@@ -8,6 +8,9 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+
 class TodayButtonsView: UIView {
   
   let startButton = UIButton().then {
@@ -52,5 +55,14 @@ class TodayButtonsView: UIView {
   
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+  }
+}
+
+extension Reactive where Base: TodayButtonsView {
+  var viewModel: Binder<TodayViewModel> {
+    return Binder(self.base) { base, viewModel in
+      base.startButton.isEnabled = (viewModel.isWorking) ? false: true
+      base.endButton.isEnabled = (viewModel.isWorking) ? true: false
+    }
   }
 }
