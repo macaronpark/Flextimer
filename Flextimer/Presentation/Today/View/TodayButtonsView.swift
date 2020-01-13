@@ -65,4 +65,11 @@ extension Reactive where Base: TodayButtonsView {
       base.endButton.isEnabled = (viewModel.isWorking) ? true: false
     }
   }
+  
+  var isWorking: Binder<Bool> {
+    return Binder(self.base) { base, isWorking in
+      base.startButton.isEnabled = !isWorking
+      base.endButton.isEnabled = isWorking
+    }
+  }
 }

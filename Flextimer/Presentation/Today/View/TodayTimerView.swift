@@ -54,8 +54,20 @@ class TodayTimerView: UIView {
 extension Reactive where Base: TodayTimerView {
   var viewModel: Binder<TimeInterval> {
     return Binder(self.base) { base, interval in
-      base.timerLabel.text = (interval > 0) ? interval.toString(.total): "00:00:00"
-      base.descriptionLabel.text = (interval > 0) ? "지금은 근무 중": "근무를 시작하려면 '출근'버튼을 눌러주세요"
+      base.timerLabel.text = interval.toString(.total)
+      base.descriptionLabel.text = "지금은 근무 중"
+    }
+  }
+  
+  var initialization: Binder<TodayViewModel> {
+    return Binder(self.base) { base, viewModel in
+      if !viewModel.isWorking {
+        base.timerLabel.text = "00:00:00"
+        base.descriptionLabel.text = "근무를 시작하려면 '출근'버튼을 눌러주세요"
+      } else {
+        
+      }
+      
     }
   }
 }

@@ -8,6 +8,9 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
+
 extension TodayViewController {
   func showStartAlert() {
     // 오늘 자 기록을 기준으로 분기
@@ -67,7 +70,6 @@ extension TodayViewController {
       
       if let record = record {
         RealmService.shared.update(record, with: ["endDate": Date()])
-        
         DispatchQueue.main.async {
           NotificationCenter.default.post(name: RNotiKey.didUpdateWorkRecord, object: nil)
         }

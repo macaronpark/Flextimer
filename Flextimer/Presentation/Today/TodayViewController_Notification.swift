@@ -8,6 +8,9 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
+
 extension TodayViewController {
   
   func registerNotification() {
@@ -64,9 +67,25 @@ extension TodayViewController {
     }
     .last
     
-    self.todayViewModel = TodayViewModel(userInfo, workRecordOfToday: workRecordOfToday ?? nil)
+    let isWorking = workRecordOfToday != nil
+    self.todayView.buttonsView.rx.isWorking.onNext(isWorking)
     
-    self.todayView.buttonsView.rx.viewModel.onNext(self.todayViewModel)
+    guard (workRecordOfToday != nil) else {
+      // 퇴근
+      self.isWorking.accept(false)
+      return
+    }
+    // 출근
+    self.todayViewModel = TodayViewModel(userInfo, workRecordOfToday: workRecordOfToday ?? nil)
+    self.isWorking.accept(true)
+    print("a")
+    
+    
+//    self.todayViewModel = TodayViewModel(userInfo, workRecordOfToday: workRecordOfToday ?? nil)
+
+//    self.timer = nil
+//    self.todayView.timerView.rx.initialization.onNext(self.todayViewModel)
+//    self.timer = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
     
 //    if self.todayViewModel.isWorking {
 //      print("is Working")
