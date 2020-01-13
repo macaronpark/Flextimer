@@ -2,33 +2,36 @@
 //  SceneDelegate.swift
 //  Flextimer
 //
-//  Created by Suzy Mararon Park on 04/10/2019.
-//  Copyright © 2019 Suzy Mararon Park. All rights reserved.
+//  Created by Suzy Mararon Park on 2020/01/11.
+//  Copyright © 2020 Suzy Mararon Park. All rights reserved.
 //
 
 import UIKit
-import SwiftUI
+
+import RealmSwift
+//import Siren
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   
   var window: UIWindow?
   
-  func scene(
-    _ scene: UIScene,
-    willConnectTo session: UISceneSession,
-    options connectionOptions: UIScene.ConnectionOptions
-  ) {
-    let contentView = RootView()
-    
+  func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+
     if let windowScene = scene as? UIWindowScene {
       let window = UIWindow(windowScene: windowScene)
-      
-      window.rootViewController = UIHostingController(
-        rootView: contentView.environmentObject(UserData())
-      )
-      
+      window.rootViewController = TabBarController()
       self.window = window
       window.makeKeyAndVisible()
+
+      
+//      self.setupSiren()
+      self.appAppearanceCofigure()
+      self.initializeRealm()
+
     }
+  }
+  
+  func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+    
   }
 }
