@@ -11,15 +11,18 @@ import SnapKit
 
 final class SettingCell: BaseTableViewCell {
   
-  var trailingConstraint: Constraint?
-  
   let titleLabel = UILabel().then {
-    $0.textColor = Color.grayText
+    $0.textColor = Color.primaryText
     $0.font = Font.REGULAR_16
+  }
+  
+  let stackView = UIStackView().then {
+    $0.axis = .horizontal
+    $0.spacing = 10;
   }
 
   let subLabel = UILabel().then {
-    $0.textColor = Color.grayText
+    $0.textColor = Color.secondText
     $0.font = Font.REGULAR_16
   }
   
@@ -31,43 +34,35 @@ final class SettingCell: BaseTableViewCell {
   
   override func initial() {
     super.initial()
-    
-    self.titleLabel.font = Font.REGULAR_16
-    self.titleLabel.textColor = Color.primaryText
-    self.subLabel.font = Font.REGULAR_16
-    self.subLabel.textColor = Color.secondText
-    
+
     self.addSubview(self.titleLabel)
-    self.addSubview(self.disclosureIndicatorImageView)
-    self.addSubview(self.subLabel)
+    self.addSubview(self.stackView)
     
     self.titleLabel.snp.makeConstraints {
       $0.leading.equalToSuperview().offset(20)
       $0.centerY.equalToSuperview()
     }
     
+    self.stackView.snp.makeConstraints {
+      $0.top.bottom.equalToSuperview()
+      $0.trailing.equalToSuperview().offset(-20)
+      $0.leading.greaterThanOrEqualToSuperview().offset(8)
+    }
+    
     self.disclosureIndicatorImageView.snp.makeConstraints {
-      $0.size.equalTo(20)
-      $0.trailing.equalToSuperview().offset(-8)
-      $0.centerY.equalToSuperview()
+      $0.size.equalTo(12)
     }
-
-    self.subLabel.snp.makeConstraints {
-      $0.leading.greaterThanOrEqualTo(self.titleLabel).offset(8)
-      self.trailingConstraint = $0.trailing.equalTo(self.disclosureIndicatorImageView.snp.leading).constraint
-      $0.centerY.equalToSuperview()
-    }
+    
+    self.stackView.addArrangedSubview(self.subLabel)
+    self.stackView.addArrangedSubview(self.disclosureIndicatorImageView)
   }
   
   func updateUI(_ model: SettingCellModel) {
     if model.component == .none {
-      self.disclosureIndicatorImageView.image = nil
-      self.trailingConstraint?.update(offset: 0)
+      self.disclosureIndicatorImageView.isHidden = true
     } else {
       self.disclosureIndicatorImageView.image = UIImage(systemName: "chevron.right")
-      self.trailingConstraint?.update(offset: -8)
     }
-    
     self.titleLabel.text = model.title ?? ""
     self.subLabel.text = model.text ?? ""
   }

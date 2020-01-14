@@ -25,6 +25,22 @@ class HistoryViewController: BaseViewController {
     $0.register(HistoryTableViewCell.self)
   }
   
+//  override func viewDidLoad() {
+//    super.viewDidLoad()
+//
+//    let dateComponents = DateComponents(year: 2015, month: 7)
+//    let calendar = Calendar.current
+//    let date = calendar.date(from: dateComponents)!
+//
+//    let range = calendar.range(of: .day, in: .month, for: date)!
+//    let numDays = range.count
+//  }
+  override func bind() {
+    super.bind()
+    
+    
+  }
+  
   override func setupConstraints() {
     super.setupConstraints()
     
@@ -48,6 +64,4 @@ class HistoryViewController: BaseViewController {
     self.navigationController?.navigationBar.prefersLargeTitles = true
     self.navigationItem.rightBarButtonItem = self.createRecordBarButton
   }
-  
-  
 }

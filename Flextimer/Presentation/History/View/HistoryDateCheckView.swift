@@ -24,7 +24,6 @@ class HistoryDateCheckView: UIView {
     self.currentYearMonthButton.snp.makeConstraints {
       $0.top.equalToSuperview().offset(16)
       $0.leading.equalToSuperview().offset(20)
-//      $0.trailing.equalToSuperview().offset(20)
       $0.bottom.equalToSuperview().offset(-4)
     }
   }
