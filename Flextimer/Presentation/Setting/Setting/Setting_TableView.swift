@@ -24,10 +24,10 @@ extension SettingViewController: UITableViewDelegate {
         vc.modalTransitionStyle = .crossDissolve
         self.navigationController?.present(vc, animated: true, completion: nil)
       }
-      
-      if let url = SettingURLModel(indexPath).url {
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-      }
+    }
+    
+    if let url = SettingURLModel(indexPath).url {
+      UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
   }
 }
