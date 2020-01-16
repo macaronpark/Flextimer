@@ -113,12 +113,7 @@ class TodayViewController: BaseViewController {
       .map { (workRecordInToday != nil) ? true: false }
       .bind { [weak self] isTodayRecord in
         guard let self = self else { return }
-        if isTodayRecord {
-          self.showStartAlert()
-        } else {
-          let newWorkRecord = WorkRecord(Date())
-          RealmService.shared.create(newWorkRecord)
-        }
+        self.didTapStartButton()
     }.disposed(by: self.disposeBag)
     
     self.todayView.buttonsView.endButton.rx.tap

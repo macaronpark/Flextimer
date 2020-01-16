@@ -12,7 +12,7 @@ import RxSwift
 import RxCocoa
 
 extension TodayViewController {
-  func showStartAlert() {
+  func didTapStartButton() {
     // 오늘 자 기록을 기준으로 분기
     let workRecordInToday: WorkRecord? = RealmService.shared.realm
       .objects(WorkRecord.self)
