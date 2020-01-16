@@ -19,11 +19,13 @@ import RealmSwift
   // 퇴근 date
   @objc dynamic var endDate: Date? = nil
   
+  @objc dynamic var isHoliday: Bool = false
+  
   override static func primaryKey() -> String? {
       return "id"
   }
   
-  convenience init(_ startDate: Date, endDate: Date? = nil) {
+  convenience init(_ startDate: Date, endDate: Date? = nil, isHoliday: Bool = false) {
     self.init()
     
     let comp = Calendar.current.dateComponents(
@@ -51,5 +53,6 @@ import RealmSwift
     }
     self.startDate = startDate
     self.endDate = endDate
+    self.isHoliday = isHoliday
   }
 }
