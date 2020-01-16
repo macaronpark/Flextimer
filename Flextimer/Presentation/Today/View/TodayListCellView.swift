@@ -50,7 +50,7 @@ class TodayListCellView: UIView {
     
     self.separatorView.snp.makeConstraints {
       $0.height.equalTo(1)
-      $0.leading.bottom.equalToSuperview()
+      $0.leading.equalToSuperview().offset(20)
       $0.trailing.bottom.equalToSuperview()
     }
   }

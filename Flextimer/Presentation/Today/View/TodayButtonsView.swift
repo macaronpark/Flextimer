@@ -17,7 +17,6 @@ class TodayButtonsView: UIView {
     $0.setBackgroundColor(color: Color.immutableOrange, forState: .normal)
     $0.setBackgroundColor(color: Color.buttonGray, forState: .disabled)
     $0.setTitleColor(Color.immutableWhite, for: .normal)
-    $0.setTitleColor(Color.immutableLightGray, for: .disabled)
     $0.layer.cornerRadius = 10
     $0.clipsToBounds = true
     $0.setTitle("출근", for: .normal)
@@ -27,7 +26,6 @@ class TodayButtonsView: UIView {
     $0.setBackgroundColor(color: Color.immutableOrange, forState: .normal)
     $0.setBackgroundColor(color: Color.buttonGray, forState: .disabled)
     $0.setTitleColor(Color.immutableWhite, for: .normal)
-    $0.setTitleColor(Color.immutableLightGray, for: .disabled)
     $0.layer.cornerRadius = 10
     $0.clipsToBounds = true
     $0.setTitle("퇴근", for: .normal)
@@ -59,25 +57,10 @@ class TodayButtonsView: UIView {
 }
 
 extension Reactive where Base: TodayButtonsView {
-  
-//  var viewModel: Binder<TodayViewModel> {
-//    return Binder(self.base) { base, viewModel in
-//      base.startButton.isEnabled = (viewModel.isWorking) ? false: true
-//      base.endButton.isEnabled = (viewModel.isWorking) ? true: false
-//    }
-//  }
-  
   var viewModel: Binder<Bool> {
     return Binder(self.base) { base, isWorking in
       base.startButton.isEnabled = (isWorking) ? false: true
       base.endButton.isEnabled = (isWorking) ? true: false
     }
   }
-  
-//  var isWorking: Binder<Bool> {
-//    return Binder(self.base) { base, isWorking in
-//      base.startButton.isEnabled = !isWorking
-//      base.endButton.isEnabled = isWorking
-//    }
-//  }
 }

@@ -22,7 +22,7 @@ extension HistoryViewController: UITableViewDelegate {
 extension HistoryViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 48
+    return 52
   }
   
   func tableView(
@@ -30,7 +30,7 @@ extension HistoryViewController: UITableViewDataSource {
     numberOfRowsInSection
     section: Int
   ) -> Int {
-    return 10
+    return self.allDatesInMonth.count
   }
   
   func tableView(
@@ -39,7 +39,7 @@ extension HistoryViewController: UITableViewDataSource {
     indexPath: IndexPath) -> UITableViewCell
   {
     let cell = tableView.dequeueCell(ofType: HistoryTableViewCell.self, indexPath: indexPath)
-    cell.updateCell()
+    cell.updateCell(self.viewModels[indexPath.row])
     return cell
   }
 }

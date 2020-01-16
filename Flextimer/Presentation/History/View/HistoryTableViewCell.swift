@@ -44,21 +44,21 @@ class HistoryTableViewCell: BaseTableViewCell {
     }
     
     self.stackView.snp.makeConstraints {
-      $0.top.bottom.equalToSuperview()
-      $0.trailing.equalToSuperview().offset(-20)
-      $0.leading.greaterThanOrEqualToSuperview().offset(8)
+      $0.centerY.equalToSuperview()
+      $0.trailing.equalToSuperview().offset(-14)
+      $0.leading.greaterThanOrEqualTo(self.titleLabel.snp.trailing).offset(8)
     }
     
     self.disclosureIndicatorImageView.snp.makeConstraints {
-      $0.size.equalTo(12)
+      $0.size.equalTo(CGSize(width: 16, height: 16))
     }
     
     self.stackView.addArrangedSubview(self.totalWorkhoursADayLabel)
     self.stackView.addArrangedSubview(self.disclosureIndicatorImageView)
   }
   
-  func updateCell() {
-    self.titleLabel.text = "1월 20일"
-    self.totalWorkhoursADayLabel.text = "3시간 20분"
+  func updateCell(_ model: HistoryViewModel) {
+    self.titleLabel.text = Formatter.dayName.string(from: model.date)
+    self.totalWorkhoursADayLabel.text = (model.workRecord != nil) ? "record is exist": ""
   }
 }
