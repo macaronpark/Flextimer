@@ -15,6 +15,7 @@
 		1C445C81235930D10043A978 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C445C80235930D10043A978 /* UIButton.swift */; };
 		A0D57989D9DEFACD49EE16D6 /* Pods_Flextimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4430D25C294FC2114B53953B /* Pods_Flextimer.framework */; };
 		B14170AB58BA09784447F94E /* Pods_Flextimer_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B058166C14D1321615F8A5 /* Pods_Flextimer_Widget.framework */; };
+		BF1912AF23D20FCF007F9F10 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1912AE23D20FCF007F9F10 /* HistoryViewModel.swift */; };
 		BF28A0D82358A177004654AA /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28A0D72358A177004654AA /* Delegate.swift */; };
 		BF3D682023CA1BA4005F6055 /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D681F23CA1BA4005F6055 /* TodayViewModel.swift */; };
 		BF3D682223CA3265005F6055 /* FilterNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D682123CA3265005F6055 /* FilterNil.swift */; };
@@ -36,7 +37,7 @@
 		BF65DD3023C985F600B3EA0B /* DayNameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65DD2F23C985F600B3EA0B /* DayNameButton.swift */; };
 		BF65DD3223C9A21900B3EA0B /* Setting_StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65DD3123C9A21900B3EA0B /* Setting_StackView.swift */; };
 		BF65DD3423C9AA7100B3EA0B /* InfoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65DD2B23C8FC1E00B3EA0B /* InfoUtil.swift */; };
-		BF6D450B23D0CE14006067A8 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6D450A23D0CE14006067A8 /* HistoryViewModel.swift */; };
+		BF6D450B23D0CE14006067A8 /* HistoryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6D450A23D0CE14006067A8 /* HistoryCellModel.swift */; };
 		BF7E986623C8E8A1002E722D /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E986523C8E8A1002E722D /* BaseTableViewCell.swift */; };
 		BF7E986823C8E8FA002E722D /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E986723C8E8FA002E722D /* HistoryTableViewCell.swift */; };
 		BF7E986A23C8EA75002E722D /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E986923C8EA75002E722D /* UITableView.swift */; };
@@ -122,6 +123,7 @@
 		87F7E2D88B8929A88AA77E76 /* Pods-Flextimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flextimer.release.xcconfig"; path = "Target Support Files/Pods-Flextimer/Pods-Flextimer.release.xcconfig"; sourceTree = "<group>"; };
 		9F5AFA222ABA8F6BE2CE3595 /* Pods-Flextimer-Widget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flextimer-Widget.debug.xcconfig"; path = "Target Support Files/Pods-Flextimer-Widget/Pods-Flextimer-Widget.debug.xcconfig"; sourceTree = "<group>"; };
 		BF18D7E4234E1D1000FFB49F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		BF1912AE23D20FCF007F9F10 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		BF28A0D72358A177004654AA /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		BF3D681F23CA1BA4005F6055 /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
 		BF3D682123CA3265005F6055 /* FilterNil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterNil.swift; sourceTree = "<group>"; };
@@ -145,7 +147,7 @@
 		BF65DD2D23C97ECE00B3EA0B /* SettingDayNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDayNameCell.swift; sourceTree = "<group>"; };
 		BF65DD2F23C985F600B3EA0B /* DayNameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayNameButton.swift; sourceTree = "<group>"; };
 		BF65DD3123C9A21900B3EA0B /* Setting_StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting_StackView.swift; sourceTree = "<group>"; };
-		BF6D450A23D0CE14006067A8 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		BF6D450A23D0CE14006067A8 /* HistoryCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCellModel.swift; sourceTree = "<group>"; };
 		BF7E986523C8E8A1002E722D /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		BF7E986723C8E8FA002E722D /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		BF7E986923C8EA75002E722D /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
@@ -296,6 +298,23 @@
 			path = SupporViews;
 			sourceTree = "<group>";
 		};
+		BF1912AC23D20FA4007F9F10 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BF6D450A23D0CE14006067A8 /* HistoryCellModel.swift */,
+				BF7E986723C8E8FA002E722D /* HistoryTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BF1912AD23D20FB9007F9F10 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BF1912AE23D20FCF007F9F10 /* HistoryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		BF28A0D92358A1D1004654AA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				BF7E986D23C8EC78002E722D /* View */,
+				BF1912AD23D20FB9007F9F10 /* ViewModel */,
 				BFAC857823C8C79D00C1663F /* HistoryViewController.swift */,
 				BF7E986B23C8EAB2002E722D /* History_TableView.swift */,
 			);
@@ -394,9 +414,8 @@
 		BF7E986D23C8EC78002E722D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BF7E986723C8E8FA002E722D /* HistoryTableViewCell.swift */,
+				BF1912AC23D20FA4007F9F10 /* Cell */,
 				BF7E986E23C8ECA4002E722D /* HistoryDateCheckView.swift */,
-				BF6D450A23D0CE14006067A8 /* HistoryViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -747,6 +766,7 @@
 				BF7E987D23C8F494002E722D /* SettingCell.swift in Sources */,
 				BF7E987623C8F38E002E722D /* SettingCellModel.swift in Sources */,
 				BF4497DC23CAEC770024DF53 /* WorkhoursADayViewController.swift in Sources */,
+				BF1912AF23D20FCF007F9F10 /* HistoryViewModel.swift in Sources */,
 				BF4497DE23CAEFC90024DF53 /* PickerView.swift in Sources */,
 				BF3D682023CA1BA4005F6055 /* TodayViewModel.swift in Sources */,
 				BF44451123C8DF2900286305 /* TodayView.swift in Sources */,
@@ -762,7 +782,7 @@
 				BFDED1562358A9A9003AFA67 /* Int.swift in Sources */,
 				BF44450D23C8D9A800286305 /* UIButton.swift in Sources */,
 				BF7ECBC1234CE3420078AE6C /* TimeInterval.swift in Sources */,
-				BF6D450B23D0CE14006067A8 /* HistoryViewModel.swift in Sources */,
+				BF6D450B23D0CE14006067A8 /* HistoryCellModel.swift in Sources */,
 				BFDDF01323CB353200744F2C /* TodayViewController_Notification.swift in Sources */,
 				BF7E988023C8F4CA002E722D /* SettingViewModel.swift in Sources */,
 				BF7E987223C8F091002E722D /* SettingViewController.swift in Sources */,

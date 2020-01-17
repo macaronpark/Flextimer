@@ -8,7 +8,7 @@
 
 import Foundation
 
-class HistoryViewModel {
+class HistoryCellModel {
   
   let date: Date
   let workRecord: WorkRecord?

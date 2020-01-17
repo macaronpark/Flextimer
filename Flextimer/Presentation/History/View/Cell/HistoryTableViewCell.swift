@@ -57,8 +57,13 @@ class HistoryTableViewCell: BaseTableViewCell {
     self.stackView.addArrangedSubview(self.disclosureIndicatorImageView)
   }
   
-  func updateCell(_ model: HistoryViewModel) {
+  func updateCell(_ model: HistoryCellModel) {
     self.titleLabel.text = Formatter.dayName.string(from: model.date)
     self.totalWorkhoursADayLabel.text = (model.workRecord != nil) ? "record is exist": ""
+    self.disclosureIndicatorImageView.isHidden = !(model.workRecord != nil)
+    
+    let textColor: UIColor = (Calendar.current.isDateInToday(model.date)) ? Color.primaryText: Color.secondText
+    self.titleLabel.textColor = textColor
+    self.totalWorkhoursADayLabel.textColor = textColor
   }
 }

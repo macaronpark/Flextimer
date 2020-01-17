@@ -10,8 +10,8 @@ import UIKit
 
 class HistoryViewController: BaseViewController {
   
-  var allDatesInMonth = [Date]()
-  var viewModels = [HistoryViewModel]()
+  var cellModels = [HistoryCellModel]()
+  var historyViewModel: HistoryViewModel?
   
   lazy var createRecordBarButton = UIBarButtonItem(
     barButtonSystemItem: .add,
@@ -21,7 +21,7 @@ class HistoryViewController: BaseViewController {
   
   let dateCheckView = HistoryDateCheckView()
   
-  lazy var tableView = UITableView(frame: .zero, style: .plain).then {
+  lazy var tableView = UITableView(frame: .zero, style: .grouped).then {
     $0.delegate = self
     $0.dataSource = self
     $0.backgroundColor = .clear
@@ -31,20 +31,64 @@ class HistoryViewController: BaseViewController {
   
   // MARK: - Init
   
-  override init() {
-    super.init()
-
-    let comp = Calendar.current.dateComponents([.year, .month], from: Date())
-    self.allDatesInMonth = self.allDatesIn(month: comp.month ?? 0, year: comp.year ?? 0)
-    self.viewModels = self.allDatesInMonth.map { HistoryViewModel($0) }
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
+  convenience init(_ cellModels: [HistoryCellModel]) {
+    self.init()
+    
+    self.cellModels = cellModels
+    
+    //
+    var sections = [HistroySectionModel]()
+    var tempCell = cellModels
+    
+    // 1: 셀모델을 주단위로 쪼갠다
+    
+    // 주 범위
+    let weekRange = Calendar.current.range(of: .weekOfMonth, in: .month, for: Date())!
+    
+    let _ = weekRange.map { weekIdx in
+      // 첫 째 주의 weekday 수집 (디폴트로 토요일까지 수집 됨)
+      var weekdays = tempCell.filter { Calendar.current.date($0.date, matchesComponents: DateComponents(weekOfMonth: weekIdx)) }
+      
+      // 마지막 주의 경우 남은 날짜를
+      if (weekIdx == weekRange.count) {
+        print(weekIdx)
+        let section = HistroySectionModel(weekdays)
+        sections.append(section)
+        return
+      }
+      
+      // 일요일 추가 수집
+      weekdays.append(tempCell[weekdays.count])
+      
+      // 주 모델 반환
+      let section = HistroySectionModel(weekdays)
+      sections.append(section)
+      
+      // 반환된 날짜 지우기 (일요일도 포함되서 삭제되므로 둘째 주부터는 월요일부터 계산된다)
+      tempCell.removeSubrange(0..<weekdays.count)
+    }
+    
+    // 2: 주단위를 섹션모델로 만든다
+    
+    // 3: 만들어진 섹션모델들로 뷰모델을 만든다
+    let viewModel = HistoryViewModel(sections)
+    self.historyViewModel = viewModel
   }
   
   
   // MARK: - Lifecycles
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    // scroll to today record cell
+    let monday = Date().getThisWeekMonday()
+    let weekOfMonthComponent = Calendar.current.dateComponents([.weekOfMonth], from: monday)
+    let thisWeekSection = (weekOfMonthComponent.weekOfMonth ?? 0) - 1
+    DispatchQueue.main.async {
+      self.tableView.scrollToRow(at: IndexPath(row: 0, section: thisWeekSection), at: .top, animated: true)
+    }
+  }
   
   override func setupNaviBar() {
     super.setupNaviBar()
@@ -56,7 +100,6 @@ class HistoryViewController: BaseViewController {
   
   override func bind() {
     super.bind()
-    
     
   }
   

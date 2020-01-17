@@ -30,7 +30,7 @@ extension HistoryViewController: UITableViewDataSource {
     numberOfRowsInSection
     section: Int
   ) -> Int {
-    return self.allDatesInMonth.count
+    return self.cellModels.count
   }
   
   func tableView(
@@ -39,7 +39,7 @@ extension HistoryViewController: UITableViewDataSource {
     indexPath: IndexPath) -> UITableViewCell
   {
     let cell = tableView.dequeueCell(ofType: HistoryTableViewCell.self, indexPath: indexPath)
-    cell.updateCell(self.viewModels[indexPath.row])
+    cell.updateCell(self.cellModels[indexPath.row])
     return cell
   }
 }
