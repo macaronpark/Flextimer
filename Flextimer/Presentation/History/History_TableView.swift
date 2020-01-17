@@ -25,12 +25,20 @@ extension HistoryViewController: UITableViewDataSource {
     return 52
   }
   
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return self.historyViewModel?.sections.count ?? 0
+  }
+  
+//  func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+//    return ""
+//  }
+  
   func tableView(
     _ tableView: UITableView,
     numberOfRowsInSection
     section: Int
   ) -> Int {
-    return self.cellModels.count
+    return self.historyViewModel?.sections[section].rows.count ?? 0
   }
   
   func tableView(
@@ -39,7 +47,9 @@ extension HistoryViewController: UITableViewDataSource {
     indexPath: IndexPath) -> UITableViewCell
   {
     let cell = tableView.dequeueCell(ofType: HistoryTableViewCell.self, indexPath: indexPath)
-    cell.updateCell(self.cellModels[indexPath.row])
+    if let model = self.historyViewModel?.sections[indexPath.section].rows[indexPath.row] {
+      cell.updateCell(model)
+    }
     return cell
   }
 }
