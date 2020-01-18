@@ -12,7 +12,7 @@ class HistoryTableViewCell: BaseTableViewCell {
   
   let titleLabel = UILabel().then {
     $0.textColor = Color.primaryText
-    $0.text = "1월 20일"
+    $0.font = Font.REGULAR_16
   }
   
   let stackView = UIStackView().then {
@@ -23,7 +23,7 @@ class HistoryTableViewCell: BaseTableViewCell {
   let totalWorkhoursADayLabel = UILabel().then {
     $0.textColor = Color.primaryText
     $0.textAlignment = .right
-    $0.text = "3시간"
+    $0.font = Font.REGULAR_16
   }
   
   let disclosureIndicatorImageView = UIImageView().then {

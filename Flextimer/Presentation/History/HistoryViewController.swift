@@ -14,7 +14,8 @@ class HistoryViewController: BaseViewController {
   var historyViewModel: HistoryViewModel?
   
   lazy var createRecordBarButton = UIBarButtonItem(
-    barButtonSystemItem: .add,
+    image: UIImage(named: "history_add"),
+    style: .plain,
     target: self,
     action: nil
   )
@@ -93,6 +94,7 @@ class HistoryViewController: BaseViewController {
     super.setupNaviBar()
     
     self.title = "기록"
+    self.navigationItem.largeTitleDisplayMode = .automatic
     self.navigationController?.navigationBar.prefersLargeTitles = true
     self.navigationItem.rightBarButtonItem = self.createRecordBarButton
   }
@@ -114,6 +116,7 @@ class HistoryViewController: BaseViewController {
     self.dateCheckView.snp.makeConstraints {
       $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
       $0.leading.trailing.equalToSuperview()
+      $0.height.equalTo(56)
     }
     self.tableView.snp.makeConstraints {
       $0.top.equalTo(self.dateCheckView.snp.bottom)

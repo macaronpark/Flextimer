@@ -14,6 +14,7 @@ import RxSwift
 class TodayButtonsView: UIView {
   
   let startButton = UIButton().then {
+    $0.titleLabel?.font = Font.SEMIBOLD_16
     $0.setBackgroundColor(color: Color.immutableOrange, forState: .normal)
     $0.setBackgroundColor(color: Color.buttonGray, forState: .disabled)
     $0.setTitleColor(Color.immutableWhite, for: .normal)
@@ -24,6 +25,7 @@ class TodayButtonsView: UIView {
   }
   
   let endButton = UIButton().then {
+    $0.titleLabel?.font = Font.SEMIBOLD_16
     $0.setBackgroundColor(color: Color.immutableOrange, forState: .normal)
     $0.setBackgroundColor(color: Color.buttonGray, forState: .disabled)
     $0.setTitleColor(Color.immutableWhite, for: .normal)

@@ -12,16 +12,16 @@ class TodayListCellView: UIView {
   
   let titleLabel = UILabel().then {
     $0.textColor = Color.primaryText
-    $0.text = "출근"
+    $0.font = Font.REGULAR_16
   }
   
   let descriptionLabel = UILabel().then {
     $0.textColor = Color.primaryText
-    $0.text = "오전 9시 30분"
+    $0.font = Font.REGULAR_16
   }
   
   let separatorView = UIView().then {
-    $0.backgroundColor = UIColor.darkGray.withAlphaComponent(0.4)
+    $0.backgroundColor = Color.separatorGray
   }
   
   init(_ title: String, description: String, color: UIColor) {

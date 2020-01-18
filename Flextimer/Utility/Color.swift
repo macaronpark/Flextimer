@@ -16,27 +16,26 @@ enum Color {
   static let secondText = UIColor.secondaryLabel
   static let grayText = UIColor.systemGray
   static let buttonGray = UIColor.quaternarySystemFill
-  static let separatorGray = UIColor.quaternaryLabel
   static let pickerGray = UIColor.tertiarySystemGroupedBackground
   
   static let immutableOrange = UIColor(hex: "F8613B")
   static let immutableWhite = UIColor(hex: "ffffff")
   static let immutableLightGray = UIColor.lightGray
   
-//  static var tint: UIColor = {
-//    if #available(iOS 13, *) {
-//      return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in
-//        if UITraitCollection.userInterfaceStyle == .dark {
-//          /// Return the color for Dark Mode
-//          return Color.orange
-//        } else {
-//          /// Return the color for Light Mode
-//          return Color.orange
-//        }
-//      }
-//    } else {
-//      /// Return a fallback color for iOS 12 and lower.
-//      return Color.orange
-//    }
-//  }()
+  static var separatorGray: UIColor = {
+    if #available(iOS 13, *) {
+      return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in
+        if UITraitCollection.userInterfaceStyle == .dark {
+          /// Return the color for Dark Mode
+          return UIColor(hex: "3D3E41")
+        } else {
+          /// Return the color for Light Mode
+          return UIColor(hex: "C6C6C8")
+        }
+      }
+    } else {
+      /// Return a fallback color for iOS 12 and lower.
+      return UIColor.darkGray.withAlphaComponent(0.4)
+    }
+  }()
 }

@@ -34,4 +34,11 @@ enum Formatter {
     dateFormatter.pmSymbol = "오후"
     return dateFormatter
   }
+  
+  static var yyyyMM: DateFormatter {
+    let dateFormatter = DateFormatter()
+    dateFormatter.locale = Locale(identifier: "ko_KR")
+    dateFormatter.dateFormat = "yyyy년 MM월"
+    return dateFormatter
+  }
 }
