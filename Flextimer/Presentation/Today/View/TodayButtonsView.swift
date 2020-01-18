@@ -17,6 +17,7 @@ class TodayButtonsView: UIView {
     $0.setBackgroundColor(color: Color.immutableOrange, forState: .normal)
     $0.setBackgroundColor(color: Color.buttonGray, forState: .disabled)
     $0.setTitleColor(Color.immutableWhite, for: .normal)
+    $0.setTitleColor(Color.grayText, for: .disabled)
     $0.layer.cornerRadius = 10
     $0.clipsToBounds = true
     $0.setTitle("출근", for: .normal)
@@ -26,6 +27,7 @@ class TodayButtonsView: UIView {
     $0.setBackgroundColor(color: Color.immutableOrange, forState: .normal)
     $0.setBackgroundColor(color: Color.buttonGray, forState: .disabled)
     $0.setTitleColor(Color.immutableWhite, for: .normal)
+    $0.setTitleColor(Color.grayText, for: .disabled)
     $0.layer.cornerRadius = 10
     $0.clipsToBounds = true
     $0.setTitle("퇴근", for: .normal)

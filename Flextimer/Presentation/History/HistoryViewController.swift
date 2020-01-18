@@ -24,7 +24,6 @@ class HistoryViewController: BaseViewController {
   lazy var tableView = UITableView(frame: .zero, style: .grouped).then {
     $0.delegate = self
     $0.dataSource = self
-    $0.backgroundColor = .clear
     $0.register(HistoryTableViewCell.self)
   }
   

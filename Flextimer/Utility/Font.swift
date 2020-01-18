@@ -10,7 +10,7 @@ import UIKit
 
 enum Font {
   /// ofSize: 24, weight: .bold
-  static let REGULAR_60 = UIFont.systemFont(ofSize: 60, weight: .ultraLight)
+  static let REGULAR_60 = UIFont.systemFont(ofSize: 64, weight: .ultraLight)
   /// ofSize: 24, weight: .bold
   static let BOLD_24 = UIFont.systemFont(ofSize: 24, weight: .bold)
   /// ofSize: 18, weight: .bold

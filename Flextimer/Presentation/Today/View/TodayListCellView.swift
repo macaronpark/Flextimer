@@ -21,7 +21,7 @@ class TodayListCellView: UIView {
   }
   
   let separatorView = UIView().then {
-    $0.backgroundColor = Color.separatorGray
+    $0.backgroundColor = UIColor.darkGray.withAlphaComponent(0.4)
   }
   
   init(_ title: String, description: String, color: UIColor) {
@@ -49,7 +49,7 @@ class TodayListCellView: UIView {
     }
     
     self.separatorView.snp.makeConstraints {
-      $0.height.equalTo(1)
+      $0.height.equalTo(0.5)
       $0.leading.equalToSuperview().offset(20)
       $0.trailing.bottom.equalToSuperview()
     }
