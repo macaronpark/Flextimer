@@ -8,9 +8,11 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
+
 class HistoryViewController: BaseViewController {
   
-  var cellModels = [HistoryCellModel]()
   var historyViewModel: HistoryViewModel?
   
   lazy var createRecordBarButton = UIBarButtonItem(
@@ -34,24 +36,20 @@ class HistoryViewController: BaseViewController {
   convenience init(_ cellModels: [HistoryCellModel]) {
     self.init()
     
-    self.cellModels = cellModels
-    
-    //
     var sections = [HistroySectionModel]()
     var tempCell = cellModels
     
     // 1: 셀모델을 주단위로 쪼갠다
-    
-    // 주 범위
     let weekRange = Calendar.current.range(of: .weekOfMonth, in: .month, for: Date())!
     
     let _ = weekRange.map { weekIdx in
       // 첫 째 주의 weekday 수집 (디폴트로 토요일까지 수집 됨)
-      var weekdays = tempCell.filter { Calendar.current.date($0.date, matchesComponents: DateComponents(weekOfMonth: weekIdx)) }
+      var weekdays = tempCell.filter {
+        Calendar.current.date($0.date, matchesComponents: DateComponents(weekOfMonth: weekIdx))
+      }
       
       // 마지막 주의 경우 남은 날짜를
       if (weekIdx == weekRange.count) {
-        print(weekIdx)
         let section = HistroySectionModel(weekdays)
         sections.append(section)
         return
@@ -69,7 +67,6 @@ class HistoryViewController: BaseViewController {
     }
     
     // 2: 주단위를 섹션모델로 만든다
-    
     // 3: 만들어진 섹션모델들로 뷰모델을 만든다
     let viewModel = HistoryViewModel(sections)
     self.historyViewModel = viewModel
@@ -102,6 +99,12 @@ class HistoryViewController: BaseViewController {
   override func bind() {
     super.bind()
     
+    self.dateCheckView.currentYearMonthButton.rx.tap.bind { _ in
+      let vc = CalendarViewController()
+      vc.modalPresentationStyle = .overFullScreen
+      vc.modalTransitionStyle = .crossDissolve
+      self.present(vc, animated: true, completion: nil)
+    }.disposed(by: self.disposeBag)
   }
   
   

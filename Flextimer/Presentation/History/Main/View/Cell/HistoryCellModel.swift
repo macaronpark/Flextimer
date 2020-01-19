@@ -22,5 +22,4 @@ class HistoryCellModel {
       .filter { Calendar.current.isDate($0.startDate, inSameDayAs: date) && $0.endDate != nil }
       .last ?? nil
   }
-  
 }

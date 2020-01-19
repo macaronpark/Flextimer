@@ -45,6 +45,7 @@ extension TodayViewController {
   
   @objc func didUpdateWorkhousNotification(_ notification: NSNotification) {
     self.todayView.optionView.rx.viewModel.onNext(self.todayViewModel)
+    self.todayView.stackView.rx.viewModel.onNext((self.todayViewModel, self.isWorking.value))
   }
   
   @objc func didUpdateWorkRecordNotification(_ notification: NSNotification) {

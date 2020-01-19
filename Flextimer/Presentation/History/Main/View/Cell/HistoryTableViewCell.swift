@@ -59,7 +59,14 @@ class HistoryTableViewCell: BaseTableViewCell {
   
   func updateCell(_ model: HistoryCellModel) {
     self.titleLabel.text = Formatter.dayName.string(from: model.date)
-    self.totalWorkhoursADayLabel.text = (model.workRecord != nil) ? "record is exist": ""
+    
+    if let endDate = model.workRecord?.endDate {
+      let timeInterval = -(model.workRecord?.startDate.timeIntervalSince(endDate) ?? 0)
+      self.totalWorkhoursADayLabel.text = timeInterval.toString(.week)
+    } else {
+      self.totalWorkhoursADayLabel.text = ""
+    }
+
     self.disclosureIndicatorImageView.isHidden = !(model.workRecord != nil)
     
     let textColor: UIColor = (Calendar.current.isDateInToday(model.date)) ? Color.primaryText: Color.secondText

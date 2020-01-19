@@ -13,27 +13,8 @@ import RxSwift
 
 class TodayButtonsView: UIView {
   
-  let startButton = UIButton().then {
-    $0.titleLabel?.font = Font.SEMIBOLD_16
-    $0.setBackgroundColor(color: Color.immutableOrange, forState: .normal)
-    $0.setBackgroundColor(color: Color.buttonGray, forState: .disabled)
-    $0.setTitleColor(Color.immutableWhite, for: .normal)
-    $0.setTitleColor(Color.grayText, for: .disabled)
-    $0.layer.cornerRadius = 10
-    $0.clipsToBounds = true
-    $0.setTitle("출근", for: .normal)
-  }
-  
-  let endButton = UIButton().then {
-    $0.titleLabel?.font = Font.SEMIBOLD_16
-    $0.setBackgroundColor(color: Color.immutableOrange, forState: .normal)
-    $0.setBackgroundColor(color: Color.buttonGray, forState: .disabled)
-    $0.setTitleColor(Color.immutableWhite, for: .normal)
-    $0.setTitleColor(Color.grayText, for: .disabled)
-    $0.layer.cornerRadius = 10
-    $0.clipsToBounds = true
-    $0.setTitle("퇴근", for: .normal)
-  }
+  let startButton = TodayButton("출근")
+  let endButton = TodayButton("퇴근")
   
   override init(frame: CGRect) {
     super.init(frame: frame)
