@@ -10,7 +10,7 @@ import UIKit
 
 class CalendarPickerView: UIView {
   
-  let picker = MonthYearPickerView()
+  let picker = YearMonthPicker()
   
   override init(frame: CGRect) {
     super.init(frame: frame)

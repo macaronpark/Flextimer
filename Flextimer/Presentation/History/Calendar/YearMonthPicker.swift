@@ -7,20 +7,20 @@
 //
 import UIKit
 
-class MonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
+class YearMonthPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
   
-  var months: [String]!
   var years: [Int]!
-  
-  var month = Calendar.current.component(.month, from: Date()) {
-    didSet {
-      selectRow(month-1, inComponent: 0, animated: false)
-    }
-  }
+  var months: [Int]!
   
   var year = Calendar.current.component(.year, from: Date()) {
     didSet {
       selectRow(years.firstIndex(of: year)!, inComponent: 1, animated: true)
+    }
+  }
+  
+  var month = Calendar.current.component(.month, from: Date()) {
+    didSet {
+      selectRow(month-1, inComponent: 0, animated: false)
     }
   }
   
@@ -40,20 +40,23 @@ class MonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataS
     // population years
     var years: [Int] = []
     if years.count == 0 {
-      let year = NSCalendar(identifier: NSCalendar.Identifier.gregorian)!.component(.year, from: NSDate() as Date)
-      //            for _ in 1...15 {
-      //                years.append(year)
-      //                year += 1
-      //            }
+      let year = Calendar.current.component(.year, from: Date())
+      /*
+      for _ in 1...15 {
+        years.append(year)
+        year += 1
+      }
+      */
       years.append(year)
     }
     self.years = years
     
     // population months with localized names
-    var months: [String] = []
-    var month = 0
+    var months: [Int] = []
+    var month = 1
     for _ in 1...12 {
-      months.append(DateFormatter().monthSymbols[month].capitalized)
+      // months.append(DateFormatter().monthSymbols[month].capitalized)
+      months.append(month)
       month += 1
     }
     self.months = months
@@ -74,9 +77,11 @@ class MonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataS
   func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
     switch component {
     case 0:
-      return months[row]
-    case 1:
       return "\(years[row])"
+      
+    case 1:
+      return "\(months[row])"
+      
     default:
       return nil
     }
@@ -85,17 +90,20 @@ class MonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataS
   func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
     switch component {
     case 0:
-      return months.count
-    case 1:
       return years.count
+      
+    case 1:
+      return months.count
+      
     default:
       return 0
     }
   }
   
   func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-    let month = self.selectedRow(inComponent: 0)+1
-    let year = years[self.selectedRow(inComponent: 1)]
+    let month = years[self.selectedRow(inComponent: 1)]
+    let year = self.selectedRow(inComponent: 0)+1
+    
     if let block = onDateSelected {
       block(month, year)
     }

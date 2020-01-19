@@ -10,20 +10,12 @@ import UIKit
 
 class HistoryDateCheckView: UIView {
   
-  let currentYearMonthButton = UIButton().then {
+  let currentYearMonthButton = HistoryButton().then {
     $0.setTitle(Formatter.yyyyMM.string(from: Date()), for: .normal)
-    $0.setTitleColor(Color.immutableOrange, for: .normal)
-    $0.titleLabel?.font = Font.SEMIBOLD_16
-    $0.backgroundColor = Color.buttonGray
-    $0.layer.cornerRadius = 18
   }
   
-  let todayButton = UIButton().then {
+  let todayButton = HistoryButton().then {
     $0.setTitle("오늘", for: .normal)
-    $0.setTitleColor(Color.immutableOrange, for: .normal)
-    $0.titleLabel?.font = Font.SEMIBOLD_16
-    $0.backgroundColor = Color.buttonGray
-    $0.layer.cornerRadius = 18
   }
   
   let separatorView = UIView().then {

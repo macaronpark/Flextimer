@@ -14,7 +14,7 @@ extension CalendarViewController: UIPickerViewDelegate {
     titleForRow row: Int,
     forComponent component: Int
   ) -> String? {
-    return (component == 0) ? "\(self.pickerView.picker.months[row])월": "\(self.pickerView.picker.years[row])년"
+    return (component == 0) ? "\(self.pickerView.picker.years[row])년": "\(self.pickerView.picker.months[row])월"
   }
   
   func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -37,13 +37,3 @@ extension CalendarViewController: UIPickerViewDelegate {
 //    }
 //  }
 }
-
-//extension WorkhoursADayViewController: UIPickerViewDataSource {
-//  func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//    return 2
-//  }
-//
-//  func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//    return (component == 0) ? self.hours.count: self.minutes.count
-//  }
-//}

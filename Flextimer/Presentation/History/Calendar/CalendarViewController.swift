@@ -8,6 +8,8 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class CalendarViewController: BaseViewController {
   
@@ -15,39 +17,35 @@ class CalendarViewController: BaseViewController {
     $0.picker.delegate = self
   }
   
-  override init() {
-    super.init()
-  }
-  
-  convenience init(_ model: UserInfo) {
-    self.init()
-    
-//    self.pickerView.selectRow(model.hourOfWorkhoursADay - 1, inComponent: 0, animated: true)
-//    self.pickerView.selectRow(minutes.lastIndex(of: model.minuteOfWorkhoursADay) ?? 0, inComponent: 1, animated: true)
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
-    self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-  }
-  
-  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    self.dismiss(animated: true, completion: nil)
+  let confirmButton = HistoryButton().then {
+    $0.setTitle("확인", for: .normal)
+    $0.backgroundColor = Color.pickerGray
   }
   
   override func setupConstraints() {
     super.setupConstraints()
     
+    self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
     self.view.addSubview(self.pickerView)
+    self.view.addSubview(self.confirmButton)
+    
     self.pickerView.snp.makeConstraints {
       $0.leading.equalToSuperview().offset(20)
       $0.trailing.equalToSuperview().offset(-20)
       $0.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-16)
     }
+    self.confirmButton.snp.makeConstraints {
+      $0.trailing.equalToSuperview().offset(-20)
+      $0.size.equalTo(CGSize(width: 60, height: 36))
+      $0.bottom.equalTo(self.pickerView.snp.top).offset(-16)
+    }
+  }
+  
+  override func bind() {
+    super.bind()
+    
+    self.confirmButton.rx.tap
+      .bind(onNext: { self.dismiss(animated: true, completion: nil) })
+      .disposed(by: self.disposeBag)
   }
 }

@@ -60,6 +60,7 @@
 		BFAC857923C8C79D00C1663F /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC857823C8C79D00C1663F /* HistoryViewController.swift */; };
 		BFAC857B23C8C85400C1663F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC857A23C8C85400C1663F /* Logger.swift */; };
 		BFB691C923D4A06900D24885 /* CalendarPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB691C823D4A06900D24885 /* CalendarPickerView.swift */; };
+		BFB691CB23D4A71100D24885 /* HistoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB691CA23D4A71100D24885 /* HistoryButton.swift */; };
 		BFBCA15023C9C53300FC6774 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCA14F23C9C53300FC6774 /* SceneDelegate.swift */; };
 		BFBCA15223C9CEEE00FC6774 /* SettingURLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCA15123C9CEEE00FC6774 /* SettingURLModel.swift */; };
 		BFDA4AE3234CB5E700A7211C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDA4AE2234CB5E700A7211C /* UserData.swift */; };
@@ -82,7 +83,7 @@
 		BFDED17F2358D50E003AFA67 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDA4AE2234CB5E700A7211C /* UserData.swift */; };
 		BFDFA07723D49C6B001F9832 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDFA07623D49C6B001F9832 /* CalendarViewController.swift */; };
 		BFDFA07B23D49D1B001F9832 /* Calendar_Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDFA07A23D49D1B001F9832 /* Calendar_Picker.swift */; };
-		BFDFA07D23D49E23001F9832 /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDFA07C23D49E23001F9832 /* MonthYearPickerView.swift */; };
+		BFDFA07D23D49E23001F9832 /* YearMonthPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDFA07C23D49E23001F9832 /* YearMonthPicker.swift */; };
 		BFE16AAD234D109D006F94C1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE16AAC234D109D006F94C1 /* Color.swift */; };
 		BFF2A9AC23CCB5A800F3B071 /* TodayViewController_Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF2A9AB23CCB5A800F3B071 /* TodayViewController_Alert.swift */; };
 		BFF96FDA23464A66002F5802 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF96FD923464A66002F5802 /* AppDelegate.swift */; };
@@ -176,6 +177,7 @@
 		BFAC857823C8C79D00C1663F /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		BFAC857A23C8C85400C1663F /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		BFB691C823D4A06900D24885 /* CalendarPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPickerView.swift; sourceTree = "<group>"; };
+		BFB691CA23D4A71100D24885 /* HistoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryButton.swift; sourceTree = "<group>"; };
 		BFBCA14F23C9C53300FC6774 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BFBCA15123C9CEEE00FC6774 /* SettingURLModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingURLModel.swift; sourceTree = "<group>"; };
 		BFDA4AE2234CB5E700A7211C /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -193,7 +195,7 @@
 		BFDED1742358C86E003AFA67 /* Today_Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Today_Action.swift; sourceTree = "<group>"; };
 		BFDFA07623D49C6B001F9832 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		BFDFA07A23D49D1B001F9832 /* Calendar_Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar_Picker.swift; sourceTree = "<group>"; };
-		BFDFA07C23D49E23001F9832 /* MonthYearPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearPickerView.swift; sourceTree = "<group>"; };
+		BFDFA07C23D49E23001F9832 /* YearMonthPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearMonthPicker.swift; sourceTree = "<group>"; };
 		BFE16AAC234D109D006F94C1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		BFEDCC942346865C0043E0B0 /* CreteriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreteriaView.swift; sourceTree = "<group>"; };
 		BFF2A9AB23CCB5A800F3B071 /* TodayViewController_Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController_Alert.swift; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 			isa = PBXGroup;
 			children = (
 				BF1912AC23D20FA4007F9F10 /* Cell */,
+				BFB691CA23D4A71100D24885 /* HistoryButton.swift */,
 				BF7E986E23C8ECA4002E722D /* HistoryDateCheckView.swift */,
 			);
 			path = View;
@@ -535,7 +538,7 @@
 		BFDFA07923D49CBE001F9832 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				BFDFA07C23D49E23001F9832 /* MonthYearPickerView.swift */,
+				BFDFA07C23D49E23001F9832 /* YearMonthPicker.swift */,
 				BFB691C823D4A06900D24885 /* CalendarPickerView.swift */,
 				BFDFA07623D49C6B001F9832 /* CalendarViewController.swift */,
 				BFDFA07A23D49D1B001F9832 /* Calendar_Picker.swift */,
@@ -802,7 +805,7 @@
 				BF44450C23C8D8FC00286305 /* TodayButtonsView.swift in Sources */,
 				BF65DD3223C9A21900B3EA0B /* Setting_StackView.swift in Sources */,
 				1C1AEB41234B572600FFB348 /* WorkRecord.swift in Sources */,
-				BFDFA07D23D49E23001F9832 /* MonthYearPickerView.swift in Sources */,
+				BFDFA07D23D49E23001F9832 /* YearMonthPicker.swift in Sources */,
 				BFBCA15223C9CEEE00FC6774 /* SettingURLModel.swift in Sources */,
 				BF7E987D23C8F494002E722D /* SettingCell.swift in Sources */,
 				BF7E987623C8F38E002E722D /* SettingCellModel.swift in Sources */,
@@ -822,6 +825,7 @@
 				BF7ECBC6234CF89B0078AE6C /* DebugPrint.swift in Sources */,
 				BF44451323C8DF6F00286305 /* TodayListStackView.swift in Sources */,
 				BFDED1562358A9A9003AFA67 /* Int.swift in Sources */,
+				BFB691CB23D4A71100D24885 /* HistoryButton.swift in Sources */,
 				BF44450D23C8D9A800286305 /* UIButton.swift in Sources */,
 				BF7ECBC1234CE3420078AE6C /* TimeInterval.swift in Sources */,
 				BF6D450B23D0CE14006067A8 /* HistoryCellModel.swift in Sources */,
