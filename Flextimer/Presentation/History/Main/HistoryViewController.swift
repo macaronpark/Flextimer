@@ -45,13 +45,7 @@ class HistoryViewController: BaseViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // scroll to today record cell
-    let monday = Date().getThisWeekMonday()
-    let weekOfMonthComponent = Calendar.current.dateComponents([.weekOfMonth], from: monday)
-    let thisWeekSection = (weekOfMonthComponent.weekOfMonth ?? 0) - 1
-    DispatchQueue.main.async {
-      self.tableView.scrollToRow(at: IndexPath(row: 0, section: thisWeekSection), at: .top, animated: true)
-    }
+    self.scrollToCurrentWeek()
   }
   
   override func setupNaviBar() {
@@ -71,6 +65,20 @@ class HistoryViewController: BaseViewController {
       vc.modalPresentationStyle = .overFullScreen
       vc.modalTransitionStyle = .crossDissolve
       self.present(vc, animated: true, completion: nil)
+    }.disposed(by: self.disposeBag)
+    
+    self.dateCheckView.todayButton.rx.tap
+      .bind { _ in
+        let comp = Calendar.current.dateComponents([.year, .month], from: Date())
+        if let year = comp.year,
+          let month = comp.month {
+          self.historyViewModel = HistoryViewModel(year: year, month: month)
+          
+          DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.scrollToCurrentWeek()
+          }
+        }
     }.disposed(by: self.disposeBag)
   }
   
@@ -97,22 +105,12 @@ class HistoryViewController: BaseViewController {
   
   // MARK: - Custom Methods
   
-  func allDatesIn(month: Int, year: Int) -> [Date] {
-    let startDateComponents = DateComponents(year: year, month: month, day: 1)
-    let endDateComponents = DateComponents(year: year, month: month + 1, day: 0)
-    
-    guard let startDate = Calendar.current.date(from: startDateComponents),
-      let endDate = Calendar.current.date(from: endDateComponents),
-      startDate < endDate else { return [Date]() }
-    
-    var tempDate = startDate
-    var dates = [tempDate]
-    
-    while tempDate < endDate {
-      tempDate = Calendar.current.date(byAdding: .day, value: 1, to: tempDate)!
-      dates.append(tempDate)
+  func scrollToCurrentWeek() {
+    let monday = Date().getThisWeekMonday()
+    let weekOfMonthComponent = Calendar.current.dateComponents([.weekOfMonth], from: monday)
+    let thisWeekSection = (weekOfMonthComponent.weekOfMonth ?? 0) - 1
+    DispatchQueue.main.async {
+      self.tableView.scrollToRow(at: IndexPath(row: 0, section: thisWeekSection), at: .top, animated: true)
     }
-    
-    return dates
   }
 }
