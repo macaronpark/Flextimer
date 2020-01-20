@@ -22,14 +22,14 @@ enum Formatter {
   static var dayName: DateFormatter {
     let dateFormatter = DateFormatter()
     dateFormatter.locale = Locale(identifier: "ko_KR")
-    dateFormatter.dateFormat = "MM월 dd일 EE"
+    dateFormatter.dateFormat = "M월 d일 EE"
     return dateFormatter
   }
   
   static var dateWithTime: DateFormatter {
     let dateFormatter = DateFormatter()
     dateFormatter.locale = Locale(identifier: "ko_KR")
-    dateFormatter.dateFormat = "MM월 dd일 a h시 m분"
+    dateFormatter.dateFormat = "M월 d일 a h시 m분"
     dateFormatter.amSymbol = "오전"
     dateFormatter.pmSymbol = "오후"
     return dateFormatter
@@ -38,7 +38,7 @@ enum Formatter {
   static var yyyyMM: DateFormatter {
     let dateFormatter = DateFormatter()
     dateFormatter.locale = Locale(identifier: "ko_KR")
-    dateFormatter.dateFormat = "yyyy년 MM월"
+    dateFormatter.dateFormat = "yyyy년 M월"
     return dateFormatter
   }
 }

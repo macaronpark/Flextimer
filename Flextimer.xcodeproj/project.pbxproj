@@ -22,6 +22,10 @@
 		BF40806923658C5700547A3A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40806823658C5700547A3A /* UserInfo.swift */; };
 		BF40806B23658D4400547A3A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40806823658C5700547A3A /* UserInfo.swift */; };
 		BF427E7E23D5F7F600F08943 /* History_Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF427E7D23D5F7F600F08943 /* History_Calendar.swift */; };
+		BF427E8123D6052500F08943 /* HistoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF427E8023D6052500F08943 /* HistoryDetailViewController.swift */; };
+		BF427E8323D6086100F08943 /* HistoryDetail_TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF427E8223D6086100F08943 /* HistoryDetail_TableView.swift */; };
+		BF427E8523D60D9C00F08943 /* HistoryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF427E8423D60D9C00F08943 /* HistoryDetailTableViewCell.swift */; };
+		BF427E8723D6147500F08943 /* HistoryDetailDeleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF427E8623D6147500F08943 /* HistoryDetailDeleteTableViewCell.swift */; };
 		BF44450823C8D5DC00286305 /* TodayOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44450723C8D5DC00286305 /* TodayOptionView.swift */; };
 		BF44450A23C8D67800286305 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44450923C8D67800286305 /* Font.swift */; };
 		BF44450C23C8D8FC00286305 /* TodayButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44450B23C8D8FC00286305 /* TodayButtonsView.swift */; };
@@ -139,6 +143,10 @@
 		BF4129D4234DB8D900425149 /* RowListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowListView.swift; sourceTree = "<group>"; };
 		BF4129D8234DC88D00425149 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		BF427E7D23D5F7F600F08943 /* History_Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History_Calendar.swift; sourceTree = "<group>"; };
+		BF427E8023D6052500F08943 /* HistoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailViewController.swift; sourceTree = "<group>"; };
+		BF427E8223D6086100F08943 /* HistoryDetail_TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetail_TableView.swift; sourceTree = "<group>"; };
+		BF427E8423D60D9C00F08943 /* HistoryDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailTableViewCell.swift; sourceTree = "<group>"; };
+		BF427E8623D6147500F08943 /* HistoryDetailDeleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailDeleteTableViewCell.swift; sourceTree = "<group>"; };
 		BF44450723C8D5DC00286305 /* TodayOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayOptionView.swift; sourceTree = "<group>"; };
 		BF44450923C8D67800286305 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		BF44450B23C8D8FC00286305 /* TodayButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayButtonsView.swift; sourceTree = "<group>"; };
@@ -358,6 +366,17 @@
 			path = Setting;
 			sourceTree = "<group>";
 		};
+		BF427E7F23D604F400F08943 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				BF427E8023D6052500F08943 /* HistoryDetailViewController.swift */,
+				BF427E8223D6086100F08943 /* HistoryDetail_TableView.swift */,
+				BF427E8423D60D9C00F08943 /* HistoryDetailTableViewCell.swift */,
+				BF427E8623D6147500F08943 /* HistoryDetailDeleteTableViewCell.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		BF44450523C8D58700286305 /* Today */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				BFDFA07823D49CB2001F9832 /* Main */,
+				BF427E7F23D604F400F08943 /* Detail */,
 				BFDFA07923D49CBE001F9832 /* Calendar */,
 			);
 			path = History;
@@ -804,10 +824,12 @@
 				BFAC857223C8BF9900C1663F /* TabBarController.swift in Sources */,
 				BFF96FDA23464A66002F5802 /* AppDelegate.swift in Sources */,
 				BF65DD2E23C97ECE00B3EA0B /* SettingDayNameCell.swift in Sources */,
+				BF427E8123D6052500F08943 /* HistoryDetailViewController.swift in Sources */,
 				BF7E986823C8E8FA002E722D /* HistoryTableViewCell.swift in Sources */,
 				BF44450C23C8D8FC00286305 /* TodayButtonsView.swift in Sources */,
 				BF65DD3223C9A21900B3EA0B /* Setting_StackView.swift in Sources */,
 				1C1AEB41234B572600FFB348 /* WorkRecord.swift in Sources */,
+				BF427E8323D6086100F08943 /* HistoryDetail_TableView.swift in Sources */,
 				BFDFA07D23D49E23001F9832 /* YearMonthPicker.swift in Sources */,
 				BFBCA15223C9CEEE00FC6774 /* SettingURLModel.swift in Sources */,
 				BF7E987D23C8F494002E722D /* SettingCell.swift in Sources */,
@@ -845,11 +867,13 @@
 				BFF2A9AC23CCB5A800F3B071 /* TodayViewController_Alert.swift in Sources */,
 				BFAC857923C8C79D00C1663F /* HistoryViewController.swift in Sources */,
 				BF4497E023CAFFF00024DF53 /* WorkhoursADay_Picker.swift in Sources */,
+				BF427E8523D60D9C00F08943 /* HistoryDetailTableViewCell.swift in Sources */,
 				BF7E987823C8F40E002E722D /* CellComponent.swift in Sources */,
 				BF40806923658C5700547A3A /* UserInfo.swift in Sources */,
 				BF28A0D82358A177004654AA /* Delegate.swift in Sources */,
 				BF44451523C8DFA000286305 /* TodayListCellView.swift in Sources */,
 				BF7E986F23C8ECA4002E722D /* HistoryDateCheckView.swift in Sources */,
+				BF427E8723D6147500F08943 /* HistoryDetailDeleteTableViewCell.swift in Sources */,
 				BF3D682223CA3265005F6055 /* FilterNil.swift in Sources */,
 				BF7E987423C8F1BE002E722D /* Setting_TableView.swift in Sources */,
 				BF7E986C23C8EAB2002E722D /* History_TableView.swift in Sources */,

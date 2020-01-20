@@ -15,7 +15,10 @@ extension HistoryViewController: UITableViewDelegate {
     didSelectRowAt
     indexPath: IndexPath)
   {
-    
+    if let workRecord = self.historyViewModel?.sections[indexPath.section].rows[indexPath.row].workRecord {
+      let vc = HistoryDetailViewController(workRecord)
+      self.navigationController?.pushViewController(vc, animated: true)
+    }
   }
 }
 
@@ -29,8 +32,12 @@ extension HistoryViewController: UITableViewDataSource {
     return self.historyViewModel?.sections.count ?? 0
   }
   
+//  func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//    return 40
+//  }
+//
 //  func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-//    return ""
+//    return "총 근무 시간"
 //  }
   
   func tableView(
