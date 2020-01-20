@@ -18,8 +18,12 @@ class CalendarViewController: BaseViewController {
   }
   
   let confirmButton = HistoryButton().then {
-    $0.setTitle("확인", for: .normal)
+    $0.setTitle("기록 조회", for: .normal)
     $0.backgroundColor = Color.pickerGray
+  }
+  
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    self.dismiss(animated: true, completion: nil)
   }
   
   override func setupConstraints() {
@@ -36,7 +40,7 @@ class CalendarViewController: BaseViewController {
     }
     self.confirmButton.snp.makeConstraints {
       $0.trailing.equalToSuperview().offset(-20)
-      $0.size.equalTo(CGSize(width: 60, height: 36))
+      $0.size.equalTo(CGSize(width: 100, height: 36))
       $0.bottom.equalTo(self.pickerView.snp.top).offset(-16)
     }
   }

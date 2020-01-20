@@ -39,19 +39,29 @@ class YearMonthPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSourc
   func commonSetup() {
     // population years
     var years: [Int] = []
+    
     if years.count == 0 {
+      
       let year = Calendar.current.component(.year, from: Date())
-      /*
-      for _ in 1...15 {
-        years.append(year)
-        year += 1
+      
+      let oldestRecordDate = RealmService.shared.realm
+        .objects(WorkRecord.self)
+        .sorted(by: { $0.startDate < $1.startDate })
+        .first
+        .flatMap { $0.startDate }
+      
+      let oldestYear = Calendar.current.component(.year, from: oldestRecordDate ?? Date())
+      
+      var tempYear = oldestYear
+      for _ in oldestYear...year {
+        years.append(tempYear)
+        tempYear += 1
       }
-      */
-      years.append(year)
     }
+    
     self.years = years
     
-    // population months with localized names
+    // population months
     var months: [Int] = []
     var month = 1
     for _ in 1...12 {
@@ -64,8 +74,15 @@ class YearMonthPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSourc
     self.delegate = self
     self.dataSource = self
     
-    let currentMonth = NSCalendar(identifier: NSCalendar.Identifier.gregorian)!.component(.month, from: NSDate() as Date)
-    self.selectRow(currentMonth - 1, inComponent: 0, animated: false)
+    let currentComponents = Calendar.current.dateComponents([.year, .month], from: Date())
+    
+    if let currentYear = currentComponents.year,
+      let yearIdx = years.firstIndex(of: currentYear),
+      let currentMonth = currentComponents.month {
+      
+      self.selectRow(yearIdx, inComponent: 0, animated: true)
+      self.selectRow(currentMonth - 1, inComponent: 1, animated: false)
+    }
   }
   
   // Mark: UIPicker Delegate / Data Source

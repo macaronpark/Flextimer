@@ -33,42 +33,9 @@ class HistoryViewController: BaseViewController {
   
   // MARK: - Init
   
-  convenience init(_ cellModels: [HistoryCellModel]) {
+  convenience init(_ viewModel: HistoryViewModel) {
     self.init()
     
-    var sections = [HistroySectionModel]()
-    var tempCell = cellModels
-    
-    // 1: 셀모델을 주단위로 쪼갠다
-    let weekRange = Calendar.current.range(of: .weekOfMonth, in: .month, for: Date())!
-    
-    let _ = weekRange.map { weekIdx in
-      // 첫 째 주의 weekday 수집 (디폴트로 토요일까지 수집 됨)
-      var weekdays = tempCell.filter {
-        Calendar.current.date($0.date, matchesComponents: DateComponents(weekOfMonth: weekIdx))
-      }
-      
-      // 마지막 주의 경우 남은 날짜를
-      if (weekIdx == weekRange.count) {
-        let section = HistroySectionModel(weekdays)
-        sections.append(section)
-        return
-      }
-      
-      // 일요일 추가 수집
-      weekdays.append(tempCell[weekdays.count])
-      
-      // 주 모델 반환
-      let section = HistroySectionModel(weekdays)
-      sections.append(section)
-      
-      // 반환된 날짜 지우기 (일요일도 포함되서 삭제되므로 둘째 주부터는 월요일부터 계산된다)
-      tempCell.removeSubrange(0..<weekdays.count)
-    }
-    
-    // 2: 주단위를 섹션모델로 만든다
-    // 3: 만들어진 섹션모델들로 뷰모델을 만든다
-    let viewModel = HistoryViewModel(sections)
     self.historyViewModel = viewModel
   }
   
