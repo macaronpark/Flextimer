@@ -21,6 +21,7 @@
 		BF3D682223CA3265005F6055 /* FilterNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D682123CA3265005F6055 /* FilterNil.swift */; };
 		BF40806923658C5700547A3A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40806823658C5700547A3A /* UserInfo.swift */; };
 		BF40806B23658D4400547A3A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40806823658C5700547A3A /* UserInfo.swift */; };
+		BF427E7E23D5F7F600F08943 /* History_Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF427E7D23D5F7F600F08943 /* History_Calendar.swift */; };
 		BF44450823C8D5DC00286305 /* TodayOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44450723C8D5DC00286305 /* TodayOptionView.swift */; };
 		BF44450A23C8D67800286305 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44450923C8D67800286305 /* Font.swift */; };
 		BF44450C23C8D8FC00286305 /* TodayButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44450B23C8D8FC00286305 /* TodayButtonsView.swift */; };
@@ -137,6 +138,7 @@
 		BF4129D2234DB78D00425149 /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		BF4129D4234DB8D900425149 /* RowListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowListView.swift; sourceTree = "<group>"; };
 		BF4129D8234DC88D00425149 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		BF427E7D23D5F7F600F08943 /* History_Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History_Calendar.swift; sourceTree = "<group>"; };
 		BF44450723C8D5DC00286305 /* TodayOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayOptionView.swift; sourceTree = "<group>"; };
 		BF44450923C8D67800286305 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		BF44450B23C8D8FC00286305 /* TodayButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayButtonsView.swift; sourceTree = "<group>"; };
@@ -531,6 +533,7 @@
 				BF1912AD23D20FB9007F9F10 /* ViewModel */,
 				BFAC857823C8C79D00C1663F /* HistoryViewController.swift */,
 				BF7E986B23C8EAB2002E722D /* History_TableView.swift */,
+				BF427E7D23D5F7F600F08943 /* History_Calendar.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -824,6 +827,7 @@
 				BF7E986A23C8EA75002E722D /* UITableView.swift in Sources */,
 				BF7ECBC6234CF89B0078AE6C /* DebugPrint.swift in Sources */,
 				BF44451323C8DF6F00286305 /* TodayListStackView.swift in Sources */,
+				BF427E7E23D5F7F600F08943 /* History_Calendar.swift in Sources */,
 				BFDED1562358A9A9003AFA67 /* Int.swift in Sources */,
 				BFB691CB23D4A71100D24885 /* HistoryButton.swift in Sources */,
 				BF44450D23C8D9A800286305 /* UIButton.swift in Sources */,

@@ -64,6 +64,7 @@ class HistoryViewController: BaseViewController {
       let vc = CalendarViewController()
       vc.modalPresentationStyle = .overFullScreen
       vc.modalTransitionStyle = .crossDissolve
+      vc.delegate = self
       self.present(vc, animated: true, completion: nil)
     }.disposed(by: self.disposeBag)
     
@@ -72,6 +73,7 @@ class HistoryViewController: BaseViewController {
         let comp = Calendar.current.dateComponents([.year, .month], from: Date())
         if let year = comp.year,
           let month = comp.month {
+          self.dateCheckView.currentYearMonthButton.setTitle("\(year)년 \(month)월", for: .normal)
           self.historyViewModel = HistoryViewModel(year: year, month: month)
           
           DispatchQueue.main.async {

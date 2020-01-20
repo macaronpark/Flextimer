@@ -23,7 +23,12 @@ class TabBarController: UITabBarController{
     let todayNVC = UINavigationController(rootViewController: todayVC)
     todayNVC.tabBarItem = UITabBarItem(title: "오늘의 근태", image: UIImage(named: "tab_today"), tag: 0)
     
-    let historyViewModel = HistoryViewModel(self.historyCellModel())
+    let comp = Calendar.current.dateComponents([.year, .month], from: Date())
+    
+    guard let year = comp.year,
+      let month = comp.month else { return }
+    
+    let historyViewModel = HistoryViewModel(year: year, month: month)
     let historyVC = HistoryViewController(historyViewModel)
     let historyNVC = UINavigationController(rootViewController: historyVC)
     historyNVC.tabBarItem = UITabBarItem(title: "기록", image: UIImage(named: "tab_history"), tag: 0)
@@ -63,30 +68,5 @@ class TabBarController: UITabBarController{
     .last
     
     return TodayViewModel(userInfo, workRecordOfToday: workRecordOfToday)
-  }
-  
-  fileprivate func historyCellModel() -> [HistoryCellModel] {
-    let comp = Calendar.current.dateComponents([.year, .month], from: Date())
-    let allDates: [Date] = self.allDatesIn(month: comp.month ?? 0, year: comp.year ?? 0)
-    return allDates.map { HistoryCellModel($0) }
-  }
-  
-  fileprivate func allDatesIn(month: Int, year: Int) -> [Date] {
-    let startDateComponents = DateComponents(year: year, month: month, day: 1)
-    let endDateComponents = DateComponents(year: year, month: month + 1, day: 0)
-    
-    guard let startDate = Calendar.current.date(from: startDateComponents),
-      let endDate = Calendar.current.date(from: endDateComponents),
-      startDate < endDate else { return [Date]() }
-    
-    var tempDate = startDate
-    var dates = [tempDate]
-    
-    while tempDate < endDate {
-      tempDate = Calendar.current.date(byAdding: .day, value: 1, to: tempDate)!
-      dates.append(tempDate)
-    }
-    
-    return dates
   }
 }
