@@ -16,6 +16,27 @@ extension HistoryDetailViewController: UITableViewDelegate {
     indexPath: IndexPath)
   {
     
+    var vc: UIViewController = UIViewController()
+    
+    switch (indexPath.section, indexPath.row) {
+    case (0, 1):
+      vc = HistoryHourPickerViewController(self.workRecord?.startDate ?? Date())
+
+//    case (1, 0):
+      
+    case (1, 1):
+      vc = HistoryHourPickerViewController(self.workRecord?.endDate ?? Date())
+      
+    default:
+      break
+    }
+    
+    vc.modalPresentationStyle = .overFullScreen
+    vc.modalTransitionStyle = .crossDissolve
+    
+    DispatchQueue.main.async {
+      self.present(vc, animated: true, completion: nil)
+    }
   }
 }
 
