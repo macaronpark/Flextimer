@@ -28,4 +28,9 @@ class HistoryDetailDeleteTableViewCell: BaseTableViewCell {
       $0.center.equalToSuperview()
     }
   }
+  
+  func updateCell(_ model: HistoryDetailCellModel) {
+    self.titleLabel.text = model.title
+    self.titleLabel.textColor = model.textColor
+  }
 }

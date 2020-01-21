@@ -26,6 +26,10 @@
 		BF427E8323D6086100F08943 /* HistoryDetail_TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF427E8223D6086100F08943 /* HistoryDetail_TableView.swift */; };
 		BF427E8523D60D9C00F08943 /* HistoryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF427E8423D60D9C00F08943 /* HistoryDetailTableViewCell.swift */; };
 		BF427E8723D6147500F08943 /* HistoryDetailDeleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF427E8623D6147500F08943 /* HistoryDetailDeleteTableViewCell.swift */; };
+		BF427E8923D72D8500F08943 /* HistoryDetailHolidayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF427E8823D72D8500F08943 /* HistoryDetailHolidayTableViewCell.swift */; };
+		BF427E8C23D733D600F08943 /* HistoryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF427E8B23D733D600F08943 /* HistoryDetailViewModel.swift */; };
+		BF427E8E23D7492700F08943 /* HistoryHourPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF427E8D23D7492700F08943 /* HistoryHourPickerViewController.swift */; };
+		BF427E9023D74B6700F08943 /* HistoryHourPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF427E8F23D74B6700F08943 /* HistoryHourPickerView.swift */; };
 		BF44450823C8D5DC00286305 /* TodayOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44450723C8D5DC00286305 /* TodayOptionView.swift */; };
 		BF44450A23C8D67800286305 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44450923C8D67800286305 /* Font.swift */; };
 		BF44450C23C8D8FC00286305 /* TodayButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44450B23C8D8FC00286305 /* TodayButtonsView.swift */; };
@@ -147,6 +151,10 @@
 		BF427E8223D6086100F08943 /* HistoryDetail_TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetail_TableView.swift; sourceTree = "<group>"; };
 		BF427E8423D60D9C00F08943 /* HistoryDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailTableViewCell.swift; sourceTree = "<group>"; };
 		BF427E8623D6147500F08943 /* HistoryDetailDeleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailDeleteTableViewCell.swift; sourceTree = "<group>"; };
+		BF427E8823D72D8500F08943 /* HistoryDetailHolidayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailHolidayTableViewCell.swift; sourceTree = "<group>"; };
+		BF427E8B23D733D600F08943 /* HistoryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailViewModel.swift; sourceTree = "<group>"; };
+		BF427E8D23D7492700F08943 /* HistoryHourPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHourPickerViewController.swift; sourceTree = "<group>"; };
+		BF427E8F23D74B6700F08943 /* HistoryHourPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHourPickerView.swift; sourceTree = "<group>"; };
 		BF44450723C8D5DC00286305 /* TodayOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayOptionView.swift; sourceTree = "<group>"; };
 		BF44450923C8D67800286305 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		BF44450B23C8D8FC00286305 /* TodayButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayButtonsView.swift; sourceTree = "<group>"; };
@@ -369,12 +377,24 @@
 		BF427E7F23D604F400F08943 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				BF427E8A23D72EE800F08943 /* Cell */,
 				BF427E8023D6052500F08943 /* HistoryDetailViewController.swift */,
 				BF427E8223D6086100F08943 /* HistoryDetail_TableView.swift */,
-				BF427E8423D60D9C00F08943 /* HistoryDetailTableViewCell.swift */,
-				BF427E8623D6147500F08943 /* HistoryDetailDeleteTableViewCell.swift */,
+				BF427E8F23D74B6700F08943 /* HistoryHourPickerView.swift */,
+				BF427E8D23D7492700F08943 /* HistoryHourPickerViewController.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		BF427E8A23D72EE800F08943 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BF427E8B23D733D600F08943 /* HistoryDetailViewModel.swift */,
+				BF427E8423D60D9C00F08943 /* HistoryDetailTableViewCell.swift */,
+				BF427E8823D72D8500F08943 /* HistoryDetailHolidayTableViewCell.swift */,
+				BF427E8623D6147500F08943 /* HistoryDetailDeleteTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		BF44450523C8D58700286305 /* Today */ = {
@@ -821,6 +841,7 @@
 				BF44450A23C8D67800286305 /* Font.swift in Sources */,
 				BFDED15A2358AD21003AFA67 /* ScreenSize.swift in Sources */,
 				BF7E986623C8E8A1002E722D /* BaseTableViewCell.swift in Sources */,
+				BF427E8E23D7492700F08943 /* HistoryHourPickerViewController.swift in Sources */,
 				BFAC857223C8BF9900C1663F /* TabBarController.swift in Sources */,
 				BFF96FDA23464A66002F5802 /* AppDelegate.swift in Sources */,
 				BF65DD2E23C97ECE00B3EA0B /* SettingDayNameCell.swift in Sources */,
@@ -850,12 +871,14 @@
 				BF7ECBC6234CF89B0078AE6C /* DebugPrint.swift in Sources */,
 				BF44451323C8DF6F00286305 /* TodayListStackView.swift in Sources */,
 				BF427E7E23D5F7F600F08943 /* History_Calendar.swift in Sources */,
+				BF427E9023D74B6700F08943 /* HistoryHourPickerView.swift in Sources */,
 				BFDED1562358A9A9003AFA67 /* Int.swift in Sources */,
 				BFB691CB23D4A71100D24885 /* HistoryButton.swift in Sources */,
 				BF44450D23C8D9A800286305 /* UIButton.swift in Sources */,
 				BF7ECBC1234CE3420078AE6C /* TimeInterval.swift in Sources */,
 				BF6D450B23D0CE14006067A8 /* HistoryCellModel.swift in Sources */,
 				BFDDF01323CB353200744F2C /* TodayViewController_Notification.swift in Sources */,
+				BF427E8923D72D8500F08943 /* HistoryDetailHolidayTableViewCell.swift in Sources */,
 				BF7E988023C8F4CA002E722D /* SettingViewModel.swift in Sources */,
 				BFDFA07B23D49D1B001F9832 /* Calendar_Picker.swift in Sources */,
 				BF7E987223C8F091002E722D /* SettingViewController.swift in Sources */,
@@ -865,6 +888,7 @@
 				BF7ECBC8234CFD9D0078AE6C /* Formatter.swift in Sources */,
 				1C1AEB43234B5FF100FFB348 /* RealmService.swift in Sources */,
 				BFF2A9AC23CCB5A800F3B071 /* TodayViewController_Alert.swift in Sources */,
+				BF427E8C23D733D600F08943 /* HistoryDetailViewModel.swift in Sources */,
 				BFAC857923C8C79D00C1663F /* HistoryViewController.swift in Sources */,
 				BF4497E023CAFFF00024DF53 /* WorkhoursADay_Picker.swift in Sources */,
 				BF427E8523D60D9C00F08943 /* HistoryDetailTableViewCell.swift in Sources */,

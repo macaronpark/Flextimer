@@ -22,24 +22,15 @@ extension HistoryDetailViewController: UITableViewDelegate {
 extension HistoryDetailViewController: UITableViewDataSource {
   
   func numberOfSections(in tableView: UITableView) -> Int {
-    return 3
+    return self.viewModel?.sections.count ?? 0
   }
   
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    switch section {
-    case 0:
-      return "출근"
-      
-    case 1:
-      return "퇴근"
-      
-    default:
-      return " "
-    }
+    return self.viewModel?.sections[section].sectionTitle
   }
   
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return 60
+    return self.viewModel?.sections[section].headerHeight ?? 0
   }
   
   func tableView(
@@ -47,10 +38,7 @@ extension HistoryDetailViewController: UITableViewDataSource {
     numberOfRowsInSection
     section: Int
   ) -> Int {
-    if section == 2 {
-      return 1
-    }
-    return 2
+    return self.viewModel?.sections[section].rows.count ?? 0
   }
   
   func tableView(
@@ -59,12 +47,19 @@ extension HistoryDetailViewController: UITableViewDataSource {
     indexPath: IndexPath) -> UITableViewCell
   {
     if indexPath.section == 2 {
+      let cell = tableView.dequeueCell(ofType: HistoryDetailHolidayTableViewCell.self, indexPath: indexPath)
+      cell.updateCell(self.viewModel?.sections[indexPath.section].rows[indexPath.row] ?? HistoryDetailCellModel(""))
+      return cell
+    }
+    
+    if indexPath.section == 3 {
       let cell = tableView.dequeueCell(ofType: HistoryDetailDeleteTableViewCell.self, indexPath: indexPath)
+      cell.updateCell(self.viewModel?.sections[indexPath.section].rows[indexPath.row] ?? HistoryDetailCellModel(""))
       return cell
     }
     
     let cell = tableView.dequeueCell(ofType: HistoryDetailTableViewCell.self, indexPath: indexPath)
-    cell.updateCell(self.workRecord ?? WorkRecord(), indexPath: indexPath)
+    cell.updateCell(self.viewModel?.sections[indexPath.section].rows[indexPath.row] ?? HistoryDetailCellModel(""))
     return cell
   }
 }
