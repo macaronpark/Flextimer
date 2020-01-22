@@ -29,7 +29,9 @@ class CalendarViewController: BaseViewController {
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    self.dismiss(animated: true, completion: nil)
+    DispatchQueue.main.async {
+      self.dismiss(animated: true, completion: nil)
+    }
   }
   
   override func setupConstraints() {
@@ -55,9 +57,10 @@ class CalendarViewController: BaseViewController {
     super.bind()
     
     self.confirmButton.rx.tap
-      .bind { _ in
-        let picker = self.pickerView.picker
+      .bind { [weak self] _ in
+        guard let self = self else { return }
         
+        let picker = self.pickerView.picker
         let year = picker.selectedRow(inComponent: 0)
         let month = picker.selectedRow(inComponent: 1)
         
@@ -68,7 +71,10 @@ class CalendarViewController: BaseViewController {
     }.disposed(by: self.disposeBag)
     
     self.confirmButton.rx.tap
-      .bind(onNext: { self.dismiss(animated: true, completion: nil) })
+      .bind { [weak self] _ in
+        guard let self = self else { return }
+        
+        self.dismiss(animated: true, completion: nil) }
       .disposed(by: self.disposeBag)
   }
 }

@@ -15,22 +15,25 @@ extension HistoryDetailViewController: UITableViewDelegate {
     didSelectRowAt
     indexPath: IndexPath)
   {
-    
     var vc: UIViewController = UIViewController()
     
     switch (indexPath.section, indexPath.row) {
     case (0, 1):
       vc = HistoryHourPickerViewController(self.workRecord?.startDate ?? Date())
-
+      self.presentViewController(vc)
+      
 //    case (1, 0):
       
     case (1, 1):
       vc = HistoryHourPickerViewController(self.workRecord?.endDate ?? Date())
+      self.presentViewController(vc)
       
     default:
       break
     }
-    
+  }
+  
+  func presentViewController(_ vc: UIViewController) {
     vc.modalPresentationStyle = .overFullScreen
     vc.modalTransitionStyle = .crossDissolve
     
@@ -67,13 +70,13 @@ extension HistoryDetailViewController: UITableViewDataSource {
     cellForRowAt
     indexPath: IndexPath) -> UITableViewCell
   {
-    if indexPath.section == 2 {
+    if (indexPath.section == 2) {
       let cell = tableView.dequeueCell(ofType: HistoryDetailHolidayTableViewCell.self, indexPath: indexPath)
       cell.updateCell(self.viewModel?.sections[indexPath.section].rows[indexPath.row] ?? HistoryDetailCellModel(""))
       return cell
     }
     
-    if indexPath.section == 3 {
+    if (indexPath.section == 3) {
       let cell = tableView.dequeueCell(ofType: HistoryDetailDeleteTableViewCell.self, indexPath: indexPath)
       cell.updateCell(self.viewModel?.sections[indexPath.section].rows[indexPath.row] ?? HistoryDetailCellModel(""))
       return cell

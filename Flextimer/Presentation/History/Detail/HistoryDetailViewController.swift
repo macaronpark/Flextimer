@@ -28,6 +28,13 @@ class HistoryDetailViewController: BaseViewController {
     self.viewModel = HistoryDetailViewModel(workRecord)
   }
   
+  override func bind() {
+    super.bind()
+    
+    
+    
+  }
+  
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
@@ -36,7 +43,6 @@ class HistoryDetailViewController: BaseViewController {
     super.setupNaviBar()
     
     self.title = Formatter.dayName.string(from: self.workRecord?.startDate ?? Date())
-    self.navigationItem.largeTitleDisplayMode = .automatic
     self.navigationController?.navigationBar.prefersLargeTitles = true
   }
   

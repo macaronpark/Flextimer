@@ -41,7 +41,9 @@ class HistoryDetailHolidayTableViewCell: BaseTableViewCell {
   func updateCell(_ model: HistoryDetailCellModel) {
     self.titleLabel.text = model.title
     self.titleLabel.textColor = model.textColor
-    self.switchControl.isOn = model.isHoliday ?? false
+    
+    if let isHoliday = model.isHoliday {
+      self.switchControl.isOn = isHoliday
+    }
   }
-  
 }
