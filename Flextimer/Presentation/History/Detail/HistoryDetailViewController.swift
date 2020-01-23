@@ -8,9 +8,12 @@
 
 import UIKit
 
+import RealmSwift
+
 class HistoryDetailViewController: BaseViewController {
   
   var workRecord: WorkRecord?
+  var notificationToken: NotificationToken?
   var viewModel: HistoryDetailViewModel?
   
   lazy var tableView = UITableView(frame: .zero, style: .grouped).then {
@@ -28,16 +31,28 @@ class HistoryDetailViewController: BaseViewController {
     self.viewModel = HistoryDetailViewModel(workRecord)
   }
   
-  override func bind() {
-    super.bind()
-    
-    
-    
-  }
-  
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    self.addRealmNoti()
+  }
+  
+  func addRealmNoti() {
+    self.notificationToken = self.workRecord?.observe() { [unowned self] change in
+      switch change {
+      case .change(_):
+        self.viewModel = HistoryDetailViewModel(self.workRecord ?? WorkRecord())
+        self.tableView.reloadData()
+        
+      default: break
+      }
+    }
+  }
+  
   
   override func setupNaviBar() {
     super.setupNaviBar()
@@ -54,4 +69,21 @@ class HistoryDetailViewController: BaseViewController {
       $0.top.leading.trailing.bottom.equalToSuperview()
     }
   }
+  
+  
+  //  // MARK: - Notification
+  //
+  //  func registerNotification() {
+  //    NotificationCenter.default.addObserver(
+  //      self, selector: #selector(didUpdateWorkhourNotification(_:)),
+  //      name: RNotiKey.didUpdateWorkhour,
+  //      object: WorkRecord.self
+  //    )
+  //  }
+  //
+  //  @objc func didUpdateWorkhourNotification(_ notification: NSNotification) {
+  //    DispatchQueue.main.async {
+  //      self.tableView.reloadData()
+  //    }
+  //  }
 }

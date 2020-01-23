@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension CalendarViewController: UIPickerViewDelegate {
+extension YearMonthPickerViewController: UIPickerViewDelegate {
   func pickerView(
     _ pickerView: UIPickerView,
     titleForRow row: Int,

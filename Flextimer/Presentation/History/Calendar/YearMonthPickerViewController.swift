@@ -11,15 +11,15 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-protocol CalendarPickerDelegate: class {
+protocol YearMonthPickerDelegate: class {
   func didCalendarPickerSelected(year: Int, month: Int)
 }
 
-class CalendarViewController: BaseViewController {
+class YearMonthPickerViewController: BaseViewController {
   
-  weak var delegate: CalendarPickerDelegate?
+  weak var delegate: YearMonthPickerDelegate?
   
-  lazy var pickerView = CalendarPickerView().then {
+  lazy var pickerView = YearMonthPickerView().then {
     $0.picker.delegate = self
   }
   
@@ -68,13 +68,10 @@ class CalendarViewController: BaseViewController {
           year: picker.years[year],
           month: picker.months[month]
         )
-    }.disposed(by: self.disposeBag)
-    
-    self.confirmButton.rx.tap
-      .bind { [weak self] _ in
-        guard let self = self else { return }
         
-        self.dismiss(animated: true, completion: nil) }
-      .disposed(by: self.disposeBag)
+        DispatchQueue.main.async {
+          self.dismiss(animated: true, completion: nil)
+        }
+    }.disposed(by: self.disposeBag)
   }
 }

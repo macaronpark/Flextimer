@@ -19,13 +19,19 @@ extension HistoryDetailViewController: UITableViewDelegate {
     
     switch (indexPath.section, indexPath.row) {
     case (0, 1):
-      vc = HistoryHourPickerViewController(self.workRecord?.startDate ?? Date())
+      vc = HistoryHourPickerViewController(
+        self.workRecord?.startDate ?? Date(),
+        realmID: self.workRecord?.id ?? ""
+      )
       self.presentViewController(vc)
       
 //    case (1, 0):
       
     case (1, 1):
-      vc = HistoryHourPickerViewController(self.workRecord?.endDate ?? Date())
+      vc = HistoryHourPickerViewController(
+        self.workRecord?.endDate ?? Date(),
+        realmID: self.workRecord?.id ?? ""
+      )
       self.presentViewController(vc)
       
     default:

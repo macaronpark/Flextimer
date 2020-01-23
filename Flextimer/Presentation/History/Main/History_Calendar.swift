@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension HistoryViewController: CalendarPickerDelegate {
+extension HistoryViewController: YearMonthPickerDelegate {
   
   func didCalendarPickerSelected(year: Int, month: Int) {
     self.historyViewModel = HistoryViewModel(year: year, month: month)

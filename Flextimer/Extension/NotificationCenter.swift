@@ -16,5 +16,9 @@ extension NSNotification.Name {
   static let didUpdateOptions = NSNotification.Name("didUpdateOptions")
   static let didUpdateHourOfWorkhoursADay = NSNotification.Name("didUpdateHourOfWorkhoursADay")
   static let didUpdateMinuteOfWorkhoursADay = NSNotification.Name("didUpdateMinuteOfWorkhoursADay")
+  /// mainVC: 출퇴근 버튼 관련 업데이트
   static let didUpdateWorkRecord = NSNotification.Name("didUpdateWorkRecord")
+  /// historyDetailVC: 근무기록 -> 근무시간 업데이트
+  static let didUpdateWorkhour = NSNotification.Name("didUpdateWorkhour")
+  
 }

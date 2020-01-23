@@ -61,7 +61,7 @@ class HistoryViewController: BaseViewController {
     super.bind()
     
     self.dateCheckView.currentYearMonthButton.rx.tap.bind { _ in
-      let vc = CalendarViewController()
+      let vc = YearMonthPickerViewController()
       vc.modalPresentationStyle = .overFullScreen
       vc.modalTransitionStyle = .crossDissolve
       vc.delegate = self
@@ -82,6 +82,8 @@ class HistoryViewController: BaseViewController {
           }
         }
     }.disposed(by: self.disposeBag)
+    
+    
   }
   
   
