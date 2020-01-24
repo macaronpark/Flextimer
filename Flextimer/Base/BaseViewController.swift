@@ -11,7 +11,7 @@ import RxSwift
 
 class BaseViewController: UIViewController {
   
-  let disposeBag = DisposeBag()
+  var disposeBag = DisposeBag()
 
   lazy private(set) var className: String = {
     return type(of: self).description().components(separatedBy: ".").last ?? ""

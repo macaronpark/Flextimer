@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import RxSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   ) -> Bool {
     self.initializeRealm()
     self.appAppearanceCofigure()
+    
+    _ = Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance)
+      .subscribe(onNext: { _ in
+        print("Resource count \(RxSwift.Resources.total)")
+      })
+    
     return true
   }
 

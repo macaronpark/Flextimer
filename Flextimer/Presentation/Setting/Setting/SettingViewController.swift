@@ -79,7 +79,7 @@ class SettingViewController: BaseViewController {
     super.bind()
     
     self.closeBarButton.rx.tap
-      .bind { self.dismiss(animated: true, completion: nil) }
+      .bind {[weak self] in self?.dismiss(animated: true, completion: nil) }
       .disposed(by: self.disposeBag)
   }
 }

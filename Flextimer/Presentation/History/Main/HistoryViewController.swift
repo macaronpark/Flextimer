@@ -25,6 +25,7 @@ class HistoryViewController: BaseViewController {
   let dateCheckView = HistoryDateCheckView()
   
   lazy var tableView = UITableView(frame: .zero, style: .grouped).then {
+    $0.contentInset.top = 56
     $0.delegate = self
     $0.dataSource = self
     $0.register(HistoryTableViewCell.self)
@@ -48,6 +49,12 @@ class HistoryViewController: BaseViewController {
     self.scrollToCurrentWeek()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    self.tableView.reloadData()
+  }
+  
   override func setupNaviBar() {
     super.setupNaviBar()
     
@@ -60,30 +67,41 @@ class HistoryViewController: BaseViewController {
   override func bind() {
     super.bind()
     
-    self.dateCheckView.currentYearMonthButton.rx.tap.bind { _ in
-      let vc = YearMonthPickerViewController()
-      vc.modalPresentationStyle = .overFullScreen
-      vc.modalTransitionStyle = .crossDissolve
-      vc.delegate = self
-      self.present(vc, animated: true, completion: nil)
-    }.disposed(by: self.disposeBag)
+    self.dateCheckView.currentYearMonthButton.rx.tap
+      .flatMapLatest { [weak self] _ -> Observable<Date> in
+        return DatePickerViewController.date(
+          parent: self,
+          current: Date(),
+          mode: .date,
+          doneButtonTitle: "기록 조회"
+        ).skip(1)
+    }.subscribe(onNext: { [weak self] date in
+      guard let self = self else { return }
+      
+      self.historyViewModel = HistoryViewModel(year: date.year, month: date.month)
+      self.dateCheckView.currentYearMonthButton.setTitle("\(date.year)년 \(date.month)월", for: .normal)
+      
+      DispatchQueue.main.async { [weak self] in
+             guard let self = self else { return }
+        self.tableView.reloadData()
+        self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+      }
+    }).disposed(by: self.disposeBag)
     
     self.dateCheckView.todayButton.rx.tap
-      .bind { _ in
+      .bind { [weak self] in
         let comp = Calendar.current.dateComponents([.year, .month], from: Date())
         if let year = comp.year,
           let month = comp.month {
-          self.dateCheckView.currentYearMonthButton.setTitle("\(year)년 \(month)월", for: .normal)
-          self.historyViewModel = HistoryViewModel(year: year, month: month)
+          self?.dateCheckView.currentYearMonthButton.setTitle("\(year)년 \(month)월", for: .normal)
+          self?.historyViewModel = HistoryViewModel(year: year, month: month)
           
           DispatchQueue.main.async {
-            self.tableView.reloadData()
-            self.scrollToCurrentWeek()
+            self?.tableView.reloadData()
+            self?.scrollToCurrentWeek()
           }
         }
     }.disposed(by: self.disposeBag)
-    
-    
   }
   
   
@@ -92,8 +110,8 @@ class HistoryViewController: BaseViewController {
   override func setupConstraints() {
     super.setupConstraints()
     
-    self.view.addSubview(self.dateCheckView)
     self.view.addSubview(self.tableView)
+    self.view.addSubview(self.dateCheckView)
     
     self.dateCheckView.snp.makeConstraints {
       $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
@@ -101,7 +119,7 @@ class HistoryViewController: BaseViewController {
       $0.height.equalTo(56)
     }
     self.tableView.snp.makeConstraints {
-      $0.top.equalTo(self.dateCheckView.snp.bottom)
+      $0.top.equalTo(self.view.snp.top)
       $0.leading.trailing.bottom.equalToSuperview()
     }
   }

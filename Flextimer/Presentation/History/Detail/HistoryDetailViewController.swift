@@ -42,7 +42,8 @@ class HistoryDetailViewController: BaseViewController {
   }
   
   func addRealmNoti() {
-    self.notificationToken = self.workRecord?.observe() { [unowned self] change in
+    self.notificationToken = self.workRecord?.observe() { [weak self] change in
+      guard let self = self else { return }
       switch change {
       case .change(_):
         self.viewModel = HistoryDetailViewModel(self.workRecord ?? WorkRecord())

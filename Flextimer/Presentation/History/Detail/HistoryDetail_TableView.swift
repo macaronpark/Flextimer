@@ -15,27 +15,37 @@ extension HistoryDetailViewController: UITableViewDelegate {
     didSelectRowAt
     indexPath: IndexPath)
   {
-    var vc: UIViewController = UIViewController()
-    
-    switch (indexPath.section, indexPath.row) {
-    case (0, 1):
-      vc = HistoryHourPickerViewController(
-        self.workRecord?.startDate ?? Date(),
-        realmID: self.workRecord?.id ?? ""
+    if (indexPath.section == 0 || indexPath.section == 1) {
+      let pickerMode: UIDatePicker.Mode = (indexPath == .init(row: 0, section: 1) ? .date: .time)
+      let isStart = (indexPath.section == 0)
+      let current: Date = (isStart ? self.workRecord?.startDate: self.workRecord?.endDate) ?? Date()
+      
+      weak var weakSelf = self
+      DatePickerViewController.date(
+        parent: weakSelf,
+        current: current,
+        mode: pickerMode,
+        doneButtonTitle: "기록 변경"
       )
-      self.presentViewController(vc)
-      
-//    case (1, 0):
-      
-    case (1, 1):
-      vc = HistoryHourPickerViewController(
-        self.workRecord?.endDate ?? Date(),
-        realmID: self.workRecord?.id ?? ""
-      )
-      self.presentViewController(vc)
-      
-    default:
-      break
+        .subscribe(onNext: { [weak self] date in
+          guard let self = self else { return }
+
+          let workRecord = RealmService.shared.realm
+            .objects(WorkRecord.self)
+            .filter { $0.id == self.workRecord?.id ?? ""}
+            .last
+
+          if let workRecord = workRecord {
+            let key = (isStart ? "startDate": "endDate")
+            RealmService.shared.update(workRecord, with: [key: date])
+          }
+
+          DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.tableView.reloadData()
+            self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+          }
+        }).disposed(by: self.disposeBag)
     }
   }
   

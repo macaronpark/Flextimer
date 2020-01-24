@@ -99,7 +99,7 @@ class TodayViewController: BaseViewController {
 
     share
       .debug("timer")
-      .flatMapLatest { $0 ? Observable<Int>.interval(1, scheduler: MainScheduler.instance): .empty() }
+      .flatMapLatest { $0 ? Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance): .empty() }
       .map { _ in self.todayViewModel }
       .bind(to: self.todayView.timerView.rx.viewModel)
       .disposed(by: disposeBag)
