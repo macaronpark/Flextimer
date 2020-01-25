@@ -15,7 +15,7 @@ class HistoryButton: UIButton {
     
     self.setTitleColor(Color.immutableOrange, for: .normal)
     self.titleLabel?.font = Font.SEMIBOLD_16
-    self.backgroundColor = Color.buttonGray
+    self.backgroundColor = UIColor.systemGray5
     self.layer.cornerRadius = 18
   }
   

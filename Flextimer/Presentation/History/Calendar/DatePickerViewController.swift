@@ -14,9 +14,12 @@ import RxCocoa
 class DatePickerViewController: BaseViewController {
 
   var date: BehaviorRelay<Date>!
+  
   let closeSignal = PublishRelay<Void>()
   
   var pickerView: DatePickerView!
+  
+  var impactGenerator: UIImpactFeedbackGenerator?
   
   let confirmButton = HistoryButton().then {
     $0.backgroundColor = Color.pickerGray
@@ -38,14 +41,26 @@ class DatePickerViewController: BaseViewController {
       $0.picker.date = date
       $0.picker.datePickerMode = mode
     }
+    
+    self.impactGenerator = UIImpactFeedbackGenerator(style: .medium)
   }
   
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
   
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    self.triggerImpact()
+  }
+  
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     self.closeSignal.accept(())
+  }
+  
+  private func triggerImpact() {
+    self.impactGenerator?.impactOccurred()
   }
   
   override func setupConstraints() {
@@ -79,6 +94,10 @@ class DatePickerViewController: BaseViewController {
     
     single
       .bind(to: self.closeSignal)
+      .disposed(by: self.disposeBag)
+    
+    single
+      .bind(onNext: { [weak self] in self?.triggerImpact() })
       .disposed(by: self.disposeBag)
   }
 }

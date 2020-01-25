@@ -17,6 +17,7 @@ class DatePickerView: UIView {
     
     self.layer.cornerRadius = 20
     self.backgroundColor = Color.pickerGray
+    self.picker.locale = Locale(identifier: "ko_KR")
     
     self.addSubview(self.picker)
     self.picker.snp.makeConstraints {

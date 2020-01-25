@@ -20,8 +20,8 @@ class HistoryDetailViewController: BaseViewController {
     $0.delegate = self
     $0.dataSource = self
     $0.register(HistoryDetailTableViewCell.self)
-    $0.register(HistoryDetailHolidayTableViewCell.self)
-    $0.register(HistoryDetailDeleteTableViewCell.self)
+//    $0.register(HistoryDetailHolidayTableViewCell.self)
+//    $0.register(HistoryDetailDeleteTableViewCell.self)
   }
   
   init(_ workRecord: WorkRecord) {
@@ -44,16 +44,16 @@ class HistoryDetailViewController: BaseViewController {
   func addRealmNoti() {
     self.notificationToken = self.workRecord?.observe() { [weak self] change in
       guard let self = self else { return }
+      
       switch change {
       case .change(_):
         self.viewModel = HistoryDetailViewModel(self.workRecord ?? WorkRecord())
         self.tableView.reloadData()
-        
+
       default: break
       }
     }
   }
-  
   
   override func setupNaviBar() {
     super.setupNaviBar()
@@ -70,7 +70,6 @@ class HistoryDetailViewController: BaseViewController {
       $0.top.leading.trailing.bottom.equalToSuperview()
     }
   }
-  
   
   //  // MARK: - Notification
   //

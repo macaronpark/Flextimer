@@ -13,9 +13,22 @@ import RxCocoa
 
 extension DatePickerViewController {
   
-  static func rx(parent: UIViewController?, current date: Date, min: Date? = nil, max: Date? = nil, mode: UIDatePicker.Mode, doneButtonTitle: String) -> Observable<DatePickerViewController> {
+  static func rx(
+    parent: UIViewController?,
+    current date: Date,
+    min: Date? = nil,
+    max: Date? = nil,
+    mode: UIDatePicker.Mode,
+    doneButtonTitle: String
+  ) -> Observable<DatePickerViewController> {
     return .create { observer -> Disposable in
-      let vc = DatePickerViewController(current: date, min: min, max: max, mode: mode, doneButtonTitle: doneButtonTitle)
+      let vc = DatePickerViewController(
+        current: date,
+        min: min,
+        max: max,
+        mode: mode,
+        doneButtonTitle: doneButtonTitle
+      )
       vc.modalPresentationStyle = .overFullScreen
       vc.modalTransitionStyle = .crossDissolve
       
@@ -26,13 +39,28 @@ extension DatePickerViewController {
       }
       
       observer.onNext(vc)
+      
       return Disposables.create(disposable, Disposables.create {
         vc.dismiss(animated: true, completion: nil)
       })
     }
   }
   
-  static func date(parent: UIViewController?, current date: Date, min: Date? = nil, max: Date? = nil, mode: UIDatePicker.Mode, doneButtonTitle: String) -> Observable<Date> {
-    return self.rx(parent: parent, current: date, min: min, max: max, mode: mode, doneButtonTitle: doneButtonTitle).flatMap { $0.date }
+  static func date(
+    parent: UIViewController?,
+    current date: Date,
+    min: Date? = nil,
+    max: Date? = nil,
+    mode: UIDatePicker.Mode,
+    doneButtonTitle: String
+  ) -> Observable<Date> {
+    return self.rx(
+      parent: parent,
+      current: date,
+      min: min,
+      max: max,
+      mode: mode,
+      doneButtonTitle: doneButtonTitle
+    ).flatMap { $0.date }
   }
 }

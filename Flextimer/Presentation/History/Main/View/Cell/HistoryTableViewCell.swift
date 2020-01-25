@@ -72,5 +72,12 @@ class HistoryTableViewCell: BaseTableViewCell {
     let textColor: UIColor = (Calendar.current.isDateInToday(model.date)) ? Color.primaryText: Color.secondText
     self.titleLabel.textColor = textColor
     self.totalWorkhoursADayLabel.textColor = textColor
+    
+    if let isHoliday = model.workRecord?.isHoliday {
+      if isHoliday == true {
+        self.disclosureIndicatorImageView.isHidden = isHoliday
+        self.totalWorkhoursADayLabel.text = "휴무"
+      }
+    }
   }
 }

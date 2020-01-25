@@ -15,7 +15,7 @@ enum Color {
   static let primaryText = UIColor.label
   static let secondText = UIColor.secondaryLabel
   static let grayText = UIColor.systemGray
-  static let buttonGray = UIColor.quaternarySystemFill
+  static let buttonGray = UIColor.systemFill
   static let pickerGray = UIColor.tertiarySystemGroupedBackground
   
   static let immutableOrange = UIColor(hex: "F8613B")

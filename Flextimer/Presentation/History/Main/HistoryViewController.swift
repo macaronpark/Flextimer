@@ -15,8 +15,10 @@ class HistoryViewController: BaseViewController {
   
   var historyViewModel: HistoryViewModel?
   
+  var impactGenerator: UIImpactFeedbackGenerator?
+  
   lazy var createRecordBarButton = UIBarButtonItem(
-    image: UIImage(named: "history_add"),
+    image: UIImage(systemName: "info.circle"),
     style: .plain,
     target: self,
     action: nil
@@ -38,6 +40,7 @@ class HistoryViewController: BaseViewController {
     self.init()
     
     self.historyViewModel = viewModel
+    self.impactGenerator = UIImpactFeedbackGenerator(style: .medium)
   }
   
   
@@ -102,6 +105,10 @@ class HistoryViewController: BaseViewController {
           }
         }
     }.disposed(by: self.disposeBag)
+    
+    self.dateCheckView.todayButton.rx.tap
+      .bind(onNext: { [weak self] in self?.triggerImpact() })
+      .disposed(by: self.disposeBag)
   }
   
   
@@ -134,5 +141,9 @@ class HistoryViewController: BaseViewController {
     DispatchQueue.main.async {
       self.tableView.scrollToRow(at: IndexPath(row: 0, section: thisWeekSection), at: .top, animated: true)
     }
+  }
+  
+  private func triggerImpact() {
+    self.impactGenerator?.impactOccurred()
   }
 }

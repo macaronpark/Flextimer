@@ -17,17 +17,12 @@ class HistoryDateCheckView: UIView {
   let todayButton = HistoryButton().then {
     $0.setTitle("오늘", for: .normal)
   }
-  
-  let separatorView = UIView().then {
-    $0.backgroundColor = Color.separatorGray
-  }
-  
+
   override init(frame: CGRect) {
     super.init(frame: .zero)
     
     self.addSubview(self.currentYearMonthButton)
     self.addSubview(self.todayButton)
-    self.addSubview(self.separatorView)
     
     self.todayButton.snp.makeConstraints {
       $0.centerY.equalToSuperview()
@@ -38,11 +33,6 @@ class HistoryDateCheckView: UIView {
       $0.centerY.equalToSuperview()
       $0.trailing.equalTo(self.todayButton.snp.leading).offset(-8)
       $0.size.equalTo(CGSize(width: 120, height: 36))
-    }
-    self.separatorView.snp.makeConstraints {
-      $0.leading.trailing.equalToSuperview()
-      $0.bottom.equalToSuperview()
-      $0.height.equalTo(0.5)
     }
   }
   
