@@ -10,6 +10,7 @@ import UIKit
 
 class SettingViewController: BaseViewController {
   
+  
   lazy var viewModel = SettingViewModel(RealmService.shared.userInfo)
   let closeBarButton = UIBarButtonItem(barButtonSystemItem: .close, target: nil, action: nil)
   

@@ -65,6 +65,28 @@ extension Date {
     return date!
   }
   
+  func getMonday(_ date: Date) -> Date {
+    let monday = Weekday.monday.rawValue
+    let weekdaysName = date.getWeekdaysInEnglish().map { $0.lowercased() }
+    let searchWeekdayIndex = weekdaysName.firstIndex(of: monday)! + 1
+    let calendar = Calendar.current
+    
+    if (calendar.component(.weekday, from: self) == searchWeekdayIndex) {
+      return self
+    }
+    
+    var nextDateComponent = DateComponents()
+    nextDateComponent.weekday = searchWeekdayIndex
+    
+    let date = calendar.nextDate(
+      after: self,
+      matching: nextDateComponent,
+      matchingPolicy: .nextTime,
+      direction: .backward)
+    
+    return date!
+  }
+  
   var year: Int {
     return Calendar.current.component(.year, from: self)
   }

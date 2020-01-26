@@ -17,7 +17,7 @@ class HistoryViewController: BaseViewController {
   
   var impactGenerator: UIImpactFeedbackGenerator?
   
-  
+  var displayedDate = BehaviorRelay<Date>(value: Date())
   
   lazy var createRecordBarButton = UIBarButtonItem(
     image: UIImage(systemName: "info.circle"),
@@ -51,15 +51,8 @@ class HistoryViewController: BaseViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.scrollTo(date: Date())
   }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    
-    self.tableView.reloadData()
-  }
-  
+
   override func setupNaviBar() {
     super.setupNaviBar()
     
@@ -72,38 +65,42 @@ class HistoryViewController: BaseViewController {
   override func bind() {
     super.bind()
     
+    let displayedDate = self.displayedDate.asObservable()
+      
+    displayedDate
+      .debug("🔥set displayedDate")
+      .subscribe(onNext: { [weak self] date in
+        self?.tableView.reloadData()
+        self?.scrollTo(date: date)
+    }).disposed(by: self.disposeBag)
+    
+    displayedDate
+      .map { HistoryViewModel(year: $0.year, month: $0.month) }
+      .subscribe(onNext: { [weak self] in
+        self?.historyViewModel = $0
+      }).disposed(by: self.disposeBag)
+    
+    displayedDate
+      .map {"\($0.year)년 \($0.month)월" }
+      .bind(to: self.dateCheckView.currentYearMonthButton.rx.title(for: .normal))
+      .disposed(by: self.disposeBag)
+
     self.dateCheckView.currentYearMonthButton.rx.tap
       .flatMapLatest { [weak self] _ -> Observable<Date> in
         return DatePickerViewController.date(
           parent: self,
-          current: Date(),
+          current: self?.displayedDate.value ?? Date(),
           mode: .date,
           doneButtonTitle: "기록 조회"
         ).skip(1)
-    }.subscribe(onNext: { [weak self] date in
-      self?.historyViewModel = HistoryViewModel(year: date.year, month: date.month)
-      self?.dateCheckView.currentYearMonthButton.setTitle("\(date.year)년 \(date.month)월", for: .normal)
-      
-      DispatchQueue.main.async { [weak self] in
-        self?.tableView.reloadData()
-        self?.scrollTo(date: date)
-      }
-    }).disposed(by: self.disposeBag)
-    
+    }.map { $0 }
+    .bind(to: self.displayedDate)
+    .disposed(by: self.disposeBag)
+
     self.dateCheckView.todayButton.rx.tap
-      .bind { [weak self] in
-        let comp = Calendar.current.dateComponents([.year, .month], from: Date())
-        if let year = comp.year,
-          let month = comp.month {
-          self?.dateCheckView.currentYearMonthButton.setTitle("\(year)년 \(month)월", for: .normal)
-          self?.historyViewModel = HistoryViewModel(year: year, month: month)
-          
-          DispatchQueue.main.async {
-            self?.tableView.reloadData()
-            self?.scrollTo(date: Date())
-          }
-        }
-    }.disposed(by: self.disposeBag)
+      .map { Date() }
+      .bind(to: self.displayedDate)
+      .disposed(by: self.disposeBag)
     
     self.dateCheckView.todayButton.rx.tap
       .bind(onNext: { [weak self] in self?.triggerImpact() })
@@ -134,12 +131,18 @@ class HistoryViewController: BaseViewController {
   // MARK: - Custom Methods
   
   func scrollTo(date: Date) {
-    let monday = date.getThisWeekMonday()
-    let weekOfMonthComponent = Calendar.current.dateComponents([.weekOfMonth], from: monday)
-    let thisWeekSection = (weekOfMonthComponent.weekOfMonth ?? 0) - 1
+    let monday = date.getMonday(date)
+    let sectionIndex = self.historyViewModel?.sections
+      .firstIndex(where: {
+        $0.rows.contains(where: { Calendar.current.isDate($0.date, inSameDayAs: monday)})
+      }) ?? 0
 
     DispatchQueue.main.async {
-      self.tableView.scrollToRow(at: IndexPath(row: 0, section: thisWeekSection), at: .top, animated: true)
+      self.tableView.scrollToRow(
+        at: IndexPath(row: 0, section: sectionIndex),
+        at: .top,
+        animated: true
+      )
     }
   }
   
