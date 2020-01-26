@@ -73,7 +73,12 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
   func updateUI(_ model: HistorySectionModel) {
     let workdaysCount = RealmService.shared.userInfo.workdaysPerWeekIdxs.count
     let holidayCount = model.rows.filter({ $0.workRecord?.isHoliday == true }).count
-    self.criteriaLabel.text = "주 당 근무일(\(workdaysCount)일), 휴무(\(holidayCount)일) 기준"
+    
+    if holidayCount == 0 {
+      self.criteriaLabel.text = "근무일(\(workdaysCount)일) 기준"
+    } else {
+      self.criteriaLabel.text = "근무일(\(workdaysCount-holidayCount)일), 휴무(\(holidayCount)일) 기준"
+    }
     
     // 이 주의 남은 시간
     // 1. 총 근무 시간
@@ -92,11 +97,16 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
     let holidayInterval = (h + m) * Double(holidayCount)
   
     let remainInterval = totalWorkhoursInterval - (-actualWorkhoursInterval) - holidayInterval
-
-    if remainInterval.isLess(than: 0.0) {
-      self.remainTimeLabel.text = (-remainInterval).toString(.remain) + " 초과"
+    
+    if remainInterval.isZero {
+      self.remainTimeLabel.text = "\(totalWorkhoursInterval.toString(.remain)) 클리어!"
+    } else if remainInterval.isLess(than: 0.0) {
+      if (-remainInterval).toString(.remain) == "0시간 0분" {
+        self.remainTimeLabel.text = "\(totalWorkhoursInterval.toString(.remain)) 클리어!"
+      }
+      self.remainTimeLabel.text = "\((-remainInterval).toString(.remain)) 초과"
     } else {
-      self.remainTimeLabel.text = remainInterval.toString(.remain) + " 남았어요"
+      self.remainTimeLabel.text = "\(remainInterval.toString(.remain)) 남았어요"
     }
   }
 }

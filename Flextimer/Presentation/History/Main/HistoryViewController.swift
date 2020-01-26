@@ -10,16 +10,19 @@ import UIKit
 
 import RxSwift
 import RxCocoa
+import RealmSwift
 
 class HistoryViewController: BaseViewController {
   
   var historyViewModel: HistoryViewModel?
-  
+
   var impactGenerator: UIImpactFeedbackGenerator?
   
   var displayedDate = BehaviorRelay<Date>(value: Date())
   
   var willScrollToSelectedDate = PublishSubject<Bool>()
+  
+  var notificationToken: NotificationToken? = nil
   
   lazy var createRecordBarButton = UIBarButtonItem(
     image: UIImage(systemName: "info.circle"),
@@ -31,7 +34,7 @@ class HistoryViewController: BaseViewController {
   let dateCheckView = HistoryDateCheckView()
   
   lazy var tableView = UITableView(frame: .zero, style: .grouped).then {
-    $0.contentInset.top = 56
+    $0.contentInset.top = 60
     $0.delegate = self
     $0.dataSource = self
     $0.register(HistoryTableViewCell.self)
@@ -58,6 +61,8 @@ class HistoryViewController: BaseViewController {
     super.viewDidLoad()
     
     self.willScrollToSelectedDate.onNext(true)
+    self.setupRealmNotification()
+
   }
   
   override func setupNaviBar() {
@@ -129,7 +134,7 @@ class HistoryViewController: BaseViewController {
     self.dateCheckView.snp.makeConstraints {
       $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
       $0.leading.trailing.equalToSuperview()
-      $0.height.equalTo(56)
+      $0.height.equalTo(60)
     }
     self.tableView.snp.makeConstraints {
       $0.top.equalTo(self.view.snp.top)
@@ -158,5 +163,21 @@ class HistoryViewController: BaseViewController {
   
   private func triggerImpact() {
     self.impactGenerator?.impactOccurred()
+  }
+  
+  func setupRealmNotification() {
+    // TODO: realm queries month...?
+    let results = RealmService.shared.realm.objects(WorkRecord.self)
+    // .filter { Calendar.current.compare($0.startDate, to: self.displayedDate.value, toGranularity: .month) == ComparisonResult.orderedSame }
+    self.notificationToken = results.observe { [weak self] changes in
+      switch changes {
+      case .update:
+        let value = self?.displayedDate.value ?? Date()
+        self?.displayedDate.accept(value)
+        
+      default:
+        break
+      }
+    }
   }
 }

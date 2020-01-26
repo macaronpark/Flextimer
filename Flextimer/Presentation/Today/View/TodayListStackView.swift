@@ -14,17 +14,27 @@ import RxCocoa
 class TodayListStackView: UIStackView {
   
   let startCell = TodayListCellView("출근", description: "--:--", color: Color.secondText)
+
   let endCell = TodayListCellView("퇴근 예상", description: "--:--", color: Color.primaryText)
+  
   let remainTimeCell = TodayListCellView("남은시간", description: "--:--", color: Color.immutableOrange)
+  
+  let startCellButton = UIButton().then {
+    $0.backgroundColor = .clear
+  }
   
   override init(frame: CGRect) {
     super.init(frame: frame)
     
     self.axis = .vertical
     
+    self.startCell.addSubview(self.startCellButton)
     self.startCell.snp.makeConstraints {
       $0.height.equalTo(48)
       $0.width.equalTo(ScreenSize.width)
+    }
+    self.startCellButton.snp.makeConstraints {
+      $0.edges.equalToSuperview()
     }
     self.endCell.snp.makeConstraints {
       $0.height.equalTo(48)

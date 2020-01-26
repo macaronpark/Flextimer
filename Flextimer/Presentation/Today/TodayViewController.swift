@@ -104,22 +104,29 @@ class TodayViewController: BaseViewController {
       .bind(to: self.todayView.timerView.rx.viewModel)
       .disposed(by: disposeBag)
     
-    let workRecordInToday = RealmService.shared.realm
-      .objects(WorkRecord.self)
-      .filter { Calendar.current.isDateInToday($0.startDate) }
-      .last
-    
     self.todayView.buttonsView.startButton.rx.tap
-      .map { (workRecordInToday != nil) ? true: false }
-      .bind { [weak self] isTodayRecord in
-        guard let self = self else { return }
-        self.didTapStartButton()
-    }.disposed(by: self.disposeBag)
+      .bind(onNext: { [weak self] in self?.didTapStartButton() })
+      .disposed(by: self.disposeBag)
     
     self.todayView.buttonsView.endButton.rx.tap
       .bind(onNext: { self.showEndAlert() })
       .disposed(by: self.disposeBag)
     
+    // TODO: 탭 시 출근시간 변경할 수 있게
+//    self.todayView.stackView.startCellButton.rx.tap
+//      .flatMapLatest { [weak self] _ -> Observable<Date> in
+//        return DatePickerViewController.date(
+//          parent: self,
+//          current: self?.todayViewModel.s,
+//          mode: .date,
+//          doneButtonTitle: "기록 조회"
+//        ).skip(1)
+//    }.bind { [weak self] date in
+//      self?.displayedDate.accept(date)
+//      self?.willScrollToSelectedDate.onNext(true)
+//    }
+//    .disposed(by: self.disposeBag)
+      
     self.settingBarButton.rx.tap
       .map { UINavigationController(rootViewController: SettingViewController()) }
       .bind { [weak self] in
