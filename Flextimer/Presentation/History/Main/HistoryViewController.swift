@@ -19,6 +19,8 @@ class HistoryViewController: BaseViewController {
   
   var displayedDate = BehaviorRelay<Date>(value: Date())
   
+  var willScrollToSelectedDate = PublishSubject<Bool>()
+  
   lazy var createRecordBarButton = UIBarButtonItem(
     image: UIImage(systemName: "info.circle"),
     style: .plain,
@@ -51,8 +53,9 @@ class HistoryViewController: BaseViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    self.willScrollToSelectedDate.onNext(true)
   }
-
+  
   override func setupNaviBar() {
     super.setupNaviBar()
     
@@ -68,21 +71,20 @@ class HistoryViewController: BaseViewController {
     let displayedDate = self.displayedDate.asObservable()
       
     displayedDate
-      .debug("🔥set displayedDate")
-      .subscribe(onNext: { [weak self] date in
+      .map { (HistoryViewModel(year: $0.year, month: $0.month), $0) }
+      .subscribe(onNext: { [weak self] (model, date) in
+        self?.historyViewModel = model
         self?.tableView.reloadData()
-        self?.scrollTo(date: date)
-    }).disposed(by: self.disposeBag)
-    
-    displayedDate
-      .map { HistoryViewModel(year: $0.year, month: $0.month) }
-      .subscribe(onNext: { [weak self] in
-        self?.historyViewModel = $0
       }).disposed(by: self.disposeBag)
     
     displayedDate
       .map {"\($0.year)년 \($0.month)월" }
       .bind(to: self.dateCheckView.currentYearMonthButton.rx.title(for: .normal))
+      .disposed(by: self.disposeBag)
+
+    self.willScrollToSelectedDate
+      .map { [weak self] _ in self?.displayedDate.value ?? Date() }
+      .bind(onNext: { [weak self] in self?.scrollTo(date: $0) })
       .disposed(by: self.disposeBag)
 
     self.dateCheckView.currentYearMonthButton.rx.tap
@@ -93,14 +95,18 @@ class HistoryViewController: BaseViewController {
           mode: .date,
           doneButtonTitle: "기록 조회"
         ).skip(1)
-    }.map { $0 }
-    .bind(to: self.displayedDate)
+    }.bind { [weak self] date in
+        self?.displayedDate.accept(date)
+        self?.willScrollToSelectedDate.onNext(true)
+    }
     .disposed(by: self.disposeBag)
 
     self.dateCheckView.todayButton.rx.tap
       .map { Date() }
-      .bind(to: self.displayedDate)
-      .disposed(by: self.disposeBag)
+      .bind { [weak self] date in
+        self?.displayedDate.accept(date)
+        self?.willScrollToSelectedDate.onNext(true)
+    }.disposed(by: self.disposeBag)
     
     self.dateCheckView.todayButton.rx.tap
       .bind(onNext: { [weak self] in self?.triggerImpact() })

@@ -33,14 +33,17 @@ extension HistoryViewController: UITableViewDelegate {
       style: .normal,
       title: "휴무 처리",
       handler: { _, _, completion in
+        
+        let date = date
+        
         if let workRecord = workRecord {
           RealmService.shared.update(workRecord, with: ["isHoliday": true])
-          // TODO: reload
+          self.displayedDate.accept(workRecord.startDate)
         } else {
           // 기록이 없으면 만들어서
           let newWorkRecord = WorkRecord(date, endDate: date, isHoliday: true)
           RealmService.shared.create(newWorkRecord)
-          // TODO: reload
+          self.displayedDate.accept(date)
         }
         completion(true)
     })
@@ -50,8 +53,9 @@ extension HistoryViewController: UITableViewDelegate {
       title: "기록 삭제",
       handler: { _, _, completion in
         if let workRecord = workRecord {
+          let date = workRecord.startDate
           RealmService.shared.delete(workRecord)
-          // TODO: reload
+          self.displayedDate.accept(date)
         }
         completion(true)
     })
@@ -82,6 +86,7 @@ extension HistoryViewController: UITableViewDelegate {
         
         let newWorkRecord = WorkRecord(startDateHour, endDate: endDateHourMin, isHoliday: false)
         RealmService.shared.create(newWorkRecord)
+        self.displayedDate.accept(startDateHour)
         
         let vc = HistoryDetailViewController(newWorkRecord)
         self.navigationController?.pushViewController(vc, animated: true)
