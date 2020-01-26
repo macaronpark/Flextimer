@@ -23,6 +23,7 @@ class DatePickerViewController: BaseViewController {
   
   let confirmButton = HistoryButton().then {
     $0.backgroundColor = Color.pickerGray
+    $0.setTitleColor(Color.immutableOrange, for: .normal)
   }
   
   override init() {
@@ -77,7 +78,7 @@ class DatePickerViewController: BaseViewController {
     }
     self.confirmButton.snp.makeConstraints {
       $0.trailing.equalToSuperview().offset(-20)
-      $0.size.equalTo(CGSize(width: 100, height: 36))
+      $0.size.equalTo(CGSize(width: 100, height: 40))
       $0.bottom.equalTo(self.pickerView.snp.top).offset(-16)
     }
   }

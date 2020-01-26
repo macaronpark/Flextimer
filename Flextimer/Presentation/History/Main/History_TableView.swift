@@ -125,6 +125,24 @@ extension HistoryViewController: UITableViewDelegate {
       return actionsForRecordNotExistCell
     }
   }
+  
+  func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    let id = "HistorySectionFooterView"
+    let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: id) as? HistorySectionFooterView
+    let section = self.historyViewModel?.sections[section]
+    
+    if let footerView = footerView,
+      let section = section,
+      section.rows.filter({ $0.workRecord != nil }).count > 0 {
+      footerView.updateUI(section)
+      return footerView
+    }
+    return nil
+  }
+  
+//  func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//    return 74 + 32
+//  }
 }
 
 extension HistoryViewController: UITableViewDataSource {
@@ -136,15 +154,7 @@ extension HistoryViewController: UITableViewDataSource {
   func numberOfSections(in tableView: UITableView) -> Int {
     return self.historyViewModel?.sections.count ?? 0
   }
-  
-//  func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//    return 40
-//  }
-//
-//  func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-//    return "총 근무 시간"
-//  }
-  
+
   func tableView(
     _ tableView: UITableView,
     numberOfRowsInSection

@@ -13,10 +13,10 @@ class HistoryButton: UIButton {
   init() {
     super.init(frame: .zero)
     
-    self.setTitleColor(Color.immutableOrange, for: .normal)
+    self.setTitleColor(Color.immutableWhite, for: .normal)
     self.titleLabel?.font = Font.SEMIBOLD_16
-    self.backgroundColor = UIColor.systemGray5
-    self.layer.cornerRadius = 18
+    self.backgroundColor = Color.immutableOrange
+    self.layer.cornerRadius = 20
   }
   
   required init?(coder: NSCoder) {

@@ -35,6 +35,10 @@ class HistoryViewController: BaseViewController {
     $0.delegate = self
     $0.dataSource = self
     $0.register(HistoryTableViewCell.self)
+    $0.register(
+      HistorySectionFooterView.self,
+      forHeaderFooterViewReuseIdentifier: "HistorySectionFooterView"
+    )
   }
   
   

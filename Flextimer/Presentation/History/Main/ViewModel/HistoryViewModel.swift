@@ -11,7 +11,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-class HistroySectionModel {
+class HistorySectionModel {
   var rows: [HistoryCellModel]
   
   init(_ models: [HistoryCellModel]) {
@@ -21,10 +21,10 @@ class HistroySectionModel {
 
 class HistoryViewModel {
   
-  var sections = [HistroySectionModel]()
+  var sections = [HistorySectionModel]()
   
   init(year: Int, month: Int) {
-    var sections = [HistroySectionModel]()
+    var sections = [HistorySectionModel]()
     var tempCell = self.historyCellModel(year: year, month: month)
     
     // 1: 셀모델을 주단위로 쪼갠다
@@ -38,7 +38,7 @@ class HistoryViewModel {
       
       // 마지막 주의 경우 남은 날짜를
       if (weekIdx == weekRange.count) {
-        let section = HistroySectionModel(weekdays)
+        let section = HistorySectionModel(weekdays)
         sections.append(section)
         return
       }
@@ -47,7 +47,7 @@ class HistoryViewModel {
       weekdays.append(tempCell[weekdays.count])
       
       // 주 모델 반환
-      let section = HistroySectionModel(weekdays)
+      let section = HistorySectionModel(weekdays)
       sections.append(section)
       
       // 반환된 날짜 지우기 (일요일도 포함되서 삭제되므로 둘째 주부터는 월요일부터 계산된다)
@@ -58,7 +58,7 @@ class HistoryViewModel {
     // 3: 만들어진 섹션모델들로 뷰모델을 만든다
     
     // 섹션모델이 완전한 주(월요일부터 일요일을 모두 포함하는 주)가 아니면 완전한 주로 반환
-    self.sections = sections.map { model -> HistroySectionModel in
+    self.sections = sections.map { model -> HistorySectionModel in
       if (model.rows.count == 7) {
         return model
       } else if (model.rows.count > 7) {
@@ -93,7 +93,7 @@ class HistoryViewModel {
     return dates
   }
 
-  func makeFullWeekdays(_ weekdays: HistroySectionModel) -> HistroySectionModel {
+  func makeFullWeekdays(_ weekdays: HistorySectionModel) -> HistorySectionModel {
     let firstDate = weekdays.rows[0].date
     let lastDate = weekdays.rows[weekdays.rows.count - 1].date
     let mondayInFirstDateWeek = firstDate.getThisWeekMonday()

@@ -17,4 +17,6 @@ enum Font {
   static let REGULAR_16 = UIFont.systemFont(ofSize: 16, weight: .regular)
   /// ofSize: 14, weight: .regular
   static let REGURAL_14 = UIFont.systemFont(ofSize: 14, weight: .regular)
+  /// ofSize: 12, weight: .regular
+  static let REGURAL_12 = UIFont.systemFont(ofSize: 12, weight: .regular)
 }
