@@ -17,6 +17,8 @@ class HistoryViewController: BaseViewController {
   
   var impactGenerator: UIImpactFeedbackGenerator?
   
+  
+  
   lazy var createRecordBarButton = UIBarButtonItem(
     image: UIImage(systemName: "info.circle"),
     style: .plain,
@@ -49,7 +51,7 @@ class HistoryViewController: BaseViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.scrollToCurrentWeek()
+    self.scrollTo(date: Date())
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -79,15 +81,12 @@ class HistoryViewController: BaseViewController {
           doneButtonTitle: "기록 조회"
         ).skip(1)
     }.subscribe(onNext: { [weak self] date in
-      guard let self = self else { return }
-      
-      self.historyViewModel = HistoryViewModel(year: date.year, month: date.month)
-      self.dateCheckView.currentYearMonthButton.setTitle("\(date.year)년 \(date.month)월", for: .normal)
+      self?.historyViewModel = HistoryViewModel(year: date.year, month: date.month)
+      self?.dateCheckView.currentYearMonthButton.setTitle("\(date.year)년 \(date.month)월", for: .normal)
       
       DispatchQueue.main.async { [weak self] in
-             guard let self = self else { return }
-        self.tableView.reloadData()
-        self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        self?.tableView.reloadData()
+        self?.scrollTo(date: date)
       }
     }).disposed(by: self.disposeBag)
     
@@ -101,7 +100,7 @@ class HistoryViewController: BaseViewController {
           
           DispatchQueue.main.async {
             self?.tableView.reloadData()
-            self?.scrollToCurrentWeek()
+            self?.scrollTo(date: Date())
           }
         }
     }.disposed(by: self.disposeBag)
@@ -134,10 +133,11 @@ class HistoryViewController: BaseViewController {
   
   // MARK: - Custom Methods
   
-  func scrollToCurrentWeek() {
-    let monday = Date().getThisWeekMonday()
+  func scrollTo(date: Date) {
+    let monday = date.getThisWeekMonday()
     let weekOfMonthComponent = Calendar.current.dateComponents([.weekOfMonth], from: monday)
     let thisWeekSection = (weekOfMonthComponent.weekOfMonth ?? 0) - 1
+
     DispatchQueue.main.async {
       self.tableView.scrollToRow(at: IndexPath(row: 0, section: thisWeekSection), at: .top, animated: true)
     }

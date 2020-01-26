@@ -45,6 +45,6 @@ extension AppDelegate {
   }
 
   func appAppearanceCofigure() {
-    UINavigationBar.appearance().tintColor = UIColor.systemFill
+    UINavigationBar.appearance().tintColor = Color.immutableOrange
   }
 }

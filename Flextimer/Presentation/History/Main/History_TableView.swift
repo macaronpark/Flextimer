@@ -37,7 +37,10 @@ extension HistoryViewController: UITableViewDelegate {
           RealmService.shared.update(workRecord, with: ["isHoliday": true])
           // TODO: reload
         } else {
-          // TODO: 기록이 없으면 만들어서 reload
+          // 기록이 없으면 만들어서
+          let newWorkRecord = WorkRecord(date, endDate: date, isHoliday: true)
+          RealmService.shared.create(newWorkRecord)
+          // TODO: reload
         }
         completion(true)
     })
@@ -56,8 +59,34 @@ extension HistoryViewController: UITableViewDelegate {
     let createAction = UIContextualAction(
       style: .normal,
       title: "기록 생성",
-      handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-        // TODO: 기록이 만들어서 reload
+      handler: { _, _, completion in
+        // 출근 시간은 임의로 오전 9시로 고정해서 설정
+        let startDateHour = Calendar.current.date(
+          byAdding: .hour,
+          value: 9,
+          to: date
+        ) ?? Date()
+        
+        // 퇴근 시간은 유저의 근무 시간을 반영해서 설정
+        let endDateHour = Calendar.current.date(
+          byAdding: .hour,
+          value: RealmService.shared.userInfo.hourOfWorkhoursADay,
+          to: startDateHour
+        ) ?? Date()
+        
+        let endDateHourMin = Calendar.current.date(
+          byAdding: .minute,
+          value: RealmService.shared.userInfo.minuteOfWorkhoursADay,
+          to: endDateHour
+        ) ?? Date()
+        
+        let newWorkRecord = WorkRecord(startDateHour, endDate: endDateHourMin, isHoliday: false)
+        RealmService.shared.create(newWorkRecord)
+        
+        let vc = HistoryDetailViewController(newWorkRecord)
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+        completion(true)
     }).then {
       $0.backgroundColor = UIColor.systemBlue
     }
@@ -68,15 +97,26 @@ extension HistoryViewController: UITableViewDelegate {
     let holiday = UISwipeActionsConfiguration(actions: [holidayAction])
     
     if let workRecord = workRecord {
+      // 해당 일 기록이 있을 때
+      // 휴무 처리가 아니라면 '휴무처리', '기록삭제'
       return (workRecord.isHoliday == true) ? actionsForHolidayExistCell: actionsForRecordExistCell
     } else {
+      // 해당 일 기록이 없을 때
+      // '오늘'이라면
       if (Calendar.current.isDateInToday(date) == true) {
-        let d = RealmService.shared.realm.objects(WorkRecord.self).filter { (Calendar.current.isDateInToday($0.startDate)) }.last
-        if let _ = d {
+        let currentWorkRecord = RealmService.shared.realm
+          .objects(WorkRecord.self)
+          .filter { (Calendar.current.isDateInToday($0.startDate)) }
+          .last
+        
+        if let _ = currentWorkRecord {
+          // 현재 근무 중이라면
           return nil
         }
+        // 현재 근무 중이 아니라면
         return holiday
       }
+      // '오늘'이 아닐 경우 '휴무처리', '기록생성'
       return actionsForRecordNotExistCell
     }
   }
