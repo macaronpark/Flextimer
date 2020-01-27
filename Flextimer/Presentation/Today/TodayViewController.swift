@@ -37,6 +37,7 @@ class TodayViewController: BaseViewController {
     self.init()
     
     self.todayViewModel = viewModel
+    self.isWorking.accept(viewModel.isWorking)
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -69,36 +70,29 @@ class TodayViewController: BaseViewController {
   
   override func bind() {
     super.bind()
-    
-    self.todayView.optionView.rx.viewModel
-      .onNext(self.todayViewModel)
-    
-    // 초기화
-    Observable
-      .just(self.todayViewModel.isWorking)
-      .asObservable()
-      .bind(to: self.isWorking)
-      .disposed(by: self.disposeBag)
-    
-    let share = self.isWorking.asObservable()
+
+    let share = self.isWorking
     
     share
-      .debug("🧐isWorking🧐")
       .bind(to: self.todayView.buttonsView.rx.viewModel)
+      .disposed(by: self.disposeBag)
+    
+    share
+      .map { _ in self.todayViewModel }
+      .bind(to: self.todayView.optionView.rx.viewModel)
       .disposed(by: self.disposeBag)
     
     share
       .map { (self.todayViewModel, $0) }
       .bind(to: self.todayView.stackView.rx.viewModel)
       .disposed(by: disposeBag)
-    
+
     share
       .filter { $0 == false }
       .bind(to: self.todayView.timerView.rx.resetTimer)
       .disposed(by: disposeBag)
 
     share
-      .debug("timer")
       .flatMapLatest { $0 ? Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance): .empty() }
       .map { _ in self.todayViewModel }
       .bind(to: self.todayView.timerView.rx.viewModel)
@@ -112,21 +106,26 @@ class TodayViewController: BaseViewController {
       .bind(onNext: { self.showEndAlert() })
       .disposed(by: self.disposeBag)
     
+    self.isWorking
+      .bind(to: self.todayView.stackView.startCellButton.rx.isUserInteractionEnabled)
+      .disposed(by: self.disposeBag)
+    
     // TODO: 탭 시 출근시간 변경할 수 있게
-//    self.todayView.stackView.startCellButton.rx.tap
-//      .flatMapLatest { [weak self] _ -> Observable<Date> in
-//        return DatePickerViewController.date(
-//          parent: self,
-//          current: self?.todayViewModel.s,
-//          mode: .date,
-//          doneButtonTitle: "기록 조회"
-//        ).skip(1)
-//    }.bind { [weak self] date in
-//      self?.displayedDate.accept(date)
-//      self?.willScrollToSelectedDate.onNext(true)
-//    }
-//    .disposed(by: self.disposeBag)
-      
+    self.todayView.stackView.startCellButton.rx.tap
+      .flatMapLatest { [weak self] _ -> Observable<Date> in
+        return DatePickerViewController.date(
+          parent: self,
+          current: self?.todayViewModel.workRecordOfToday?.startDate ?? Date(),
+          mode: .time,
+          doneButtonTitle: "기록 변경"
+        ).skip(1)
+    }.subscribe(onNext: { [weak self] date in
+      if let workRecord = self?.todayViewModel.workRecordOfToday {
+        RealmService.shared.update(workRecord, with: ["startDate": date])
+        self?.isWorking.accept(true)
+      }
+    }).disposed(by: self.disposeBag)
+    
     self.settingBarButton.rx.tap
       .map { UINavigationController(rootViewController: SettingViewController()) }
       .bind { [weak self] in
@@ -148,4 +147,3 @@ class TodayViewController: BaseViewController {
     }
   }
 }
-

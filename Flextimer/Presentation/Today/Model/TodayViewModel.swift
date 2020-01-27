@@ -35,7 +35,7 @@ class TodayViewModel {
   
   // MARK: - WorkRecord
   
-  let workRecordOfToday: WorkRecord?
+  var workRecordOfToday: WorkRecord?
   
   var isWorking: Bool {
     if workRecordOfToday != nil {

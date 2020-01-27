@@ -33,11 +33,15 @@ extension TodayViewController {
       let ok = UIAlertAction(title: "확인", style: .default) { _ in
         // 이전 기록 삭제
         RealmService.shared.delete(workRecordInToday)
+        self.todayViewModel.workRecordOfToday = nil
+        self.isWorking.accept(false)
         
         // 새 기록 생성
         let now = Date()
         let newWorkRecord = WorkRecord(now)
         RealmService.shared.create(newWorkRecord)
+        self.todayViewModel.workRecordOfToday = newWorkRecord
+        self.isWorking.accept(true)
         DispatchQueue.main.async {
           NotificationCenter.default.post(name: RNotiKey.didUpdateWorkRecord, object: nil)
         }
@@ -51,6 +55,8 @@ extension TodayViewController {
       // - 기록이 없다면: 새로운 WorkRecord를 생성
       let now = Date()
       let newWorkRecord = WorkRecord(now)
+      self.todayViewModel.workRecordOfToday = newWorkRecord
+      self.isWorking.accept(true)
       RealmService.shared.create(newWorkRecord)
       DispatchQueue.main.async {
         NotificationCenter.default.post(name: RNotiKey.didUpdateWorkRecord, object: nil)
@@ -70,6 +76,8 @@ extension TodayViewController {
       
       if let record = record {
         RealmService.shared.update(record, with: ["endDate": Date()])
+        self.todayViewModel.workRecordOfToday = nil
+        self.isWorking.accept(false)
         DispatchQueue.main.async {
           NotificationCenter.default.post(name: RNotiKey.didUpdateWorkRecord, object: nil)
         }
