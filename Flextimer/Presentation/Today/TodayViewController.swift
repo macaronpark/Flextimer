@@ -36,6 +36,7 @@ class TodayViewController: BaseViewController {
   convenience init(_ viewModel: TodayViewModel) {
     self.init()
     
+    // TODO: viewModel 기준으로 rx 로직 변경하기
     self.todayViewModel = viewModel
     self.isWorking.accept(viewModel.isWorking)
   }
@@ -78,15 +79,17 @@ class TodayViewController: BaseViewController {
       .disposed(by: self.disposeBag)
     
     share
-      .map { _ in self.todayViewModel }
-      .bind(to: self.todayView.optionView.rx.viewModel)
-      .disposed(by: self.disposeBag)
+      .bind { [weak self] _ in
+        guard let self = self else { return }
+        self.todayView.optionView.rx.viewModel.onNext(self.todayViewModel)
+    }.disposed(by: self.disposeBag)
     
     share
-      .map { (self.todayViewModel, $0) }
-      .bind(to: self.todayView.stackView.rx.viewModel)
-      .disposed(by: disposeBag)
-
+      .bind { [weak self] isWorking in
+        guard let self = self else { return }
+        self.todayView.stackView.rx.viewModel.onNext((self.todayViewModel, isWorking))
+    }.disposed(by: self.disposeBag)
+    
     share
       .filter { $0 == false }
       .bind(to: self.todayView.timerView.rx.resetTimer)
@@ -94,16 +97,17 @@ class TodayViewController: BaseViewController {
 
     share
       .flatMapLatest { $0 ? Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance): .empty() }
-      .map { _ in self.todayViewModel }
-      .bind(to: self.todayView.timerView.rx.viewModel)
-      .disposed(by: disposeBag)
+      .bind { [weak self] _ in
+        guard let self = self else { return }
+        self.todayView.timerView.rx.viewModel.onNext(self.todayViewModel)
+    }.disposed(by: disposeBag)
     
     self.todayView.buttonsView.startButton.rx.tap
       .bind(onNext: { [weak self] in self?.didTapStartButton() })
       .disposed(by: self.disposeBag)
     
     self.todayView.buttonsView.endButton.rx.tap
-      .bind(onNext: { self.showEndAlert() })
+      .bind(onNext: { [weak self] in self?.showEndAlert() })
       .disposed(by: self.disposeBag)
     
     self.isWorking
@@ -130,8 +134,7 @@ class TodayViewController: BaseViewController {
       .map { UINavigationController(rootViewController: SettingViewController()) }
       .bind { [weak self] in
         self?.navigationController?.present($0, animated: true, completion: nil)
-    }
-    .disposed(by: self.disposeBag)
+    }.disposed(by: self.disposeBag)
   }
   
   // MARK: - Constraints
