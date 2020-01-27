@@ -120,6 +120,7 @@ class TodayViewController: BaseViewController {
         return DatePickerViewController.date(
           parent: self,
           current: self?.todayViewModel.workRecordOfToday?.startDate ?? Date(),
+          max: Date(),
           mode: .time,
           doneButtonTitle: "기록 변경"
         ).skip(1)
