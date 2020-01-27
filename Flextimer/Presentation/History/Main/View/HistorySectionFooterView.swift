@@ -11,7 +11,7 @@ import UIKit
 class HistorySectionFooterView: UITableViewHeaderFooterView {
   
   let containerView = UIView().then {
-    $0.backgroundColor = UIColor.systemFill
+    $0.backgroundColor = Color.buttonGray
   }
   
   let titleLabel = UILabel().then {
