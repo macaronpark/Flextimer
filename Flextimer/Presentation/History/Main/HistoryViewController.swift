@@ -69,6 +69,7 @@ class HistoryViewController: BaseViewController {
     super.setupNaviBar()
     
     self.title = "기록"
+    self.navigationController?.navigationBar.tintColor = UIColor.systemFill
     self.navigationItem.largeTitleDisplayMode = .automatic
     self.navigationController?.navigationBar.prefersLargeTitles = true
     self.navigationItem.rightBarButtonItem = self.createRecordBarButton

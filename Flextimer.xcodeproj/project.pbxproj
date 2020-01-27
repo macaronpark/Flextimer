@@ -80,7 +80,6 @@
 		BFDED1612358AFD2003AFA67 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFDED1602358AFD2003AFA67 /* NotificationCenter.framework */; };
 		BFDED1642358AFD2003AFA67 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDED1632358AFD2003AFA67 /* TodayViewController.swift */; };
 		BFDED16B2358AFD2003AFA67 /* Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BFDED15F2358AFD2003AFA67 /* Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		BFDED1752358C86E003AFA67 /* Today_Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDED1742358C86E003AFA67 /* Today_Action.swift */; };
 		BFDED1772358C938003AFA67 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDED1572358AC1A003AFA67 /* UIColor.swift */; };
 		BFDED1782358C96C003AFA67 /* WorkRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1AEB40234B572600FFB348 /* WorkRecord.swift */; };
 		BFDED1792358C974003AFA67 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1AEB42234B5FF100FFB348 /* RealmService.swift */; };
@@ -208,7 +207,6 @@
 		BFDED1682358AFD2003AFA67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFDED1722358BCCF003AFA67 /* Flextimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flextimer.entitlements; sourceTree = "<group>"; };
 		BFDED1732358BD0C003AFA67 /* Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Widget.entitlements; sourceTree = "<group>"; };
-		BFDED1742358C86E003AFA67 /* Today_Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Today_Action.swift; sourceTree = "<group>"; };
 		BFDFA07623D49C6B001F9832 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		BFE16AAC234D109D006F94C1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		BFEDCC942346865C0043E0B0 /* CreteriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreteriaView.swift; sourceTree = "<group>"; };
@@ -554,7 +552,6 @@
 				BFDED1732358BD0C003AFA67 /* Widget.entitlements */,
 				BFDED1652358AFD2003AFA67 /* MainInterface.storyboard */,
 				BFDED1632358AFD2003AFA67 /* TodayViewController.swift */,
-				BFDED1742358C86E003AFA67 /* Today_Action.swift */,
 				1C445C7E23592B2F0043A978 /* WidgetButton.swift */,
 				BFDED1682358AFD2003AFA67 /* Info.plist */,
 			);
@@ -818,7 +815,6 @@
 				BFDED17E2358D250003AFA67 /* Int.swift in Sources */,
 				BFDED1782358C96C003AFA67 /* WorkRecord.swift in Sources */,
 				1C445C7F23592B2F0043A978 /* WidgetButton.swift in Sources */,
-				BFDED1752358C86E003AFA67 /* Today_Action.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

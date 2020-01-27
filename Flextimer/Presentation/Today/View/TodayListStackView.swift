@@ -78,9 +78,15 @@ extension Reactive where Base: TodayListStackView {
     let totalWorkHourInterval = h + m
     let remainInterval = totalWorkHourInterval - interval
     
-    if remainInterval.isLess(than: 0.0) {
+    if remainInterval.isZero {
+      return remainInterval.toString(.remain) + " 클리어!"
+    } else if remainInterval.isLess(than: 0.0) {
+      if (-remainInterval).toString(.remain) == "0시간 0분" {
+        return remainInterval.toString(.remain) + " 클리어!"
+      }
       return (-remainInterval).toString(.remain) + "째 초과근무 중"
+    } else {
+      return remainInterval.toString(.remain) + " 남았어요"
     }
-    return remainInterval.toString(.remain) + " 남았어요"
   }
 }

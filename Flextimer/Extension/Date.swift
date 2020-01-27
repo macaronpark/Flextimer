@@ -10,6 +10,11 @@ import Foundation
 
 extension Date {
   
+  func trimSeconds() -> Date {
+    let components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: self)
+    return Calendar.current.date(from: components) ?? self
+  }
+  
   func startOfMonth() -> Date {
       return Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: Calendar.current.startOfDay(for: self)))!
   }

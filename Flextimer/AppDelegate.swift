@@ -18,11 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     self.initializeRealm()
-    self.appAppearanceCofigure()
-    
+
     _ = Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance)
       .subscribe(onNext: { _ in
-        print("Resource count \(RxSwift.Resources.total)")
+        Logger.debug("Resource count \(RxSwift.Resources.total)")
       })
     
     return true

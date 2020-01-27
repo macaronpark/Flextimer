@@ -10,30 +10,30 @@ import Foundation
 import UIKit
 
 class WidgetButton: UIButton {
-//
-//  enum WidgetButtonType {
-//    case start
-//    case end
-//
-//    var title: String {
-//      switch self {
-//      case .start:
-//        return "출근"
-//      case .end:
-//        return "퇴근"
-//      }
-//    }
-//  }
-//
-//  /// 버튼 타입 별 title, titleColor, backgroundColor 설정
-//  func setBasicConfig(_ type: WidgetButtonType) {
-//    self.setTitle(type.title, for: .normal)
-//    self.setTitleColor(.white, for: .normal)
-//    self.setTitleColor(UIColor.white.withAlphaComponent(0.2), for: .disabled)
-//    self.setBackgroundColor(color: AppColor.widgetGray, forState: .disabled)
-//    self.setBackgroundColor(color: AppColor.uiOrange, forState: .normal)
-//
-//    self.layer.cornerRadius = 6
-//    self.clipsToBounds = true
-//  }
+
+  enum WidgetButtonType {
+    case start
+    case end
+
+    var title: String {
+      switch self {
+      case .start:
+        return "출근"
+      case .end:
+        return "퇴근"
+      }
+    }
+  }
+
+  /// 버튼 타입 별 title, titleColor, backgroundColor 설정
+  func setBasicConfig(_ type: WidgetButtonType) {
+    self.setTitle(type.title, for: .normal)
+    self.setTitleColor(.white, for: .normal)
+    self.setTitleColor(UIColor.white.withAlphaComponent(0.2), for: .disabled)
+    self.setBackgroundColor(color: Color.buttonGray, forState: .disabled)
+    self.setBackgroundColor(color: Color.immutableOrange, forState: .normal)
+
+    self.layer.cornerRadius = 6
+    self.clipsToBounds = true
+  }
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,18 +24,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pdd-OH-yne" userLabel="OK" customClass="WidgetButton" customModule="Widget" customModuleProvider="target">
-                                <rect key="frame" x="10" y="2" width="144" height="46"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="FS1-9L-fNa"/>
-                                </constraints>
-                                <state key="normal" title="확인">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="tapOK:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="thL-qf-3bw"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVp-De-0Bi" customClass="WidgetButton" customModule="Widget" customModuleProvider="target">
                                 <rect key="frame" x="166" y="2" width="144" height="46"/>
                                 <constraints>
@@ -45,23 +33,14 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vG4-j4-8GO" userLabel="Cancel" customClass="WidgetButton" customModule="Widget" customModuleProvider="target">
-                                <rect key="frame" x="166" y="2" width="144" height="46"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="XvE-kF-U9B"/>
-                                </constraints>
-                                <state key="normal" title="취소">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMn-q9-c7D">
-                                <rect key="frame" x="10" y="58" width="300" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMn-q9-c7D">
+                                <rect key="frame" x="10" y="58" width="300" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sO-kE-Z8E">
-                                <rect key="frame" x="10" y="79" width="300" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sO-kE-Z8E">
+                                <rect key="frame" x="10" y="62" width="300" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -79,22 +58,16 @@
                             <constraint firstItem="sMn-q9-c7D" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="10" id="0s0-DK-vmf"/>
                             <constraint firstItem="wVp-De-0Bi" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" constant="2" id="5Sd-bX-XFX"/>
                             <constraint firstAttribute="centerX" secondItem="JXA-t7-8Rd" secondAttribute="trailing" constant="6" id="7YK-QA-bya"/>
-                            <constraint firstItem="vG4-j4-8GO" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" constant="2" id="HeN-EC-nUx"/>
                             <constraint firstItem="sMn-q9-c7D" firstAttribute="top" secondItem="JXA-t7-8Rd" secondAttribute="bottom" constant="10" id="JyV-kg-7Ht"/>
                             <constraint firstAttribute="trailing" secondItem="f8V-Ii-xtU" secondAttribute="trailing" constant="10" id="KAH-EK-Z6c"/>
                             <constraint firstItem="wVp-De-0Bi" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="centerX" constant="6" id="OkV-IR-Etn"/>
                             <constraint firstItem="JXA-t7-8Rd" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="10" id="VCz-Fh-Oy2"/>
-                            <constraint firstItem="JXA-t7-8Rd" firstAttribute="trailing" secondItem="Pdd-OH-yne" secondAttribute="trailing" id="YFq-O1-P9w"/>
                             <constraint firstAttribute="trailing" secondItem="wVp-De-0Bi" secondAttribute="trailing" constant="10" id="YgG-2k-hza"/>
-                            <constraint firstItem="vG4-j4-8GO" firstAttribute="trailing" secondItem="wVp-De-0Bi" secondAttribute="trailing" id="bal-FG-hFt"/>
                             <constraint firstItem="f8V-Ii-xtU" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="10" id="cF6-Ws-UG4"/>
-                            <constraint firstItem="Pdd-OH-yne" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" constant="2" id="ghC-LT-2fc"/>
-                            <constraint firstItem="2sO-kE-Z8E" firstAttribute="top" secondItem="f8V-Ii-xtU" secondAttribute="bottom" constant="4" id="jMO-cT-eag"/>
-                            <constraint firstItem="vG4-j4-8GO" firstAttribute="leading" secondItem="wVp-De-0Bi" secondAttribute="leading" id="lTg-B3-M1O"/>
+                            <constraint firstItem="2sO-kE-Z8E" firstAttribute="top" secondItem="sMn-q9-c7D" secondAttribute="bottom" constant="4" id="jMO-cT-eag"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="2sO-kE-Z8E" secondAttribute="trailing" constant="10" id="ovd-OD-4Fd"/>
                             <constraint firstItem="f8V-Ii-xtU" firstAttribute="top" secondItem="JXA-t7-8Rd" secondAttribute="bottom" constant="10" id="sie-SP-aiS"/>
                             <constraint firstItem="JXA-t7-8Rd" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" constant="2" id="vbZ-1I-mZl"/>
-                            <constraint firstItem="Pdd-OH-yne" firstAttribute="leading" secondItem="JXA-t7-8Rd" secondAttribute="leading" id="wKz-AN-qcC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
                     </view>
@@ -103,9 +76,7 @@
                     <size key="freeformSize" width="320" height="110"/>
                     <connections>
                         <outlet property="alertLabel" destination="f8V-Ii-xtU" id="qlQ-Qi-0rf"/>
-                        <outlet property="cancelButton" destination="vG4-j4-8GO" id="Jgq-3F-HNu"/>
                         <outlet property="endButton" destination="wVp-De-0Bi" id="18m-Vv-IME"/>
-                        <outlet property="okButton" destination="Pdd-OH-yne" id="WfI-4O-oWX"/>
                         <outlet property="remainTimeLabel" destination="2sO-kE-Z8E" id="ecA-to-LqO"/>
                         <outlet property="startButton" destination="JXA-t7-8Rd" id="Dcg-Vo-05g"/>
                         <outlet property="startTimeLabel" destination="sMn-q9-c7D" id="hmE-K2-lci"/>

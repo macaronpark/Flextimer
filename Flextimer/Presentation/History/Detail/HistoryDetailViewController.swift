@@ -57,6 +57,7 @@ class HistoryDetailViewController: BaseViewController {
     super.setupNaviBar()
     
     self.title = Formatter.dayName.string(from: self.workRecord?.startDate ?? Date())
+    self.navigationController?.navigationBar.tintColor = Color.immutableOrange
     self.navigationController?.navigationBar.prefersLargeTitles = true
   }
   
