@@ -47,7 +47,7 @@ class TodayViewModel {
   /// 오늘 근무 시작 시간을 '오전 0시 0분'으로 변환한 string
   var startTime: String {
     if let workRecordOfToday = workRecordOfToday {
-      return Formatter.shm.string(from: workRecordOfToday.startDate)
+      return Formatter.shm.string(from: workRecordOfToday.startDate).replacingOccurrences(of: " 0분", with: "")
     }
     return "--:--"
   }
@@ -66,7 +66,7 @@ class TodayViewModel {
         to: h
         ) ?? Date()
       
-        return Formatter.shm.string(from: m)
+        return Formatter.shm.string(from: m).replacingOccurrences(of: " 0분", with: "")
     }
     return "--:--"
   }
