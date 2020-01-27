@@ -9,8 +9,11 @@
 import UIKit
 
 class SettingCellModel {
+  
   let title: String?
+  
   let component: CellComponent
+  
   var text: String?
   
   init(_ title: String? = nil, text: String? = nil, component: CellComponent) {

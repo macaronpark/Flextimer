@@ -9,6 +9,7 @@
 import UIKit
 
 extension WorkhoursADayViewController: UIPickerViewDelegate {
+  
   func pickerView(
     _ pickerView: UIPickerView,
     titleForRow row: Int,
@@ -29,12 +30,6 @@ extension WorkhoursADayViewController: UIPickerViewDelegate {
       RealmService.shared.userInfo,
       with: [type.self.str: value]
     )
-    
-    let criteria = (type == .hourOfWorkhoursADay)
-    let name: RNotiKey = criteria ? .didUpdateHourOfWorkhoursADay: .didUpdateMinuteOfWorkhoursADay
-    DispatchQueue.main.async {
-      NotificationCenter.default.post(name: name, object: nil)
-    }
   }
 }
 

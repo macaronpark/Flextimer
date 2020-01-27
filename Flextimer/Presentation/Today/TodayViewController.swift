@@ -14,10 +14,14 @@ import RxSwift
 
 class TodayViewController: BaseViewController {
   
-  let isWorking = BehaviorRelay(value: false)
   let todayView = TodayView()
+  
   var todayViewModel: TodayViewModel!
+  
+  let isWorking = BehaviorRelay(value: false)
+  
   var workRecordNotificationToken: NotificationToken? = nil
+  
   var userInfoNotificationToken: NotificationToken? = nil
   
   let settingBarButton = UIBarButtonItem(
@@ -52,7 +56,6 @@ class TodayViewController: BaseViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-//    self.registerNotification()
     self.setupUserInfoNotification()
     self.setupWorkRecordNotification()
   }
@@ -140,6 +143,7 @@ class TodayViewController: BaseViewController {
         self?.navigationController?.present($0, animated: true, completion: nil)
     }.disposed(by: self.disposeBag)
   }
+  
   
   // MARK: - Constraints
   

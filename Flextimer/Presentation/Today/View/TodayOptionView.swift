@@ -17,34 +17,34 @@ class TodayOptionView: UIView {
   
   let hourOfworkhoursPerDayLabel = UILabel().then {
     $0.font = Font.REGURAL_14
-    $0.textColor = Color.grayText
+    $0.textColor = Color.secondaryText
   }
   
   let minuteOfworkhoursPerDayLabel = UILabel().then {
     $0.font = Font.REGURAL_14
-    $0.textColor = Color.grayText
+    $0.textColor = Color.secondaryText
   }
   
   let firstSeparatorLabel = UILabel().then {
     $0.font = Font.REGURAL_14
-    $0.textColor = Color.grayText
+    $0.textColor = Color.secondaryText
     $0.text = " ・ "
   }
   
   let workdaysPerWeekLabel = UILabel().then {
     $0.font = Font.REGURAL_14
-    $0.textColor = Color.grayText
+    $0.textColor = Color.secondaryText
   }
   
   let secondSeparatorLabel = UILabel().then {
     $0.font = Font.REGURAL_14
-    $0.textColor = Color.grayText
+    $0.textColor = Color.secondaryText
     $0.text = " ・ "
   }
   
   let totalWorkhoursPerWeekLabel = UILabel().then {
     $0.font = Font.REGURAL_14
-    $0.textColor = Color.grayText
+    $0.textColor = Color.secondaryText
   }
   
   override init(frame: CGRect) {

@@ -42,9 +42,6 @@ extension TodayViewController {
         RealmService.shared.create(newWorkRecord)
         self.todayViewModel.workRecordOfToday = newWorkRecord
         self.isWorking.accept(true)
-        DispatchQueue.main.async {
-          NotificationCenter.default.post(name: RNotiKey.didUpdateWorkRecord, object: nil)
-        }
       }
       
       alert.addAction(cancel)
@@ -58,9 +55,6 @@ extension TodayViewController {
       self.todayViewModel.workRecordOfToday = newWorkRecord
       self.isWorking.accept(true)
       RealmService.shared.create(newWorkRecord)
-      DispatchQueue.main.async {
-        NotificationCenter.default.post(name: RNotiKey.didUpdateWorkRecord, object: nil)
-      }
     }
   }
   
@@ -78,11 +72,9 @@ extension TodayViewController {
         RealmService.shared.update(record, with: ["endDate": Date()])
         self.todayViewModel.workRecordOfToday = nil
         self.isWorking.accept(false)
-        DispatchQueue.main.async {
-          NotificationCenter.default.post(name: RNotiKey.didUpdateWorkRecord, object: nil)
-        }
       }
     }
+    
     alert.addAction(cancel)
     alert.addAction(ok)
     self.navigationController?.present(alert, animated: true, completion: nil)

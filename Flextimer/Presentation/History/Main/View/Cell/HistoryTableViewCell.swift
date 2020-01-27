@@ -42,13 +42,11 @@ class HistoryTableViewCell: BaseTableViewCell {
       $0.leading.equalToSuperview().offset(20)
       $0.centerY.equalToSuperview()
     }
-    
     self.stackView.snp.makeConstraints {
       $0.centerY.equalToSuperview()
       $0.trailing.equalToSuperview().offset(-14)
       $0.leading.greaterThanOrEqualTo(self.titleLabel.snp.trailing).offset(8)
     }
-    
     self.disclosureIndicatorImageView.snp.makeConstraints {
       $0.size.equalTo(CGSize(width: 16, height: 16))
     }
@@ -69,7 +67,7 @@ class HistoryTableViewCell: BaseTableViewCell {
 
     self.disclosureIndicatorImageView.isHidden = !(model.workRecord != nil)
     
-    let textColor: UIColor = (Calendar.current.isDateInToday(model.date)) ? Color.primaryText: Color.secondText
+    let textColor: UIColor = (Calendar.current.isDateInToday(model.date)) ? Color.primaryText: Color.secondaryText
     self.titleLabel.textColor = textColor
     self.totalWorkhoursADayLabel.textColor = textColor
     

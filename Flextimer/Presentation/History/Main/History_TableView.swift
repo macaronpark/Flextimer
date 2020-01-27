@@ -10,6 +10,10 @@ import UIKit
 
 extension HistoryViewController: UITableViewDelegate {
   
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 56
+  }
+  
   func tableView(
     _ tableView: UITableView,
     didSelectRowAt
@@ -25,7 +29,6 @@ extension HistoryViewController: UITableViewDelegate {
     _ tableView: UITableView,
     trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
   ) -> UISwipeActionsConfiguration? {
-    
     let date = self.historyViewModel?.sections[indexPath.section].rows[indexPath.row].date ?? Date()
     let workRecord = self.historyViewModel?.sections[indexPath.section].rows[indexPath.row].workRecord
     
@@ -139,18 +142,10 @@ extension HistoryViewController: UITableViewDelegate {
     }
     return nil
   }
-  
-//  func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//    return 74 + 32
-//  }
 }
 
 extension HistoryViewController: UITableViewDataSource {
-  
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 56
-  }
-  
+
   func numberOfSections(in tableView: UITableView) -> Int {
     return self.historyViewModel?.sections.count ?? 0
   }

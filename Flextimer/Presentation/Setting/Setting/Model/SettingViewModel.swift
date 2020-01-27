@@ -13,18 +13,13 @@ struct SettingViewModel {
   var sections: [[SettingCellModel]]
   
   init(_ model: UserInfo) {
-    
     let hourOnly = "\(model.hourOfWorkhoursADay)시간"
     let hourAndMinute = "\(model.hourOfWorkhoursADay)시간 \(model.minuteOfWorkhoursADay)분"
     let workhourADayString = (model.minuteOfWorkhoursADay == 0) ? hourOnly: hourAndMinute
     
-    let workhourADay = [
-      SettingCellModel(nil, text: workhourADayString, component: .indicator)
-    ]
+    let workhourADay = [SettingCellModel(nil, text: workhourADayString, component: .indicator)]
     
-    let workdayPerWeek = [
-      SettingCellModel(nil, text: nil, component: .none)
-    ]
+    let workdayPerWeek = [SettingCellModel(nil, text: nil, component: .none)]
     
     let etc = [
       SettingCellModel("버전", text: InfoUtil.versionDescription, component: .none),

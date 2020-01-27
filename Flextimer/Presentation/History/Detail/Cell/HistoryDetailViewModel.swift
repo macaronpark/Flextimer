@@ -53,7 +53,7 @@ class HistoryDetailViewModel {
         Formatter.dayName.string(from: workRecord.startDate),
         isEditable: false,
         isHoliday: workRecord.isHoliday,
-        textColor: Color.grayText
+        textColor: Color.secondaryText
       ),
       HistoryDetailCellModel(
         Formatter.shm.string(from: workRecord.startDate).replacingOccurrences(of: " 0분", with: ""),
@@ -66,41 +66,20 @@ class HistoryDetailViewModel {
       HistoryDetailCellModel(
         Formatter.dayName.string(from: workRecord.endDate ?? Date()),
         isHoliday: workRecord.isHoliday,
-        textColor: Color.grayText
+        textColor: Color.secondaryText
       ),
       HistoryDetailCellModel(
         Formatter.shm.string(from: workRecord.endDate ?? Date()).replacingOccurrences(of: " 0분", with: ""),
         isHoliday: workRecord.isHoliday
       )
     ]
-    
-//    // 휴무 처리
-//    let holidayRows: [HistoryDetailCellModel] = [
-//      HistoryDetailCellModel(
-//        "휴무 처리",
-//        isHoliday: workRecord.isHoliday,
-//        textColor: Color.grayText
-//      )
-//    ]
-//
-//    // 기록 삭제
-//    let deleteRows: [HistoryDetailCellModel] = [
-//      HistoryDetailCellModel(
-//        "기록 삭제",
-//        textColor: Color.grayText
-//      )
-//    ]
 
     let startSection = HistoryDetailSectionModel(startRows, sectionTitle: "출근")
     let endSection = HistoryDetailSectionModel(endRows, sectionTitle: "퇴근")
-//    let holidaySection = HistoryDetailSectionModel(holidayRows, sectionTitle: "공휴일이거나 휴가라면? 휴무 처리 해 주세요")
-//    let deleteSection = HistoryDetailSectionModel(deleteRows, sectionTitle: " ", headerHeight: 30)
-    
+
     self.sections = [
       startSection,
-      endSection,
-//      holidaySection,
-//      deleteSection
+      endSection
     ]
   }
 }

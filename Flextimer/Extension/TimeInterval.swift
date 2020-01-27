@@ -9,6 +9,7 @@
 import Foundation
 
 extension TimeInterval {
+  
   /// TimeInterval을 사용하는 총 근무시간, 남은 근무시간 계산 시 toString(_:) 함수를 재사용하기 위한 enum
   enum TimeOption {
     /// 현재까지 총 근무 시간

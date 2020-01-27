@@ -10,6 +10,10 @@ import UIKit
 
 extension HistoryDetailViewController: UITableViewDelegate {
   
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return self.viewModel?.sections[section].headerHeight ?? 0
+  }
+  
   func tableView(
     _ tableView: UITableView,
     didSelectRowAt
@@ -60,10 +64,6 @@ extension HistoryDetailViewController: UITableViewDataSource {
     return self.viewModel?.sections[section].sectionTitle
   }
   
-  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return self.viewModel?.sections[section].headerHeight ?? 0
-  }
-  
   func tableView(
     _ tableView: UITableView,
     numberOfRowsInSection
@@ -77,18 +77,6 @@ extension HistoryDetailViewController: UITableViewDataSource {
     cellForRowAt
     indexPath: IndexPath) -> UITableViewCell
   {
-    if (indexPath.section == 2) {
-      let cell = tableView.dequeueCell(ofType: HistoryDetailHolidayTableViewCell.self, indexPath: indexPath)
-      cell.updateCell(self.viewModel?.sections[indexPath.section].rows[indexPath.row] ?? HistoryDetailCellModel(""))
-      return cell
-    }
-    
-    if (indexPath.section == 3) {
-      let cell = tableView.dequeueCell(ofType: HistoryDetailDeleteTableViewCell.self, indexPath: indexPath)
-      cell.updateCell(self.viewModel?.sections[indexPath.section].rows[indexPath.row] ?? HistoryDetailCellModel(""))
-      return cell
-    }
-    
     let cell = tableView.dequeueCell(ofType: HistoryDetailTableViewCell.self, indexPath: indexPath)
     cell.updateCell(self.viewModel?.sections[indexPath.section].rows[indexPath.row] ?? HistoryDetailCellModel(""))
     return cell

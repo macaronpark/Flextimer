@@ -22,7 +22,9 @@ class HistoryViewController: BaseViewController {
   
   var willScrollToSelectedDate = PublishSubject<Bool>()
   
-  var notificationToken: NotificationToken? = nil
+  var workRecordnotificationToken: NotificationToken? = nil
+  
+  var userInfoNotificationToken: NotificationToken? = nil
   
   lazy var createRecordBarButton = UIBarButtonItem(
     image: UIImage(systemName: "info.circle"),
@@ -61,8 +63,8 @@ class HistoryViewController: BaseViewController {
     super.viewDidLoad()
     
     self.willScrollToSelectedDate.onNext(true)
-    self.setupRealmNotification()
-
+    self.setupWorkRecordNotification()
+    self.setupUserInfoNotification()
   }
   
   override func setupNaviBar() {
@@ -106,8 +108,8 @@ class HistoryViewController: BaseViewController {
           doneButtonTitle: "기록 조회"
         ).skip(1)
     }.bind { [weak self] date in
-        self?.displayedDate.accept(date)
-        self?.willScrollToSelectedDate.onNext(true)
+      self?.displayedDate.accept(date)
+      self?.willScrollToSelectedDate.onNext(true)
     }
     .disposed(by: self.disposeBag)
 
@@ -166,11 +168,26 @@ class HistoryViewController: BaseViewController {
     self.impactGenerator?.impactOccurred()
   }
   
-  func setupRealmNotification() {
+  func setupWorkRecordNotification() {
     // TODO: realm queries month...?
     let results = RealmService.shared.realm.objects(WorkRecord.self)
     // .filter { Calendar.current.compare($0.startDate, to: self.displayedDate.value, toGranularity: .month) == ComparisonResult.orderedSame }
-    self.notificationToken = results.observe { [weak self] changes in
+    self.workRecordnotificationToken = results.observe { [weak self] changes in
+      switch changes {
+      case .update:
+        let value = self?.displayedDate.value ?? Date()
+        self?.displayedDate.accept(value)
+        
+      default:
+        break
+      }
+    }
+  }
+  
+  func setupUserInfoNotification() {
+    let results = RealmService.shared.realm.objects(UserInfo.self)
+    
+    self.userInfoNotificationToken = results.observe { [weak self] changes in
       switch changes {
       case .update:
         let value = self?.displayedDate.value ?? Date()

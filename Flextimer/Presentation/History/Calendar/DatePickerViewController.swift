@@ -26,12 +26,21 @@ class DatePickerViewController: BaseViewController {
     $0.setTitleColor(Color.immutableOrange, for: .normal)
   }
   
+  
+  // MARK: - Init
+  
   override init() {
     super.init()
   }
   
   /// currentDate: 현재 선택한 날짜
-  convenience init(current date: Date, min: Date? = nil, max: Date? = nil, mode: UIDatePicker.Mode, doneButtonTitle: String) {
+  convenience init(
+    current date: Date,
+    min: Date? = nil,
+    max: Date? = nil,
+    mode: UIDatePicker.Mode,
+    doneButtonTitle: String
+  ) {
     self.init()
     
     self.date = .init(value: date)
@@ -49,6 +58,9 @@ class DatePickerViewController: BaseViewController {
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+  
+  
+  // MARK: - Lifecycles
   
   override func viewDidLoad() {
     super.viewDidLoad()

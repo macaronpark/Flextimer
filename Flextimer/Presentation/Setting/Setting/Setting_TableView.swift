@@ -12,6 +12,10 @@ import RxCocoa
 
 extension SettingViewController: UITableViewDelegate {
   
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 48
+  }
+  
   func tableView(
     _ tableView: UITableView,
     didSelectRowAt
@@ -33,11 +37,7 @@ extension SettingViewController: UITableViewDelegate {
 }
 
 extension SettingViewController: UITableViewDataSource {
-  
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 48
-  }
-  
+
   func numberOfSections(in tableView: UITableView) -> Int {
     return self.viewModel.sections.count
   }

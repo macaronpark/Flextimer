@@ -52,9 +52,5 @@ class DayNameButton: UIButton {
       RealmService.shared.userInfo,
       with: ["workdaysPerWeekIdxs": updateIdxs]
     )
-    
-    DispatchQueue.main.async {
-      NotificationCenter.default.post(name: NSNotification.Name.didUpdateOptions, object: nil)
-    }
   }
 }

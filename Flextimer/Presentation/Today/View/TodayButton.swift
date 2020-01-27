@@ -17,7 +17,7 @@ class TodayButton: UIButton {
     self.setBackgroundColor(color: Color.immutableOrange, forState: .normal)
     self.setBackgroundColor(color: Color.buttonGray, forState: .disabled)
     self.setTitleColor(Color.immutableWhite, for: .normal)
-    self.setTitleColor(Color.grayText, for: .disabled)
+    self.setTitleColor(Color.secondaryText, for: .disabled)
     self.layer.cornerRadius = 10
     self.clipsToBounds = true
     self.setTitle(title, for: .normal)

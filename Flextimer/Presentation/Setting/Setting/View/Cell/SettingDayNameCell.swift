@@ -11,13 +11,13 @@ import UIKit
 final class SettingDayNameCell: BaseTableViewCell {
   
   let buttons:[DayNameButton] = [
-  DayNameButton("월", idx: 0),
-  DayNameButton("화", idx: 1),
-  DayNameButton("수", idx: 2),
-  DayNameButton("목", idx: 3),
-  DayNameButton("금", idx: 4),
-  DayNameButton("토", idx: 5),
-  DayNameButton("일", idx: 6)
+    DayNameButton("월", idx: 0),
+    DayNameButton("화", idx: 1),
+    DayNameButton("수", idx: 2),
+    DayNameButton("목", idx: 3),
+    DayNameButton("금", idx: 4),
+    DayNameButton("토", idx: 5),
+    DayNameButton("일", idx: 6)
   ]
 
   let stackView = UIStackView().then {

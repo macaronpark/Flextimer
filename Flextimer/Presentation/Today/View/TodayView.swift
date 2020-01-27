@@ -28,24 +28,20 @@ class TodayView: UIView {
       $0.leading.equalToSuperview().offset(20)
       $0.trailing.lessThanOrEqualToSuperview().offset(-20)
     }
-    
     self.buttonsView.snp.makeConstraints {
       $0.top.equalTo(self.optionView.snp.bottom).offset(16)
       $0.leading.equalToSuperview().offset(20)
       $0.trailing.equalToSuperview().offset(-20)
     }
-    
     self.timerView.snp.makeConstraints {
       $0.top.equalTo(self.buttonsView.snp.bottom)
       $0.leading.trailing.equalToSuperview()
       $0.bottom.equalTo(self.stackView.snp.top)
     }
-    
     self.stackView.snp.makeConstraints {
       $0.leading.trailing.equalToSuperview()
       $0.bottom.equalToSuperview().offset(-24)
     }
-    
   }
   
   required init?(coder: NSCoder) {

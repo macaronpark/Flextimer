@@ -13,7 +13,9 @@ import RealmSwift
 class HistoryDetailViewController: BaseViewController {
   
   var workRecord: WorkRecord?
+  
   var notificationToken: NotificationToken?
+  
   var viewModel: HistoryDetailViewModel?
   
   lazy var tableView = UITableView(frame: .zero, style: .grouped).then {
@@ -69,20 +71,4 @@ class HistoryDetailViewController: BaseViewController {
       $0.top.leading.trailing.bottom.equalToSuperview()
     }
   }
-  
-  //  // MARK: - Notification
-  //
-  //  func registerNotification() {
-  //    NotificationCenter.default.addObserver(
-  //      self, selector: #selector(didUpdateWorkhourNotification(_:)),
-  //      name: RNotiKey.didUpdateWorkhour,
-  //      object: WorkRecord.self
-  //    )
-  //  }
-  //
-  //  @objc func didUpdateWorkhourNotification(_ notification: NSNotification) {
-  //    DispatchQueue.main.async {
-  //      self.tableView.reloadData()
-  //    }
-  //  }
 }

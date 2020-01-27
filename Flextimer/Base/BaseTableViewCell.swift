@@ -31,6 +31,6 @@ class BaseTableViewCell: UITableViewCell, ReusableView {
   }
   
   func initial() {
-    
+    // override point
   }
 }

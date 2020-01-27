@@ -13,7 +13,7 @@ import RxCocoa
 
 class TodayListStackView: UIStackView {
   
-  let startCell = TodayListCellView("출근", description: "--:--", color: Color.secondText)
+  let startCell = TodayListCellView("출근", description: "--:--", color: Color.secondaryText)
 
   let endCell = TodayListCellView("퇴근 예상", description: "--:--", color: Color.primaryText)
   
@@ -22,6 +22,9 @@ class TodayListStackView: UIStackView {
   let startCellButton = UIButton().then {
     $0.backgroundColor = .clear
   }
+  
+  
+  // MARK: - Init
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -62,6 +65,7 @@ extension Reactive where Base: TodayListStackView {
       base.startCell.descriptionLabel.text = (model.isWorking) ? model.viewModel.startTime: "--:--"
       base.endCell.descriptionLabel.text = (model.isWorking) ? model.viewModel.endTime: "--:--"
       
+      // 위젯 퇴근 -> 히스토리에서 기록 삭제 시 터짐 방지 관련
       if let record = model.viewModel.workRecordOfToday {
         let remains = self.remains(from: record.startDate)
         base.remainTimeCell.descriptionLabel.text = (model.isWorking) ? remains: "--:--"

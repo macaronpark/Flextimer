@@ -17,12 +17,12 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
   let titleLabel = UILabel().then {
     $0.text = "⏱ 이 주의 근무 시간"
     $0.font = Font.SEMIBOLD_16
-    $0.textColor = Color.secondText
+    $0.textColor = Color.secondaryText
   }
   
   let criteriaLabel = UILabel().then {
     $0.font = Font.REGURAL_12
-    $0.textColor = Color.secondText
+    $0.textColor = Color.secondaryText
   }
   
   let remainTimeLabel = UILabel().then {

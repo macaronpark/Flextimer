@@ -27,28 +27,28 @@ extension SettingViewController {
         .disposed(by: self.disposeBag)
       
       tueButton.rx.tap
-      .bind(onNext: { tueButton.toggle() })
-      .disposed(by: self.disposeBag)
+        .bind(onNext: { tueButton.toggle() })
+        .disposed(by: self.disposeBag)
       
       wedButton.rx.tap
-      .bind(onNext: { wedButton.toggle() })
-      .disposed(by: self.disposeBag)
+        .bind(onNext: { wedButton.toggle() })
+        .disposed(by: self.disposeBag)
       
       thuButton.rx.tap
-      .bind(onNext: { thuButton.toggle() })
-      .disposed(by: self.disposeBag)
+        .bind(onNext: { thuButton.toggle() })
+        .disposed(by: self.disposeBag)
       
       friButton.rx.tap
-      .bind(onNext: { friButton.toggle() })
-      .disposed(by: self.disposeBag)
+        .bind(onNext: { friButton.toggle() })
+        .disposed(by: self.disposeBag)
       
       satButton.rx.tap
-      .bind(onNext: { satButton.toggle() })
-      .disposed(by: self.disposeBag)
+        .bind(onNext: { satButton.toggle() })
+        .disposed(by: self.disposeBag)
       
       sunButton.rx.tap
-      .bind(onNext: { sunButton.toggle() })
-      .disposed(by: self.disposeBag)
+        .bind(onNext: { sunButton.toggle() })
+        .disposed(by: self.disposeBag)
     }
   }
 }

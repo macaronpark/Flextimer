@@ -9,14 +9,14 @@
 import UIKit
 
 enum Font {
-  /// ofSize: 24, weight: .bold
-  static let REGULAR_60 = UIFont.systemFont(ofSize: 64, weight: .thin)
-  /// ofSize: 16, weight: .semibold
+  
+  static let THIN_60 = UIFont.systemFont(ofSize: 64, weight: .thin)
+  
   static let SEMIBOLD_16 = UIFont.systemFont(ofSize: 16, weight: .semibold)
-  /// ofSize: 16, weight: .regular
+  
   static let REGULAR_16 = UIFont.systemFont(ofSize: 16, weight: .regular)
-  /// ofSize: 14, weight: .regular
+  
   static let REGURAL_14 = UIFont.systemFont(ofSize: 14, weight: .regular)
-  /// ofSize: 12, weight: .regular
+  
   static let REGURAL_12 = UIFont.systemFont(ofSize: 12, weight: .regular)
 }

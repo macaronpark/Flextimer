@@ -12,12 +12,16 @@ import SnapKit
 class WorkhoursADayViewController: BaseViewController {
   
   let hours: [Int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+  
   let minutes: [Int] = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60]
   
   lazy var pickerView = PickerView().then {
     $0.picker.delegate = self
     $0.picker.dataSource = self
   }
+  
+  
+  // MARK: - Init
   
   override init() {
     super.init()
@@ -33,6 +37,9 @@ class WorkhoursADayViewController: BaseViewController {
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+  
+  
+  // MARK: - Lifecycles
   
   override func viewDidLoad() {
     super.viewDidLoad()

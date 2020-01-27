@@ -57,7 +57,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   fileprivate func setupUI() {
     self.startButton.setBasicConfig(.start)
     self.endButton.setBasicConfig(.end)
-    self.startTimeLabel.textColor = Color.secondText
+    self.startTimeLabel.textColor = Color.secondaryText
     self.remainTimeLabel.textColor = Color.primaryText
   }
   

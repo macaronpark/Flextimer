@@ -15,14 +15,14 @@ class TodayTimerView: UIView {
   
   let descriptionLabel = UILabel().then {
     $0.font = Font.REGULAR_16
-    $0.textColor = Color.grayText
+    $0.textColor = Color.secondaryText
     $0.adjustsFontSizeToFitWidth = true
     $0.textAlignment = .center
     $0.text = "근무를 시작하려면 '출근'버튼을 눌러주세요"
   }
   
   let timerLabel = UILabel().then {
-    $0.font = Font.REGULAR_60
+    $0.font = Font.THIN_60
     $0.textColor = Color.immutableOrange
     $0.adjustsFontSizeToFitWidth = true
     $0.textAlignment = .center
@@ -48,7 +48,6 @@ class TodayTimerView: UIView {
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
 }
 
 extension Reactive where Base: TodayTimerView {
