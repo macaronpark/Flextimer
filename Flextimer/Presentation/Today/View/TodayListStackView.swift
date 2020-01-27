@@ -61,8 +61,13 @@ extension Reactive where Base: TodayListStackView {
     return Binder(self.base) { base, model in
       base.startCell.descriptionLabel.text = (model.isWorking) ? model.viewModel.startTime: "--:--"
       base.endCell.descriptionLabel.text = (model.isWorking) ? model.viewModel.endTime: "--:--"
-      let remains = self.remains(from: model.viewModel.workRecordOfToday?.startDate)
-      base.remainTimeCell.descriptionLabel.text = (model.isWorking) ? remains: "--:--"
+      
+      if let record = model.viewModel.workRecordOfToday {
+        let remains = self.remains(from: record.startDate)
+        base.remainTimeCell.descriptionLabel.text = (model.isWorking) ? remains: "--:--"
+      } else {
+        base.remainTimeCell.descriptionLabel.text = "--:--"
+      }
     }
   }
   

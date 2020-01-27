@@ -13,67 +13,141 @@ import RxCocoa
 
 extension TodayViewController {
   
-  func registerNotification() {
-    NotificationCenter.default.addObserver(
-      self, selector: #selector(didUpdateOptionsNotification(_:)),
-      name: NSNotification.Name.didUpdateOptions,
-      object: nil
-    )
-    
-    NotificationCenter.default.addObserver(
-      self, selector: #selector(didUpdateWorkhousNotification(_:)),
-      name: RNotiKey.didUpdateHourOfWorkhoursADay,
-      object: nil
-    )
-    
-    NotificationCenter.default.addObserver(
-      self, selector: #selector(didUpdateWorkhousNotification(_:)),
-      name: RNotiKey.didUpdateMinuteOfWorkhoursADay,
-      object: nil
-    )
-    
-    NotificationCenter.default.addObserver(
-      self, selector: #selector(didUpdateWorkRecordNotification(_:)),
-      name: RNotiKey.didUpdateWorkRecord,
-      object: nil
-    )
-  }
+//  func addRealmNoti() {
+//    self.notificationToken = self.workRecord?.observe() { [weak self] change in
+//      guard let self = self else { return }
+//
+//      switch change {
+//      case .change(_):
+//        self.viewModel = HistoryDetailViewModel(self.workRecord ?? WorkRecord())
+//        self.tableView.reloadData()
+//
+//      default: break
+//      }
+//    }
+//  }
   
-  @objc func didUpdateOptionsNotification(_ notification: NSNotification) {
-    self.todayView.optionView.rx.viewModel.onNext(self.todayViewModel)
-  }
   
-  @objc func didUpdateWorkhousNotification(_ notification: NSNotification) {
-    self.todayView.optionView.rx.viewModel.onNext(self.todayViewModel)
-    self.todayView.stackView.rx.viewModel.onNext((self.todayViewModel, self.isWorking.value))
-  }
-  
-  @objc func didUpdateWorkRecordNotification(_ notification: NSNotification) {
-    // setup ViewModel
-    let userInfo = RealmService.shared.userInfo
+  func setupWorkRecordNotification() {
+    let results = RealmService.shared.realm.objects(WorkRecord.self)
     
-    let record: WorkRecord? = RealmService.shared.realm
-      .objects(WorkRecord.self)
-      .filter { record in
-        if (Calendar.current.isDateInToday(record.startDate) && record.endDate == nil) {
-          return true
-        }
+    self.workRecordNotificationToken = results.observe { [weak self] changes in
+      guard let self = self else { return }
+      
+      switch changes {
+      case .initial, .update:
+        // setup ViewModel
+        let userInfo = RealmService.shared.userInfo
         
-        if (record.endDate == nil) {
-          return true
+        let record: WorkRecord? = RealmService.shared.realm
+          .objects(WorkRecord.self)
+          .filter { record in
+            if (Calendar.current.isDateInToday(record.startDate) && record.endDate == nil) {
+              return true
+            }
+            
+            if (record.endDate == nil) {
+              return true
+            }
+            
+            return false
         }
+        .last
         
-        return false
+        guard let workRecordOfToday = record else {
+          // 퇴근 처리
+          self.isWorking.accept(false)
+          return
+        }
+        // 출근 처리
+        self.todayViewModel = TodayViewModel(userInfo, workRecordOfToday: workRecordOfToday)
+        self.isWorking.accept(true)
+
+      default:
+        break
+      }
     }
-    .last
+  }
+  
+  func setupUserInfoNotification() {
+    let results = RealmService.shared.realm.objects(UserInfo.self)
     
-    guard let workRecordOfToday = record else {
-      // 퇴근 처리
-      self.isWorking.accept(false)
-      return
+    self.userInfoNotificationToken = results.observe { [weak self] changes in
+      guard let self = self else { return }
+      
+      switch changes {
+      case .update:
+        self.todayView.optionView.rx.viewModel.onNext(self.todayViewModel)
+        self.todayView.stackView.rx.viewModel.onNext((self.todayViewModel, self.isWorking.value))
+        
+      default:
+        break
+      }
     }
-    // 출근 처리
-    self.todayViewModel = TodayViewModel(userInfo, workRecordOfToday: workRecordOfToday)
-    self.isWorking.accept(true)
   }
 }
+  
+//  func registerNotification() {
+//    NotificationCenter.default.addObserver(
+//      self, selector: #selector(didUpdateOptionsNotification(_:)),
+//      name: NSNotification.Name.didUpdateOptions,
+//      object: nil
+//    )
+//
+//    NotificationCenter.default.addObserver(
+//      self, selector: #selector(didUpdateWorkhousNotification(_:)),
+//      name: RNotiKey.didUpdateHourOfWorkhoursADay,
+//      object: nil
+//    )
+//
+//    NotificationCenter.default.addObserver(
+//      self, selector: #selector(didUpdateWorkhousNotification(_:)),
+//      name: RNotiKey.didUpdateMinuteOfWorkhoursADay,
+//      object: nil
+//    )
+//
+//    NotificationCenter.default.addObserver(
+//      self, selector: #selector(didUpdateWorkRecordNotification(_:)),
+//      name: RNotiKey.didUpdateWorkRecord,
+//      object: nil
+//    )
+//  }
+  
+//  @objc func didUpdateOptionsNotification(_ notification: NSNotification) {
+//    self.todayView.optionView.rx.viewModel.onNext(self.todayViewModel)
+//  }
+//
+//  @objc func didUpdateWorkhousNotification(_ notification: NSNotification) {
+//    self.todayView.optionView.rx.viewModel.onNext(self.todayViewModel)
+//    self.todayView.stackView.rx.viewModel.onNext((self.todayViewModel, self.isWorking.value))
+//  }
+//
+//  @objc func didUpdateWorkRecordNotification(_ notification: NSNotification) {
+//    // setup ViewModel
+//    let userInfo = RealmService.shared.userInfo
+//
+//    let record: WorkRecord? = RealmService.shared.realm
+//      .objects(WorkRecord.self)
+//      .filter { record in
+//        if (Calendar.current.isDateInToday(record.startDate) && record.endDate == nil) {
+//          return true
+//        }
+//
+//        if (record.endDate == nil) {
+//          return true
+//        }
+//
+//        return false
+//    }
+//    .last
+//
+//    guard let workRecordOfToday = record else {
+//      // 퇴근 처리
+//      self.isWorking.accept(false)
+//      return
+//    }
+//    // 출근 처리
+//    self.todayViewModel = TodayViewModel(userInfo, workRecordOfToday: workRecordOfToday)
+//    self.isWorking.accept(true)
+//  }
+//}

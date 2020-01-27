@@ -17,7 +17,8 @@ class TodayViewController: BaseViewController {
   let isWorking = BehaviorRelay(value: false)
   let todayView = TodayView()
   var todayViewModel: TodayViewModel!
-  var notificationToken: NotificationToken? = nil
+  var workRecordNotificationToken: NotificationToken? = nil
+  var userInfoNotificationToken: NotificationToken? = nil
   
   let settingBarButton = UIBarButtonItem(
     image: UIImage(named: "navi_setting")?.withRenderingMode(.alwaysOriginal),
@@ -45,17 +46,15 @@ class TodayViewController: BaseViewController {
     fatalError("init(coder:) has not been implemented")
   }
   
-  deinit {
-    NotificationCenter.default.removeObserver(self)
-  }
-  
   
   // MARK: - Lifecycles
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.registerNotification()
+//    self.registerNotification()
+    self.setupUserInfoNotification()
+    self.setupWorkRecordNotification()
   }
   
   override func setupNaviBar() {
@@ -87,6 +86,10 @@ class TodayViewController: BaseViewController {
     share
       .bind { [weak self] isWorking in
         guard let self = self else { return }
+        if (isWorking == false) {
+          // 위젯 퇴근 -> 히스토리에서 기록 삭제 시 터짐 방지
+          self.todayViewModel.workRecordOfToday = nil
+        }
         self.todayView.stackView.rx.viewModel.onNext((self.todayViewModel, isWorking))
     }.disposed(by: self.disposeBag)
     
