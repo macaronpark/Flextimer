@@ -17,20 +17,6 @@ extension WorkhoursADayViewController: UIPickerViewDelegate {
   ) -> String? {
     return (component == 0) ? "\(self.hours[row])시간": "\(self.minutes[row])분"
   }
-  
-//  func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//    self.updateRealm(row, inComponent: component)
-//  }
-//  
-//  func updateRealm(_ row: Int, inComponent component: Int) {
-//    let value: Int = (component == 0) ? self.hours[row]: self.minutes[row]
-//    let type: UserInfoEnum = (component == 0) ? .hourOfWorkhoursADay: .minuteOfWorkhoursADay
-//    
-//    RealmService.shared.update(
-//      RealmService.shared.userInfo,
-//      with: [type.self.str: value]
-//    )
-//  }
 }
 
 extension WorkhoursADayViewController: UIPickerViewDataSource {
