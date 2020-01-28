@@ -19,7 +19,8 @@ extension HistoryViewController: UITableViewDelegate {
     didSelectRowAt
     indexPath: IndexPath)
   {
-    if let workRecord = self.historyViewModel?.sections[indexPath.section].rows[indexPath.row].workRecord {
+    if let workRecord = self.historyViewModel?.sections[indexPath.section].rows[indexPath.row].workRecord,
+      workRecord.isHoliday != true {
       let vc = HistoryDetailViewController(workRecord)
       self.navigationController?.pushViewController(vc, animated: true)
     }
