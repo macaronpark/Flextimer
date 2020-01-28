@@ -26,7 +26,7 @@ class TodayView: UIView {
     self.optionView.snp.makeConstraints {
       $0.top.equalToSuperview()
       $0.leading.equalToSuperview().offset(20)
-      $0.trailing.lessThanOrEqualToSuperview().offset(-20)
+      $0.trailing.equalToSuperview().offset(-20)
     }
     self.buttonsView.snp.makeConstraints {
       $0.top.equalTo(self.optionView.snp.bottom).offset(16)

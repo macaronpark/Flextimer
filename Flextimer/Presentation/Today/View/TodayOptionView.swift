@@ -79,7 +79,7 @@ class TodayOptionView: UIView {
     self.totalWorkhoursPerWeekLabel.snp.makeConstraints {
       $0.top.equalTo(self.hourOfworkhoursPerDayLabel)
       $0.leading.equalTo(self.secondSeparatorLabel.snp.trailing)
-      $0.trailing.greaterThanOrEqualTo(self)
+      $0.trailing.lessThanOrEqualTo(self)
     }
   }
   
