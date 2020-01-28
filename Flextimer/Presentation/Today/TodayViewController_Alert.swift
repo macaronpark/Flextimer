@@ -59,7 +59,7 @@ extension TodayViewController {
   }
   
   func showEndAlert() {
-    let alert = UIAlertController(title: nil, message: "퇴근...할까요?💖", preferredStyle: .alert)
+    let alert = UIAlertController(title: nil, message: "퇴근할까요?😎", preferredStyle: .alert)
     alert.view.tintColor = Color.immutableOrange
     let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
     let ok = UIAlertAction(title: "확인", style: .default) { _ in

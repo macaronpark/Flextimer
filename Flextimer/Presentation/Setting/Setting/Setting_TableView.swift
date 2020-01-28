@@ -26,6 +26,7 @@ extension SettingViewController: UITableViewDelegate {
         let vc = WorkhoursADayViewController(RealmService.shared.userInfo)
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
+        self.triggerImpact()
         self.navigationController?.present(vc, animated: true, completion: nil)
       }
     }

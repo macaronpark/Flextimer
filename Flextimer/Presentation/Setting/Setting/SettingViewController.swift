@@ -12,11 +12,13 @@ import RealmSwift
 
 class SettingViewController: BaseViewController {
   
+  var impactGenerator: UIImpactFeedbackGenerator?
+  
+  var userInfoNotificationToken: NotificationToken?
+  
   lazy var viewModel = SettingViewModel(RealmService.shared.userInfo)
   
   let closeBarButton = UIBarButtonItem(barButtonSystemItem: .close, target: nil, action: nil)
-  
-  var userInfoNotificationToken: NotificationToken?
   
   lazy var tableView = UITableView(frame: .zero, style: .grouped).then {
     $0.delegate = self
@@ -38,6 +40,7 @@ class SettingViewController: BaseViewController {
     
     self.bindStackViewButtons()
     self.setupUserInfoNotification()
+    self.impactGenerator = UIImpactFeedbackGenerator(style: .medium)
   }
 
   func setupUserInfoNotification() {
@@ -79,5 +82,9 @@ class SettingViewController: BaseViewController {
     self.closeBarButton.rx.tap
       .bind { [weak self] in self?.dismiss(animated: true, completion: nil) }
       .disposed(by: self.disposeBag)
+  }
+  
+  func triggerImpact() {
+    self.impactGenerator?.impactOccurred()
   }
 }

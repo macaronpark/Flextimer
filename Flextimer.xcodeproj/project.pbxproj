@@ -326,7 +326,7 @@
 			children = (
 				BFDFA07823D49CB2001F9832 /* Main */,
 				BF427E7F23D604F400F08943 /* Detail */,
-				BFDFA07923D49CBE001F9832 /* Calendar */,
+				BFDFA07923D49CBE001F9832 /* CommonDatePicker */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -480,14 +480,14 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		BFDFA07923D49CBE001F9832 /* Calendar */ = {
+		BFDFA07923D49CBE001F9832 /* CommonDatePicker */ = {
 			isa = PBXGroup;
 			children = (
 				BFB691C823D4A06900D24885 /* DatePickerView.swift */,
 				BFDFA07623D49C6B001F9832 /* DatePickerViewController.swift */,
 				BF4FF7A823DAC400005B649F /* DatePickerViewController_Rx.swift */,
 			);
-			path = Calendar;
+			path = CommonDatePicker;
 			sourceTree = "<group>";
 		};
 		BFF96FCD23464A66002F5802 = {
