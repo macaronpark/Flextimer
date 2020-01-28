@@ -15,9 +15,20 @@ class TodayListCellView: UIView {
     $0.font = Font.REGULAR_16
   }
   
+  let containerStackView = UIStackView().then {
+    $0.axis = .horizontal
+    $0.spacing = 8
+  }
+  
   let descriptionLabel = UILabel().then {
     $0.textColor = Color.primaryText
     $0.font = Font.REGULAR_16
+  }
+  
+  let editButton = UIButton().then {
+    $0.setImage(UIImage(systemName: "square.and.pencil"), for: .normal)
+    $0.imageView?.tintColor = Color.secondaryText
+    $0.isHidden = true
   }
   
   let separatorView = UIView().then {
@@ -29,29 +40,37 @@ class TodayListCellView: UIView {
     
     self.titleLabel.text = title
     self.titleLabel.textColor = color
-    
     self.descriptionLabel.text = description
     self.descriptionLabel.textColor = color
     
     self.addSubview(self.titleLabel)
-    self.addSubview(self.descriptionLabel)
+    self.addSubview(self.containerStackView)
     self.addSubview(self.separatorView)
     
     self.titleLabel.snp.makeConstraints {
       $0.centerY.equalToSuperview()
       $0.leading.equalToSuperview().offset(20)
     }
-    
-    self.descriptionLabel.snp.makeConstraints {
+    self.containerStackView.snp.makeConstraints {
       $0.centerY.equalToSuperview()
-      $0.trailing.equalToSuperview().offset(-20)
       $0.leading.greaterThanOrEqualTo(self.titleLabel.snp.trailing).offset(8)
+      $0.trailing.equalToSuperview().offset(-20)
+    }
+    self.editButton.snp.makeConstraints {
+      $0.size.equalTo(24)
     }
     
+    self.containerStackView.addArrangedSubview(self.descriptionLabel)
+    self.containerStackView.addArrangedSubview(self.editButton)
+
     self.separatorView.snp.makeConstraints {
       $0.height.equalTo(0.5)
       $0.leading.equalToSuperview().offset(20)
       $0.trailing.bottom.equalToSuperview()
+    }
+    
+    if (title == "출근") {
+      self.editButton.isHidden = false
     }
   }
   

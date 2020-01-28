@@ -62,6 +62,7 @@ class TodayListStackView: UIStackView {
 extension Reactive where Base: TodayListStackView {
   var viewModel: Binder<(viewModel: TodayViewModel, isWorking: Bool)> {
     return Binder(self.base) { base, model in
+      base.startCell.editButton.isHidden = !model.isWorking
       base.startCell.descriptionLabel.text = (model.isWorking) ? model.viewModel.startTime: "--:--"
       base.endCell.descriptionLabel.text = (model.isWorking) ? model.viewModel.endTime: "--:--"
       
