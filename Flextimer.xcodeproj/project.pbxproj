@@ -18,6 +18,9 @@
 		BF1912AF23D20FCF007F9F10 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1912AE23D20FCF007F9F10 /* HistoryViewModel.swift */; };
 		BF28A0D82358A177004654AA /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28A0D72358A177004654AA /* Delegate.swift */; };
 		BF3D682023CA1BA4005F6055 /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D681F23CA1BA4005F6055 /* TodayViewModel.swift */; };
+		BF3D747923E1EE07004CF1F9 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D747823E1EE07004CF1F9 /* TutorialPageViewController.swift */; };
+		BF3D747B23E1EE21004CF1F9 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D747A23E1EE21004CF1F9 /* TutorialView.swift */; };
+		BF3D747D23E1EE3B004CF1F9 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D747C23E1EE3B004CF1F9 /* Tutorial.swift */; };
 		BF40806923658C5700547A3A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40806823658C5700547A3A /* UserInfo.swift */; };
 		BF40806B23658D4400547A3A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40806823658C5700547A3A /* UserInfo.swift */; };
 		BF427E8123D6052500F08943 /* HistoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF427E8023D6052500F08943 /* HistoryDetailViewController.swift */; };
@@ -126,6 +129,9 @@
 		BF1912AE23D20FCF007F9F10 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		BF28A0D72358A177004654AA /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		BF3D681F23CA1BA4005F6055 /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
+		BF3D747823E1EE07004CF1F9 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
+		BF3D747A23E1EE21004CF1F9 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		BF3D747C23E1EE3B004CF1F9 /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		BF40806823658C5700547A3A /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		BF427E8023D6052500F08943 /* HistoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailViewController.swift; sourceTree = "<group>"; };
 		BF427E8223D6086100F08943 /* HistoryDetail_TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetail_TableView.swift; sourceTree = "<group>"; };
@@ -290,6 +296,16 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		BF3D747723E1EDE6004CF1F9 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				BF3D747C23E1EE3B004CF1F9 /* Tutorial.swift */,
+				BF3D747A23E1EE21004CF1F9 /* TutorialView.swift */,
+				BF3D747823E1EE07004CF1F9 /* TutorialPageViewController.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
 		BF427E7F23D604F400F08943 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +457,7 @@
 			isa = PBXGroup;
 			children = (
 				BFAC857123C8BF9900C1663F /* TabBarController.swift */,
+				BF3D747723E1EDE6004CF1F9 /* Tutorial */,
 				BF44450523C8D58700286305 /* Today */,
 				BF44450623C8D58B00286305 /* History */,
 				BF7E987023C8F070002E722D /* Setting */,
@@ -770,13 +787,16 @@
 				BFF2A9AC23CCB5A800F3B071 /* TodayViewController_Alert.swift in Sources */,
 				BF427E8C23D733D600F08943 /* HistoryDetailViewModel.swift in Sources */,
 				BFAC857923C8C79D00C1663F /* HistoryViewController.swift in Sources */,
+				BF3D747923E1EE07004CF1F9 /* TutorialPageViewController.swift in Sources */,
 				BF4497E023CAFFF00024DF53 /* WorkhoursADay_Picker.swift in Sources */,
 				BF427E8523D60D9C00F08943 /* HistoryDetailTableViewCell.swift in Sources */,
 				BF7E987823C8F40E002E722D /* CellComponent.swift in Sources */,
+				BF3D747B23E1EE21004CF1F9 /* TutorialView.swift in Sources */,
 				BF40806923658C5700547A3A /* UserInfo.swift in Sources */,
 				BF28A0D82358A177004654AA /* Delegate.swift in Sources */,
 				BF44451523C8DFA000286305 /* TodayListCellView.swift in Sources */,
 				BF7E986F23C8ECA4002E722D /* HistoryDateCheckView.swift in Sources */,
+				BF3D747D23E1EE3B004CF1F9 /* Tutorial.swift in Sources */,
 				BF7E987423C8F1BE002E722D /* Setting_TableView.swift in Sources */,
 				BF7E986C23C8EAB2002E722D /* History_TableView.swift in Sources */,
 			);

@@ -37,6 +37,14 @@ class TabBarController: UITabBarController{
     viewControllers = tabBarList
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super .viewWillAppear(animated)
+    
+    // TODO: 분기 태우기
+    let vc = TutorialPageViewController()
+    self.present(vc, animated: true, completion: nil)
+  }
+  
   
   // MARK: - Custom Methods
   
