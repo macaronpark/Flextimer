@@ -9,8 +9,8 @@
 import UIKit
 
 struct Tutorial {
+  var index: Int
   var title: String
   var content: String
   var imageName: String
-  var buttonTitle: String
 }

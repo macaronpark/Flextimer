@@ -27,6 +27,8 @@ enum Color {
   
   static let immutableLightGray = UIColor.lightGray
   
+  static let immutableTutorialBackground = UIColor(hex: "1A1817")
+  
   static var separatorGray: UIColor = {
     if #available(iOS 13, *) {
       return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in

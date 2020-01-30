@@ -12,7 +12,11 @@ enum Font {
   
   static let THIN_60 = UIFont.systemFont(ofSize: 64, weight: .thin)
   
+  static let SEMIBOLD_24 = UIFont.systemFont(ofSize: 24, weight: .semibold)
+  
   static let SEMIBOLD_16 = UIFont.systemFont(ofSize: 16, weight: .semibold)
+  
+  static let REGULAR_18 = UIFont.systemFont(ofSize: 18, weight: .regular)
   
   static let REGULAR_16 = UIFont.systemFont(ofSize: 16, weight: .regular)
   

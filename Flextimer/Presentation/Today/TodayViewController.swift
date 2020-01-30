@@ -60,6 +60,15 @@ class TodayViewController: BaseViewController {
     self.setupWorkRecordNotification()
   }
   
+//  override func viewWillAppear(_ animated: Bool) {
+//    super .viewWillAppear(animated)
+//    
+//    // TODO: 분기 태우기
+//    let vc = TutorialPageViewController()
+//    vc.modalPresentationStyle = .fullScreen
+//    self.present(vc, animated: false, completion: nil)
+//  }
+  
   override func setupNaviBar() {
     super.setupNaviBar()
     

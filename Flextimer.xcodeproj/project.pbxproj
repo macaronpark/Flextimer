@@ -19,7 +19,6 @@
 		BF28A0D82358A177004654AA /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28A0D72358A177004654AA /* Delegate.swift */; };
 		BF3D682023CA1BA4005F6055 /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D681F23CA1BA4005F6055 /* TodayViewModel.swift */; };
 		BF3D747923E1EE07004CF1F9 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D747823E1EE07004CF1F9 /* TutorialPageViewController.swift */; };
-		BF3D747B23E1EE21004CF1F9 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D747A23E1EE21004CF1F9 /* TutorialView.swift */; };
 		BF3D747D23E1EE3B004CF1F9 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D747C23E1EE3B004CF1F9 /* Tutorial.swift */; };
 		BF40806923658C5700547A3A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40806823658C5700547A3A /* UserInfo.swift */; };
 		BF40806B23658D4400547A3A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40806823658C5700547A3A /* UserInfo.swift */; };
@@ -66,6 +65,7 @@
 		BFAC857723C8C75100C1663F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC857623C8C75100C1663F /* BaseViewController.swift */; };
 		BFAC857923C8C79D00C1663F /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC857823C8C79D00C1663F /* HistoryViewController.swift */; };
 		BFAC857B23C8C85400C1663F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC857A23C8C85400C1663F /* Logger.swift */; };
+		BFB45EFE23E3144E00AE06CD /* TutorialContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB45EFD23E3144E00AE06CD /* TutorialContentViewController.swift */; };
 		BFB691C923D4A06900D24885 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB691C823D4A06900D24885 /* DatePickerView.swift */; };
 		BFB691CB23D4A71100D24885 /* HistoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB691CA23D4A71100D24885 /* HistoryButton.swift */; };
 		BFBCA15023C9C53300FC6774 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCA14F23C9C53300FC6774 /* SceneDelegate.swift */; };
@@ -130,7 +130,6 @@
 		BF28A0D72358A177004654AA /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		BF3D681F23CA1BA4005F6055 /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
 		BF3D747823E1EE07004CF1F9 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
-		BF3D747A23E1EE21004CF1F9 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		BF3D747C23E1EE3B004CF1F9 /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		BF40806823658C5700547A3A /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		BF427E8023D6052500F08943 /* HistoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +173,7 @@
 		BFAC857623C8C75100C1663F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		BFAC857823C8C79D00C1663F /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		BFAC857A23C8C85400C1663F /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		BFB45EFD23E3144E00AE06CD /* TutorialContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialContentViewController.swift; sourceTree = "<group>"; };
 		BFB691C823D4A06900D24885 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		BFB691CA23D4A71100D24885 /* HistoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryButton.swift; sourceTree = "<group>"; };
 		BFBCA14F23C9C53300FC6774 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -300,7 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				BF3D747C23E1EE3B004CF1F9 /* Tutorial.swift */,
-				BF3D747A23E1EE21004CF1F9 /* TutorialView.swift */,
+				BFB45EFD23E3144E00AE06CD /* TutorialContentViewController.swift */,
 				BF3D747823E1EE07004CF1F9 /* TutorialPageViewController.swift */,
 			);
 			path = Tutorial;
@@ -773,6 +773,7 @@
 				BF44451323C8DF6F00286305 /* TodayListStackView.swift in Sources */,
 				BFDED1562358A9A9003AFA67 /* Int.swift in Sources */,
 				BFB691CB23D4A71100D24885 /* HistoryButton.swift in Sources */,
+				BFB45EFE23E3144E00AE06CD /* TutorialContentViewController.swift in Sources */,
 				BF44450D23C8D9A800286305 /* UIButton.swift in Sources */,
 				BF7ECBC1234CE3420078AE6C /* TimeInterval.swift in Sources */,
 				BF6D450B23D0CE14006067A8 /* HistoryCellModel.swift in Sources */,
@@ -791,7 +792,6 @@
 				BF4497E023CAFFF00024DF53 /* WorkhoursADay_Picker.swift in Sources */,
 				BF427E8523D60D9C00F08943 /* HistoryDetailTableViewCell.swift in Sources */,
 				BF7E987823C8F40E002E722D /* CellComponent.swift in Sources */,
-				BF3D747B23E1EE21004CF1F9 /* TutorialView.swift in Sources */,
 				BF40806923658C5700547A3A /* UserInfo.swift in Sources */,
 				BF28A0D82358A177004654AA /* Delegate.swift in Sources */,
 				BF44451523C8DFA000286305 /* TodayListCellView.swift in Sources */,
