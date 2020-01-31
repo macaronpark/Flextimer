@@ -8,20 +8,18 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
+
 class TutorialContentViewController: BaseViewController {
   
-  var pageIndex: Int = 0
-  var titleText: String = ""
-  var contentText: String = ""
-  var imageString: String = ""
-  
+  private(set) var viewModel: TutorialViewModel!
+    
   lazy var imageView = UIImageView().then {
     $0.contentMode = .scaleAspectFit
-    $0.image = UIImage(imageLiteralResourceName: self.imageString)
   }
   
   lazy var titleLabel = UILabel().then {
-    $0.text = self.titleText
     $0.font = Font.SEMIBOLD_24
     $0.textColor = Color.immutableWhite
     $0.textAlignment = .center
@@ -29,42 +27,27 @@ class TutorialContentViewController: BaseViewController {
   }
   
   lazy var contentLabel = UILabel().then {
-    let attributedString = NSMutableAttributedString(string: self.contentText)
-    let paragraphStyle = NSMutableParagraphStyle()
-    paragraphStyle.lineSpacing = 4
-    attributedString.addAttribute(
-      NSAttributedString.Key.paragraphStyle,
-      value:paragraphStyle,
-      range:NSMakeRange(0, attributedString.length)
-    )
-    $0.attributedText = attributedString
     $0.font = Font.REGULAR_18
     $0.textColor = Color.secondaryText
     $0.numberOfLines = 0
-    $0.textAlignment = .center
   }
   
-  let skipButton = UIButton().then {
-    $0.backgroundColor = UIColor.clear
-    $0.setTitle("건너뛰기", for: .normal)
-    $0.setTitleColor(Color.secondaryText.withAlphaComponent(0.2), for: .normal)
-    $0.titleLabel?.font = Font.REGULAR_16
-  }
-  
-  let startButton = HistoryButton().then {
-    $0.setTitle("시작하기", for: .normal)
-  }
-
   
   // MARK: - Init
   
-  convenience init(_ tutorial: Tutorial) {
+  override init() {
+    super.init()
+  }
+  
+  convenience init(_ viewModel: TutorialViewModel) {
     self.init()
     
-    self.pageIndex = tutorial.index
-    self.titleText = tutorial.title
-    self.contentText = tutorial.content
-    self.imageString = tutorial.imageName
+    self.viewModel = viewModel
+    self.bindUI(viewModel)
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
   }
   
   
@@ -84,8 +67,6 @@ class TutorialContentViewController: BaseViewController {
     self.view.addSubview(self.imageView)
     self.view.addSubview(self.titleLabel)
     self.view.addSubview(self.contentLabel)
-    self.view.addSubview(self.skipButton)
-    self.view.addSubview(self.startButton)
     
     self.imageView.snp.makeConstraints {
       $0.leading.trailing.equalToSuperview()
@@ -102,15 +83,36 @@ class TutorialContentViewController: BaseViewController {
       $0.leading.equalTo(self.view).offset(20)
       $0.trailing.equalTo(self.view).offset(-20)
     }
-    self.skipButton.snp.makeConstraints {
-      $0.trailing.equalTo(self.view).offset(-20)
-      $0.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-16)
-      $0.height.equalTo(36)
-    }
-    self.startButton.snp.makeConstraints {
-      $0.size.equalTo(CGSize(width: 120, height: 40))
-      $0.centerX.equalTo(self.view)
-      $0.top.equalTo(self.contentLabel.snp.bottom).offset(24)
-    }
+  }
+  
+  func bindUI(_ viewModel: TutorialViewModel) {
+    self.titleLabel.text = viewModel.title
+    self.imageView.image = UIImage(imageLiteralResourceName: viewModel.imageName)
+    
+    let attributedString = NSMutableAttributedString(string: viewModel.content)
+    let paragraphStyle = NSMutableParagraphStyle()
+    paragraphStyle.lineSpacing = 4
+    paragraphStyle.alignment = .center
+    attributedString.addAttribute(
+      NSAttributedString.Key.paragraphStyle,
+      value:paragraphStyle,
+      range:NSMakeRange(0, attributedString.length)
+    )
+    
+    self.contentLabel.attributedText = attributedString
+  }
+}
+
+class TutorialViewModel {
+  let title: String
+  let content: String
+  let imageName: String
+  let isLast: Bool
+  
+  init(_ title: String, content: String, imageName: String, isLast: Bool = false) {
+    self.title = title
+    self.content = content
+    self.imageName = imageName
+    self.isLast = isLast
   }
 }

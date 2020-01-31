@@ -19,9 +19,9 @@
 		BF28A0D82358A177004654AA /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28A0D72358A177004654AA /* Delegate.swift */; };
 		BF3D682023CA1BA4005F6055 /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D681F23CA1BA4005F6055 /* TodayViewModel.swift */; };
 		BF3D747923E1EE07004CF1F9 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D747823E1EE07004CF1F9 /* TutorialPageViewController.swift */; };
-		BF3D747D23E1EE3B004CF1F9 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D747C23E1EE3B004CF1F9 /* Tutorial.swift */; };
 		BF40806923658C5700547A3A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40806823658C5700547A3A /* UserInfo.swift */; };
 		BF40806B23658D4400547A3A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40806823658C5700547A3A /* UserInfo.swift */; };
+		BF41800223E478C800DA5D2B /* Tutorial_PageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF41800123E478C800DA5D2B /* Tutorial_PageProtocol.swift */; };
 		BF427E8123D6052500F08943 /* HistoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF427E8023D6052500F08943 /* HistoryDetailViewController.swift */; };
 		BF427E8323D6086100F08943 /* HistoryDetail_TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF427E8223D6086100F08943 /* HistoryDetail_TableView.swift */; };
 		BF427E8523D60D9C00F08943 /* HistoryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF427E8423D60D9C00F08943 /* HistoryDetailTableViewCell.swift */; };
@@ -130,8 +130,8 @@
 		BF28A0D72358A177004654AA /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		BF3D681F23CA1BA4005F6055 /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
 		BF3D747823E1EE07004CF1F9 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
-		BF3D747C23E1EE3B004CF1F9 /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		BF40806823658C5700547A3A /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		BF41800123E478C800DA5D2B /* Tutorial_PageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial_PageProtocol.swift; sourceTree = "<group>"; };
 		BF427E8023D6052500F08943 /* HistoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailViewController.swift; sourceTree = "<group>"; };
 		BF427E8223D6086100F08943 /* HistoryDetail_TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetail_TableView.swift; sourceTree = "<group>"; };
 		BF427E8423D60D9C00F08943 /* HistoryDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -299,9 +299,9 @@
 		BF3D747723E1EDE6004CF1F9 /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
-				BF3D747C23E1EE3B004CF1F9 /* Tutorial.swift */,
-				BFB45EFD23E3144E00AE06CD /* TutorialContentViewController.swift */,
 				BF3D747823E1EE07004CF1F9 /* TutorialPageViewController.swift */,
+				BF41800123E478C800DA5D2B /* Tutorial_PageProtocol.swift */,
+				BFB45EFD23E3144E00AE06CD /* TutorialContentViewController.swift */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";
@@ -755,6 +755,7 @@
 				BF427E8323D6086100F08943 /* HistoryDetail_TableView.swift in Sources */,
 				BFBCA15223C9CEEE00FC6774 /* SettingURLModel.swift in Sources */,
 				BF7E987D23C8F494002E722D /* SettingCell.swift in Sources */,
+				BF41800223E478C800DA5D2B /* Tutorial_PageProtocol.swift in Sources */,
 				BF7E987623C8F38E002E722D /* SettingCellModel.swift in Sources */,
 				BF4497DC23CAEC770024DF53 /* WorkhoursADayViewController.swift in Sources */,
 				BF1912AF23D20FCF007F9F10 /* HistoryViewModel.swift in Sources */,
@@ -796,7 +797,6 @@
 				BF28A0D82358A177004654AA /* Delegate.swift in Sources */,
 				BF44451523C8DFA000286305 /* TodayListCellView.swift in Sources */,
 				BF7E986F23C8ECA4002E722D /* HistoryDateCheckView.swift in Sources */,
-				BF3D747D23E1EE3B004CF1F9 /* Tutorial.swift in Sources */,
 				BF7E987423C8F1BE002E722D /* Setting_TableView.swift in Sources */,
 				BF7E986C23C8EAB2002E722D /* History_TableView.swift in Sources */,
 			);
