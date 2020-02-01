@@ -15,6 +15,8 @@ import RealmSwift
   
   dynamic var id = 0
   
+  dynamic var isTutorialSeen: Bool = false
+  
   /// 주당 근무 요일 인덱스 (월: 0, 화: 1...)
   let workdaysPerWeekIdxs = List<Int>()
   

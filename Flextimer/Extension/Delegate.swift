@@ -8,19 +8,10 @@
 
 import Foundation
 import UIKit
-//import Siren
 import RealmSwift
 
 extension AppDelegate {
-  
-//  func setupSiren() {
-//    let siren = Siren.shared
-//    siren.wail()
-//    siren.presentationManager = PresentationManager(forceLanguageLocalization: .korean)
-//    siren.presentationManager = PresentationManager(alertTintColor: Color.immutableOrange, appName: "자율출퇴근러")
-//    siren.rulesManager = RulesManager(globalRules: .critical)
-//  }
-  
+
   func initializeRealm() {
     
     let fileURL = FileManager.default
@@ -28,19 +19,16 @@ extension AppDelegate {
     .appendingPathComponent("shared.realm")
     Realm.Configuration.defaultConfiguration = Realm.Configuration(fileURL: fileURL)
     
-//        let config = Realm.Configuration(
-//      fileURL: Realm.Configuration.defaultConfiguration.fileURL!,
-//      schemaVersion: 0,
-//      // Set the block which will be called automatically when opening a Realm with
-//      // a schema version lower than the one set above
-//      migrationBlock: { migration, oldSchemaVersion in
-//        // We haven’t migrated anything yet, so oldSchemaVersion == 0
-//        if (oldSchemaVersion < 0) {
-//          // Nothing to do!
-//          // Realm will automatically detect new properties and removed properties
-//          // And will update the schema on disk automatically
-//        }
-//    })
+    // version 2: [UserInfo]-[isTutorialSeen] property 추가
+    Realm.Configuration.defaultConfiguration = Realm.Configuration(
+      schemaVersion: 2,
+      migrationBlock: { migration, oldSchemaVersion in
+        if (oldSchemaVersion < 2) {
+          migration.enumerateObjects(ofType: UserInfo.className()) { oldObject, newObject in
+            newObject!["isTutorialSeen"] = false
+          }
+        }
+    })
     
     do {
       let _ = try Realm(configuration: Realm.Configuration.defaultConfiguration)

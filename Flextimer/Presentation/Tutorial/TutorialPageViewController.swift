@@ -20,6 +20,7 @@ class TutorialPageViewController: UIPageViewController {
     $0.numberOfPages = self.pages.count
     $0.currentPage = 0
     $0.backgroundColor = UIColor.clear
+    $0.isUserInteractionEnabled = false
   }
   
   let skipButton = UIButton().then {
@@ -64,7 +65,6 @@ class TutorialPageViewController: UIPageViewController {
     ]
     
     self.pages = pageViewModelList.map { TutorialContentViewController($0) }
-    
     super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     self.setViewControllers([self.pages[0]], direction: .forward, animated: true, completion: nil)
   }
@@ -84,6 +84,7 @@ class TutorialPageViewController: UIPageViewController {
     self.view.backgroundColor = Color.immutableTutorialBackground
     
     self.setupConstraints()
+    self.bind()
   }
   
   fileprivate func setupConstraints() {
@@ -105,6 +106,48 @@ class TutorialPageViewController: UIPageViewController {
       $0.centerX.equalTo(self.view)
       $0.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-24)
     }
+    
     self.view.bringSubviewToFront(self.skipButton)
+    self.view.bringSubviewToFront(self.startButton)
+  }
+  
+  func bind() {
+    let skipButton = self.skipButton.rx.tap
+    
+    skipButton
+      .map { [weak self] in self?.pages.last ?? TutorialContentViewController() }
+      .bind(onNext: { [weak self] in
+        self?.setViewControllers([$0], direction: .forward, animated: true, completion: nil)
+      }).disposed(by: self.disposeBag)
+      
+    skipButton
+      .map { [weak self] in (self?.pages.count ?? 1) - 1 }
+      .bind(to: self.pageControl.rx.currentPage)
+      .disposed(by: self.disposeBag)
+    
+    skipButton
+      .map { true }
+      .bind(to: self.skipButton.rx.isHidden)
+      .disposed(by: self.disposeBag)
+    
+    skipButton
+      .map { true }
+      .bind(to: self.startButton.rx.isUserInteractionEnabled)
+      .disposed(by: self.disposeBag)
+    
+    skipButton
+      .bind(onNext: { [weak self] in
+        UIView.animate(withDuration: 1, animations: {
+          self?.startButton.alpha = 1
+        })
+      }).disposed(by: self.disposeBag)
+    
+    self.startButton.rx.tap
+      .subscribe { [weak self] _ in
+        if let userInfo = RealmService.shared.realm.object(ofType: UserInfo.self, forPrimaryKey: 0) {
+          RealmService.shared.update(userInfo, with: ["isTutorialSeen": true])
+        }
+        self?.dismiss(animated: true, completion: nil)
+    }.disposed(by: self.disposeBag)
   }
 }

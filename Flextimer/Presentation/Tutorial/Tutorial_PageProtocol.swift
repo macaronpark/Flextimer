@@ -23,7 +23,7 @@ extension TutorialPageViewController: UIPageViewControllerDelegate {
         let vc = viewControllers[0] as! TutorialContentViewController
 
         self.skipButton.isHidden = vc.viewModel.isLast
-        self.startButton.isUserInteractionEnabled = !vc.viewModel.isLast
+        self.startButton.isUserInteractionEnabled = vc.viewModel.isLast
 
           UIView.animate(withDuration: 0.3) {
             self.startButton.alpha = vc.viewModel.isLast ? 1: 0

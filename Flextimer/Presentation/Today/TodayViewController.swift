@@ -63,10 +63,12 @@ class TodayViewController: BaseViewController {
   override func viewWillAppear(_ animated: Bool) {
     super .viewWillAppear(animated)
     
-    // TODO: 분기 태우기
-    let vc = TutorialPageViewController()
-    vc.modalPresentationStyle = .fullScreen
-    self.present(vc, animated: false, completion: nil)
+    if let userInfo = RealmService.shared.realm.object(ofType: UserInfo.self, forPrimaryKey: 0),
+      userInfo.isTutorialSeen == false {
+      let vc = TutorialPageViewController()
+      vc.modalPresentationStyle = .fullScreen
+      self.present(vc, animated: true, completion: nil)
+    }
   }
   
   override func setupNaviBar() {
