@@ -11,27 +11,28 @@ import UIKit
 import RealmSwift
 
 extension AppDelegate {
-
+  
   func initializeRealm() {
-    
     let fileURL = FileManager.default
-    .containerURL(forSecurityApplicationGroupIdentifier: "group.suzypark.Flextimer")!
-    .appendingPathComponent("shared.realm")
-    Realm.Configuration.defaultConfiguration = Realm.Configuration(fileURL: fileURL)
+      .containerURL(forSecurityApplicationGroupIdentifier: "group.suzypark.Flextimer")!
+      .appendingPathComponent("shared.realm")
     
-    // version 2: [UserInfo]-[isTutorialSeen] property 추가
-    Realm.Configuration.defaultConfiguration = Realm.Configuration(
-      schemaVersion: 2,
+    // schemaVersion 5: UserInfo-isTutorialSeen property 추가
+    let config = Realm.Configuration(
+      fileURL: fileURL,
+      schemaVersion: 5,
       migrationBlock: { migration, oldSchemaVersion in
-        if (oldSchemaVersion < 2) {
+        if (oldSchemaVersion < 5) {
           migration.enumerateObjects(ofType: UserInfo.className()) { oldObject, newObject in
             newObject!["isTutorialSeen"] = false
           }
         }
     })
     
+    Realm.Configuration.defaultConfiguration = config
+    
     do {
-      let _ = try Realm(configuration: Realm.Configuration.defaultConfiguration)
+      let _ = try Realm(configuration: config)
       Logger.complete("Realm has been configured")
     } catch let error as NSError {
       Logger.debug(error.localizedDescription)
