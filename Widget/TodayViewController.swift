@@ -47,13 +47,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     self.bind()
   }
   
-  fileprivate func setupRealm() {
-    let fileURL = FileManager.default
-      .containerURL(forSecurityApplicationGroupIdentifier: "group.suzypark.Flextimer")!
-      .appendingPathComponent("shared.realm")
-    Realm.Configuration.defaultConfiguration = Realm.Configuration(fileURL: fileURL)
-  }
-  
   fileprivate func setupUI() {
     self.startButton.setBasicConfig(.start)
     self.endButton.setBasicConfig(.end)
@@ -130,6 +123,29 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         self?.descriptionString.accept("오늘 하루도 멋졌던 당신😎, 떠나요 집으로!🌴🛁🧡")
       }
     }.disposed(by: self.disposeBag)
+  }
+  
+  
+  // MARK: - Realm
+  
+  fileprivate func setupRealm() {
+    let fileURL = FileManager.default
+      .containerURL(forSecurityApplicationGroupIdentifier: "group.suzypark.Flextimer")!
+      .appendingPathComponent("shared.realm")
+    
+    // schemaVersion 5: UserInfo-isTutorialSeen property 추가
+    let config = Realm.Configuration(
+      fileURL: fileURL,
+      schemaVersion: 5,
+      migrationBlock: { migration, oldSchemaVersion in
+        if (oldSchemaVersion < 5) {
+          migration.enumerateObjects(ofType: UserInfo.className()) { oldObject, newObject in
+            newObject!["isTutorialSeen"] = false
+          }
+        }
+    })
+    
+    Realm.Configuration.defaultConfiguration = config
   }
   
   

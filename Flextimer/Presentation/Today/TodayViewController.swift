@@ -88,24 +88,30 @@ class TodayViewController: BaseViewController {
     let share = self.isWorking
     
     share
-      .bind(to: self.todayView.buttonsView.rx.viewModel)
+      .bind(to: self.todayView.buttonsView.rx.updateUI)
       .disposed(by: self.disposeBag)
     
     share
-      .bind { [weak self] _ in
-        guard let self = self else { return }
-        self.todayView.optionView.rx.viewModel.onNext(self.todayViewModel)
-    }.disposed(by: self.disposeBag)
-    
+      .map { [weak self] _ in self?.todayViewModel }
+      .bind(to: self.todayView.optionView.rx.updateUI)
+      .disposed(by: self.disposeBag)
+//
+//    share
+//      .bind { [weak self] isWorking in
+//        guard let self = self else { return }
+//        if (isWorking == false) {
+//          // 위젯 퇴근 -> 히스토리에서 기록 삭제 시 터짐 방지
+//          self.todayViewModel.workRecordOfToday = nil
+//        }
+//        self.todayView.stackView.rx.viewModel.onNext((self.todayViewModel, isWorking))
+//    }.disposed(by: self.disposeBag)
+//    
+//
     share
-      .bind { [weak self] isWorking in
-        guard let self = self else { return }
-        if (isWorking == false) {
-          // 위젯 퇴근 -> 히스토리에서 기록 삭제 시 터짐 방지
-          self.todayViewModel.workRecordOfToday = nil
-        }
-        self.todayView.stackView.rx.viewModel.onNext((self.todayViewModel, isWorking))
-    }.disposed(by: self.disposeBag)
+      .filter { $0 != false }
+      .map { [weak self] in (self?.todayViewModel, $0) }
+      .bind(to: self.todayView.stackView.rx.viewModel)
+      .disposed(by: self.disposeBag)
     
     share
       .filter { $0 == false }

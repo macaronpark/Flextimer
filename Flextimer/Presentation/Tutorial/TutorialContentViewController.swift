@@ -102,17 +102,3 @@ class TutorialContentViewController: BaseViewController {
     self.contentLabel.attributedText = attributedString
   }
 }
-
-class TutorialViewModel {
-  let title: String
-  let content: String
-  let imageName: String
-  let isLast: Bool
-  
-  init(_ title: String, content: String, imageName: String, isLast: Bool = false) {
-    self.title = title
-    self.content = content
-    self.imageName = imageName
-    self.isLast = isLast
-  }
-}

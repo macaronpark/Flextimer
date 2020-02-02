@@ -39,10 +39,15 @@ class TodayButtonsView: UIView {
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+  
+//  func updateUI(_ isWorking: Bool) {
+//    self.startButton.isEnabled = (isWorking) ? false: true
+//    self.endButton.isEnabled = (isWorking) ? true: false
+//  }
 }
 
 extension Reactive where Base: TodayButtonsView {
-  var viewModel: Binder<Bool> {
+  var updateUI: Binder<Bool> {
     return Binder(self.base) { base, isWorking in
       base.startButton.isEnabled = (isWorking) ? false: true
       base.endButton.isEnabled = (isWorking) ? true: false

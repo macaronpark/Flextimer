@@ -62,7 +62,7 @@ extension TodayViewController {
       
       switch changes {
       case .update:
-        self.todayView.optionView.rx.viewModel.onNext(self.todayViewModel)
+        self.todayView.optionView.rx.updateUI.onNext(self.todayViewModel)
         self.todayView.stackView.rx.viewModel.onNext((self.todayViewModel, self.isWorking.value))
         
       default:

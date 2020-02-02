@@ -89,8 +89,9 @@ class TodayOptionView: UIView {
 }
 
 extension Reactive where Base: TodayOptionView {
-  var viewModel: Binder<TodayViewModel> {
+  var updateUI: Binder<TodayViewModel?> {
     return Binder(self.base) { base, viewModel in
+      guard let viewModel = viewModel else { return }
       base.hourOfworkhoursPerDayLabel.text = viewModel.hourOfWorkhoursADay
       base.minuteOfworkhoursPerDayLabel.text = viewModel.minuteOfWorkhoursADay
       base.workdaysPerWeekLabel.text = viewModel.numberOfWorkdaysAWeek

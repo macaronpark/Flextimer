@@ -60,14 +60,15 @@ class TodayListStackView: UIStackView {
 }
 
 extension Reactive where Base: TodayListStackView {
-  var viewModel: Binder<(viewModel: TodayViewModel, isWorking: Bool)> {
+  var viewModel: Binder<(viewModel: TodayViewModel?, isWorking: Bool)> {
     return Binder(self.base) { base, model in
+      guard let viewModel = model.viewModel else { return }
       base.startCell.editButton.isHidden = !model.isWorking
-      base.startCell.descriptionLabel.text = (model.isWorking) ? model.viewModel.startTime: "--:--"
-      base.endCell.descriptionLabel.text = (model.isWorking) ? model.viewModel.endTime: "--:--"
+      base.startCell.descriptionLabel.text = (model.isWorking) ? viewModel.startTime: "--:--"
+      base.endCell.descriptionLabel.text = (model.isWorking) ? viewModel.endTime: "--:--"
       
       // 위젯 퇴근 -> 히스토리에서 기록 삭제 시 터짐 방지 관련
-      if let record = model.viewModel.workRecordOfToday {
+      if let record = viewModel.workRecordOfToday {
         let remains = self.remains(from: record.startDate)
         base.remainTimeCell.descriptionLabel.text = (model.isWorking) ? remains: "--:--"
       } else {

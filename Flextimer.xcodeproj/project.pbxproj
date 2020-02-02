@@ -88,6 +88,7 @@
 		BFDFA07723D49C6B001F9832 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDFA07623D49C6B001F9832 /* DatePickerViewController.swift */; };
 		BFE16AAD234D109D006F94C1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE16AAC234D109D006F94C1 /* Color.swift */; };
 		BFF2A9AC23CCB5A800F3B071 /* TodayViewController_Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF2A9AB23CCB5A800F3B071 /* TodayViewController_Alert.swift */; };
+		BFF7987023E6752F00A67688 /* TutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF7986F23E6752F00A67688 /* TutorialViewModel.swift */; };
 		BFF96FDA23464A66002F5802 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF96FD923464A66002F5802 /* AppDelegate.swift */; };
 		BFF96FE023464A68002F5802 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFF96FDF23464A68002F5802 /* Assets.xcassets */; };
 		BFF96FE623464A68002F5802 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF96FE423464A68002F5802 /* LaunchScreen.storyboard */; };
@@ -192,6 +193,7 @@
 		BFDFA07623D49C6B001F9832 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		BFE16AAC234D109D006F94C1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		BFF2A9AB23CCB5A800F3B071 /* TodayViewController_Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController_Alert.swift; sourceTree = "<group>"; };
+		BFF7986F23E6752F00A67688 /* TutorialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModel.swift; sourceTree = "<group>"; };
 		BFF96FD623464A66002F5802 /* Flextimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flextimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFF96FD923464A66002F5802 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFF96FDF23464A68002F5802 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -299,9 +301,10 @@
 		BF3D747723E1EDE6004CF1F9 /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
+				BFF7986F23E6752F00A67688 /* TutorialViewModel.swift */,
+				BFB45EFD23E3144E00AE06CD /* TutorialContentViewController.swift */,
 				BF3D747823E1EE07004CF1F9 /* TutorialPageViewController.swift */,
 				BF41800123E478C800DA5D2B /* Tutorial_PageProtocol.swift */,
-				BFB45EFD23E3144E00AE06CD /* TutorialContentViewController.swift */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";
@@ -791,6 +794,7 @@
 				BFAC857923C8C79D00C1663F /* HistoryViewController.swift in Sources */,
 				BF3D747923E1EE07004CF1F9 /* TutorialPageViewController.swift in Sources */,
 				BF4497E023CAFFF00024DF53 /* WorkhoursADay_Picker.swift in Sources */,
+				BFF7987023E6752F00A67688 /* TutorialViewModel.swift in Sources */,
 				BF427E8523D60D9C00F08943 /* HistoryDetailTableViewCell.swift in Sources */,
 				BF7E987823C8F40E002E722D /* CellComponent.swift in Sources */,
 				BF40806923658C5700547A3A /* UserInfo.swift in Sources */,
