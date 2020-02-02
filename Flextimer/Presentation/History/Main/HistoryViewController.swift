@@ -26,13 +26,6 @@ class HistoryViewController: BaseViewController {
   
   var userInfoNotificationToken: NotificationToken? = nil
   
-//  lazy var createRecordBarButton = UIBarButtonItem(
-//    image: UIImage(systemName: "info.circle"),
-//    style: .plain,
-//    target: self,
-//    action: nil
-//  )
-  
   let dateCheckView = HistoryDateCheckView()
   
   lazy var tableView = UITableView(frame: .zero, style: .grouped).then {
@@ -74,7 +67,6 @@ class HistoryViewController: BaseViewController {
     self.navigationController?.navigationBar.tintColor = UIColor.systemFill
     self.navigationItem.largeTitleDisplayMode = .automatic
     self.navigationController?.navigationBar.prefersLargeTitles = true
-//    self.navigationItem.rightBarButtonItem = self.createRecordBarButton
   }
   
   override func bind() {

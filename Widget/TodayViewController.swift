@@ -16,9 +16,13 @@ import RxSwift
 class TodayViewController: UIViewController, NCWidgetProviding {
   
   @IBOutlet weak var startButton: WidgetButton!
+  
   @IBOutlet weak var endButton: WidgetButton!
+  
   @IBOutlet weak var startTimeLabel: UILabel!
+  
   @IBOutlet weak var remainTimeLabel: UILabel!
+  
   @IBOutlet weak var alertLabel: UILabel!
   
   var isWorking = BehaviorRelay<Bool>(value: false)

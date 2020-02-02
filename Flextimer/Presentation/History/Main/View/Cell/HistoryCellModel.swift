@@ -19,7 +19,7 @@ class HistoryCellModel {
     
     self.workRecord = RealmService.shared.realm
       .objects(WorkRecord.self)
-      .filter { Calendar.current.isDate($0.startDate, inSameDayAs: date) && $0.endDate != nil }
+      .filter { Calendar.current.isDate($0.startDate, inSameDayAs: date) }
       .last ?? nil
   }
 }
