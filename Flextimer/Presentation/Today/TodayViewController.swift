@@ -56,8 +56,24 @@ class TodayViewController: BaseViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    self.setupNotifications()
+  }
+  
+  fileprivate func setupNotifications() {
+    // system
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(willEnterForeground),
+      name: UIApplication.willEnterForegroundNotification,
+      object: nil
+    )
+    // realm
     self.setupUserInfoNotification()
     self.setupWorkRecordNotification()
+  }
+  
+  @objc func willEnterForeground() {
+    self.isWorking.accept(self.isWorking.value)
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -95,20 +111,8 @@ class TodayViewController: BaseViewController {
       .map { [weak self] _ in self?.todayViewModel }
       .bind(to: self.todayView.optionView.rx.updateUI)
       .disposed(by: self.disposeBag)
-//
-//    share
-//      .bind { [weak self] isWorking in
-//        guard let self = self else { return }
-//        if (isWorking == false) {
-//          // 위젯 퇴근 -> 히스토리에서 기록 삭제 시 터짐 방지
-//          self.todayViewModel.workRecordOfToday = nil
-//        }
-//        self.todayView.stackView.rx.viewModel.onNext((self.todayViewModel, isWorking))
-//    }.disposed(by: self.disposeBag)
-//    
-//
+
     share
-      .filter { $0 != false }
       .map { [weak self] in (self?.todayViewModel, $0) }
       .bind(to: self.todayView.stackView.rx.viewModel)
       .disposed(by: self.disposeBag)
@@ -122,6 +126,8 @@ class TodayViewController: BaseViewController {
       .flatMapLatest { $0 ? Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance): .empty() }
       .bind { [weak self] _ in
         guard let self = self else { return }
+        // TODO: fix 🤮
+        self.todayView.stackView.rx.viewModel.onNext((self.todayViewModel, self.isWorking.value))
         self.todayView.timerView.rx.viewModel.onNext(self.todayViewModel)
     }.disposed(by: disposeBag)
     
