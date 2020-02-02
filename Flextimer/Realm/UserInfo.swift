@@ -36,6 +36,7 @@ import RealmSwift
     self.workdaysPerWeekIdxs.append(objectsIn: workdaysPerWeekIdxs)
     self.hourOfWorkhoursADay = hourOfWorkhoursADay
     self.minuteOfWorkhoursADay = minuteOfWorkhoursADay
+    self.isTutorialSeen = false
   }
 }
 

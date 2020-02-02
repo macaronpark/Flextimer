@@ -53,22 +53,92 @@ class TodayViewModel {
   }
   
   var endTime: String {
-    if let workRecordOfToday = workRecordOfToday {
-      let h = Calendar.current.date(
-        byAdding: .hour,
-        value: self.userInfo.hourOfWorkhoursADay,
-        to: workRecordOfToday.startDate
-        ) ?? Date()
-      
-      let m = Calendar.current.date(
-        byAdding: .minute,
-        value: self.userInfo.minuteOfWorkhoursADay,
-        to: h
-        ) ?? Date()
-      
-        return Formatter.shm.string(from: m).replacingOccurrences(of: " 0분", with: "")
+    let isLessReamins = self.isLessRemainsThanWorkhoursADay()
+    
+    if isLessReamins.isLessRemains {
+      return "🚨초과 근무 경보🚨"
+    } else {
+      // 기존 로직
+      if let workRecordOfToday = workRecordOfToday {
+        let h = Calendar.current.date(
+          byAdding: .hour,
+          value: self.userInfo.hourOfWorkhoursADay,
+          to: workRecordOfToday.startDate
+          ) ?? Date()
+        
+        let m = Calendar.current.date(
+          byAdding: .minute,
+          value: self.userInfo.minuteOfWorkhoursADay,
+          to: h
+          ) ?? Date()
+        
+          return Formatter.shm.string(from: m).replacingOccurrences(of: " 0분", with: "")
+      }
+      return "--:--"
     }
-    return "--:--"
+  }
+  
+  func isLessRemainsThanWorkhoursADay(
+  ) -> (isLessRemains: Bool, raminsInterval: TimeInterval?) {
+    // 지정 근무일 기준 총 근무 시간
+    let h = RealmService.shared.userInfo.hourOfWorkhoursADay.toRoundedTimeInterval(.hour)
+    let m = RealmService.shared.userInfo.minuteOfWorkhoursADay.toRoundedTimeInterval(.minute)
+    let totalWorkhoursInterval = (h + m) * Double(RealmService.shared.userInfo.workdaysPerWeekIdxs.count)
+
+    // 이번 주 토탈 기록
+    let monday = Date().getThisWeekMonday()
+
+    let comp = Calendar.current.dateComponents(
+      [.year, .month, .weekOfMonth],
+      from: monday
+    )
+    
+    var id = ""
+    
+    if let year = comp.year,
+      let month = comp.month,
+      let weekOfMonth = comp.weekOfMonth {
+      // year
+      let yearString = "\(year)"
+      // month
+      let month = "\(month)"
+      let monthString = (month.count > 1) ? "\(month)": "0\(month)"
+      // weekOfMonth
+      let weekOfMonth = "\(weekOfMonth)"
+      let weekOfMonthString = (weekOfMonth.count > 1) ? "\(weekOfMonth)": "0\(weekOfMonth)"
+
+      id = yearString + monthString + weekOfMonthString
+    }
+
+    let records = RealmService.shared.realm
+      .objects(WorkRecord.self)
+      .filter { $0.id.contains(id) }
+
+    let workdaysRecords = records.filter { $0.isHoliday == false }
+    let holidayCount = records.filter { $0.isHoliday == true }.count
+    
+    let recordsInterval = workdaysRecords
+      .map { $0.startDate.timeIntervalSince($0.endDate ?? Date()) }
+      .reduce(0, +)
+    
+    let recordsIntervalWithHoliday = recordsInterval + -((h + m) * Double(holidayCount))
+
+    let sundayInterval = RealmService.shared.realm
+      .objects(WorkRecord.self)
+      .filter { Calendar.current.isDate($0.startDate, inSameDayAs: Calendar.current.date(byAdding: .day, value: 6, to: monday) ?? Date()) }
+      .map { $0.startDate.timeIntervalSince($0.endDate ?? Date()) }
+      .last
+    
+    // 이번주 실 근무 총 인터벌
+    let thisWeekWorkhoursTotalInteval = recordsIntervalWithHoliday + (sundayInterval ?? 0)
+    // 남은 시간
+    let remains = (totalWorkhoursInterval - (-thisWeekWorkhoursTotalInteval))
+
+    if remains > (h + m) {
+      return (false, nil)
+    } else {
+      return (true, (remains))
+    }
   }
   
   

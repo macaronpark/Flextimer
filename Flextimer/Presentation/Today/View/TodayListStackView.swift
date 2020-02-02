@@ -69,8 +69,15 @@ extension Reactive where Base: TodayListStackView {
       
       // 위젯 퇴근 -> 히스토리에서 기록 삭제 시 터짐 방지 관련
       if let record = viewModel.workRecordOfToday {
-        let remains = self.remains(from: record.startDate)
-        base.remainTimeCell.descriptionLabel.text = (model.isWorking) ? remains: "--:--"
+        
+        let isLessRemainsThanWorkhoursADay = viewModel.isLessRemainsThanWorkhoursADay()
+        
+        if isLessRemainsThanWorkhoursADay.isLessRemains {
+          base.remainTimeCell.descriptionLabel.text = (-(isLessRemainsThanWorkhoursADay.raminsInterval ?? 0)).toString(.remain) + "째 초과근무 중"
+        } else {
+          let remains = self.remains(from: record.startDate)
+          base.remainTimeCell.descriptionLabel.text = (model.isWorking) ? remains: "--:--"
+        }
       } else {
         base.remainTimeCell.descriptionLabel.text = "--:--"
       }
