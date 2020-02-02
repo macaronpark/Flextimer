@@ -22,9 +22,10 @@ struct SettingViewModel {
     let workdayPerWeek = [SettingCellModel(nil, text: nil, component: .none)]
     
     let etc = [
-      SettingCellModel("버전", text: InfoUtil.versionDescription, component: .none),
+      SettingCellModel("버전", text: InfoUtil.versionDescription, component: .indicator),
       SettingCellModel("개발자", text: "github.com/macaronpark", component: .indicator),
-      SettingCellModel("오픈소스", text: nil, component: .indicator)
+      SettingCellModel("오픈소스", text: nil, component: .indicator),
+      SettingCellModel("튜토리얼 다시보기", text: nil, component: .indicator)
     ]
     
     self.sections = [workhourADay, workdayPerWeek, etc]

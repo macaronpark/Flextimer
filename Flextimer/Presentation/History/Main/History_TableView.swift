@@ -12,6 +12,16 @@ import UIKit
 
 extension HistoryViewController: UITableViewDelegate {
   
+  func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    let recordsCount = self.historyViewModel?.sections[section].rows
+      .filter { $0.workRecord?.startDate != nil }.count ?? 0
+    
+    if recordsCount > 0 {
+      return 100
+    }
+    return 32
+  }
+  
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 56
   }

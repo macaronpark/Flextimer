@@ -100,9 +100,9 @@ class HistoryTableViewCell: BaseTableViewCell {
       }
       .last
       
-      if let todayRecord = workRecordOfToday {
-        let timeInterval = -(todayRecord.startDate.timeIntervalSince(Date()))
-        self.totalWorkhoursADayLabel.text = timeInterval.toString(.remain)
+      if let _ = workRecordOfToday {
+//        let timeInterval = -(todayRecord.startDate.timeIntervalSince(Date()))
+        self.totalWorkhoursADayLabel.text = "근무 중"
         self.disclosureIndicatorImageView.isHidden = true
       }
     }

@@ -50,7 +50,7 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
     }
     self.totalTimeLabel.snp.makeConstraints {
       $0.leading.equalTo(self.criteriaLabel).offset(2)
-      $0.bottom.equalTo(self.remainTimeLabel)
+      $0.bottom.equalToSuperview().offset(-14)
     }
     self.remainTimeLabel.snp.makeConstraints {
       $0.top.equalTo(self.criteriaLabel.snp.bottom).offset(8)
