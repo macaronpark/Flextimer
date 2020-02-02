@@ -10,7 +10,6 @@ import UIKit
 
 enum Font {
   
-//  static let THIN_60 = UIFont.systemFont(ofSize: 64, weight: .thin)
   static let THIN_60 = UIFont.monospacedDigitSystemFont(ofSize: 64, weight: .thin)
   
   static let SEMIBOLD_24 = UIFont.systemFont(ofSize: 24, weight: .semibold)
