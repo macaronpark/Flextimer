@@ -88,31 +88,6 @@ class TodayViewModel {
     // 이번 주 토탈 기록
     let monday = Date().getThisWeekMonday()
 
-//    let comp = Calendar.current.dateComponents(
-//      [.year, .month, .weekOfMonth],
-//      from: monday
-//    )
-//    var id = ""
-//
-//    if let year = comp.year,
-//      let month = comp.month,
-//      let weekOfMonth = comp.weekOfMonth {
-//      // year
-//      let yearString = "\(year)"
-//      // month
-//      let month = "\(month)"
-//      let monthString = (month.count > 1) ? "\(month)": "0\(month)"
-//      // weekOfMonth
-//      let weekOfMonth = "\(weekOfMonth)"
-//      let weekOfMonthString = (weekOfMonth.count > 1) ? "\(weekOfMonth)": "0\(weekOfMonth)"
-//
-//      id = yearString + monthString + weekOfMonthString
-//    }
-
-//    let records = RealmService.shared.realm
-//      .objects(WorkRecord.self)
-//      .filter { $0.id.contains(id) }
-    // id가 아니라 date로 뽑아야함
     var records = [WorkRecord]()
     for i in 0...6 {
       let record = RealmService.shared.realm
@@ -132,16 +107,10 @@ class TodayViewModel {
       .map { $0.startDate.timeIntervalSince($0.endDate ?? Date()) }
       .reduce(0, +)
     
-    let recordsIntervalWithHoliday = recordsInterval + -((h + m) * Double(holidayCount))
+    let recordsIntervalWithHoliday = recordsInterval + (-(h + m) * Double(holidayCount))
 
-    let sundayInterval = RealmService.shared.realm
-      .objects(WorkRecord.self)
-      .filter { Calendar.current.isDate($0.startDate, inSameDayAs: Calendar.current.date(byAdding: .day, value: 6, to: monday) ?? Date()) }
-      .map { $0.startDate.timeIntervalSince($0.endDate ?? Date()) }
-      .last
-    
     // 이번주 실 근무 총 인터벌
-    let thisWeekWorkhoursTotalInteval = recordsIntervalWithHoliday + (sundayInterval ?? 0)
+    let thisWeekWorkhoursTotalInteval = recordsIntervalWithHoliday
     // 남은 시간
     let remains = (totalWorkhoursInterval - (-thisWeekWorkhoursTotalInteval))
 

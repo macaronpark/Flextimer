@@ -228,14 +228,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     let recordsIntervalWithHoliday = recordsInterval + -((h + m) * Double(holidayCount))
 
-    let sundayInterval = RealmService.shared.realm
-      .objects(WorkRecord.self)
-      .filter { Calendar.current.isDate($0.startDate, inSameDayAs: Calendar.current.date(byAdding: .day, value: 6, to: monday) ?? Date()) }
-      .map { $0.startDate.timeIntervalSince($0.endDate ?? Date()) }
-      .last
-    
     // 이번주 실 근무 총 인터벌
-    let thisWeekWorkhoursTotalInteval = recordsIntervalWithHoliday + (sundayInterval ?? 0)
+    let thisWeekWorkhoursTotalInteval = recordsIntervalWithHoliday
     // 남은 시간
     let remains = (totalWorkhoursInterval - (-thisWeekWorkhoursTotalInteval))
 
