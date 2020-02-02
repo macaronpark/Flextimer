@@ -19,10 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   ) -> Bool {
     self.initializeRealm()
 
-    _ = Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance)
-      .subscribe(onNext: { _ in
-        Logger.debug("Resource count \(RxSwift.Resources.total)")
-      })
+//    _ = Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance)
+//      .subscribe(onNext: { _ in
+//        Logger.debug("Resource count \(RxSwift.Resources.total)")
+//      })
     
     return true
   }
