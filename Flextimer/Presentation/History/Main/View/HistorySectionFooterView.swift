@@ -20,13 +20,15 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
   }
   
   let totalTimeLabel = UILabel().then {
-    $0.font = Font.SEMIBOLD_16
-    $0.textColor = Color.secondaryText
+    $0.font = Font.SEMIBOLD_12
+    $0.textColor = Color.secondaryText.withAlphaComponent(0.2)
   }
   
   let remainTimeLabel = UILabel().then {
     $0.font = Font.SEMIBOLD_16
     $0.textColor = Color.immutableOrange
+    $0.adjustsFontSizeToFitWidth = true
+    $0.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
   }
   
   override init(reuseIdentifier: String?) {
@@ -48,13 +50,13 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
     }
     self.totalTimeLabel.snp.makeConstraints {
       $0.leading.equalTo(self.criteriaLabel).offset(2)
-      $0.top.equalTo(self.criteriaLabel.snp.bottom).offset(8)
-      $0.bottom.equalToSuperview().offset(-16)
+      $0.bottom.equalTo(self.remainTimeLabel)
     }
     self.remainTimeLabel.snp.makeConstraints {
-      $0.top.equalTo(self.totalTimeLabel)
+      $0.top.equalTo(self.criteriaLabel.snp.bottom).offset(8)
       $0.trailing.equalToSuperview().offset(-20)
       $0.leading.greaterThanOrEqualTo(self.totalTimeLabel.snp.trailing).offset(8)
+      $0.bottom.equalToSuperview().offset(-16)
     }
   }
   
@@ -90,12 +92,15 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
     )
     
     // 이 주의 남은 시간
-    
     // 45시간 기준 9시간 남았어요
     // 45시간 기준 45시간 클리어!
-    // 45시간 기준 4시간 초과
+    // 45시간 기준 4시간 초과(총 49시간 근무)
+    // 형태로 표출
     
-    // 1. 총 근무 시간
+    // TODO: - 로직 함수 쪼개기
+    
+    // 1. 기준 근무 시간 (ex. 45시간)
+    
     let h = RealmService.shared.userInfo.hourOfWorkhoursADay.toRoundedTimeInterval(.hour)
     let m = RealmService.shared.userInfo.minuteOfWorkhoursADay.toRoundedTimeInterval(.minute)
     let totalWorkhoursInterval = (h + m) * Double(RealmService.shared.userInfo.workdaysPerWeekIdxs.count)
@@ -103,7 +108,9 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
     self.totalTimeLabel.text = "\(totalWorkhoursInterval.toString(.remain)) 기준"
     
     // 2. 총 일한 시간
-    let actualWorkhoursInterval = model.rows.compactMap { model -> TimeInterval? in
+
+    // startDate와 endDate가 존재하는 휴무가 아닌 완료된 근무 기록(일반)들의 timeInterval
+    let completedRecordsInterval = actualWorkRecords.compactMap { model -> TimeInterval? in
       if let startDate = model.workRecord?.startDate,
         let endDate = model.workRecord?.endDate {
         return startDate.timeIntervalSince(endDate)
@@ -111,9 +118,24 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
       return nil
     }.reduce(0, +)
     
+    // 현재 근무 중인 기록의 timeInterval
+    let currentRecordInterval = currentRecords.last.map { model -> Double in
+      if let startDate = model.workRecord?.startDate {
+        return startDate.timeIntervalSince(Date())
+      }
+      return 0
+    } ?? 0
+    
+    // 휴무 기록 저장 시 startDate와 endDate를 같게 저장하고 있음
+    // 로직을 간소화하려면 이전 휴무 기록들의 endDate를 +9시간 마이그레이션 한 후 로직 변경해야 함
+    // -> completedRecordsInterval = actualWorkRecords의 결과가 아니라 completedRecords의 결과로 처리
     let holidayInterval = (h + m) * Double(holidayRecords.count)
-  
-    let remainInterval = totalWorkhoursInterval - (-actualWorkhoursInterval) - holidayInterval
+    
+    // 총 일한 시간
+    let actualWorkhoursInterval = -(completedRecordsInterval + currentRecordInterval) + holidayInterval
+    
+    // 남은 시간: 기준 근무 시간 - 총 일한 시간
+    let remainInterval = totalWorkhoursInterval - actualWorkhoursInterval
     
     if remainInterval.isZero {
       self.remainTimeLabel.text = "\(totalWorkhoursInterval.toString(.remain)) 클리어!"
@@ -121,7 +143,7 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
       if (-remainInterval).toString(.remain) == "0시간 0분" {
         self.remainTimeLabel.text = "\(totalWorkhoursInterval.toString(.remain)) 클리어!"
       }
-      self.remainTimeLabel.text = "\((-remainInterval).toString(.remain)) 초과"
+      self.remainTimeLabel.text = "\((-remainInterval).toString(.remain)) 초과 (총 \(actualWorkhoursInterval.toString(.remain)) 근무)"
     } else {
       self.remainTimeLabel.text = "\(remainInterval.toString(.remain)) 남았어요"
     }
