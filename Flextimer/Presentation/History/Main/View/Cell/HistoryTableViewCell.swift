@@ -55,7 +55,7 @@ class HistoryTableViewCell: BaseTableViewCell {
     self.stackView.addArrangedSubview(self.disclosureIndicatorImageView)
   }
   
-  func updateCell(_ model: HistoryCellModel) {
+  func updateCell(_ model: HistoryCellModel, isWorkday: Bool) {
     self.titleLabel.text = Formatter.dayName.string(from: model.date)
     
     if let endDate = model.workRecord?.endDate {
@@ -63,6 +63,10 @@ class HistoryTableViewCell: BaseTableViewCell {
       self.totalWorkhoursADayLabel.text = timeInterval.toString(.week)
     } else {
       self.totalWorkhoursADayLabel.text = ""
+      // 유저 시스템에 등록된 근무 일인지 판단, 아니라면 디폴트로 '-'를 라벨에 표출
+      if !isWorkday {
+        self.totalWorkhoursADayLabel.text = "-"
+      }
     }
 
     self.disclosureIndicatorImageView.isHidden = !(model.workRecord != nil)

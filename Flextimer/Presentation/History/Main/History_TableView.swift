@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK: - UITableViewDelegate
+
 extension HistoryViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -154,6 +156,9 @@ extension HistoryViewController: UITableViewDelegate {
   }
 }
 
+
+// MARK: - UITableViewDataSource
+
 extension HistoryViewController: UITableViewDataSource {
 
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -173,9 +178,13 @@ extension HistoryViewController: UITableViewDataSource {
     cellForRowAt
     indexPath: IndexPath) -> UITableViewCell
   {
+    // 유저 시스템에 등록된 근무 일인지 판단, 아니라면 디폴트로 '-'를 라벨에 표출
+    let workdaysIndexs = Array(RealmService.shared.userInfo.workdaysPerWeekIdxs)
+    let isWorkday = workdaysIndexs.contains(indexPath.row)
+    
     let cell = tableView.dequeueCell(ofType: HistoryTableViewCell.self, indexPath: indexPath)
     if let model = self.historyViewModel?.sections[indexPath.section].rows[indexPath.row] {
-      cell.updateCell(model)
+      cell.updateCell(model, isWorkday: isWorkday)
     }
     return cell
   }
