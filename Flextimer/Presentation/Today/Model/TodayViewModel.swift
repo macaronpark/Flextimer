@@ -88,31 +88,42 @@ class TodayViewModel {
     // 이번 주 토탈 기록
     let monday = Date().getThisWeekMonday()
 
-    let comp = Calendar.current.dateComponents(
-      [.year, .month, .weekOfMonth],
-      from: monday
-    )
-    
-    var id = ""
-    
-    if let year = comp.year,
-      let month = comp.month,
-      let weekOfMonth = comp.weekOfMonth {
-      // year
-      let yearString = "\(year)"
-      // month
-      let month = "\(month)"
-      let monthString = (month.count > 1) ? "\(month)": "0\(month)"
-      // weekOfMonth
-      let weekOfMonth = "\(weekOfMonth)"
-      let weekOfMonthString = (weekOfMonth.count > 1) ? "\(weekOfMonth)": "0\(weekOfMonth)"
+//    let comp = Calendar.current.dateComponents(
+//      [.year, .month, .weekOfMonth],
+//      from: monday
+//    )
+//    var id = ""
+//
+//    if let year = comp.year,
+//      let month = comp.month,
+//      let weekOfMonth = comp.weekOfMonth {
+//      // year
+//      let yearString = "\(year)"
+//      // month
+//      let month = "\(month)"
+//      let monthString = (month.count > 1) ? "\(month)": "0\(month)"
+//      // weekOfMonth
+//      let weekOfMonth = "\(weekOfMonth)"
+//      let weekOfMonthString = (weekOfMonth.count > 1) ? "\(weekOfMonth)": "0\(weekOfMonth)"
+//
+//      id = yearString + monthString + weekOfMonthString
+//    }
 
-      id = yearString + monthString + weekOfMonthString
+//    let records = RealmService.shared.realm
+//      .objects(WorkRecord.self)
+//      .filter { $0.id.contains(id) }
+    // id가 아니라 date로 뽑아야함
+    var records = [WorkRecord]()
+    for i in 0...6 {
+      let record = RealmService.shared.realm
+        .objects(WorkRecord.self)
+        .filter { Calendar.current.isDate($0.startDate, inSameDayAs: Calendar.current.date(byAdding: .day, value: i, to: monday) ?? Date())}
+        .last
+      
+      if let record = record {
+        records.append(record)
+      }
     }
-
-    let records = RealmService.shared.realm
-      .objects(WorkRecord.self)
-      .filter { $0.id.contains(id) }
 
     let workdaysRecords = records.filter { $0.isHoliday == false }
     let holidayCount = records.filter { $0.isHoliday == true }.count
