@@ -16,8 +16,6 @@ class HistoryViewController: BaseViewController {
   
   var displayedDate = BehaviorRelay<Date>(value: Date())
   
-  var isWorking = PublishSubject<Bool>()
-  
   var willScrollToSelectedDate = PublishSubject<Bool>()
   
   var workRecordnotificationToken: NotificationToken? = nil
@@ -82,12 +80,7 @@ class HistoryViewController: BaseViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
-    let currentWorkRecord = RealmService.shared.realm
-      .objects(WorkRecord.self)
-      .filter { Calendar.current.isDate($0.startDate, inSameDayAs: Date()) && $0.endDate == nil }
-      .last
-    
-    self.isWorking.onNext(currentWorkRecord != nil)
+    self.tableView.reloadData()
   }
   
   override func setupNaviBar() {
@@ -145,14 +138,6 @@ class HistoryViewController: BaseViewController {
     self.dateCheckView.todayButton.rx.tap
       .bind(onNext: { [weak self] in self?.triggerImpact() })
       .disposed(by: self.disposeBag)
-    
-    // foreground 상태 유지 시 시간 업데이트 용
-    self.isWorking
-      .flatMapLatest { $0 ? Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance): .empty() }
-      .bind { [weak self] _ in
-        guard let self = self else { return }
-        self.tableView.reloadData()
-    }.disposed(by: disposeBag)
   }
   
   
