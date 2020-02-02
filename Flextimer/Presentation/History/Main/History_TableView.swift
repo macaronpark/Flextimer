@@ -21,6 +21,11 @@ extension HistoryViewController: UITableViewDelegate {
   {
     if let workRecord = self.historyViewModel?.sections[indexPath.section].rows[indexPath.row].workRecord,
       workRecord.isHoliday != true {
+      
+      if Calendar.current.isDate(workRecord.startDate, inSameDayAs: Date()) {
+        return
+      }
+      
       let vc = HistoryDetailViewController(workRecord)
       self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -107,6 +112,10 @@ extension HistoryViewController: UITableViewDelegate {
     
     if let workRecord = workRecord {
       // 해당 일 기록이 있을 때
+      // 현재 근무 중 이라면
+      if (Calendar.current.isDate(workRecord.startDate, inSameDayAs: Date()) && workRecord.endDate == nil) {
+        return nil
+      }
       // 휴무 처리가 아니라면 '휴무처리', '기록삭제'
       return (workRecord.isHoliday == true) ? actionsForHolidayExistCell: actionsForRecordExistCell
     } else {

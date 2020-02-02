@@ -77,5 +77,30 @@ class HistoryTableViewCell: BaseTableViewCell {
         self.totalWorkhoursADayLabel.text = "휴무"
       }
     }
+    
+    // 오늘 근무 중인 기록은 따로 처리
+    if Calendar.current.isDate(model.date, inSameDayAs: Date()) {
+      
+      let workRecordOfToday: WorkRecord? = RealmService.shared.realm
+        .objects(WorkRecord.self)
+        .filter { record in
+          if (Calendar.current.isDateInToday(record.startDate) && record.endDate == nil) {
+            return true
+          }
+          
+          if (record.endDate == nil) {
+            return true
+          }
+          
+          return false
+      }
+      .last
+      
+      if let todayRecord = workRecordOfToday {
+        let timeInterval = -(todayRecord.startDate.timeIntervalSince(Date()))
+        self.totalWorkhoursADayLabel.text = timeInterval.toString(.remain)
+        self.disclosureIndicatorImageView.isHidden = true
+      }
+    }
   }
 }
