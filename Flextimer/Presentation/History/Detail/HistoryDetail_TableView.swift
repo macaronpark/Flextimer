@@ -17,40 +17,45 @@ extension HistoryDetailViewController: UITableViewDelegate {
   func tableView(
     _ tableView: UITableView,
     didSelectRowAt
-    indexPath: IndexPath)
-  {
-      let pickerMode: UIDatePicker.Mode = (indexPath == .init(row: 0, section: 1) ? .date: .time)
-      let isStart = (indexPath.section == 0)
-      let current: Date = (isStart ? self.workRecord?.startDate: self.workRecord?.endDate) ?? Date()
-      let minForEndDate: Date? = isStart ? nil: self.workRecord?.startDate
+    indexPath: IndexPath
+  ) {
+    
+    let pickerMode: UIDatePicker.Mode = (indexPath == .init(row: 0, section: 1) ? .date: .time)
+    let isStart = (indexPath.section == 0)
+    let current: Date = (isStart ? self.workRecord?.startDate: self.workRecord?.endDate) ?? Date()
+    let minForEndDate: Date? = isStart ? nil: self.workRecord?.startDate
+    
+    if (self.workRecord?.endDate == nil && !isStart) {
+      return
+    }
+    
+    weak var weakSelf = self
+
+    DatePickerViewController.date(
+      parent: weakSelf,
+      current: current,
+      min: minForEndDate,
+      mode: pickerMode,
+      doneButtonTitle: "기록 변경"
+    ).subscribe(onNext: { [weak self] date in
+      guard let self = self else { return }
       
-      weak var weakSelf = self
+      let workRecord = RealmService.shared.realm
+        .objects(WorkRecord.self)
+        .filter { $0.id == self.workRecord?.id ?? ""}
+        .last
       
-      DatePickerViewController.date(
-        parent: weakSelf,
-        current: current,
-        min: minForEndDate,
-        mode: pickerMode,
-        doneButtonTitle: "기록 변경"
-      ).subscribe(onNext: { [weak self] date in
-          guard let self = self else { return }
-
-          let workRecord = RealmService.shared.realm
-            .objects(WorkRecord.self)
-            .filter { $0.id == self.workRecord?.id ?? ""}
-            .last
-
-          if let workRecord = workRecord {
-            let key = (isStart ? "startDate": "endDate")
-            RealmService.shared.update(workRecord, with: [key: date])
-          }
-
-          DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            self.tableView.reloadData()
-            self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-          }
-        }).disposed(by: self.disposeBag)
+      if let workRecord = workRecord {
+        let key = (isStart ? "startDate": "endDate")
+        RealmService.shared.update(workRecord, with: [key: date])
+      }
+      
+      DispatchQueue.main.async { [weak self] in
+        guard let self = self else { return }
+        self.tableView.reloadData()
+        self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+      }
+    }).disposed(by: self.disposeBag)
   }
 }
 

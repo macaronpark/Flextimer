@@ -33,11 +33,6 @@ extension HistoryViewController: UITableViewDelegate {
   {
     if let workRecord = self.historyViewModel?.sections[indexPath.section].rows[indexPath.row].workRecord,
       workRecord.isHoliday != true {
-      
-      if Calendar.current.isDate(workRecord.startDate, inSameDayAs: Date()) {
-        return
-      }
-      
       let vc = HistoryDetailViewController(workRecord)
       self.navigationController?.pushViewController(vc, animated: true)
     }

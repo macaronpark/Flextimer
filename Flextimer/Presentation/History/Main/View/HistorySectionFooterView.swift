@@ -18,18 +18,12 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
     $0.font = Font.REGURAL_12
     $0.textColor = Color.secondaryText
   }
-  
-//  let totalTimeLabel = UILabel().then {
-//    $0.font = Font.SEMIBOLD_12
-//    $0.textColor = Color.secondaryText.withAlphaComponent(0.2)
-//  }
-  
+
   let remainTimeLabel = UILabel().then {
     $0.font = Font.SEMIBOLD_16
     $0.textColor = Color.immutableOrange
     $0.adjustsFontSizeToFitWidth = true
     $0.textAlignment = .right
-//    $0.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
   }
   
   override init(reuseIdentifier: String?) {
@@ -49,10 +43,6 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
       $0.leading.equalToSuperview().offset(20)
       $0.trailing.lessThanOrEqualToSuperview().offset(-20)
     }
-//    self.totalTimeLabel.snp.makeConstraints {
-//      $0.leading.equalTo(self.criteriaLabel).offset(2)
-//      $0.bottom.equalToSuperview().offset(-14)
-//    }
     self.remainTimeLabel.snp.makeConstraints {
       $0.top.equalTo(self.criteriaLabel.snp.bottom).offset(8)
       $0.trailing.equalToSuperview().offset(-20)
@@ -69,7 +59,6 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
     super.prepareForReuse()
     
     self.criteriaLabel.text = nil
-//    self.totalTimeLabel.text = nil
     self.remainTimeLabel.text = nil
   }
   
@@ -105,9 +94,6 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
     let h = RealmService.shared.userInfo.hourOfWorkhoursADay.toRoundedTimeInterval(.hour)
     let m = RealmService.shared.userInfo.minuteOfWorkhoursADay.toRoundedTimeInterval(.minute)
     let totalWorkhoursInterval = (h + m) * Double(RealmService.shared.userInfo.workdaysPerWeekIdxs.count)
-    
-//    self.totalTimeLabel.text = "\(totalWorkhoursInterval.toString(.remain)) 기준"
-//    self.totalTimeLabel.text = ""
     
     // 2. 총 일한 시간
 

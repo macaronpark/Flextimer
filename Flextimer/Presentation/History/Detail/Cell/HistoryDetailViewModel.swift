@@ -62,17 +62,26 @@ class HistoryDetailViewModel {
     ]
     
     // 퇴근
-    let endRows: [HistoryDetailCellModel] = [
-      HistoryDetailCellModel(
-        Formatter.dayName.string(from: workRecord.endDate ?? Date()),
-        isHoliday: workRecord.isHoliday,
-        textColor: Color.secondaryText
-      ),
-      HistoryDetailCellModel(
-        Formatter.shm.string(from: workRecord.endDate ?? Date()).replacingOccurrences(of: " 0분", with: ""),
-        isHoliday: workRecord.isHoliday
-      )
-    ]
+    var endRows: [HistoryDetailCellModel] = []
+    
+    if workRecord.endDate != nil {
+      endRows = [
+        HistoryDetailCellModel(
+          Formatter.dayName.string(from: workRecord.endDate ?? Date()),
+          isHoliday: workRecord.isHoliday,
+          textColor: Color.secondaryText
+        ),
+        HistoryDetailCellModel(
+          Formatter.shm.string(from: workRecord.endDate ?? Date()).replacingOccurrences(of: " 0분", with: ""),
+          isHoliday: workRecord.isHoliday
+        )
+      ]
+    } else {
+      endRows = [
+        HistoryDetailCellModel("", isEditable: false),
+        HistoryDetailCellModel("", isEditable: false)
+      ]
+    }
 
     let startSection = HistoryDetailSectionModel(startRows, sectionTitle: "출근")
     let endSection = HistoryDetailSectionModel(endRows, sectionTitle: "퇴근")
