@@ -119,8 +119,9 @@ extension HistoryViewController: UITableViewDelegate {
     
     let actionsForRecordNotExistCell = UISwipeActionsConfiguration(actions: [createAction, holidayAction])
     let actionsForRecordExistCell = UISwipeActionsConfiguration(actions: [deleteAction, holidayAction])
-    let actionsForHolidayExistCell = UISwipeActionsConfiguration(actions: [deleteAction])
+    let deleteOnly = UISwipeActionsConfiguration(actions: [deleteAction])
     let holiday = UISwipeActionsConfiguration(actions: [holidayAction])
+    let createOnly = UISwipeActionsConfiguration(actions: [createAction])
     
     if let workRecord = workRecord {
       // 해당 일 기록이 있을 때
@@ -128,8 +129,15 @@ extension HistoryViewController: UITableViewDelegate {
       if (Calendar.current.isDate(workRecord.startDate, inSameDayAs: Date()) && workRecord.endDate == nil) {
         return nil
       }
+      
+      // 근무 일로 지정된 날이 아닌 경우 '휴무처리'를 제한, '삭제'만 가능
+      let isWorkday = RealmService.shared.userInfo.workdaysPerWeekIdxs.contains(indexPath.row)
+      if !isWorkday {
+        return deleteOnly
+      }
+      
       // 휴무 처리가 아니라면 '휴무처리', '기록삭제'
-      return (workRecord.isHoliday == true) ? actionsForHolidayExistCell: actionsForRecordExistCell
+      return (workRecord.isHoliday == true) ? deleteOnly: actionsForRecordExistCell
     } else {
       // 해당 일 기록이 없을 때
       // '오늘'이라면
@@ -146,6 +154,13 @@ extension HistoryViewController: UITableViewDelegate {
         // 현재 근무 중이 아니라면
         return holiday
       }
+      
+      // 근무 일로 지정된 날이 아닌 경우 '휴무처리'를 제한, '생성'만 가능
+      let isWorkday = RealmService.shared.userInfo.workdaysPerWeekIdxs.contains(indexPath.row)
+      if !isWorkday {
+        return createOnly
+      }
+      
       // '오늘'이 아닐 경우 '휴무처리', '기록생성'
       return actionsForRecordNotExistCell
     }

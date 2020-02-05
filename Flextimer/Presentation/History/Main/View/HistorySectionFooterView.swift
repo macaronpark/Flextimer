@@ -162,7 +162,12 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
     // 초과 근무 일 수 (순수 기록 수 - 근무 기준 일 수)
     let overWorkCount = totalRecordCount - creteriaWorkDaysCount
     
-    let workdaysString = totalRecordCount > 0 ? "근무일(\(totalRecordCount)일) ": ""
+    var workdaysString = ""
+    if overWorkCount > 0 {
+      workdaysString = totalRecordCount > 0 ? "근무일(\(totalRecordCount-overWorkCount)일) ": ""
+    } else {
+      workdaysString = totalRecordCount > 0 ? "근무일(\(totalRecordCount)일) ": ""
+    }
     let holidaysString = holidayRecords.count > 0 ? "휴무(\(holidayRecords.count)일) ": ""
     let overworkString = overWorkCount > 0 ? "초과근무(\(overWorkCount)일)": ""
 
