@@ -13,7 +13,7 @@ target 'Flextimer' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Then' 
- 
+  pod 'Firebase/Analytics'
     
   target 'Widget' do
     pod 'RealmSwift'

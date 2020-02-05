@@ -7,8 +7,10 @@
 //
 
 import UIKit
+
 import RealmSwift
 import RxSwift
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,7 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     self.initializeRealm()
-
+    FirebaseApp.configure()
+    
 //    _ = Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance)
 //      .subscribe(onNext: { _ in
 //        Logger.debug("Resource count \(RxSwift.Resources.total)")
