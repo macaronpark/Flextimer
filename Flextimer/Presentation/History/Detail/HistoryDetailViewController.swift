@@ -22,6 +22,7 @@ class HistoryDetailViewController: BaseViewController {
     $0.delegate = self
     $0.dataSource = self
     $0.register(HistoryDetailTableViewCell.self)
+    $0.register(HistoryDetailMemoTableViewCell.self)
   }
   
   init(_ workRecord: WorkRecord) {

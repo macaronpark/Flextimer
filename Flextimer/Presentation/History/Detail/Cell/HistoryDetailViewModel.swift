@@ -82,13 +82,20 @@ class HistoryDetailViewModel {
         HistoryDetailCellModel("", isEditable: false)
       ]
     }
+    
+    // 적바림
+    let memoRows = [
+      HistoryDetailCellModel("", isEditable: true)
+    ]
 
     let startSection = HistoryDetailSectionModel(startRows, sectionTitle: "출근")
     let endSection = HistoryDetailSectionModel(endRows, sectionTitle: "퇴근")
+    let memoSection = HistoryDetailSectionModel(memoRows, sectionTitle: "적바림")
 
     self.sections = [
       startSection,
-      endSection
+      endSection,
+      memoSection
     ]
   }
 }
