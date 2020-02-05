@@ -19,16 +19,17 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
     $0.textColor = Color.secondaryText
   }
   
-  let totalTimeLabel = UILabel().then {
-    $0.font = Font.SEMIBOLD_12
-    $0.textColor = Color.secondaryText.withAlphaComponent(0.2)
-  }
+//  let totalTimeLabel = UILabel().then {
+//    $0.font = Font.SEMIBOLD_12
+//    $0.textColor = Color.secondaryText.withAlphaComponent(0.2)
+//  }
   
   let remainTimeLabel = UILabel().then {
     $0.font = Font.SEMIBOLD_16
     $0.textColor = Color.immutableOrange
     $0.adjustsFontSizeToFitWidth = true
-    $0.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+    $0.textAlignment = .right
+//    $0.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
   }
   
   override init(reuseIdentifier: String?) {
@@ -36,7 +37,7 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
     
     self.addSubview(self.containerView)
     self.containerView.addSubview(self.criteriaLabel)
-    self.containerView.addSubview(self.totalTimeLabel)
+//    self.containerView.addSubview(self.totalTimeLabel)
     self.containerView.addSubview(self.remainTimeLabel)
     
     self.containerView.snp.makeConstraints {
@@ -48,14 +49,14 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
       $0.leading.equalToSuperview().offset(20)
       $0.trailing.lessThanOrEqualToSuperview().offset(-20)
     }
-    self.totalTimeLabel.snp.makeConstraints {
-      $0.leading.equalTo(self.criteriaLabel).offset(2)
-      $0.bottom.equalToSuperview().offset(-14)
-    }
+//    self.totalTimeLabel.snp.makeConstraints {
+//      $0.leading.equalTo(self.criteriaLabel).offset(2)
+//      $0.bottom.equalToSuperview().offset(-14)
+//    }
     self.remainTimeLabel.snp.makeConstraints {
       $0.top.equalTo(self.criteriaLabel.snp.bottom).offset(8)
       $0.trailing.equalToSuperview().offset(-20)
-      $0.leading.greaterThanOrEqualTo(self.totalTimeLabel.snp.trailing).offset(8)
+      $0.leading.equalToSuperview().offset(20)
       $0.bottom.equalToSuperview().offset(-16)
     }
   }
@@ -68,7 +69,7 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
     super.prepareForReuse()
     
     self.criteriaLabel.text = nil
-    self.totalTimeLabel.text = nil
+//    self.totalTimeLabel.text = nil
     self.remainTimeLabel.text = nil
   }
   
@@ -105,7 +106,8 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
     let m = RealmService.shared.userInfo.minuteOfWorkhoursADay.toRoundedTimeInterval(.minute)
     let totalWorkhoursInterval = (h + m) * Double(RealmService.shared.userInfo.workdaysPerWeekIdxs.count)
     
-    self.totalTimeLabel.text = "\(totalWorkhoursInterval.toString(.remain)) 기준"
+//    self.totalTimeLabel.text = "\(totalWorkhoursInterval.toString(.remain)) 기준"
+//    self.totalTimeLabel.text = ""
     
     // 2. 총 일한 시간
 
@@ -164,13 +166,13 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
     
     var workdaysString = ""
     if overWorkCount > 0 {
-      workdaysString = totalRecordCount > 0 ? "근무일(\(totalRecordCount-overWorkCount)일) ": ""
+      workdaysString = totalRecordCount > 0 ? "기록된 근무일(\(totalRecordCount-overWorkCount)일) ": ""
     } else {
-      workdaysString = totalRecordCount > 0 ? "근무일(\(totalRecordCount)일) ": ""
+      workdaysString = totalRecordCount > 0 ? "기록된 근무일(\(totalRecordCount)일) ": ""
     }
     let holidaysString = holidayRecords.count > 0 ? "휴무(\(holidayRecords.count)일) ": ""
-    let overworkString = overWorkCount > 0 ? "초과근무(\(overWorkCount)일)": ""
+    let overworkString = overWorkCount > 0 ? "초과근무(\(overWorkCount)일) ": ""
 
-    return "⏱ \(workdaysString)\(holidaysString)\(overworkString)"
+    return "⏱ \(workdaysString)\(holidaysString)\(overworkString)기준"
   }
 }
