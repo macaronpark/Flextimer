@@ -43,14 +43,14 @@ final class SettingCell: BaseTableViewCell {
       $0.centerY.equalToSuperview()
     }
     self.stackView.snp.makeConstraints {
-      $0.top.bottom.equalToSuperview()
+      $0.centerY.equalToSuperview()
       $0.trailing.equalToSuperview().offset(-14)
       $0.leading.greaterThanOrEqualToSuperview().offset(8)
     }
     self.disclosureIndicatorImageView.snp.makeConstraints {
-      $0.size.equalTo(CGSize(width: 10, height: 10))
+      $0.size.equalTo(CGSize(width: 16, height: 16))
     }
-    
+
     self.stackView.addArrangedSubview(self.subLabel)
     self.stackView.addArrangedSubview(self.disclosureIndicatorImageView)
   }
