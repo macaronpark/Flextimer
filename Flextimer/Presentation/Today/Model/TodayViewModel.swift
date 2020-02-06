@@ -54,8 +54,9 @@ class TodayViewModel {
   
   var endTime: String {
     let isLessReamins = self.isLessRemainsThanWorkhoursADay()
+    let isOverwork = (isLessReamins.raminsInterval ?? 0) < 0 ? true: false
     
-    if isLessReamins.isLessRemains {
+    if isLessReamins.isLessRemains && isOverwork {
       return "🚨초과 근무 경보🚨"
     } else {
       // 기존 로직
@@ -92,27 +93,44 @@ class TodayViewModel {
     for i in 0...6 {
       let record = RealmService.shared.realm
         .objects(WorkRecord.self)
-        .filter { Calendar.current.isDate($0.startDate, inSameDayAs: Calendar.current.date(byAdding: .day, value: i, to: monday) ?? Date())}
-        .last
+        .filter { record in
+          let criteriaDate = Calendar.current.date(byAdding: .day, value: i, to: monday) ?? Date()
+          if Calendar.current.isDate(record.startDate, inSameDayAs: criteriaDate) && record.endDate != nil {
+            return true
+          }
+          return false
+      }.last
       
       if let record = record {
         records.append(record)
       }
     }
 
+    // 실 근무일 수 중 휴일이 아닌 수
     let workdaysRecords = records.filter { $0.isHoliday == false }
     let holidayCount = records.filter { $0.isHoliday == true }.count
     
     let recordsInterval = workdaysRecords
       .map { $0.startDate.timeIntervalSince($0.endDate ?? Date()) }
       .reduce(0, +)
-    
-    let recordsIntervalWithHoliday = recordsInterval + (-(h + m) * Double(holidayCount))
 
+    let recordsIntervalWithHoliday = -recordsInterval + ((h + m) * Double(holidayCount))
+    
+    // 오늘 시간
+    let currentRecordInterval = RealmService.shared.realm
+      .objects(WorkRecord.self)
+      .filter { Calendar.current.isDate($0.startDate, inSameDayAs: Date()) && $0.endDate == nil }
+      .map { $0.startDate.timeIntervalSince($0.endDate ?? Date()) }
+      .reduce(0, +)
+    
     // 이번주 실 근무 총 인터벌
-    let thisWeekWorkhoursTotalInteval = recordsIntervalWithHoliday
+    let thisWeekWorkhoursTotalInteval = recordsIntervalWithHoliday + (-currentRecordInterval)
     // 남은 시간
-    let remains = (totalWorkhoursInterval - (-thisWeekWorkhoursTotalInteval))
+    let remains = (totalWorkhoursInterval - thisWeekWorkhoursTotalInteval)
+    
+    print(thisWeekWorkhoursTotalInteval.toString(.remain))
+    print(totalWorkhoursInterval.toString(.remain))
+    print(remains.toString(.remain))
 
     if remains > (h + m) {
       return (false, nil)
