@@ -28,7 +28,7 @@ class TutorialContentViewController: BaseViewController {
   
   lazy var contentLabel = UILabel().then {
     $0.font = Font.REGULAR_18
-    $0.textColor = Color.secondaryText
+    $0.textColor = Color.immutableLightGray
     $0.numberOfLines = 0
   }
   
