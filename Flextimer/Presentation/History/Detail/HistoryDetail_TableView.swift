@@ -13,12 +13,16 @@ extension HistoryDetailViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     return self.viewModel?.sections[section].headerHeight ?? 0
   }
-  
+
   func tableView(
     _ tableView: UITableView,
     didSelectRowAt
     indexPath: IndexPath
   ) {
+    
+    if (indexPath.section == 2) {
+      return
+    }
     
     let pickerMode: UIDatePicker.Mode = (indexPath == .init(row: 0, section: 1) ? .date: .time)
     let isStart = (indexPath.section == 0)
@@ -82,6 +86,11 @@ extension HistoryDetailViewController: UITableViewDataSource {
     cellForRowAt
     indexPath: IndexPath) -> UITableViewCell
   {
+    if indexPath.section == 2 {
+      let cell = tableView.dequeueCell(ofType: HistoryDetailMemoTableViewCell.self, indexPath: indexPath)
+      return cell
+    }
+    
     let cell = tableView.dequeueCell(ofType: HistoryDetailTableViewCell.self, indexPath: indexPath)
     cell.updateCell(self.viewModel?.sections[indexPath.section].rows[indexPath.row] ?? HistoryDetailCellModel(""))
     return cell

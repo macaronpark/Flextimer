@@ -23,6 +23,8 @@ class HistoryDetailViewController: BaseViewController {
     $0.dataSource = self
     $0.register(HistoryDetailTableViewCell.self)
     $0.register(HistoryDetailMemoTableViewCell.self)
+    $0.estimatedRowHeight = 44
+    $0.rowHeight = UITableView.automaticDimension
   }
   
   init(_ workRecord: WorkRecord) {
@@ -40,6 +42,13 @@ class HistoryDetailViewController: BaseViewController {
     super.viewDidLoad()
     
     self.addRealmNoti()
+    
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(keyboardWillShow),
+      name: UIResponder.keyboardWillShowNotification,
+      object: nil
+    )
   }
   
   func addRealmNoti() {
@@ -70,6 +79,33 @@ class HistoryDetailViewController: BaseViewController {
     self.view.addSubview(self.tableView)
     self.tableView.snp.makeConstraints {
       $0.top.leading.trailing.bottom.equalToSuperview()
+    }
+  }
+  
+  @objc func keyboardWillShow(_ notification: Notification) {
+    guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+    
+    DispatchQueue.main.async {
+      self.tableView.snp.updateConstraints {
+        $0.bottom.equalToSuperview().offset(-keyboardFrame.cgRectValue.height)
+      }
+    }
+    
+    let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? HistoryDetailMemoTableViewCell
+    if let cell = cell {
+      cell.memoTextView.rx.didChange.subscribe { [weak self] _ in
+        self?.tableView.beginUpdates()
+        
+        
+//        DispatchQueue.main.async {
+//          self?.tableView.scrollRectToVisible(cell.frame, animated: true)
+//        }
+        
+        self?.tableView.endUpdates()
+        
+        
+        
+      }.disposed(by: self.disposeBag)
     }
   }
 }

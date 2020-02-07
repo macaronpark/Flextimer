@@ -13,6 +13,7 @@ class HistoryDetailMemoTableViewCell: BaseTableViewCell {
   let memoTextView = UITextView().then {
     $0.textColor = Color.primaryText
     $0.font = Font.REGULAR_16
+    $0.isScrollEnabled = false
   }
 
   override func initial() {
