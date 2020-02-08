@@ -19,6 +19,7 @@ class HistoryDetailTableViewCell: BaseTableViewCell {
     $0.textColor = Color.primaryText
     $0.textAlignment = .right
     $0.font = Font.REGULAR_16
+    $0.lineBreakMode = .byTruncatingTail
   }
   
   let disclosureIndicatorImageView = UIImageView().then {

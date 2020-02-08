@@ -21,6 +21,8 @@ extension HistoryDetailViewController: UITableViewDelegate {
   ) {
     
     if (indexPath.section == 2) {
+      let vc = DetailMemoViewController()
+      self.navigationController?.pushViewController(vc, animated: true)
       return
     }
     
@@ -86,11 +88,6 @@ extension HistoryDetailViewController: UITableViewDataSource {
     cellForRowAt
     indexPath: IndexPath) -> UITableViewCell
   {
-    if indexPath.section == 2 {
-      let cell = tableView.dequeueCell(ofType: HistoryDetailMemoTableViewCell.self, indexPath: indexPath)
-      return cell
-    }
-    
     let cell = tableView.dequeueCell(ofType: HistoryDetailTableViewCell.self, indexPath: indexPath)
     cell.updateCell(self.viewModel?.sections[indexPath.section].rows[indexPath.row] ?? HistoryDetailCellModel(""))
     return cell
