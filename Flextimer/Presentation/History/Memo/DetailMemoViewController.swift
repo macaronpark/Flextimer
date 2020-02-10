@@ -14,6 +14,7 @@ class DetailMemoViewController: BaseViewController {
     $0.font = Font.REGULAR_16
     $0.textColor = Color.primaryText
     $0.textContainerInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+    
     $0.isScrollEnabled = true
   }
 
@@ -66,7 +67,9 @@ class DetailMemoViewController: BaseViewController {
     
     let userInfo = notification.userInfo!
     let keyboardRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-    self.textView.contentInset.bottom = keyboardRect.size.height
+    let tabBarHeight: CGFloat = self.tabBarController?.tabBar.frame.size.height ?? 0
+    
+    self.textView.contentInset.bottom = (keyboardRect.size.height - tabBarHeight) + 8
     self.textView.verticalScrollIndicatorInsets.bottom = keyboardRect.size.height
   }
   
