@@ -38,9 +38,9 @@ class DetailMemoViewController: BaseViewController {
       $0.bottom.equalToSuperview()
     }
   }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
+
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
     
     if self.textView.text.count == 0 {
       self.textView.becomeFirstResponder()
@@ -51,7 +51,6 @@ class DetailMemoViewController: BaseViewController {
     super.setupNaviBar()
     
     self.navigationItem.largeTitleDisplayMode = .never
-    self.navigationItem.rightBarButtonItem = doneBarButton
   }
   
   override func bind() {

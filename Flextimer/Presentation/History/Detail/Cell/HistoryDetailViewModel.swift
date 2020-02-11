@@ -84,8 +84,11 @@ class HistoryDetailViewModel {
     }
     
     // 적바림
+    let memoText = (workRecord.memo != nil) ? workRecord.memo ?? "": "등록된 내용 없음"
+    let memoColor = (workRecord.memo != nil) ? Color.secondaryText: UIColor.quaternaryLabel
+    
     let memoRows = [
-      HistoryDetailCellModel("", isEditable: true)
+      HistoryDetailCellModel(memoText, isEditable: true, textColor: memoColor)
     ]
 
     let startSection = HistoryDetailSectionModel(startRows, sectionTitle: "출근")

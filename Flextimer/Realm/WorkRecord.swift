@@ -13,19 +13,23 @@ import RealmSwift
   
   dynamic var id = ""
   
-  // 출근 date
-  @objc dynamic var startDate: Date = Date()
+  /// 출근 date
+  dynamic var startDate: Date = Date()
   
-  // 퇴근 date
-  @objc dynamic var endDate: Date? = nil
+  /// 퇴근 date
+  dynamic var endDate: Date? = nil
   
-  @objc dynamic var isHoliday: Bool = false
+  /// 휴무 처리 플래그
+  dynamic var isHoliday: Bool = false
+  
+  /// 적바림
+  dynamic var memo: String? = nil
   
   override static func primaryKey() -> String? {
       return "id"
   }
   
-  convenience init(_ startDate: Date, endDate: Date? = nil, isHoliday: Bool = false) {
+  convenience init(_ startDate: Date, endDate: Date? = nil, isHoliday: Bool = false, memo: String? = nil) {
     self.init()
     
     let comp = Calendar.current.dateComponents(
@@ -54,5 +58,6 @@ import RealmSwift
     self.startDate = startDate
     self.endDate = endDate
     self.isHoliday = isHoliday
+    self.memo = memo
   }
 }

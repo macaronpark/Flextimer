@@ -17,14 +17,15 @@ extension AppDelegate {
       .containerURL(forSecurityApplicationGroupIdentifier: "group.suzypark.Flextimer")!
       .appendingPathComponent("shared.realm")
     
-    // schemaVersion 5: UserInfo-isTutorialSeen property 추가
+    // schemaVersion 5: UserInfo -> isTutorialSeen: Bool property 추가
+    // schemaVersion 6: WorkRecord -> memo: String property 추가
     let config = Realm.Configuration(
       fileURL: fileURL,
-      schemaVersion: 5,
+      schemaVersion: 6,
       migrationBlock: { migration, oldSchemaVersion in
-        if (oldSchemaVersion < 5) {
-          migration.enumerateObjects(ofType: UserInfo.className()) { oldObject, newObject in
-            newObject!["isTutorialSeen"] = false
+        if (oldSchemaVersion < 6) {
+          migration.enumerateObjects(ofType: WorkRecord.className()) { oldObject, newObject in
+            newObject!["memo"] = nil
           }
         }
     })
