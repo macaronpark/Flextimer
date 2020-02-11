@@ -60,6 +60,8 @@
 		BF7ECBC1234CE3420078AE6C /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ECBC0234CE3420078AE6C /* TimeInterval.swift */; };
 		BF7ECBC6234CF89B0078AE6C /* DebugPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ECBC4234CF8480078AE6C /* DebugPrint.swift */; };
 		BF7ECBC8234CFD9D0078AE6C /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ECBC7234CFD9D0078AE6C /* Formatter.swift */; };
+		BFA262EE23F2E3240015C8B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFA262ED23F2E3240015C8B3 /* GoogleService-Info.plist */; };
+		BFA262EF23F2E3240015C8B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFA262ED23F2E3240015C8B3 /* GoogleService-Info.plist */; };
 		BFAC856F23C8BD7900C1663F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFDED1652358AFD2003AFA67 /* MainInterface.storyboard */; };
 		BFAC857223C8BF9900C1663F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC857123C8BF9900C1663F /* TabBarController.swift */; };
 		BFAC857423C8C71400C1663F /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC857323C8C71400C1663F /* TodayViewController.swift */; };
@@ -171,6 +173,7 @@
 		BF7ECBC0234CE3420078AE6C /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		BF7ECBC4234CF8480078AE6C /* DebugPrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugPrint.swift; sourceTree = "<group>"; };
 		BF7ECBC7234CFD9D0078AE6C /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		BFA262ED23F2E3240015C8B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BFAC857123C8BF9900C1663F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		BFAC857323C8C71400C1663F /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		BFAC857623C8C75100C1663F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -296,6 +299,7 @@
 				BFF96FDF23464A68002F5802 /* Assets.xcassets */,
 				BFF96FE423464A68002F5802 /* LaunchScreen.storyboard */,
 				BFF96FE723464A68002F5802 /* Info.plist */,
+				BFA262ED23F2E3240015C8B3 /* GoogleService-Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -646,6 +650,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFAC856F23C8BD7900C1663F /* MainInterface.storyboard in Resources */,
+				BFA262EF23F2E3240015C8B3 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +660,7 @@
 			files = (
 				BFF96FE623464A68002F5802 /* LaunchScreen.storyboard in Resources */,
 				BFF96FE023464A68002F5802 /* Assets.xcassets in Resources */,
+				BFA262EE23F2E3240015C8B3 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
