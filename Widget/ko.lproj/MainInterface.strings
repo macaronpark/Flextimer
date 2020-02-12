@@ -1,0 +1,9 @@
+
+/* Class = "UIButton"; normalTitle = "출근"; ObjectID = "JXA-t7-8Rd"; */
+"JXA-t7-8Rd.normalTitle" = "출근";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "f8V-Ii-xtU"; */
+"f8V-Ii-xtU.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "퇴근"; ObjectID = "wVp-De-0Bi"; */
+"wVp-De-0Bi.normalTitle" = "퇴근";

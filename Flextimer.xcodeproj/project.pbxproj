@@ -17,6 +17,8 @@
 		B14170AB58BA09784447F94E /* Pods_Flextimer_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B058166C14D1321615F8A5 /* Pods_Flextimer_Widget.framework */; };
 		BF1912AF23D20FCF007F9F10 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1912AE23D20FCF007F9F10 /* HistoryViewModel.swift */; };
 		BF28A0D82358A177004654AA /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28A0D72358A177004654AA /* Delegate.swift */; };
+		BF35EC0023F439F600E90665 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35EBFF23F439F600E90665 /* String.swift */; };
+		BF35EC0123F439F600E90665 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35EBFF23F439F600E90665 /* String.swift */; };
 		BF3D682023CA1BA4005F6055 /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D681F23CA1BA4005F6055 /* TodayViewModel.swift */; };
 		BF3D747923E1EE07004CF1F9 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D747823E1EE07004CF1F9 /* TutorialPageViewController.swift */; };
 		BF40806923658C5700547A3A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40806823658C5700547A3A /* UserInfo.swift */; };
@@ -132,6 +134,9 @@
 		9F5AFA222ABA8F6BE2CE3595 /* Pods-Flextimer-Widget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flextimer-Widget.debug.xcconfig"; path = "Target Support Files/Pods-Flextimer-Widget/Pods-Flextimer-Widget.debug.xcconfig"; sourceTree = "<group>"; };
 		BF1912AE23D20FCF007F9F10 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		BF28A0D72358A177004654AA /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
+		BF35EBFD23F4393500E90665 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		BF35EBFE23F4393600E90665 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/MainInterface.strings; sourceTree = "<group>"; };
+		BF35EBFF23F439F600E90665 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		BF3D681F23CA1BA4005F6055 /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
 		BF3D747823E1EE07004CF1F9 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
 		BF40806823658C5700547A3A /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
@@ -262,6 +267,7 @@
 				BFDED1552358A9A9003AFA67 /* Int.swift */,
 				BFAC857A23C8C85400C1663F /* Logger.swift */,
 				BF7E986923C8EA75002E722D /* UITableView.swift */,
+				BF35EBFF23F439F600E90665 /* String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -630,6 +636,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = BFF96FCD23464A66002F5802;
 			packageReferences = (
@@ -739,6 +746,7 @@
 				BFDED17D2358D1EA003AFA67 /* TimeInterval.swift in Sources */,
 				BFDED17A2358C97D003AFA67 /* DebugPrint.swift in Sources */,
 				BFDED1792358C974003AFA67 /* RealmService.swift in Sources */,
+				BF35EC0123F439F600E90665 /* String.swift in Sources */,
 				BF40806B23658D4400547A3A /* UserInfo.swift in Sources */,
 				BFDED17C2358D027003AFA67 /* Formatter.swift in Sources */,
 				1C445C81235930D10043A978 /* UIButton.swift in Sources */,
@@ -808,6 +816,7 @@
 				BF7ECBC8234CFD9D0078AE6C /* Formatter.swift in Sources */,
 				1C1AEB43234B5FF100FFB348 /* RealmService.swift in Sources */,
 				BFF2A9AC23CCB5A800F3B071 /* TodayViewController_Alert.swift in Sources */,
+				BF35EC0023F439F600E90665 /* String.swift in Sources */,
 				BF427E8C23D733D600F08943 /* HistoryDetailViewModel.swift in Sources */,
 				BFAC857923C8C79D00C1663F /* HistoryViewController.swift in Sources */,
 				BF3D747923E1EE07004CF1F9 /* TutorialPageViewController.swift in Sources */,
@@ -839,6 +848,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				BFDED1662358AFD2003AFA67 /* Base */,
+				BF35EBFE23F4393600E90665 /* ko */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -847,6 +857,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				BFF96FE523464A68002F5802 /* Base */,
+				BF35EBFD23F4393500E90665 /* ko */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -911,6 +922,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -971,6 +983,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

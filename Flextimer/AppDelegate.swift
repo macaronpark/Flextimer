@@ -22,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     self.initializeRealm()
     FirebaseApp.configure()
     
+//    print(Locale.current.regionCode)
+//    print(Locale.current.languageCode)
+    
 //    _ = Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance)
 //      .subscribe(onNext: { _ in
 //        Logger.debug("Resource count \(RxSwift.Resources.total)")
