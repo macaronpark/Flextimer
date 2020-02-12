@@ -10,6 +10,8 @@ import UIKit
 
 class DetailMemoViewController: BaseViewController {
   
+  var workRecord: WorkRecord?
+  
   let textView = UITextView().then {
     $0.font = Font.REGULAR_16
     $0.textColor = Color.primaryText
@@ -19,6 +21,23 @@ class DetailMemoViewController: BaseViewController {
   }
 
   lazy var doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: nil)
+  
+  
+  // MARK: - Init
+  
+  init(_ workRecord: WorkRecord) {
+    super.init()
+    
+    self.workRecord = workRecord
+    self.textView.text = workRecord.memo
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  
+  // MARK: - Lifecycles
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -56,8 +75,24 @@ class DetailMemoViewController: BaseViewController {
   override func bind() {
     super.bind()
     
-    self.doneBarButton.rx.tap.subscribe(onNext: { [weak self] _ in
-      self?.view.endEditing(true)
+    self.textView.rx.text
+      .skip(1)
+      .distinctUntilChanged()
+      .subscribe(onNext: { [weak self] text in
+        guard let self = self,
+          let text = text,
+          let workRecord = self.workRecord else { return }
+        
+        RealmService.shared.update(
+          workRecord,
+          with: ["memo": text]
+        )
+        
+    }).disposed(by: self.disposeBag)
+    
+    self.doneBarButton.rx.tap
+      .subscribe(onNext: { [weak self] _ in
+        self?.view.endEditing(true)
     }).disposed(by: self.disposeBag)
   }
   

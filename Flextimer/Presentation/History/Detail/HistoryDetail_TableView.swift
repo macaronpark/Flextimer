@@ -19,10 +19,11 @@ extension HistoryDetailViewController: UITableViewDelegate {
     didSelectRowAt
     indexPath: IndexPath
   ) {
-    
     if (indexPath.section == 2) {
-      let vc = DetailMemoViewController()
-      self.navigationController?.pushViewController(vc, animated: true)
+      if let workRecord = self.workRecord {
+        let vc = DetailMemoViewController(workRecord)
+        self.navigationController?.pushViewController(vc, animated: true)
+      }
       return
     }
     
