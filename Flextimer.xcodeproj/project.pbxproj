@@ -39,6 +39,8 @@
 		BF4497DC23CAEC770024DF53 /* WorkhoursADayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4497DB23CAEC770024DF53 /* WorkhoursADayViewController.swift */; };
 		BF4497DE23CAEFC90024DF53 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4497DD23CAEFC90024DF53 /* PickerView.swift */; };
 		BF4497E023CAFFF00024DF53 /* WorkhoursADay_Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4497DF23CAFFF00024DF53 /* WorkhoursADay_Picker.swift */; };
+		BF466A9723F5918A0001532C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF466A9A23F5918A0001532C /* Localizable.strings */; };
+		BF466A9823F5918A0001532C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF466A9A23F5918A0001532C /* Localizable.strings */; };
 		BF493FAE23EEEC3300CDB955 /* DetailMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF493FAD23EEEC3300CDB955 /* DetailMemoViewController.swift */; };
 		BF4FF7A923DAC400005B649F /* DatePickerViewController_Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FF7A823DAC400005B649F /* DatePickerViewController_Rx.swift */; };
 		BF59DE7523D4943C0009A9A8 /* TodayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF59DE7423D4943C0009A9A8 /* TodayButton.swift */; };
@@ -155,6 +157,8 @@
 		BF4497DB23CAEC770024DF53 /* WorkhoursADayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkhoursADayViewController.swift; sourceTree = "<group>"; };
 		BF4497DD23CAEFC90024DF53 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		BF4497DF23CAFFF00024DF53 /* WorkhoursADay_Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkhoursADay_Picker.swift; sourceTree = "<group>"; };
+		BF466A9923F5918A0001532C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BF466A9B23F591EF0001532C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BF493FAD23EEEC3300CDB955 /* DetailMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMemoViewController.swift; sourceTree = "<group>"; };
 		BF4FF7A823DAC400005B649F /* DatePickerViewController_Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController_Rx.swift; sourceTree = "<group>"; };
 		BF59DE7423D4943C0009A9A8 /* TodayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayButton.swift; sourceTree = "<group>"; };
@@ -555,6 +559,7 @@
 			isa = PBXGroup;
 			children = (
 				BFDED1722358BCCF003AFA67 /* Flextimer.entitlements */,
+				BF466A9A23F5918A0001532C /* Localizable.strings */,
 				BFF96FD923464A66002F5802 /* AppDelegate.swift */,
 				BFBCA14F23C9C53300FC6774 /* SceneDelegate.swift */,
 				1C1AEB44234B6EA600FFB348 /* Realm */,
@@ -657,6 +662,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFAC856F23C8BD7900C1663F /* MainInterface.storyboard in Resources */,
+				BF466A9823F5918A0001532C /* Localizable.strings in Resources */,
 				BFA262EF23F2E3240015C8B3 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -666,6 +672,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFF96FE623464A68002F5802 /* LaunchScreen.storyboard in Resources */,
+				BF466A9723F5918A0001532C /* Localizable.strings in Resources */,
 				BFF96FE023464A68002F5802 /* Assets.xcassets in Resources */,
 				BFA262EE23F2E3240015C8B3 /* GoogleService-Info.plist in Resources */,
 			);
@@ -844,6 +851,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		BF466A9A23F5918A0001532C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF466A9923F5918A0001532C /* en */,
+				BF466A9B23F591EF0001532C /* ko */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		BFDED1652358AFD2003AFA67 /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
