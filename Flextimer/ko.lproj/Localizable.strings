@@ -23,10 +23,18 @@
 
 // TUTORIAL_TITLE_1
 "Easy to use on lock screen" = "잠금화면에서도 간편한 사용";
-// TUTORIAL_CONTENT_1
-"Add to the widget to record your start and end time more quickly, and check your remaining time easily to get off work." = "위젯에 추가해 더욱 신속하게 출퇴근을 기록하고, 퇴근까지 남은 시간을 바로 확인하세요.";
-
 // TUTORIAL_TITLE_2
-"Even if you forgot to record" = "출근을 늦게 기록했어도";
+"Even if you recorded late" = "출근을 늦게 기록했어도";
+// TUTORIAL_TITLE_3
+"Swipe to record" = "스와이프해서 기록하기";
+// TUTORIAL_TITLE_4
+"Customizable system" = "나에게 꼭 맞는 시스템";
+
+// TUTORIAL_CONTENT_1
+"Add to the widget to record your start and end time more quickly, and check your remaining time easily." = "위젯에 추가해 더욱 신속하게 출퇴근을 기록하고, 퇴근까지 남은 시간을 바로 확인하세요.";
 // TUTORIAL_CONTENT_2
 "It's fine. Just create new record and fix the start time anytime!" = "바로 수정할 수 있으니깐! 오늘의 퇴근 예상 시간과 퇴근까지 남은 시간도 확인하세요.";
+// TUTORIAL_CONTENT_3
+"It doesn't matter even if you totally forgot to record. Create, edit, and delete at any time." = "기록을 잊어버렸어도 문제없어요. 생성과 삭제, 휴무처리를 언제든지.";
+// TUTORIAL_CONTENT_4
+"In Settings, customize the work hours and days of the week." = "설정에서 근무 시간과 요일을 선택할 수 있어요. 맞춤 기록 서비스를 사용해보세요.";

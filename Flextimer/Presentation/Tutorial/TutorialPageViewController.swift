@@ -16,9 +16,13 @@ class TutorialPageViewController: UIPageViewController {
     static let SKIP = "Skip".localized
     static let START = "Start".localized
     static let TUTORIAL_TITLE_1 = "Easy to use on lock screen".localized
-    static let TUTORIAL_CONTENT_1 = "Add to the widget to record your start and end time more quickly, and check your remaining time easily to get off work.".localized
-    static let TUTORIAL_TITLE_2 = "Even if you forgot to record".localized
+    static let TUTORIAL_CONTENT_1 = "Add to the widget to record your start and end time more quickly, and check your remaining time easily.".localized
+    static let TUTORIAL_TITLE_2 = "Even if you recorded late".localized
     static let TUTORIAL_COTENT_2 = "It's fine. Just create new record and fix the start time anytime!".localized
+    static let TUTORIAL_TITLE_3 = "Swipe to record".localized
+    static let TUTORIAL_CONTENT_3 = "It doesn't matter even if you totally forgot to record. Create, edit, and delete at any time.".localized
+    static let TUTORIAL_TITLE_4 = "Customizable system".localized
+    static let TUTORIAL_CONTENT_4 = "In Settings, customize the work hours and days of the week.".localized
   }
   
   let disposeBag = DisposeBag()
@@ -61,13 +65,13 @@ class TutorialPageViewController: UIPageViewController {
         imageName: "tutorial_2"
       ),
       TutorialViewModel(
-        "스와이프해서 기록하기",
-        content: "기록을 잊어버렸어도 문제없어요. 생성과 삭제, 휴무처리를 언제든지.",
+        Text.TUTORIAL_TITLE_3,
+        content: Text.TUTORIAL_CONTENT_3,
         imageName: "tutorial_3"
       ),
       TutorialViewModel(
-        "나에게 꼭 맞는 시스템",
-        content: "설정에서 근무 시간과 요일을 선택할 수 있어요. 맞춤 기록 서비스를 사용해보세요.",
+        Text.TUTORIAL_TITLE_4,
+        content: Text.TUTORIAL_CONTENT_4,
         imageName: "tutorial_4",
         isLast: true
       )

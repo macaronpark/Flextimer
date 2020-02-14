@@ -23,10 +23,18 @@
 
 // TUTORIAL_TITLE_1
 "Easy to use on lock screen" = "Easy to use on lock screen";
-// TUTORIAL_CONTENT_1
-"Add to the widget to record your start and end time more quickly, and check your remaining time easily to get off work." = "Add to the widget to record your start and end time more quickly, and check your remaining time easily to get off work.";
-
 // TUTORIAL_TITLE_2
-"Even if you forgot to record" = "Even if you forgot to record";
+"Even if you recorded late" = "Even if you recorded late";
+// TUTORIAL_TITLE_3
+"Swipe to record" = "Swipe to record";
+// TUTORIAL_TITLE_4
+"Customizable system" = "Customizable system";
+
+// TUTORIAL_CONTENT_1
+"Add to the widget to record your start and end time more quickly, and check your remaining time easily to get off work." = "Add to the widget to record your start and end time more quickly, and check your remaining time easily.";
 // TUTORIAL_CONTENT_2
 "It's fine. Just create new record and fix the start time anytime!" = "It's fine. Just create new record and fix the start time anytime!";
+// TUTORIAL_CONTENT_3
+"It doesn't matter even if you totally forgot to record. Create, edit, and delete at any time." = "It doesn't matter even if you totally forgot to record. Create, edit, and delete at any time.";
+// TUTORIAL_CONTENT_4
+"In Settings, customize the work hours and days of the week." = "In Settings, customize the work hours and days of the week.";
