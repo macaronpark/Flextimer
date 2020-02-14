@@ -2,6 +2,31 @@
   Localizable.strings
   Flextimer
 
-  Created by Suzy Mararon Park on 2020/02/13.
+  Created by Suzy Mararon Park on 2020/02/14.
   Copyright © 2020 Suzy Mararon Park. All rights reserved.
 */
+
+// MARK: - TabBarController
+
+// TAB_BAR_ITEM_1
+"Today" = "Today";
+// TAB_BAR_ITEM_2
+"Record" = "Record";
+
+
+// MARK: - TutorialPageViewController
+
+// SKIP
+"Skip" = "Skip";
+// START
+"Start" = "Start";
+
+// TUTORIAL_TITLE_1
+"Easy to use on lock screen" = "Easy to use on lock screen";
+// TUTORIAL_CONTENT_1
+"Add to the widget to record your start and end time more quickly, and check your remaining time easily to get off work." = "Add to the widget to record your start and end time more quickly, and check your remaining time easily to get off work.";
+
+// TUTORIAL_TITLE_2
+"Even if you forgot to record" = "Even if you forgot to record";
+// TUTORIAL_CONTENT_2
+"It's fine. Just create new record and fix the start time anytime!" = "It's fine. Just create new record and fix the start time anytime!";

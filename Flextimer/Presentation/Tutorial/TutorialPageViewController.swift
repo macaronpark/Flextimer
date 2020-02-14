@@ -12,6 +12,15 @@ import RxSwift
 
 class TutorialPageViewController: UIPageViewController {
   
+  enum Text {
+    static let SKIP = "Skip".localized
+    static let START = "Start".localized
+    static let TUTORIAL_TITLE_1 = "Easy to use on lock screen".localized
+    static let TUTORIAL_CONTENT_1 = "Add to the widget to record your start and end time more quickly, and check your remaining time easily to get off work.".localized
+    static let TUTORIAL_TITLE_2 = "Even if you forgot to record".localized
+    static let TUTORIAL_COTENT_2 = "It's fine. Just create new record and fix the start time anytime!".localized
+  }
+  
   let disposeBag = DisposeBag()
 
   let pages: [UIViewController]
@@ -25,7 +34,7 @@ class TutorialPageViewController: UIPageViewController {
   
   let skipButton = UIButton().then {
     $0.backgroundColor = UIColor.clear
-    $0.setTitle("건너뛰기", for: .normal)
+    $0.setTitle(Text.SKIP, for: .normal)
     $0.setTitleColor(Color.secondaryText.withAlphaComponent(0.2), for: .normal)
     $0.titleLabel?.font = Font.REGULAR_16
   }
@@ -33,7 +42,7 @@ class TutorialPageViewController: UIPageViewController {
   let startButton = HistoryButton().then {
     $0.alpha = 0
     $0.isUserInteractionEnabled = false
-    $0.setTitle("시작하기", for: .normal)
+    $0.setTitle(Text.START, for: .normal)
   }
   
   
@@ -42,13 +51,13 @@ class TutorialPageViewController: UIPageViewController {
   init() {
     let pageViewModelList: [TutorialViewModel] = [
       TutorialViewModel(
-        "잠금화면에서도 간편한 사용",
-        content: "위젯에 추가해 더욱 신속하게 출퇴근을 기록하고, 퇴근까지 남은 시간을 바로 확인하세요.",
+        Text.TUTORIAL_TITLE_1,
+        content: Text.TUTORIAL_CONTENT_1,
         imageName: "tutorial_1"
       ),
       TutorialViewModel(
-        "출근을 늦게 기록했어도",
-        content: "바로 수정할 수 있으니깐! 오늘의 퇴근 예상 시간과 퇴근까지 남은 시간도 확인하세요.",
+        Text.TUTORIAL_TITLE_2,
+        content: Text.TUTORIAL_COTENT_2,
         imageName: "tutorial_2"
       ),
       TutorialViewModel(

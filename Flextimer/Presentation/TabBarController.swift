@@ -11,6 +11,11 @@ import UIKit
 
 class TabBarController: UITabBarController{
   
+  enum Text {
+    static let TAB_BAR_ITEM_1 = "Today".localized
+    static let TAB_BAR_ITEM_2 = "Record".localized
+  }
+  
   // MARK: - Lifecycles
   
   override func viewDidLoad() {
@@ -21,7 +26,7 @@ class TabBarController: UITabBarController{
     let todayViewModel = self.todayViewModel()
     let todayVC = TodayViewController(todayViewModel)
     let todayNVC = UINavigationController(rootViewController: todayVC)
-    todayNVC.tabBarItem = UITabBarItem(title: "오늘의 근태", image: UIImage(named: "tab_today"), tag: 0)
+    todayNVC.tabBarItem = UITabBarItem(title: Text.TAB_BAR_ITEM_1, image: UIImage(named: "tab_today"), tag: 0)
     
     let comp = Calendar.current.dateComponents([.year, .month], from: Date())
     
@@ -31,7 +36,7 @@ class TabBarController: UITabBarController{
     let historyViewModel = HistoryViewModel(year: year, month: month)
     let historyVC = HistoryViewController(historyViewModel)
     let historyNVC = UINavigationController(rootViewController: historyVC)
-    historyNVC.tabBarItem = UITabBarItem(title: "기록", image: UIImage(named: "tab_history"), tag: 0)
+    historyNVC.tabBarItem = UITabBarItem(title: Text.TAB_BAR_ITEM_2, image: UIImage(named: "tab_history"), tag: 0)
     
     let tabBarList = [todayNVC, historyNVC]
     viewControllers = tabBarList

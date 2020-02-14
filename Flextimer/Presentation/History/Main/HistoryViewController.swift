@@ -14,6 +14,10 @@ import RealmSwift
 
 class HistoryViewController: BaseViewController {
   
+  enum Text {
+    static let tabBar2 = "Record".localized
+  }
+  
   var displayedDate = BehaviorRelay<Date>(value: Date())
   
   var willScrollToSelectedDate = PublishSubject<Bool>()
@@ -86,7 +90,7 @@ class HistoryViewController: BaseViewController {
   override func setupNaviBar() {
     super.setupNaviBar()
     
-    self.title = "기록"
+    self.title = Text.tabBar2
     self.navigationController?.navigationBar.tintColor = UIColor.systemFill
     self.navigationItem.largeTitleDisplayMode = .automatic
     self.navigationController?.navigationBar.prefersLargeTitles = true

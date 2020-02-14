@@ -14,6 +14,10 @@ import RxSwift
 
 class TodayViewController: BaseViewController {
   
+  enum Text {
+    static let tabBar1 = "Today".localized
+  }
+  
   let todayView = TodayView()
   
   var todayViewModel: TodayViewModel!
@@ -90,7 +94,7 @@ class TodayViewController: BaseViewController {
   override func setupNaviBar() {
     super.setupNaviBar()
     
-    self.title = "오늘의 근태"
+    self.title = Text.tabBar1
     self.navigationController?.navigationBar.prefersLargeTitles = true
     self.navigationItem.setRightBarButton(self.settingBarButton, animated: true)
   }
