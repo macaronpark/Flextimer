@@ -38,3 +38,5 @@
 "It doesn't matter even if you totally forgot to record. Create, edit, and delete at any time." = "It doesn't matter even if you totally forgot to record. Create, edit, and delete at any time.";
 // TUTORIAL_CONTENT_4
 "In Settings, customize the work hours and days of the week." = "In Settings, customize the work hours and days of the week.";
+
+"%d hours per day" = "%dhours per day";

@@ -38,3 +38,5 @@
 "It doesn't matter even if you totally forgot to record. Create, edit, and delete at any time." = "기록을 잊어버렸어도 문제없어요. 생성과 삭제, 휴무처리를 언제든지.";
 // TUTORIAL_CONTENT_4
 "In Settings, customize the work hours and days of the week." = "설정에서 근무 시간과 요일을 선택할 수 있어요. 맞춤 기록 서비스를 사용해보세요.";
+
+"%d hours per day" = "일 %d시간";

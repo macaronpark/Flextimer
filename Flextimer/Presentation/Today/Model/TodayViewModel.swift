@@ -12,12 +12,17 @@ import RxSwift
 
 class TodayViewModel {
   
+//  enum Text {
+//    static let HOURS_OF_WORKHOURS_PER_A_DAY = "%dhours per day".localized(with: userInfo.hourOfWorkhoursADay)
+//  }
+  
   // MARK: - UserInfo
   
   let userInfo: UserInfo
   
   var hourOfWorkhoursADay: String {
-    return "일 \(userInfo.hourOfWorkhoursADay)시간"
+    return "%d hours per day".localized(with: userInfo.hourOfWorkhoursADay)
+//    return "일 \(userInfo.hourOfWorkhoursADay)시간"
   }
   var minuteOfWorkhoursADay: String {
     if (userInfo.minuteOfWorkhoursADay == 0) {
