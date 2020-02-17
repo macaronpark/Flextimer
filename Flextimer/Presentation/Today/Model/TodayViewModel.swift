@@ -12,26 +12,27 @@ import RxSwift
 
 class TodayViewModel {
   
-//  enum Text {
-//    static let HOURS_OF_WORKHOURS_PER_A_DAY = "%dhours per day".localized(with: userInfo.hourOfWorkhoursADay)
-//  }
+  enum Text {
+    static let TVM_OVERWORKING_ALERT = "TVM_OVERWORKING_ALERT".localized
+    static let TVM_ZERO_MIN = "TVM_ZERO_MIN".localized
+    
+  }
   
   // MARK: - UserInfo
   
   let userInfo: UserInfo
   
   var hourOfWorkhoursADay: String {
-    return "%d hours per day".localized(with: userInfo.hourOfWorkhoursADay)
-//    return "일 \(userInfo.hourOfWorkhoursADay)시간"
+    return "Day: %dhrs".localized(with: [userInfo.hourOfWorkhoursADay])
   }
   var minuteOfWorkhoursADay: String {
     if (userInfo.minuteOfWorkhoursADay == 0) {
       return ""
     }
-    return " \(userInfo.minuteOfWorkhoursADay)분"
+    return " %dmin".localized(with: [userInfo.minuteOfWorkhoursADay])
   }
   var numberOfWorkdaysAWeek: String {
-    return "주 \(userInfo.workdaysPerWeekIdxs.count)일"
+    return "Week: %ddays".localized(with: [userInfo.workdaysPerWeekIdxs.count])
   }
   var totalWorkhours: String {
     return self.totalWorkhoursString()
@@ -52,7 +53,9 @@ class TodayViewModel {
   /// 오늘 근무 시작 시간을 '오전 0시 0분'으로 변환한 string
   var startTime: String {
     if let workRecordOfToday = workRecordOfToday {
-      return Formatter.shm.string(from: workRecordOfToday.startDate).replacingOccurrences(of: " 0분", with: "")
+      return Formatter.shm
+        .string(from: workRecordOfToday.startDate)
+        .replacingOccurrences(of: Text.TVM_ZERO_MIN, with: "")
     }
     return "--:--"
   }
@@ -62,7 +65,7 @@ class TodayViewModel {
     let isOverwork = (isLessReamins.raminsInterval ?? 0) < 0 ? true: false
     
     if isLessReamins.isLessRemains && isOverwork {
-      return "🚨초과 근무 경보🚨"
+      return Text.TVM_OVERWORKING_ALERT
     } else {
       // 기존 로직
       if let workRecordOfToday = workRecordOfToday {
@@ -78,7 +81,7 @@ class TodayViewModel {
           to: h
           ) ?? Date()
         
-          return Formatter.shm.string(from: m).replacingOccurrences(of: " 0분", with: "")
+          return Formatter.shm.string(from: m).replacingOccurrences(of: Text.TVM_ZERO_MIN, with: "")
       }
       return "--:--"
     }
@@ -132,10 +135,6 @@ class TodayViewModel {
     let thisWeekWorkhoursTotalInteval = recordsIntervalWithHoliday + (-currentRecordInterval)
     // 남은 시간
     let remains = (totalWorkhoursInterval - thisWeekWorkhoursTotalInteval)
-    
-    print(thisWeekWorkhoursTotalInteval.toString(.remain))
-    print(totalWorkhoursInterval.toString(.remain))
-    print(remains.toString(.remain))
 
     if remains > (h + m) {
       return (false, nil)
@@ -163,12 +162,12 @@ class TodayViewModel {
     let shareOfmultipledMinute: Int = multipledMinute / 60
     let restOfmultipledMinute: Int = multipledMinute % 60
     
-    let hourResult = multipledHour + shareOfmultipledMinute
-    let minuteResult = restOfmultipledMinute
+    let hourResult: Int = multipledHour + shareOfmultipledMinute
+    let minuteResult: Int = restOfmultipledMinute
     
     if minute == 0 {
-      return "\(hourResult)시간 기준"
+      return "Based on %dhrs".localized(with: [hourResult])
     }
-    return "\(hourResult)시간 \(minuteResult)분 기준"
+    return "Total: %dhrs %dmin".localized(with: [hourResult, minuteResult])
   }
 }

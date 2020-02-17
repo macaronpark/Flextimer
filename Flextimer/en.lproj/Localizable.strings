@@ -39,4 +39,14 @@
 // TUTORIAL_CONTENT_4
 "In Settings, customize the work hours and days of the week." = "In Settings, customize the work hours and days of the week.";
 
-"%d hours per day" = "%dhours per day";
+
+// MARK: - TodayViewModel
+
+"TVM_OVERWORKING_ALERT" = "🚨Overworking Alert🚨";
+"TVM_ZERO_MIN" = " 0min";
+
+"Day: %dhrs" = "Day: %dhrs";
+" %dmin" = " %dmin";
+"Week: %ddays" = "Week: %ddays";
+"Based on %dhrs" = "Based on %dhrs";
+"Total: %dhrs %dmin" = "Total: %dhrs %dmin";

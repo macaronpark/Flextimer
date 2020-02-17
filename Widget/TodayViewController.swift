@@ -258,10 +258,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     let thisWeekWorkhoursTotalInteval = recordsIntervalWithHoliday + (-currentRecordInterval)
     // 남은 시간
     let remains = (totalWorkhoursInterval - thisWeekWorkhoursTotalInteval)
-    
-    print(thisWeekWorkhoursTotalInteval.toString(.remain))
-    print(totalWorkhoursInterval.toString(.remain))
-    print(remains.toString(.remain))
 
     if remains > (h + m) {
       return (false, nil)

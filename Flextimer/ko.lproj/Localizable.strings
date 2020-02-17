@@ -39,4 +39,14 @@
 // TUTORIAL_CONTENT_4
 "In Settings, customize the work hours and days of the week." = "설정에서 근무 시간과 요일을 선택할 수 있어요. 맞춤 기록 서비스를 사용해보세요.";
 
-"%d hours per day" = "일 %d시간";
+
+// MARK: - TodayViewModel
+
+"TVM_OVERWORKING_ALERT" = "🚨초과근무 경보🚨";
+"TVM_ZERO_MIN" = " 0분";
+
+"Day: %dhrs" = "일 %d시간";
+" %dmin" = " %d분";
+"Week: %ddays" = "주 %d일";
+"Based on %dhrs" = "%d시간 기준";
+"Total: %dhrs %dmin" = "%d시간 %d분 기준";
