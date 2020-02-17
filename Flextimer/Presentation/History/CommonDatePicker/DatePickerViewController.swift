@@ -88,9 +88,14 @@ class DatePickerViewController: BaseViewController {
       $0.trailing.equalToSuperview().offset(-20)
       $0.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-16)
     }
+    
+    let label = UILabel()
+    label.text = self.confirmButton.titleLabel?.text
+    label.sizeToFit()
+    
     self.confirmButton.snp.makeConstraints {
       $0.trailing.equalToSuperview().offset(-20)
-      $0.size.equalTo(CGSize(width: 100, height: 40))
+      $0.size.equalTo(CGSize(width: label.frame.size.width + 32, height: 40))
       $0.bottom.equalTo(self.pickerView.snp.top).offset(-16)
     }
   }
