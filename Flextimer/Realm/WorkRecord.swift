@@ -9,6 +9,33 @@
 import Foundation
 import RealmSwift
 
+enum WorkRecordEnum {
+  case id
+  case startDate
+  case endDate
+  case isHoliday
+  case memo
+  
+  var str: String {
+    switch self {
+    case .id:
+      return "id"
+      
+    case .startDate:
+      return "startDate"
+      
+    case .endDate:
+      return "endDate"
+      
+    case .isHoliday:
+      return "isHoliday"
+      
+    case .memo:
+      return "memo"
+    }
+  }
+}
+
 @objcMembers class WorkRecord: Object {
   
   dynamic var id = ""
@@ -26,7 +53,7 @@ import RealmSwift
   dynamic var memo: String? = nil
   
   override static func primaryKey() -> String? {
-      return "id"
+    return WorkRecordEnum.id.str
   }
   
   convenience init(_ startDate: Date, endDate: Date? = nil, isHoliday: Bool = false, memo: String? = nil) {

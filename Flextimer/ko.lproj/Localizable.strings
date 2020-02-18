@@ -50,3 +50,8 @@
 "Week: %ddays" = "주 %d일";
 "Based on %dhrs" = "%d시간 기준";
 "Total: %dhrs %dmin" = "%d시간 %d분 기준";
+
+
+// MARK: - TodayViewController
+
+"TVC_EDIT_RECORD" = "기록 변경";

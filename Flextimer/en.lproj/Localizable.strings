@@ -50,3 +50,8 @@
 "Week: %ddays" = "Week: %ddays";
 "Based on %dhrs" = "Based on %dhrs";
 "Total: %dhrs %dmin" = "Total: %dhrs %dmin";
+
+
+// MARK: - TodayViewController
+
+"TVC_EDIT_RECORD" = "Edit";

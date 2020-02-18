@@ -15,7 +15,8 @@ import RxSwift
 class TodayViewController: BaseViewController {
   
   enum Text {
-    static let tabBar1 = "Today".localized
+    static let TAB_BAR_1 = "Today".localized
+    static let TVC_EDIT_RECORD = "TVC_EDIT_RECORD".localized
   }
   
   let todayView = TodayView()
@@ -94,7 +95,7 @@ class TodayViewController: BaseViewController {
   override func setupNaviBar() {
     super.setupNaviBar()
     
-    self.title = Text.tabBar1
+    self.title = Text.TAB_BAR_1
     self.navigationController?.navigationBar.prefersLargeTitles = true
     self.navigationItem.setRightBarButton(self.settingBarButton, animated: true)
   }
@@ -155,11 +156,11 @@ class TodayViewController: BaseViewController {
           current: self?.todayViewModel.workRecordOfToday?.startDate ?? Date(),
           max: Date(),
           mode: .time,
-          doneButtonTitle: "기록 변경"
+          doneButtonTitle: Text.TVC_EDIT_RECORD
         ).skip(1)
     }.subscribe(onNext: { [weak self] date in
       if let workRecord = self?.todayViewModel.workRecordOfToday {
-        RealmService.shared.update(workRecord, with: ["startDate": date])
+        RealmService.shared.update(workRecord, with: [WorkRecordEnum.startDate.str: date])
         self?.isWorking.accept(true)
       }
     }).disposed(by: self.disposeBag)
