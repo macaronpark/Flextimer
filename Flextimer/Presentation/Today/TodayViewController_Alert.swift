@@ -12,6 +12,7 @@ import RxSwift
 import RxCocoa
 
 extension TodayViewController {
+  
   func didTapStartButton() {
     // 오늘 자 기록을 기준으로 분기
     let workRecordInToday: WorkRecord? = RealmService.shared.realm
@@ -22,15 +23,15 @@ extension TodayViewController {
     if let workRecordInToday = workRecordInToday {
       // - 기록이 있다면: 경고 얼럴트
       let alert = UIAlertController(
-        title: "오늘 이미 출근한 기록이 있네요🧐",
-        message: "기록을 삭제하고 다시 출근할까요?",
+        title: Text.TVC_ALERT_TITLE_1,
+        message: Text.TVC_ALERT_MESSAGE_1,
         preferredStyle: .alert
       )
       
       alert.view.tintColor = Color.immutableOrange
       
-      let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-      let ok = UIAlertAction(title: "확인", style: .default) { _ in
+      let cancel = UIAlertAction(title: Text.CANCEL, style: .cancel, handler: nil)
+      let ok = UIAlertAction(title: Text.OK, style: .default) { _ in
         // 이전 기록 삭제
         RealmService.shared.delete(workRecordInToday)
         self.todayViewModel.workRecordOfToday = nil
@@ -59,17 +60,17 @@ extension TodayViewController {
   }
   
   func showEndAlert() {
-    let alert = UIAlertController(title: nil, message: "퇴근할까요?😎", preferredStyle: .alert)
+    let alert = UIAlertController(title: nil, message: Text.TVC_ALERT_MESSAGE_2, preferredStyle: .alert)
     alert.view.tintColor = Color.immutableOrange
-    let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-    let ok = UIAlertAction(title: "확인", style: .default) { _ in
+    let cancel = UIAlertAction(title: Text.CANCEL, style: .cancel, handler: nil)
+    let ok = UIAlertAction(title: Text.OK, style: .default) { _ in
       let record =  RealmService.shared.realm
         .objects(WorkRecord.self)
         .filter { $0.endDate == nil }
         .last
       
       if let record = record {
-        RealmService.shared.update(record, with: ["endDate": Date()])
+        RealmService.shared.update(record, with: [WorkRecordEnum.endDate.str: Date()])
         self.todayViewModel.workRecordOfToday = nil
         self.isWorking.accept(false)
       }

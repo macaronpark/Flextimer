@@ -55,3 +55,9 @@
 // MARK: - TodayViewController
 
 "TVC_EDIT_RECORD" = "기록 변경";
+"TVC_ALERT_TITLE_1" = "오늘 이미 출근한 기록이 있네요🧐";
+"TVC_ALERT_MESSAGE_1" = "기록을 삭제하고 다시 출근할까요?";
+"TVC_ALERT_MESSAGE_2" = "퇴근할까요?😎";
+"CANCEL" = "취소";
+"OK" = "확인";
+

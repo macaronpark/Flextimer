@@ -55,3 +55,8 @@
 // MARK: - TodayViewController
 
 "TVC_EDIT_RECORD" = "Edit";
+"TVC_ALERT_TITLE_1" = "Already have today's record🧐";
+"TVC_ALERT_MESSAGE_1" = "Would you like to reset today's record?";
+"TVC_ALERT_MESSAGE_2" = "Shall we go home?😎"
+"CANCEL" = "Cancel";
+"OK" = "Ok";

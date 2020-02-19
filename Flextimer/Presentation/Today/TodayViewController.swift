@@ -17,6 +17,11 @@ class TodayViewController: BaseViewController {
   enum Text {
     static let TAB_BAR_1 = "Today".localized
     static let TVC_EDIT_RECORD = "TVC_EDIT_RECORD".localized
+    static let TVC_ALERT_TITLE_1 = "TVC_ALERT_TITLE_1".localized
+    static let TVC_ALERT_MESSAGE_1 = "TVC_ALERT_MESSAGE_1".localized
+    static let TVC_ALERT_MESSAGE_2 = "TVC_ALERT_MESSAGE_2".localized
+    static let CANCEL = "CANCEL".localized
+    static let OK = "OK".localized
   }
   
   let todayView = TodayView()
