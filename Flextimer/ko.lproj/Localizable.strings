@@ -61,3 +61,27 @@
 "CANCEL" = "취소";
 "OK" = "확인";
 
+
+// MARK: - HistoryTableViewCell
+
+"HTVC_OFF" = "휴무";
+"HTVC_AT_WORK_RIGHT_NOW" = "근무 중";
+
+
+// MARK: - TimeInterval
+
+"TITV_HRS" = "시간";
+"TITV_MIN" = "분";
+"TITV_SEC" = "초";
+
+
+// MARK: - HistorySectionFooterView
+
+"%@ CLEAR!" = "%@ 클리어!";
+"0hrs 0min" = "0시간 0분";
+"%@ OVER (Total %@ worked)" = "%@ 초과 (총 %@ 근무)";
+"%@ left" = "%@ 남았어요";
+"Workdays(%dd) " = "기록된 근무일(%d일) ";
+"Off(%dd) " = "휴무(%d일) ";
+"Overwork(%dd) " = "초과근무(%d) ";
+"⏱ Based on %@%@%@" = "⏱ %@%@%@ 기준";

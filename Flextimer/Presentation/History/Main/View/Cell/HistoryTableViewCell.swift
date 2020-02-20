@@ -10,6 +10,11 @@ import UIKit
 
 class HistoryTableViewCell: BaseTableViewCell {
   
+  enum Text {
+    static let HTVC_OFF = "HTVC_OFF".localized
+    static let HTVC_AT_WORK_RIGHT_NOW = "HTVC_AT_WORK_RIGHT_NOW".localized
+  }
+  
   let titleLabel = UILabel().then {
     $0.textColor = Color.primaryText
     $0.font = Font.REGULAR_16
@@ -78,7 +83,7 @@ class HistoryTableViewCell: BaseTableViewCell {
     if let isHoliday = model.workRecord?.isHoliday {
       if isHoliday == true {
         self.disclosureIndicatorImageView.isHidden = isHoliday
-        self.totalWorkhoursADayLabel.text = "휴무"
+        self.totalWorkhoursADayLabel.text = Text.HTVC_OFF;
       }
     }
     
@@ -101,8 +106,7 @@ class HistoryTableViewCell: BaseTableViewCell {
       .last
       
       if let _ = workRecordOfToday {
-//        let timeInterval = -(todayRecord.startDate.timeIntervalSince(Date()))
-        self.totalWorkhoursADayLabel.text = "근무 중"
+        self.totalWorkhoursADayLabel.text = Text.HTVC_AT_WORK_RIGHT_NOW
         self.disclosureIndicatorImageView.isHidden = true
       }
     }

@@ -31,7 +31,6 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
     
     self.addSubview(self.containerView)
     self.containerView.addSubview(self.criteriaLabel)
-//    self.containerView.addSubview(self.totalTimeLabel)
     self.containerView.addSubview(self.remainTimeLabel)
     
     self.containerView.snp.makeConstraints {
@@ -126,14 +125,17 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
     let remainInterval = totalWorkhoursInterval - actualWorkhoursInterval
     
     if remainInterval.isZero {
-      self.remainTimeLabel.text = "\(totalWorkhoursInterval.toString(.remain)) 클리어!"
+      self.remainTimeLabel.text = "%@ CLEAR!".localized(with: [totalWorkhoursInterval.toString(.remain)])
     } else if remainInterval.isLess(than: 0.0) {
-      if (-remainInterval).toString(.remain) == "0시간 0분" {
-        self.remainTimeLabel.text = "\(totalWorkhoursInterval.toString(.remain)) 클리어!"
+      if (-remainInterval).toString(.remain) == "0hrs 0min".localized {
+        self.remainTimeLabel.text = "%@ CLEAR!".localized(with: [totalWorkhoursInterval.toString(.remain)])
       }
-      self.remainTimeLabel.text = "\((-remainInterval).toString(.remain)) 초과 (총 \(actualWorkhoursInterval.toString(.remain)) 근무)"
+      self.remainTimeLabel.text = "%@ OVER (Total %@ worked)".localized(with: [
+        (-remainInterval).toString(.remain),
+        actualWorkhoursInterval.toString(.remain)]
+      )
     } else {
-      self.remainTimeLabel.text = "\(remainInterval.toString(.remain)) 남았어요"
+      self.remainTimeLabel.text = "%@ left".localized(with: [remainInterval.toString(.remain)])
     }
   }
   
@@ -152,13 +154,18 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
     
     var workdaysString = ""
     if overWorkCount > 0 {
-      workdaysString = totalRecordCount > 0 ? "기록된 근무일(\(totalRecordCount-overWorkCount)일) ": ""
+      let str = "Workdays(%dd) ".localized(with: [(totalRecordCount - overWorkCount)])
+      workdaysString = totalRecordCount > 0 ? str: ""
     } else {
-      workdaysString = totalRecordCount > 0 ? "기록된 근무일(\(totalRecordCount)일) ": ""
+      let str = "Workdays(%dd) ".localized(with: [totalRecordCount])
+      workdaysString = totalRecordCount > 0 ? str: ""
     }
-    let holidaysString = holidayRecords.count > 0 ? "휴무(\(holidayRecords.count)일) ": ""
-    let overworkString = overWorkCount > 0 ? "초과근무(\(overWorkCount)일) ": ""
+    let holidayStr = "Off(%dd) ".localized(with: [(holidayRecords.count)])
+    let holidaysString = holidayRecords.count > 0 ? holidayStr: ""
+    
+    let overWorkingStr = "Overwork(%dd) ".localized(with: [overWorkCount])
+    let overworkString = overWorkCount > 0 ? overWorkingStr: ""
 
-    return "⏱ \(workdaysString)\(holidaysString)\(overworkString)기준"
+    return "⏱ Based on %@%@%@".localized(with: [workdaysString, holidaysString, overworkString])
   }
 }

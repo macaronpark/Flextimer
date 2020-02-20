@@ -10,12 +10,16 @@ import UIKit
 
 class HistoryDateCheckView: UIView {
   
+  enum Text {
+    static let TODAY = "Today".localized;
+  }
+  
   let currentYearMonthButton = HistoryButton().then {
     $0.setTitle(Formatter.yyyyMM.string(from: Date()), for: .normal)
   }
   
   let todayButton = HistoryButton().then {
-    $0.setTitle("오늘", for: .normal)
+    $0.setTitle(Text.TODAY, for: .normal)
   }
 
   override init(frame: CGRect) {

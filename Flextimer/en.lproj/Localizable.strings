@@ -57,6 +57,31 @@
 "TVC_EDIT_RECORD" = "Edit";
 "TVC_ALERT_TITLE_1" = "Already have today's record🧐";
 "TVC_ALERT_MESSAGE_1" = "Would you like to reset today's record?";
-"TVC_ALERT_MESSAGE_2" = "Shall we go home?😎"
+"TVC_ALERT_MESSAGE_2" = "Shall we go home?😎";
 "CANCEL" = "Cancel";
 "OK" = "Ok";
+
+
+// MARK: - HistoryTableViewCell
+
+"HTVC_OFF" = "Off";
+"HTVC_AT_WORK_RIGHT_NOW" = "At work right now";
+
+
+// MARK: - TimeInterval
+
+"TITV_HRS" = "hrs";
+"TITV_MIN" = "min";
+"TITV_SEC" = "sec";
+
+
+// MARK: - HistorySectionFooterView
+
+"%@ CLEAR!" = "%@ CLEAR!";
+"0hrs 0min" = "0hrs 0min";
+"%@ OVER (Total %@ worked)" = "%@ OVER (Total %@ worked)";
+"%@ left" = "%@ left";
+"Workdays(%dd) " = "Workdays(%dd) ";
+"Off(%dd) " = "Off(%dd) ";
+"Overwork(%dd) " = "Overwork(%dd) ";
+"⏱ Based on %@%@%@" = "⏱ Based on %@%@%@";

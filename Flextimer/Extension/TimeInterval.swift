@@ -10,6 +10,12 @@ import Foundation
 
 extension TimeInterval {
   
+  enum Text {
+    static let TITV_HRS = "TITV_HRS".localized
+    static let TITV_MIN = "TITV_MIN".localized
+    static let TITV_SEC = "TITV_SEC".localized
+  }
+  
   /// TimeInterval을 사용하는 총 근무시간, 남은 근무시간 계산 시 toString(_:) 함수를 재사용하기 위한 enum
   enum TimeOption {
     /// 현재까지 총 근무 시간
@@ -40,18 +46,18 @@ extension TimeInterval {
     case .remain, .week:
       // 0시 0분 x초인 경우: 0시 0분 절사
       if hours == 0, minutes == 0, seconds != 0 {
-        return String(format: "%0.\(secondsCount)d초", seconds)
+        return String(format: "%0.\(secondsCount)d\(Text.TITV_SEC)", seconds)
       }
       // 0시 x분인 경우: 0시 절사
       if hours == 0, minutes != 0 {
-        return String(format: "%0.\(minutesCount)d분", minutes)
+        return String(format: "%0.\(minutesCount)d\(Text.TITV_MIN)", minutes)
       }
       // x시 0분인 경우: 0분 절사
       if hours != 0, minutes == 0 {
-        return String(format: "%0.\(hoursCount)d시간", hours)
+        return String(format: "%0.\(hoursCount)d\(Text.TITV_HRS)", hours)
       }
       // 그 외 'x시 x분' 형태로 리턴
-      return String(format: " %0.\(hoursCount)d시간 %0.\(minutesCount)d분", hours, minutes)
+      return String(format: " %0.\(hoursCount)d\(Text.TITV_HRS) %0.\(minutesCount)d\(Text.TITV_MIN)", hours, minutes)
     }
   }
 }
