@@ -16,6 +16,10 @@ class HistoryViewController: BaseViewController {
   
   enum Text {
     static let tabBar2 = "Record".localized
+    static let HVC_GO = "HVC_GO".localized
+    static let HVC_OFF = "HVC_OFF".localized
+    static let HVC_DELETE = "HVC_DELETE".localized
+    static let HVC_CREATE = "HVC_CREATE".localized
   }
   
   var displayedDate = BehaviorRelay<Date>(value: Date())
@@ -109,7 +113,7 @@ class HistoryViewController: BaseViewController {
       }).disposed(by: self.disposeBag)
     
     displayedDate
-      .map {"\($0.year)년 \($0.month)월" }
+      .map { "%d. %d.".localized(with: [$0.year, $0.month]) }
       .bind(to: self.dateCheckView.currentYearMonthButton.rx.title(for: .normal))
       .disposed(by: self.disposeBag)
 
@@ -124,7 +128,7 @@ class HistoryViewController: BaseViewController {
           parent: self,
           current: self?.displayedDate.value ?? Date(),
           mode: .date,
-          doneButtonTitle: "기록 조회"
+          doneButtonTitle: Text.HVC_GO
         ).skip(1)
     }.bind { [weak self] date in
       self?.displayedDate.accept(date)

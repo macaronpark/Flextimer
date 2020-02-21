@@ -85,3 +85,20 @@
 "Off(%dd) " = "Off(%dd) ";
 "Overwork(%dd) " = "Overwork(%dd) ";
 "⏱ Based on %@%@%@" = "⏱ Based on %@%@%@";
+
+
+// MARK: - HistoryViewController
+
+"%d. %d." = "%d. %d.";
+"HVC_GO" = "Go";
+"HVC_OFF" = "Off";
+"HVC_DELETE" = "Delete";
+"HVC_CREATE" = "Create";
+
+
+// MARK: - HistoryDetailViewModel
+
+"HDVM_NO_CONTENT" = "(No content)";
+"HDVM_START" = "Start";
+"HDVM_END" = "End";
+"HDVM_MEMO" = "Memo";

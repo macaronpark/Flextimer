@@ -44,6 +44,15 @@ class HistoryDetailSectionModel {
 }
 
 class HistoryDetailViewModel {
+  
+  enum Text {
+    static let TVM_ZERO_MIN = "TVM_ZERO_MIN".localized
+    static let HDVM_NO_CONTENT = "HDVM_NO_CONTENT".localized
+    static let HDVM_START = "HDVM_START".localized
+    static let HDVM_END = "HDVM_END".localized
+    static let HDVM_MEMO = "HDVM_MEMO".localized
+  }
+  
   let sections: [HistoryDetailSectionModel]
   
   init(_ workRecord: WorkRecord) {
@@ -56,7 +65,7 @@ class HistoryDetailViewModel {
         textColor: Color.secondaryText
       ),
       HistoryDetailCellModel(
-        Formatter.shm.string(from: workRecord.startDate).replacingOccurrences(of: " 0분", with: ""),
+        Formatter.shm.string(from: workRecord.startDate).replacingOccurrences(of: Text.TVM_ZERO_MIN, with: ""),
         isHoliday: workRecord.isHoliday
       )
     ]
@@ -72,7 +81,7 @@ class HistoryDetailViewModel {
           textColor: Color.secondaryText
         ),
         HistoryDetailCellModel(
-          Formatter.shm.string(from: workRecord.endDate ?? Date()).replacingOccurrences(of: " 0분", with: ""),
+          Formatter.shm.string(from: workRecord.endDate ?? Date()).replacingOccurrences(of: Text.TVM_ZERO_MIN, with: ""),
           isHoliday: workRecord.isHoliday
         )
       ]
@@ -84,7 +93,7 @@ class HistoryDetailViewModel {
     }
     
     // 적바림
-    var memoText = "등록된 내용 없음"
+    var memoText = Text.HDVM_NO_CONTENT;
     var memoColor = UIColor.quaternaryLabel
     
     if let memo = workRecord.memo, memo.count > 0 {
@@ -96,9 +105,9 @@ class HistoryDetailViewModel {
       HistoryDetailCellModel(memoText, isEditable: true, textColor: memoColor)
     ]
 
-    let startSection = HistoryDetailSectionModel(startRows, sectionTitle: "출근")
-    let endSection = HistoryDetailSectionModel(endRows, sectionTitle: "퇴근")
-    let memoSection = HistoryDetailSectionModel(memoRows, sectionTitle: "적바림")
+    let startSection = HistoryDetailSectionModel(startRows, sectionTitle: Text.HDVM_START)
+    let endSection = HistoryDetailSectionModel(endRows, sectionTitle: Text.HDVM_END)
+    let memoSection = HistoryDetailSectionModel(memoRows, sectionTitle: Text.HDVM_MEMO)
 
     self.sections = [
       startSection,

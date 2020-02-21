@@ -47,13 +47,13 @@ extension HistoryViewController: UITableViewDelegate {
     
     let holidayAction = UIContextualAction(
       style: .normal,
-      title: "휴무 처리",
+      title: Text.HVC_OFF,
       handler: { _, _, completion in
         
         let date = date
         
         if let workRecord = workRecord {
-          RealmService.shared.update(workRecord, with: ["isHoliday": true])
+          RealmService.shared.update(workRecord, with: [WorkRecordEnum.isHoliday.str: true])
           self.displayedDate.accept(workRecord.startDate)
         } else {
           // 기록이 없으면 만들어서
@@ -66,7 +66,7 @@ extension HistoryViewController: UITableViewDelegate {
     
     let deleteAction = UIContextualAction(
       style: .destructive,
-      title: "기록 삭제",
+      title: Text.HVC_DELETE,
       handler: { _, _, completion in
         if let workRecord = workRecord {
           let date = workRecord.startDate
@@ -78,7 +78,7 @@ extension HistoryViewController: UITableViewDelegate {
     
     let createAction = UIContextualAction(
       style: .normal,
-      title: "기록 생성",
+      title: Text.HVC_CREATE,
       handler: { _, _, completion in
         // 출근 시간은 임의로 오전 9시로 고정해서 설정
         let startDateHour = Calendar.current.date(
