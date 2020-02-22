@@ -28,15 +28,25 @@ class HistoryDateCheckView: UIView {
     self.addSubview(self.currentYearMonthButton)
     self.addSubview(self.todayButton)
     
+    let ymLabel = UILabel().then {
+      $0.text = self.currentYearMonthButton.titleLabel?.text
+      $0.sizeToFit()
+    }
+    
+    let tdLabel = UILabel().then {
+      $0.text = self.todayButton.titleLabel?.text
+      $0.sizeToFit()
+    }
+    
     self.todayButton.snp.makeConstraints {
       $0.centerY.equalToSuperview()
       $0.trailing.equalToSuperview().offset(-10)
-      $0.size.equalTo(CGSize(width: 60, height: 40))
+      $0.size.equalTo(CGSize(width: tdLabel.frame.width + 32, height: 40))
     }
     self.currentYearMonthButton.snp.makeConstraints {
       $0.centerY.equalToSuperview()
       $0.trailing.equalTo(self.todayButton.snp.leading).offset(-8)
-      $0.size.equalTo(CGSize(width: 120, height: 40))
+      $0.size.equalTo(CGSize(width: ymLabel.frame.width + 32, height: 40))
     }
   }
   
