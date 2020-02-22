@@ -12,6 +12,10 @@ import RealmSwift
 
 class HistoryDetailViewController: BaseViewController {
   
+  enum Text {
+    static let TVC_EDIT_RECORD = "TVC_EDIT_RECORD".localized
+  }
+  
   var workRecord: WorkRecord?
   
   var notificationToken: NotificationToken?

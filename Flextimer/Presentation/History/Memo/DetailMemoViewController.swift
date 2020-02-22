@@ -85,7 +85,7 @@ class DetailMemoViewController: BaseViewController {
         
         RealmService.shared.update(
           workRecord,
-          with: ["memo": text]
+          with: [WorkRecordEnum.memo.str: text]
         )
         
     }).disposed(by: self.disposeBag)

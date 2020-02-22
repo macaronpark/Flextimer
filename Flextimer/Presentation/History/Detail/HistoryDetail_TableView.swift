@@ -43,7 +43,7 @@ extension HistoryDetailViewController: UITableViewDelegate {
       current: current,
       min: minForEndDate,
       mode: pickerMode,
-      doneButtonTitle: "기록 변경"
+      doneButtonTitle: Text.TVC_EDIT_RECORD
     ).subscribe(onNext: { [weak self] date in
       guard let self = self else { return }
       
@@ -53,7 +53,7 @@ extension HistoryDetailViewController: UITableViewDelegate {
         .last
       
       if let workRecord = workRecord {
-        let key = (isStart ? "startDate": "endDate")
+        let key = (isStart ? WorkRecordEnum.startDate.str: WorkRecordEnum.endDate.str)
         RealmService.shared.update(workRecord, with: [key: date])
       }
       
