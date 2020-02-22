@@ -102,3 +102,22 @@
 "HDVM_START" = "출근";
 "HDVM_END" = "퇴근";
 "HDVM_MEMO" = "적바림";
+
+
+// MARK: - SettingViewModel
+
+"%dhrs" = "%d시간";
+"%dhrs %dmin" = "%d시간 %d분";
+
+"SVM_VERSION" = "버전";
+"SVM_DEVELOPER" = "개발자";
+"SVM_OPENSOURCE" = "오픈소스";
+"SVM_TUTORIAL" = "튜토리얼";
+
+
+// MARK: - SettingViewController
+
+"SVC_SETTINGS" = "설정";
+"SVC_SECTION1" = "일일 근무 시간";
+"SVC_SECTION2" = "주간 근무 요일";
+"SVC_SECTION3" = "기타";

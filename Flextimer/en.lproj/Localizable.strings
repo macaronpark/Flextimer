@@ -102,3 +102,22 @@
 "HDVM_START" = "Start";
 "HDVM_END" = "End";
 "HDVM_MEMO" = "Memo";
+
+
+// MARK: - SettingViewModel
+
+"%dhrs" = "%dhrs";
+"%dhrs %dmin" = "%dhrs %dmin";
+
+"SVM_VERSION" = "Version";
+"SVM_DEVELOPER" = "Developer";
+"SVM_OPENSOURCE" = "Opensource";
+"SVM_TUTORIAL" = "Tutorial";
+
+
+// MARK: - SettingViewController
+
+"SVC_SETTINGS" = "Settings";
+"SVC_SECTION1" = "Workhours per a Day";
+"SVC_SECTION2" = "Workdays per a Week";
+"SVC_SECTION3" = "Etc.";

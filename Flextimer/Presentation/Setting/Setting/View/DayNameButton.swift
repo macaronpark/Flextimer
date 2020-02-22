@@ -50,7 +50,7 @@ class DayNameButton: UIButton {
     let updateIdxs = workdaysPerWeekIdxs.sorted { $0 < $1 }
     RealmService.shared.update(
       RealmService.shared.userInfo,
-      with: ["workdaysPerWeekIdxs": updateIdxs]
+      with: [UserInfoEnum.workdaysPerWeekIdxs.str: updateIdxs]
     )
   }
 }

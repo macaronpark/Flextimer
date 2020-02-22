@@ -50,7 +50,7 @@ extension SettingViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    let title = ["일일 근무 시간", "주간 근무 요일", "기타"]
+    let title = [Text.SVC_SECTION1, Text.SVC_SECTION2, Text.SVC_SECTION3]
     return title[section]
   }
   

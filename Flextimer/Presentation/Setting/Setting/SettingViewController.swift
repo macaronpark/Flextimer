@@ -12,6 +12,13 @@ import RealmSwift
 
 class SettingViewController: BaseViewController {
   
+  enum Text {
+    static let SVC_SETTINGS = "SVC_SETTING".localized
+    static let SVC_SECTION1 = "SVC_SECTION1".localized
+    static let SVC_SECTION2 = "SVC_SECTION2".localized
+    static let SVC_SECTION3 = "SVC_SECTION3".localized
+  }
+  
   var impactGenerator: UIImpactFeedbackGenerator?
   
   var userInfoNotificationToken: NotificationToken?
@@ -62,7 +69,7 @@ class SettingViewController: BaseViewController {
   override func setupNaviBar() {
     super.setupNaviBar()
     
-    self.title = "설정"
+    self.title = Text.SVC_SETTINGS
     self.navigationItem.leftBarButtonItem = self.closeBarButton
   }
   
