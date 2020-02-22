@@ -13,8 +13,13 @@ import RxSwift
 
 class TodayButtonsView: UIView {
   
-  let startButton = TodayButton("출근")
-  let endButton = TodayButton("퇴근")
+  enum Text {
+    static let HDVM_START = "HDVM_START".localized
+    static let HDVM_END = "HDVM_END".localized
+  }
+  
+  let startButton = TodayButton(Text.HDVM_START)
+  let endButton = TodayButton(Text.HDVM_END)
   
   override init(frame: CGRect) {
     super.init(frame: frame)

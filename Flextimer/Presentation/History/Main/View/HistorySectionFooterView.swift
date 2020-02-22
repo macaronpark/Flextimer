@@ -130,7 +130,7 @@ class HistorySectionFooterView: UITableViewHeaderFooterView {
       if (-remainInterval).toString(.remain) == "0hrs 0min".localized {
         self.remainTimeLabel.text = "%@ CLEAR!".localized(with: [totalWorkhoursInterval.toString(.remain)])
       }
-      self.remainTimeLabel.text = "%@ OVER (Total %@ worked)".localized(with: [
+      self.remainTimeLabel.text = "%@ OVER (Total %@)".localized(with: [
         (-remainInterval).toString(.remain),
         actualWorkhoursInterval.toString(.remain)]
       )

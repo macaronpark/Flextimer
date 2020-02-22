@@ -10,6 +10,10 @@ import UIKit
 
 class TodayListCellView: UIView {
   
+  enum Text {
+    static let HDVM_START = "HDVM_START".localized
+  }
+  
   let titleLabel = UILabel().then {
     $0.textColor = Color.primaryText
     $0.font = Font.REGULAR_16
@@ -69,7 +73,7 @@ class TodayListCellView: UIView {
       $0.trailing.bottom.equalToSuperview()
     }
     
-    if (title == "출근") {
+    if (title == Text.HDVM_START) {
       self.editButton.isHidden = false
     }
   }

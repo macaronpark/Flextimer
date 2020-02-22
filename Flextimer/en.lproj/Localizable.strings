@@ -52,6 +52,18 @@
 "Total: %dhrs %dmin" = "Total: %dhrs %dmin";
 
 
+// MARK: - TodayTimerView
+
+"TTV_DESCRIPTION" = "To start to record, tap 'Start' button.";
+"TTV_AT_WORK_RIGHT_NOW" = "At work right now";
+
+
+// MARK: - TodayListStackView
+"TLSV_END_PREDICT" = "End Predict";
+"TLSV_REMAINS" = "Remains";
+"%@ OVER" = "%@ OVER";
+
+
 // MARK: - TodayViewController
 
 "TVC_EDIT_RECORD" = "Edit";
@@ -79,7 +91,7 @@
 
 "%@ CLEAR!" = "%@ CLEAR!";
 "0hrs 0min" = "0hrs 0min";
-"%@ OVER (Total %@ worked)" = "%@ OVER (Total %@ worked)";
+"%@ OVER (Total %@)" = "%@ OVER (Total %@)";
 "%@ left" = "%@ left";
 "Workdays(%dd) " = "Workdays(%dd) ";
 "Off(%dd) " = "Off(%dd) ";
@@ -120,4 +132,19 @@
 "SVC_SETTINGS" = "Settings";
 "SVC_SECTION1" = "Workhours per a Day";
 "SVC_SECTION2" = "Workdays per a Week";
-"SVC_SECTION3" = "Etc.";
+"SVC_SECTION3" = "Etc";
+
+
+// MARK: - WorkhoursADayViewController
+
+"%dmin" = "%dmin";
+
+
+// MARK: - Formatter
+
+"FMT_SHM" = "h:mm a";
+"FMT_AM" = "AM";
+"FMT_PM" = "PM";
+"FMT_DAY" = "MMM d EE";
+"FMT_DAY_TIME" = "MMM d h:mm a";
+"FMT_YYYYMM" = "MMM yyyy";

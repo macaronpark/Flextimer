@@ -15,7 +15,10 @@ extension WorkhoursADayViewController: UIPickerViewDelegate {
     titleForRow row: Int,
     forComponent component: Int
   ) -> String? {
-    return (component == 0) ? "\(self.hours[row])시간": "\(self.minutes[row])분"
+    let hrsStr = "%dhrs".localized(with: [self.hours[row]])
+    let minStr = "%dmin".localized(with: [self.minutes[row]])
+    
+    return (component == 0) ? hrsStr: minStr
   }
 }
 

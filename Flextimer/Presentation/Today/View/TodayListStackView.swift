@@ -13,11 +13,17 @@ import RxCocoa
 
 class TodayListStackView: UIStackView {
   
-  let startCell = TodayListCellView("출근", description: "--:--", color: Color.secondaryText)
-
-  let endCell = TodayListCellView("퇴근 예상", description: "--:--", color: Color.primaryText)
+  enum Text {
+    static let HDVM_START = "HDVM_START".localized
+    static let TLSV_TO_LEAVE = "TLSV_END_PREDICT".localized
+    static let TLSV_REMAINS = "TLSV_REMAINS".localized
+  }
   
-  let remainTimeCell = TodayListCellView("남은시간", description: "--:--", color: Color.immutableOrange)
+  let startCell = TodayListCellView(Text.HDVM_START, description: "--:--", color: Color.secondaryText)
+
+  let endCell = TodayListCellView(Text.TLSV_TO_LEAVE, description: "--:--", color: Color.primaryText)
+  
+  let remainTimeCell = TodayListCellView(Text.TLSV_REMAINS, description: "--:--", color: Color.immutableOrange)
   
   let startCellButton = UIButton().then {
     $0.backgroundColor = .clear
@@ -80,11 +86,11 @@ extension Reactive where Base: TodayListStackView {
           
           if let remains = isLessRemainsThanWorkhoursADay.raminsInterval {
             if remains > 0 {
-              base.remainTimeCell.descriptionLabel.text = remains.toString(.remain) + " 남았어요"
+              base.remainTimeCell.descriptionLabel.text = "%@ left".localized(with: [remains.toString(.remain)])
             } else if remains.isZero {
-              base.remainTimeCell.descriptionLabel.text = totalWorkHourInterval.toString(.remain) + " 클리어!"
+              base.remainTimeCell.descriptionLabel.text = "%@ CLEAR!".localized(with: [totalWorkHourInterval.toString(.remain)])
             } else {
-              base.remainTimeCell.descriptionLabel.text = (-remains).toString(.remain) + " 째 초과근무 중"
+              base.remainTimeCell.descriptionLabel.text = "%@ OVER".localized(with: [(-remains).toString(.remain)])
             }
           }
           
@@ -111,14 +117,14 @@ extension Reactive where Base: TodayListStackView {
     let remainInterval = totalWorkHourInterval - interval
     
     if remainInterval.isZero {
-      return remainInterval.toString(.remain) + " 클리어!"
+      return "%@ CLEAR!".localized(with: [remainInterval.toString(.remain)])
     } else if remainInterval.isLess(than: 0.0) {
-      if (-remainInterval).toString(.remain) == "0시간 0분" {
-        return remainInterval.toString(.remain) + " 클리어!"
+      if (-remainInterval).toString(.remain) == "0hrs 0min".localized {
+        return "%@ CLEAR!".localized(with: [remainInterval.toString(.remain)])
       }
-      return (-remainInterval).toString(.remain) + "째 초과근무 중"
+      return "%@ OVER".localized(with: [(-remainInterval).toString(.remain)])
     } else {
-      return remainInterval.toString(.remain) + " 남았어요"
+      return "%@ left".localized(with: [remainInterval.toString(.remain)])
     }
   }
 }

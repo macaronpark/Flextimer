@@ -13,12 +13,16 @@ import RxCocoa
 
 class TodayTimerView: UIView {
   
+  enum Text {
+    static let TTV_DESCRIPTION = "TTV_DESCRIPTION".localized
+  }
+  
   let descriptionLabel = UILabel().then {
     $0.font = Font.REGULAR_16
     $0.textColor = Color.secondaryText
     $0.adjustsFontSizeToFitWidth = true
     $0.textAlignment = .center
-    $0.text = "근무를 시작하려면 '출근'버튼을 눌러주세요"
+    $0.text = Text.TTV_DESCRIPTION
   }
   
   let timerLabel = UILabel().then {
@@ -55,20 +59,20 @@ extension Reactive where Base: TodayTimerView {
     return Binder(self.base) { base, viewModel in
       guard let startDate = viewModel.workRecordOfToday?.startDate else {
         base.timerLabel.text = "00:00:00"
-        base.descriptionLabel.text = "근무를 시작하려면 '출근'버튼을 눌러주세요"
+        base.descriptionLabel.text = "TTV_DESCRIPTION".localized
         return
       }
       
       let interval = Date().timeIntervalSince(startDate).rounded()
       base.timerLabel.text = interval.toString(.total)
-      base.descriptionLabel.text = "지금은 근무 중"
+      base.descriptionLabel.text = "TTV_AT_WORK_RIGHT_NOW".localized
     }
   }
   
   var resetTimer: Binder<Bool> {
     return Binder(self.base) { base, interval in
       base.timerLabel.text = "00:00:00"
-      base.descriptionLabel.text = "근무를 시작하려면 '출근'버튼을 눌러주세요"
+      base.descriptionLabel.text = "TTV_DESCRIPTION".localized
     }
   }
 }

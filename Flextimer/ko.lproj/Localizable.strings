@@ -52,6 +52,18 @@
 "Total: %dhrs %dmin" = "%d시간 %d분 기준";
 
 
+// MARK: - TodayTimerView
+
+"TTV_DESCRIPTION" = "근무를 시작하려면 '출근'버튼을 눌러주세요";
+"TTV_AT_WORK_RIGHT_NOW" = "지금은 근무 중";
+
+
+// MARK: - TodayListStackView
+
+"TLSV_END_PREDICT" = "퇴근 예상";
+"TLSV_REMAINS" = "남은 시간";
+"%@ OVER" = "%@ 초과";
+
 // MARK: - TodayViewController
 
 "TVC_EDIT_RECORD" = "기록 변경";
@@ -79,7 +91,7 @@
 
 "%@ CLEAR!" = "%@ 클리어!";
 "0hrs 0min" = "0시간 0분";
-"%@ OVER (Total %@ worked)" = "%@ 초과 (총 %@ 근무)";
+"%@ OVER (Total %@)" = "%@ 초과 (총 %@ 근무)";
 "%@ left" = "%@ 남았어요";
 "Workdays(%dd) " = "기록된 근무일(%d일) ";
 "Off(%dd) " = "휴무(%d일) ";
@@ -121,3 +133,18 @@
 "SVC_SECTION1" = "일일 근무 시간";
 "SVC_SECTION2" = "주간 근무 요일";
 "SVC_SECTION3" = "기타";
+
+
+// MARK: - WorkhoursADayViewController
+
+"%dmin" = "%분";
+
+
+// MARK: - Formatter
+
+"FMT_SHM" = "a h시 m분";
+"FMT_AM" = "오전";
+"FMT_PM" = "오후";
+"FMT_DAY" = "M월 d일 EE";
+"FMT_DAY_TIME" = "M월 d일 a h시 m분";
+"FMT_YYYYMM" = "yyyy년 M월";
