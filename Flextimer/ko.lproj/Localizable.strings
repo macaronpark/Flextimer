@@ -148,3 +148,14 @@
 "FMT_DAY" = "M월 d일 EE";
 "FMT_DAY_TIME" = "M월 d일 a h시 m분";
 "FMT_YYYYMM" = "yyyy년 M월";
+
+
+// MARK: - SettingDayNameCell
+
+"DAY_NAME_0" = "월";
+"DAY_NAME_1" = "화";
+"DAY_NAME_2" = "수";
+"DAY_NAME_3" = "목";
+"DAY_NAME_4" = "금";
+"DAY_NAME_5" = "토";
+"DAY_NAME_6" = "일";

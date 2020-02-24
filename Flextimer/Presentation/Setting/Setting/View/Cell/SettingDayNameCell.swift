@@ -10,14 +10,24 @@ import UIKit
 
 final class SettingDayNameCell: BaseTableViewCell {
   
+  enum Text {
+    static let DAY_NAME_0 = "DAY_NAME_0".localized
+    static let DAY_NAME_1 = "DAY_NAME_1".localized
+    static let DAY_NAME_2 = "DAY_NAME_2".localized
+    static let DAY_NAME_3 = "DAY_NAME_3".localized
+    static let DAY_NAME_4 = "DAY_NAME_4".localized
+    static let DAY_NAME_5 = "DAY_NAME_5".localized
+    static let DAY_NAME_6 = "DAY_NAME_6".localized
+  }
+  
   let buttons:[DayNameButton] = [
-    DayNameButton("월", idx: 0),
-    DayNameButton("화", idx: 1),
-    DayNameButton("수", idx: 2),
-    DayNameButton("목", idx: 3),
-    DayNameButton("금", idx: 4),
-    DayNameButton("토", idx: 5),
-    DayNameButton("일", idx: 6)
+    DayNameButton(Text.DAY_NAME_0, idx: 0),
+    DayNameButton(Text.DAY_NAME_1, idx: 1),
+    DayNameButton(Text.DAY_NAME_2, idx: 2),
+    DayNameButton(Text.DAY_NAME_3, idx: 3),
+    DayNameButton(Text.DAY_NAME_4, idx: 4),
+    DayNameButton(Text.DAY_NAME_5, idx: 5),
+    DayNameButton(Text.DAY_NAME_6, idx: 6)
   ]
 
   let stackView = UIStackView().then {

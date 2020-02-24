@@ -148,3 +148,15 @@
 "FMT_DAY" = "MMM d EE";
 "FMT_DAY_TIME" = "MMM d h:mm a";
 "FMT_YYYYMM" = "MMM yyyy";
+
+
+// MARK: - SettingDayNameCell
+
+"DAY_NAME_0" = "M";
+"DAY_NAME_1" = "T";
+"DAY_NAME_2" = "W";
+"DAY_NAME_3" = "T";
+"DAY_NAME_4" = "F";
+"DAY_NAME_5" = "S";
+"DAY_NAME_6" = "S";
+

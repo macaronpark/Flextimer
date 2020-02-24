@@ -41,12 +41,12 @@ class HistoryDateCheckView: UIView {
     self.todayButton.snp.makeConstraints {
       $0.centerY.equalToSuperview()
       $0.trailing.equalToSuperview().offset(-10)
-      $0.size.equalTo(CGSize(width: tdLabel.frame.width + 32, height: 40))
+      $0.size.equalTo(CGSize(width: (tdLabel.frame.size.width + 32), height: 40))
     }
     self.currentYearMonthButton.snp.makeConstraints {
       $0.centerY.equalToSuperview()
       $0.trailing.equalTo(self.todayButton.snp.leading).offset(-8)
-      $0.size.equalTo(CGSize(width: ymLabel.frame.width + 32, height: 40))
+      $0.size.equalTo(CGSize(width: (ymLabel.frame.size.width + 32), height: 40))
     }
   }
   
