@@ -11,7 +11,7 @@ import UIKit
 class HistoryDateCheckView: UIView {
   
   enum Text {
-    static let TODAY = "Today".localized;
+    static let HDCV_TODAY = "HDCV_TODAY".localized;
   }
   
   let currentYearMonthButton = HistoryButton().then {
@@ -19,7 +19,7 @@ class HistoryDateCheckView: UIView {
   }
   
   let todayButton = HistoryButton().then {
-    $0.setTitle(Text.TODAY, for: .normal)
+    $0.setTitle(Text.HDCV_TODAY, for: .normal)
   }
 
   override init(frame: CGRect) {

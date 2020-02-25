@@ -87,6 +87,10 @@
 "TITV_SEC" = "초";
 
 
+// MARK: - HistoryDateCheckView
+"HDCV_TODAY" = "오늘";
+
+
 // MARK: - HistorySectionFooterView
 
 "%@ CLEAR!" = "%@ 클리어!";
