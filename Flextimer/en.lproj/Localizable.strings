@@ -167,7 +167,7 @@
 // MARK: - TodayViewController
 
 "TVC_RECORD_EXIST" = "Already have today's record🧐. Check it out on the app.";
-"TVC_GO_HOME" = "You, who were greate today as usual😎. Let's go home!🌴🛁🧡";
+"TVC_GO_HOME" = "You, who were great today as usual😎, let's go home!🌴🛁🧡";
 
 "Start: %@" = "Start: %@";
 "%@ left to go home" = "%@ left to go home.";
