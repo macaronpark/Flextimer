@@ -163,3 +163,14 @@
 "DAY_NAME_5" = "Sat";
 "DAY_NAME_6" = "Sun";
 
+
+// MARK: - TodayViewController
+
+"TVC_RECORD_EXIST" = "Already have today's record🧐. Check it out on the app.";
+"TVC_GO_HOME" = "You, who were greate today as usual😎. Let's go home!🌴🛁🧡";
+
+"Start: %@" = "Start: %@";
+"%@ left to go home" = "%@ left to go home.";
+"🚨Overworking Alert🚨 %@ OVER" = "🚨Overworking Alert🚨 %@ OVER";
+"TVC_%@ OVER" = "%@ OVER";
+"%@ left" = "%@ left.";

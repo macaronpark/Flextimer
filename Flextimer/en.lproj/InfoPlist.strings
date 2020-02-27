@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  Flextimer
+
+  Created by Suzy Mararon Park on 2020/02/27.
+  Copyright © 2020 Suzy Mararon Park. All rights reserved.
+*/
+
+"CFBundleName" = "Flextimer";
+"CFBundleDisplayName" = "Flextimer";

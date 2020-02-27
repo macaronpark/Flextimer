@@ -10,6 +10,11 @@ import Foundation
 import UIKit
 
 class WidgetButton: UIButton {
+  
+  enum Text {
+    static let HDVM_START = "HDVM_START".localized
+    static let HDVM_END = "HDVM_END".localized
+  }
 
   enum WidgetButtonType {
     case start
@@ -18,9 +23,9 @@ class WidgetButton: UIButton {
     var title: String {
       switch self {
       case .start:
-        return "출근"
+        return Text.HDVM_START
       case .end:
-        return "퇴근"
+        return Text.HDVM_END
       }
     }
   }

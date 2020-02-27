@@ -162,3 +162,16 @@
 "DAY_NAME_4" = "금";
 "DAY_NAME_5" = "토";
 "DAY_NAME_6" = "일";
+
+
+// MARK: - TodayViewController
+
+"TVC_RECORD_EXIST" = "이미 출근한 기록이 있네요🧐. 앱에서 확인 해 주세요.";
+"TVC_GO_HOME" = "오늘 하루도 멋졌던 당신😎, 떠나요 집으로!🌴🛁🧡";
+
+
+"Start: %@" = "출근: %@";
+"%@ left to go home" = "퇴근까지 %@ 남았어요.";
+"🚨Overworking Alert🚨 %@ OVER" = "🚨초과 근무 경보🚨 %@째 초과근무 중";
+"TVC_%@ OVER" = "%@째 초과근무 중";
+"%@ left" = "%@ 남았어요.";

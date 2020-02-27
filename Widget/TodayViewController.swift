@@ -15,6 +15,12 @@ import RxSwift
 
 class TodayViewController: UIViewController, NCWidgetProviding {
   
+  enum Text {
+    static let TTV_DESCRIPTION = "TTV_DESCRIPTION".localized
+    static let TVC_RECORD_EXIST = "TVC_RECORD_EXIST".localized
+    static let TVC_GO_HOME = "TVC_GO_HOME".localized
+  }
+  
   @IBOutlet weak var startButton: WidgetButton!
   
   @IBOutlet weak var endButton: WidgetButton!
@@ -47,7 +53,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
       .last
     
     self.isWorking.accept((todayRecord != nil ? true: false))
-    self.descriptionString.accept((todayRecord != nil) ? "": "'출근'버튼을 누르면 기록이 시작됩니다")
+    self.descriptionString.accept((todayRecord != nil) ? "": Text.TTV_DESCRIPTION)
     self.bind()
   }
   
@@ -106,7 +112,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }.bind { [weak self] isTodayRecordExist in
       if (isTodayRecordExist == true) {
         self?.alertLabel.textColor = .red
-        self?.descriptionString.accept("이미 출근한 기록이 있네요. 앱에서 확인 해 주세요.")
+        self?.descriptionString.accept(Text.TVC_RECORD_EXIST)
       } else {
         let newRecord = WorkRecord(Date())
         RealmService.shared.create(newRecord)
@@ -122,9 +128,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
       return record
     }.bind { [weak self] workRecord in
       if let workRecord = workRecord {
-        RealmService.shared.update(workRecord, with: ["endDate": Date()])
+        RealmService.shared.update(workRecord, with: [WorkRecordEnum.endDate.str: Date()])
         self?.isWorking.accept(false)
-        self?.descriptionString.accept("오늘 하루도 멋졌던 당신😎, 떠나요 집으로!🌴🛁🧡")
+        self?.descriptionString.accept(Text.TVC_GO_HOME)
       }
     }.disposed(by: self.disposeBag)
   }
@@ -163,7 +169,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
       .last
     
     if let record = record {
-      self.startTimeLabel.text = "출근: \(Formatter.shm.string(from: record.startDate))"
+      self.startTimeLabel.text = "Start: %@".localized(with: [Formatter.shm.string(from: record.startDate)])
       
       let isLessRemainsThanWorkhoursADay = self.isLessRemainsThanWorkhoursADay()
       
@@ -175,15 +181,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         if let remains = isLessRemainsThanWorkhoursADay.raminsInterval {
           if remains > 0 {
-            self.remainTimeLabel.text = "퇴근까지 " + remains.toString(.remain) + " 남았어요"
+            self.remainTimeLabel.text = "%@ left to go home".localized(with: [remains.toString(.remain)])
           } else if remains.isZero {
-            self.remainTimeLabel.text = totalWorkHourInterval.toString(.remain) + " 클리어!"
+            self.remainTimeLabel.text = "%@ CLEAR!".localized(with: [totalWorkHourInterval.toString(.remain)])
           } else {
-            self.remainTimeLabel.text = "🚨초과 근무 경보🚨 " + (-remains).toString(.remain) + " 째 초과근무 중"
+            self.remainTimeLabel.text = "🚨Overworking Alert🚨 %@ OVER".localized(with: [(-remains).toString(.remain)])
           }
         }
       } else {
-        self.remainTimeLabel.text = "퇴근까지 \(self.remains(from: record.startDate))"
+        self.remainTimeLabel.text = "%@ left to go home".localized(with: [self.remains(from: record.startDate)])
       }
     }
   }
@@ -199,14 +205,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     let remainInterval = totalWorkHourInterval - interval
     
     if remainInterval.isZero {
-      return remainInterval.toString(.remain) + " 클리어!"
+      return "%@ CLEAR!".localized(with: [remainInterval.toString(.remain)])
     } else if remainInterval.isLess(than: 0.0) {
-      if (-remainInterval).toString(.remain) == "0시간 0분" {
-        return remainInterval.toString(.remain) + " 클리어!"
+      if (-remainInterval).toString(.remain) == "0hrs 0min".localized {
+        return "%@ CLEAR!".localized(with: [remainInterval.toString(.remain)])
       }
-      return (-remainInterval).toString(.remain) + "째 초과근무 중"
+      return "TVC_%@ OVER".localized(with: [(-remainInterval).toString(.remain)])
     } else {
-      return remainInterval.toString(.remain) + " 남았어요"
+      return "%@ left".localized(with: [remainInterval.toString(.remain)])
     }
   }
   
