@@ -67,8 +67,8 @@ final class SettingCell: BaseTableViewCell {
   }
   
   func updateWorkhoursUI(_ model: UserInfo) {
-    let hourOnly = "\(model.hourOfWorkhoursADay)시간"
-    let hourAndMinute = "\(model.hourOfWorkhoursADay)시간 \(RealmService.shared.userInfo.minuteOfWorkhoursADay)분"
+    let hourOnly = "%dhrs".localized(with: [model.hourOfWorkhoursADay])
+    let hourAndMinute = "%dhrs %dmin".localized(with: [model.hourOfWorkhoursADay, RealmService.shared.userInfo.minuteOfWorkhoursADay])
     let workhourADayString = (model.minuteOfWorkhoursADay == 0) ? hourOnly: hourAndMinute
     self.subLabel.text = workhourADayString
   }

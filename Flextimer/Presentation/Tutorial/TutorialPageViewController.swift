@@ -15,14 +15,20 @@ class TutorialPageViewController: UIPageViewController {
   enum Text {
     static let SKIP = "Skip".localized
     static let START = "Start".localized
-    static let TUTORIAL_TITLE_1 = "Easy to use on lock screen".localized
-    static let TUTORIAL_CONTENT_1 = "Add to the widget to record your start and end time more quickly, and check your remaining time easily.".localized
-    static let TUTORIAL_TITLE_2 = "Even if you recorded late".localized
-    static let TUTORIAL_COTENT_2 = "It's fine. Just create new record and fix the start time anytime!".localized
-    static let TUTORIAL_TITLE_3 = "Swipe to record".localized
-    static let TUTORIAL_CONTENT_3 = "It doesn't matter even if you totally forgot to record. Create, edit, and delete at any time.".localized
-    static let TUTORIAL_TITLE_4 = "Customizable system".localized
-    static let TUTORIAL_CONTENT_4 = "In Settings, customize the work hours and days of the week.".localized
+    static let TUTORIAL_TITLE_1 = "TUTORIAL_TITLE_1".localized
+    static let TUTORIAL_TITLE_2 = "TUTORIAL_TITLE_2".localized
+    static let TUTORIAL_TITLE_3 = "TUTORIAL_TITLE_3".localized
+    static let TUTORIAL_TITLE_4 = "TUTORIAL_TITLE_4".localized
+    
+    static let TUTORIAL_CONTENT_1 = "TUTORIAL_CONTENT_1".localized
+    static let TUTORIAL_COTENT_2 = "TUTORIAL_CONTENT_2".localized
+    static let TUTORIAL_CONTENT_3 = "TUTORIAL_CONTENT_3".localized
+    static let TUTORIAL_CONTENT_4 = "TUTORIAL_CONTENT_4".localized
+    
+    static let TUTORIAL_IMG_1 = "TUTORIAL_IMG_1".localized
+    static let TUTORIAL_IMG_2 = "TUTORIAL_IMG_2".localized
+    static let TUTORIAL_IMG_3 = "TUTORIAL_IMG_3".localized
+    static let TUTORIAL_IMG_4 = "TUTORIAL_IMG_4".localized
   }
   
   let disposeBag = DisposeBag()
@@ -57,22 +63,22 @@ class TutorialPageViewController: UIPageViewController {
       TutorialViewModel(
         Text.TUTORIAL_TITLE_1,
         content: Text.TUTORIAL_CONTENT_1,
-        imageName: "tutorial_1"
+        imageName: Text.TUTORIAL_IMG_1
       ),
       TutorialViewModel(
         Text.TUTORIAL_TITLE_2,
         content: Text.TUTORIAL_COTENT_2,
-        imageName: "tutorial_2"
+        imageName: Text.TUTORIAL_IMG_2
       ),
       TutorialViewModel(
         Text.TUTORIAL_TITLE_3,
         content: Text.TUTORIAL_CONTENT_3,
-        imageName: "tutorial_3"
+        imageName: Text.TUTORIAL_IMG_3
       ),
       TutorialViewModel(
         Text.TUTORIAL_TITLE_4,
         content: Text.TUTORIAL_CONTENT_4,
-        imageName: "tutorial_4",
+        imageName: Text.TUTORIAL_IMG_4,
         isLast: true
       )
     ]
