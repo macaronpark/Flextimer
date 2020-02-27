@@ -135,7 +135,7 @@
 "SVC_SETTINGS" = "Settings";
 "SVC_SECTION1" = "Workhours per a Day";
 "SVC_SECTION2" = "Workdays per a Week";
-"SVC_SECTION3" = "Etc";
+"SVC_SECTION3" = "Etc.";
 
 
 // MARK: - WorkhoursADayViewController

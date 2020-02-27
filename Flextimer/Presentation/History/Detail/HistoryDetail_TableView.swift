@@ -13,6 +13,17 @@ extension HistoryDetailViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     return self.viewModel?.sections[section].headerHeight ?? 0
   }
+  
+  func tableView(
+    _ tableView: UITableView,
+    willDisplayHeaderView view: UIView,
+    forSection section: Int
+  ) {
+    if let headerView = view as? UITableViewHeaderFooterView {
+      let text = headerView.textLabel?.text
+      headerView.textLabel?.text = text?.capitalizingFirstLetter()
+    }
+  }
 
   func tableView(
     _ tableView: UITableView,
