@@ -105,7 +105,6 @@
 
 // MARK: - HistoryViewController
 
-"%d. %d." = "%d. %d.";
 "HVC_GO" = "Go";
 "HVC_OFF" = "Off";
 "HVC_DELETE" = "Delete";

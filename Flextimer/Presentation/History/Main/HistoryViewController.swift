@@ -113,7 +113,7 @@ class HistoryViewController: BaseViewController {
       }).disposed(by: self.disposeBag)
     
     displayedDate
-      .map { "%d. %d.".localized(with: [$0.year, $0.month]) }
+      .map { Formatter.yyyyMM.string(from: $0) }
       .bind(to: self.dateCheckView.currentYearMonthButton.rx.title(for: .normal))
       .disposed(by: self.disposeBag)
 

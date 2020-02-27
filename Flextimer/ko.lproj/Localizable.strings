@@ -105,7 +105,6 @@
 
 // MARK: - HistoryViewController
 
-"%d. %d." = "%d년 %d월";
 "HVC_GO" = "기록 조회";
 "HVC_OFF" = "휴무 처리";
 "HVC_DELETE" = "기록 삭제";
