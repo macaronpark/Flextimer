@@ -74,12 +74,12 @@ class TutorialContentViewController: BaseViewController {
       $0.height.equalTo(334)
     }
     self.titleLabel.snp.makeConstraints {
-      $0.top.equalTo(self.imageView.snp.bottom).offset(88)
+      $0.top.equalTo(self.imageView.snp.bottom).offset(78)
       $0.leading.equalTo(self.view).offset(40)
       $0.trailing.equalTo(self.view).offset(-40)
     }
     self.contentLabel.snp.makeConstraints {
-      $0.top.equalTo(self.titleLabel.snp.bottom).offset(24)
+      $0.top.equalTo(self.titleLabel.snp.bottom).offset(16)
       $0.leading.equalTo(self.view).offset(20)
       $0.trailing.equalTo(self.view).offset(-20)
     }

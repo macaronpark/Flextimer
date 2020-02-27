@@ -106,7 +106,7 @@ class TutorialPageViewController: UIPageViewController {
     self.view.addSubview(self.startButton)
     
     self.pageControl.snp.makeConstraints {
-      $0.top.equalTo(self.view.snp.centerY).offset(100)
+      $0.top.equalTo(self.view.snp.centerY).offset(90)
       $0.leading.trailing.equalToSuperview()
     }
     self.skipButton.snp.makeConstraints {
