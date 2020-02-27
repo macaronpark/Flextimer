@@ -21,6 +21,8 @@ class DayNameButton: UIButton {
     self.setBackgroundColor(color: Color.immutableLightGray, forState: .normal)
     self.setTitle(title, for: .normal)
     self.setTitleColor(Color.immutableWhite, for: .normal)
+    self.titleLabel?.font = Font.REGURAL_14
+    self.titleLabel?.adjustsFontSizeToFitWidth = true
     self.layer.cornerRadius = 4
     self.clipsToBounds = true
     self.translatesAutoresizingMaskIntoConstraints = false
