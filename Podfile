@@ -14,6 +14,7 @@ target 'Flextimer' do
   pod 'RxCocoa'
   pod 'Then' 
   pod 'Firebase/Analytics'
+  pod 'Firebase/Crashlytics'
     
   target 'Widget' do
     pod 'RealmSwift'
