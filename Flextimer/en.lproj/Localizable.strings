@@ -41,11 +41,11 @@
 "TVM_OVERWORKING_ALERT" = "🚨Overworking Alert🚨";
 "TVM_ZERO_MIN" = " 0min";
 
-"Day: %dhrs" = "Day: %dhrs";
+"Day: %dhrs" = "Day %dhrs";
 " %dmin" = " %dmin";
-"Week: %ddays" = "Week: %ddays";
+"Week: %ddays" = "Week %ddays";
 "Based on %dhrs" = "Based on %dhrs";
-"Total: %dhrs %dmin" = "Total: %dhrs %dmin";
+"Total: %dhrs %dmin" = "Total %dhrs %dmin";
 
 
 // MARK: - TodayTimerView
