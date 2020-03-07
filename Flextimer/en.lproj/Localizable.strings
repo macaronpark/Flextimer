@@ -166,7 +166,7 @@
 "TVC_GO_HOME" = "You, who were great today as usual😎, let's go home!🌴🛁🧡";
 
 "Start: %@" = "Start: %@";
-"%@ left to go home" = "%@ left to go home.";
+"%@ left to go home" = "%@ left to go home";
 "🚨Overworking Alert🚨 %@ OVER" = "🚨Overworking Alert🚨 %@ OVER";
 "TVC_%@ OVER" = "%@ OVER";
-"%@ left" = "%@ left.";
+"%@ left" = "%@ left";
