@@ -136,7 +136,7 @@
 
 // MARK: - WorkhoursADayViewController
 
-"%dmin" = "%분";
+"%dmin" = "%d분";
 
 
 // MARK: - Formatter
