@@ -64,8 +64,10 @@ class HistoryViewModel {
       } else if (model.rows.count > 7) {
         model.rows.removeFirst()
         return model
+      } else if model.rows.count < 7, model.rows.count > 0 {
+        return self.makeFullWeekdays(model)
       }
-      return self.makeFullWeekdays(model)
+      return model
     }
   }
   
@@ -94,6 +96,11 @@ class HistoryViewModel {
   }
 
   func makeFullWeekdays(_ weekdays: HistorySectionModel) -> HistorySectionModel {
+    
+    if weekdays.rows[0].date == nil {
+      return weekdays
+    }
+    
     let firstDate = weekdays.rows[0].date
     let lastDate = weekdays.rows[weekdays.rows.count - 1].date
     let mondayInFirstDateWeek = firstDate.getThisWeekMonday()
