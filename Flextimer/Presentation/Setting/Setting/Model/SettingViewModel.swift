@@ -13,6 +13,7 @@ struct SettingViewModel {
   enum Text {
     static let SVM_VERSION = "SVM_VERSION".localized
     static let SVM_DEVELOPER = "SVM_DEVELOPER".localized
+    static let SVM_QA = "SVM_QA".localized
     static let SVM_OPENSOURCE = "SVM_OPENSOURCE".localized
     static let SVM_TUTORIAL = "SVM_TUTORIAL".localized
   }
@@ -31,6 +32,7 @@ struct SettingViewModel {
     let etc = [
       SettingCellModel(Text.SVM_VERSION, text: InfoUtil.versionDescription, component: .indicator),
       SettingCellModel(Text.SVM_DEVELOPER, text: "github.com/macaronpark", component: .indicator),
+      SettingCellModel(Text.SVM_QA, text: nil, component: .indicator),
       SettingCellModel(Text.SVM_OPENSOURCE, text: nil, component: .indicator),
       SettingCellModel(Text.SVM_TUTORIAL, text: nil, component: .indicator)
     ]

@@ -17,6 +17,7 @@ class SettingViewController: BaseViewController {
     static let SVC_SECTION1 = "SVC_SECTION1".localized
     static let SVC_SECTION2 = "SVC_SECTION2".localized
     static let SVC_SECTION3 = "SVC_SECTION3".localized
+    static let SVC_EMAIL = "SVC_EMAIL".localized
   }
   
   var impactGenerator: UIImpactFeedbackGenerator?

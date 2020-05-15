@@ -42,6 +42,7 @@
 		BF4497DE23CAEFC90024DF53 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4497DD23CAEFC90024DF53 /* PickerView.swift */; };
 		BF4497E023CAFFF00024DF53 /* WorkhoursADay_Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4497DF23CAFFF00024DF53 /* WorkhoursADay_Picker.swift */; };
 		BF493FAE23EEEC3300CDB955 /* DetailMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF493FAD23EEEC3300CDB955 /* DetailMemoViewController.swift */; };
+		BF4B4040246EC90F008FC36C /* Setting_Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4B403F246EC90F008FC36C /* Setting_Email.swift */; };
 		BF4FF7A923DAC400005B649F /* DatePickerViewController_Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4FF7A823DAC400005B649F /* DatePickerViewController_Rx.swift */; };
 		BF59DE7523D4943C0009A9A8 /* TodayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF59DE7423D4943C0009A9A8 /* TodayButton.swift */; };
 		BF5CEE4923DDD2A70017762F /* HistorySectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5CEE4823DDD2A70017762F /* HistorySectionFooterView.swift */; };
@@ -160,6 +161,7 @@
 		BF4497DD23CAEFC90024DF53 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		BF4497DF23CAFFF00024DF53 /* WorkhoursADay_Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkhoursADay_Picker.swift; sourceTree = "<group>"; };
 		BF493FAD23EEEC3300CDB955 /* DetailMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMemoViewController.swift; sourceTree = "<group>"; };
+		BF4B403F246EC90F008FC36C /* Setting_Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting_Email.swift; sourceTree = "<group>"; };
 		BF4FF7A823DAC400005B649F /* DatePickerViewController_Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController_Rx.swift; sourceTree = "<group>"; };
 		BF59DE7423D4943C0009A9A8 /* TodayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayButton.swift; sourceTree = "<group>"; };
 		BF5CEE4823DDD2A70017762F /* HistorySectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySectionFooterView.swift; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 				BF65DD3323C9A3DF00B3EA0B /* View */,
 				BF7E987123C8F091002E722D /* SettingViewController.swift */,
 				BF7E987323C8F1BE002E722D /* Setting_TableView.swift */,
+				BF4B403F246EC90F008FC36C /* Setting_Email.swift */,
 				BF65DD3123C9A21900B3EA0B /* Setting_StackView.swift */,
 			);
 			path = Setting;
@@ -833,6 +836,7 @@
 				BF7ECBC6234CF89B0078AE6C /* DebugPrint.swift in Sources */,
 				BF44451323C8DF6F00286305 /* TodayListStackView.swift in Sources */,
 				BFDED1562358A9A9003AFA67 /* Int.swift in Sources */,
+				BF4B4040246EC90F008FC36C /* Setting_Email.swift in Sources */,
 				BFB691CB23D4A71100D24885 /* HistoryButton.swift in Sources */,
 				BFB45EFE23E3144E00AE06CD /* TutorialContentViewController.swift in Sources */,
 				BF44450D23C8D9A800286305 /* UIButton.swift in Sources */,

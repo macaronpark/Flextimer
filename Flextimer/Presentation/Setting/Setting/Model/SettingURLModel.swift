@@ -24,7 +24,7 @@ class SettingURLModel {
     case (2, 1):
       return URL(string: "https://github.com/macaronpark")
       
-    case (2, 2):
+    case (2, 3):
       return URL(string: "https://www.notion.so/Opensources-5f23792b38334a17b6795a00dc20de7b")
       
     default:

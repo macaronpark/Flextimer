@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 import RxCocoa
 
@@ -46,10 +47,25 @@ extension SettingViewController: UITableViewDelegate {
       UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
-    if indexPath.section == 2, indexPath.row == 3 {
-      let tutorialVC = TutorialPageViewController()
-      tutorialVC.modalPresentationStyle = .fullScreen
-      self.present(tutorialVC, animated: true, completion: nil)
+    if indexPath.section == 2 {
+      switch indexPath.row {
+      case 2:
+        if MFMailComposeViewController.canSendMail() {
+          let mail = MFMailComposeViewController()
+          mail.mailComposeDelegate = self
+          mail.setToRecipients(["pxxxsxzy.0@gmail.com"])
+          mail.setMessageBody("<p>\(Text.SVC_EMAIL)</p>", isHTML: true)
+          present(mail, animated: true)
+        }
+        
+      case 4:
+        let tutorialVC = TutorialPageViewController()
+        tutorialVC.modalPresentationStyle = .fullScreen
+        self.present(tutorialVC, animated: true, completion: nil)
+        
+      default:
+        break
+      }
     }
   }
 }

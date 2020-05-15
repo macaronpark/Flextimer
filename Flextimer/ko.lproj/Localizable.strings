@@ -122,6 +122,7 @@
 
 "SVM_VERSION" = "버전";
 "SVM_DEVELOPER" = "개발자";
+"SVM_QA" = "이메일로 문의하기";
 "SVM_OPENSOURCE" = "오픈소스";
 "SVM_TUTORIAL" = "튜토리얼";
 
@@ -132,6 +133,7 @@
 "SVC_SECTION1" = "일일 근무 시간";
 "SVC_SECTION2" = "주간 근무 요일";
 "SVC_SECTION3" = "기타";
+"SVC_EMAIL" = "안녕하세요? 자율출퇴근러를 이용해주셔서 감사합니다. 개선할 점, 불편한 점, 또는 버그가 있다면 언제든 메일로 보내주세요. 😎";
 
 
 // MARK: - WorkhoursADayViewController
