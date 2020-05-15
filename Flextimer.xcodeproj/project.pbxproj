@@ -934,7 +934,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.2.3;
+				MARKETING_VERSION = 2.2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.suzypark.Flextimer.Widget;
 				PRODUCT_NAME = Widget;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -961,7 +961,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.2.3;
+				MARKETING_VERSION = 2.2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.suzypark.Flextimer.Widget;
 				PRODUCT_NAME = Widget;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1108,7 +1108,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2.3;
+				MARKETING_VERSION = 2.2.4;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -D TRACE_RESOURCES";
 				PRODUCT_BUNDLE_IDENTIFIER = com.suzypark.Flextimer;
 				PRODUCT_NAME = Flextimer;
@@ -1138,7 +1138,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2.3;
+				MARKETING_VERSION = 2.2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.suzypark.Flextimer;
 				PRODUCT_NAME = Flextimer;
 				SWIFT_VERSION = 5.0;
