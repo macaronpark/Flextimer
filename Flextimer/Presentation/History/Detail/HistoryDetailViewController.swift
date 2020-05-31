@@ -50,7 +50,7 @@ class HistoryDetailViewController: BaseViewController {
       guard let self = self else { return }
       
       switch change {
-      case .change(_):
+      case .change(_, _):
         self.viewModel = HistoryDetailViewModel(self.workRecord ?? WorkRecord())
         self.tableView.reloadData()
 
