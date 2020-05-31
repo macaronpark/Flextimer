@@ -1,6 +1,0 @@
-framework module Pods_Flextimer {
-  umbrella header "Pods-Flextimer-umbrella.h"
-
-  export *
-  module * { export * }
-}
