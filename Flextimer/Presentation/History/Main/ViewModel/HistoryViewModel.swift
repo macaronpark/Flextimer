@@ -27,8 +27,11 @@ class HistoryViewModel {
     var sections = [HistorySectionModel]()
     var tempCell = self.historyCellModel(year: year, month: month)
     
+    let comp = DateComponents.init(year: year, month: month)
+    let date = Calendar.current.date(from: comp)!
+    
     // 1: 셀모델을 주단위로 쪼갠다
-    let weekRange = Calendar.current.range(of: .weekOfMonth, in: .month, for: Date())!
+    let weekRange = Calendar.current.range(of: .weekOfMonth, in: .month, for: date)!
     
     let _ = weekRange.map { weekIdx in
       // 첫 째 주의 weekday 수집 (디폴트로 토요일까지 수집 됨)
