@@ -51,6 +51,7 @@
 		BF65DD3223C9A21900B3EA0B /* Setting_StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65DD3123C9A21900B3EA0B /* Setting_StackView.swift */; };
 		BF65DD3423C9AA7100B3EA0B /* InfoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65DD2B23C8FC1E00B3EA0B /* InfoUtil.swift */; };
 		BF6D450B23D0CE14006067A8 /* HistoryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6D450A23D0CE14006067A8 /* HistoryCellModel.swift */; };
+		BF6DCD342483B43B00B6B05F /* RealmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DCD332483B43B00B6B05F /* RealmTests.swift */; };
 		BF7E986623C8E8A1002E722D /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E986523C8E8A1002E722D /* BaseTableViewCell.swift */; };
 		BF7E986823C8E8FA002E722D /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E986723C8E8FA002E722D /* HistoryTableViewCell.swift */; };
 		BF7E986A23C8EA75002E722D /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E986923C8EA75002E722D /* UITableView.swift */; };
@@ -105,6 +106,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		BF6DCD362483B43B00B6B05F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFF96FCE23464A66002F5802 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BFF96FD523464A66002F5802;
+			remoteInfo = Flextimer;
+		};
 		BFDED1692358AFD2003AFA67 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFF96FCE23464A66002F5802 /* Project object */;
@@ -170,6 +178,9 @@
 		BF65DD2F23C985F600B3EA0B /* DayNameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayNameButton.swift; sourceTree = "<group>"; };
 		BF65DD3123C9A21900B3EA0B /* Setting_StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting_StackView.swift; sourceTree = "<group>"; };
 		BF6D450A23D0CE14006067A8 /* HistoryCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCellModel.swift; sourceTree = "<group>"; };
+		BF6DCD312483B43B00B6B05F /* FlextimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlextimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF6DCD332483B43B00B6B05F /* RealmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTests.swift; sourceTree = "<group>"; };
+		BF6DCD352483B43B00B6B05F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF7E986523C8E8A1002E722D /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		BF7E986723C8E8FA002E722D /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		BF7E986923C8EA75002E722D /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
@@ -225,6 +236,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BF6DCD2E2483B43B00B6B05F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BFDED15C2358AFD2003AFA67 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -421,6 +439,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		BF6DCD322483B43B00B6B05F /* FlextimerTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF6DCD332483B43B00B6B05F /* RealmTests.swift */,
+				BF6DCD352483B43B00B6B05F /* Info.plist */,
+			);
+			path = FlextimerTests;
+			sourceTree = "<group>";
+		};
 		BF7E986423C8E864002E722D /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -547,6 +574,7 @@
 			children = (
 				BFF96FD823464A66002F5802 /* Flextimer */,
 				BFDED1622358AFD2003AFA67 /* Widget */,
+				BF6DCD322483B43B00B6B05F /* FlextimerTests */,
 				BFF96FD723464A66002F5802 /* Products */,
 				01A3B50145F900FFD43E5F23 /* Pods */,
 				8C96921728ADCE0A342BC1C6 /* Frameworks */,
@@ -558,6 +586,7 @@
 			children = (
 				BFF96FD623464A66002F5802 /* Flextimer.app */,
 				BFDED15F2358AFD2003AFA67 /* Widget.appex */,
+				BF6DCD312483B43B00B6B05F /* FlextimerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -583,6 +612,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		BF6DCD302483B43B00B6B05F /* FlextimerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF6DCD3A2483B43B00B6B05F /* Build configuration list for PBXNativeTarget "FlextimerTests" */;
+			buildPhases = (
+				BF6DCD2D2483B43B00B6B05F /* Sources */,
+				BF6DCD2E2483B43B00B6B05F /* Frameworks */,
+				BF6DCD2F2483B43B00B6B05F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF6DCD372483B43B00B6B05F /* PBXTargetDependency */,
+			);
+			name = FlextimerTests;
+			productName = FlextimerTests;
+			productReference = BF6DCD312483B43B00B6B05F /* FlextimerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		BFDED15E2358AFD2003AFA67 /* Widget */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BFDED16C2358AFD2003AFA67 /* Build configuration list for PBXNativeTarget "Widget" */;
@@ -631,10 +678,14 @@
 		BFF96FCE23464A66002F5802 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
+				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Suzy Mararon Park";
 				TargetAttributes = {
+					BF6DCD302483B43B00B6B05F = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = BFF96FD523464A66002F5802;
+					};
 					BFDED15E2358AFD2003AFA67 = {
 						CreatedOnToolsVersion = 11.0;
 					};
@@ -660,11 +711,19 @@
 			targets = (
 				BFF96FD523464A66002F5802 /* Flextimer */,
 				BFDED15E2358AFD2003AFA67 /* Widget */,
+				BF6DCD302483B43B00B6B05F /* FlextimerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BF6DCD2F2483B43B00B6B05F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BFDED15D2358AFD2003AFA67 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -772,6 +831,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BF6DCD2D2483B43B00B6B05F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF6DCD342483B43B00B6B05F /* RealmTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BFDED15B2358AFD2003AFA67 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -871,6 +938,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		BF6DCD372483B43B00B6B05F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BFF96FD523464A66002F5802 /* Flextimer */;
+			targetProxy = BF6DCD362483B43B00B6B05F /* PBXContainerItemProxy */;
+		};
 		BFDED16A2358AFD2003AFA67 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BFDED15E2358AFD2003AFA67 /* Widget */;
@@ -918,6 +990,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		BF6DCD382483B43B00B6B05F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 98S7TU46JD;
+				INFOPLIST_FILE = FlextimerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.suzypark.FlextimerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flextimer.app/Flextimer";
+			};
+			name = Debug;
+		};
+		BF6DCD392483B43B00B6B05F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 98S7TU46JD;
+				INFOPLIST_FILE = FlextimerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.suzypark.FlextimerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flextimer.app/Flextimer";
+			};
+			name = Release;
+		};
 		BFDED16D2358AFD2003AFA67 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9F5AFA222ABA8F6BE2CE3595 /* Pods-Flextimer-Widget.debug.xcconfig */;
@@ -1149,6 +1263,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BF6DCD3A2483B43B00B6B05F /* Build configuration list for PBXNativeTarget "FlextimerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF6DCD382483B43B00B6B05F /* Debug */,
+				BF6DCD392483B43B00B6B05F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BFDED16C2358AFD2003AFA67 /* Build configuration list for PBXNativeTarget "Widget" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

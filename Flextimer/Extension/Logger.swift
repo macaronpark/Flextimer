@@ -12,21 +12,21 @@ class Logger {
   
   class func err(_ err: Error, _ str: String = "") {
     #if DEBUG
-    debugPrint("🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻")
-    debugPrint("🚨 \(#file)\n\(#function)\n\(#line)\n\(err.localizedDescription)\n\(err)\n\(str)")
-    debugPrint("🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺")
+    print("🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻🔻")
+    print("🚨 \(#file)\n\(#function)\n\(#line)\n\(err.localizedDescription)\n\(err)\n\(str)")
+    print("🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺")
     #endif
   }
   
   class func complete(_ str: String) {
     #if DEBUG
-    debugPrint("🙆🏽‍♂️ \(str)")
+    print("🙆🏽‍♂️ \(str)")
     #endif
   }
   
   class func fail(_ str: String) {
     #if DEBUG
-    debugPrint("🙅🏽‍♂️ \(str)")
+    print("🙅🏽‍♂️ \(str)")
     #endif
   }
   
@@ -38,13 +38,13 @@ class Logger {
   
   class func disposed(_ str: String) {
     #if DEBUG
-    debugPrint("🎒 \(str)")
+    print("🎒 \(str)")
     #endif
   }
   
   class func debug(_ str: String) {
     #if DEBUG
-    debugPrint("⚠️ \(str)")
+    print("⚠️ \(str)")
     #endif
   }
 }
