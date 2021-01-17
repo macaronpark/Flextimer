@@ -10,6 +10,7 @@ target 'Flextimer' do
   # Pods for Flextimer
   pod 'RealmSwift'
   pod 'SnapKit', '~> 5.0.0'
+  pod 'ReactorKit'
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Then' 
