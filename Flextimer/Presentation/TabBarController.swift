@@ -30,9 +30,10 @@ class TabBarController: UITabBarController, ReactorKit.View {
     func bind(reactor: TabBarControllerReactor) {
         let todayViewModel = self.todayViewModel()
         
-        let todayVC = TodayViewController(todayViewModel)
-        let todayNVC = UINavigationController(rootViewController: todayVC)
-        todayNVC.tabBarItem = UITabBarItem(
+        let todayViewController = TodayViewController(todayViewModel)
+        todayViewController.reactor = reactor.reactorForTodayViewController()
+        let todayNavigationController = UINavigationController(rootViewController: todayViewController)
+        todayNavigationController.tabBarItem = UITabBarItem(
             title: Text.TAB_BAR_ITEM_1,
             image: UIImage(named: "tab_today"),
             tag: 0
@@ -52,7 +53,7 @@ class TabBarController: UITabBarController, ReactorKit.View {
             tag: 0
         )
         
-        let tabBarList = [todayNVC, historyNVC]
+        let tabBarList = [todayNavigationController, historyNVC]
         viewControllers = tabBarList
     }
     

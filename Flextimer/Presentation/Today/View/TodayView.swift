@@ -8,43 +8,77 @@
 
 import UIKit
 
-class TodayView: UIView {
-  
-  let optionView = TodayOptionView()
-  let buttonsView = TodayButtonsView()
-  let timerView = TodayTimerView()
-  let stackView = TodayListStackView()
-  
-  override init(frame: CGRect) {
-    super.init(frame: frame)
+import Then
+import ReactorKit
+
+class TodayView: UIView, ReactorKit.View {
     
-    self.addSubview(optionView)
-    self.addSubview(buttonsView)
-    self.addSubview(timerView)
-    self.addSubview(stackView)
+    var disposeBag = DisposeBag()
     
-    self.optionView.snp.makeConstraints {
-      $0.top.equalToSuperview()
-      $0.leading.equalToSuperview().offset(20)
-      $0.trailing.equalToSuperview().offset(-20)
+    
+    // MARK: - Property
+    
+    let optionView = OptionView()
+    
+    let buttonsView = TodayButtonsView()
+    
+    let timerView = TodayTimerView()
+    
+    let stackView = TodayListStackView()
+    
+    
+    // MARK: - Init
+    
+    init() {
+        super.init(frame: .zero)
+        
+        self.setupConstraints()
     }
-    self.buttonsView.snp.makeConstraints {
-      $0.top.equalTo(self.optionView.snp.bottom).offset(16)
-      $0.leading.equalToSuperview().offset(20)
-      $0.trailing.equalToSuperview().offset(-20)
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-    self.timerView.snp.makeConstraints {
-      $0.top.equalTo(self.buttonsView.snp.bottom)
-      $0.leading.trailing.equalToSuperview()
-      $0.bottom.equalTo(self.stackView.snp.top)
+    
+    
+    // MARK: - Bind
+    
+    func bind(reactor: TodayViewReactor) {
+        self.optionView.reactor = reactor.reactorForOptionView()
     }
-    self.stackView.snp.makeConstraints {
-      $0.leading.trailing.equalToSuperview()
-      $0.bottom.equalToSuperview().offset(-24)
+}
+
+
+// MARK: - Constraints
+
+extension TodayView {
+    
+    fileprivate func setupConstraints() {
+        self.addSubview(optionView)
+        self.optionView.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview().offset(-20)
+        }
+        
+        self.addSubview(buttonsView)
+        self.buttonsView.snp.makeConstraints {
+            $0.top.equalTo(self.optionView.snp.bottom).offset(16)
+            $0.leading.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview().offset(-20)
+        }
+        
+        self.addSubview(stackView)
+        self.stackView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-24)
+        }
+        
+        self.addSubview(timerView)
+        self.timerView.snp.makeConstraints {
+            $0.top.equalTo(self.buttonsView.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(self.stackView.snp.top)
+        }
+        
     }
-  }
-  
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
 }

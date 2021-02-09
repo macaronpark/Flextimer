@@ -27,28 +27,13 @@ class TabBarControllerReactor: Reactor {
     init(provider: ManagerProviderType) {
         self.provider = provider
     }
+}
+
+
+extension TabBarControllerReactor {
     
-//    //TODO: 워크스페이스 - 서비스 요청
-//    func reactorForWorkspaceHome() -> WorkspaceHomeReactor {
-//        return WorkspaceHomeReactor(
-//            provider: self.provider,
-//            swsIdx: self.swsIdx,
-//            pushInfo: self.pushInfo
-//        )
-//    }
-//
-//    //TODO: 워크스페이스 - 내 서비스
-//    func reactorForMyServices() -> ServiceManagementViewReactor {
-//        return ServiceManagementViewReactor(
-//            provider: self.provider,
-//            swsIdx: self.swsIdx,
-//            pushInfo: self.pushInfo
-//        )
-//    }
-//
-//    //TODO: 워크스페이스  - 더보기
-//    func reactorForMore() -> WorkspaceMoreViewReactor {
-//        return WorkspaceMoreViewReactor(provider: self.provider, swsIdx: self.swsIdx)
-//    }
+    func reactorForTodayViewController() -> TodayViewControllerReactor {
+        return TodayViewControllerReactor(provider: self.provider)
+    }
 }
 

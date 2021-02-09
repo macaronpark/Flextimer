@@ -14,12 +14,15 @@
 		1C445C7F23592B2F0043A978 /* WidgetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C445C7E23592B2F0043A978 /* WidgetButton.swift */; };
 		1C445C81235930D10043A978 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C445C80235930D10043A978 /* UIButton.swift */; };
 		3818C04B2529481C002F8A20 /* WidgetColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3818C04A2529481C002F8A20 /* WidgetColor.swift */; };
+		386BC8B825D2C57100D7A935 /* TodayViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386BC8B725D2C57100D7A935 /* TodayViewControllerReactor.swift */; };
+		386BC8BE25D2CD3300D7A935 /* TodayOptionViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386BC8BD25D2CD3300D7A935 /* TodayOptionViewReactor.swift */; };
 		3877F0432528BBDB00987CFD /* Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BFDED15F2358AFD2003AFA67 /* Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3877F04B2528BBDE00987CFD /* Widget14Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 38B1D7992528AEAD0084359D /* Widget14Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3888369C25B40AAA00015E50 /* ManagerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3888369B25B40AAA00015E50 /* ManagerProvider.swift */; };
 		388836A225B40AD100015E50 /* BaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388836A125B40AD100015E50 /* BaseManager.swift */; };
 		388836A825B40AF000015E50 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388836A725B40AF000015E50 /* UserManager.swift */; };
 		388836B925B40EBE00015E50 /* TabBarControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3888366525B4092E00015E50 /* TabBarControllerReactor.swift */; };
+		38AAF7B125D2E1E100DF51B4 /* TodayViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AAF7B025D2E1E100DF51B4 /* TodayViewReactor.swift */; };
 		38B1D79B2528AEAD0084359D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B1D79A2528AEAD0084359D /* WidgetKit.framework */; };
 		38B1D79D2528AEAD0084359D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B1D79C2528AEAD0084359D /* SwiftUI.framework */; };
 		38B1D7A02528AEAD0084359D /* Widget14.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B1D79F2528AEAD0084359D /* Widget14.swift */; };
@@ -41,7 +44,7 @@
 		BF427E8C23D733D600F08943 /* HistoryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF427E8B23D733D600F08943 /* HistoryDetailViewModel.swift */; };
 		BF4326A5240810E000018A16 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF4326A8240810E000018A16 /* InfoPlist.strings */; };
 		BF4326A6240810E000018A16 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF4326A8240810E000018A16 /* InfoPlist.strings */; };
-		BF44450823C8D5DC00286305 /* TodayOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44450723C8D5DC00286305 /* TodayOptionView.swift */; };
+		BF44450823C8D5DC00286305 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44450723C8D5DC00286305 /* OptionView.swift */; };
 		BF44450A23C8D67800286305 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44450923C8D67800286305 /* Font.swift */; };
 		BF44450C23C8D8FC00286305 /* TodayButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44450B23C8D8FC00286305 /* TodayButtonsView.swift */; };
 		BF44450D23C8D9A800286305 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C445C80235930D10043A978 /* UIButton.swift */; };
@@ -161,10 +164,13 @@
 		1C445C7E23592B2F0043A978 /* WidgetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetButton.swift; sourceTree = "<group>"; };
 		1C445C80235930D10043A978 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		3818C04A2529481C002F8A20 /* WidgetColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetColor.swift; sourceTree = "<group>"; };
+		386BC8B725D2C57100D7A935 /* TodayViewControllerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewControllerReactor.swift; sourceTree = "<group>"; };
+		386BC8BD25D2CD3300D7A935 /* TodayOptionViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayOptionViewReactor.swift; sourceTree = "<group>"; };
 		3888366525B4092E00015E50 /* TabBarControllerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerReactor.swift; sourceTree = "<group>"; };
 		3888369B25B40AAA00015E50 /* ManagerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerProvider.swift; sourceTree = "<group>"; };
 		388836A125B40AD100015E50 /* BaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseManager.swift; sourceTree = "<group>"; };
 		388836A725B40AF000015E50 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		38AAF7B025D2E1E100DF51B4 /* TodayViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewReactor.swift; sourceTree = "<group>"; };
 		38B1D7992528AEAD0084359D /* Widget14Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widget14Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		38B1D79A2528AEAD0084359D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		38B1D79C2528AEAD0084359D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -187,7 +193,7 @@
 		BF427E8B23D733D600F08943 /* HistoryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailViewModel.swift; sourceTree = "<group>"; };
 		BF4326A7240810E000018A16 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BF4326A9240810E500018A16 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		BF44450723C8D5DC00286305 /* TodayOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayOptionView.swift; sourceTree = "<group>"; };
+		BF44450723C8D5DC00286305 /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
 		BF44450923C8D67800286305 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		BF44450B23C8D8FC00286305 /* TodayButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayButtonsView.swift; sourceTree = "<group>"; };
 		BF44450E23C8DC7400286305 /* TodayTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTimerView.swift; sourceTree = "<group>"; };
@@ -433,6 +439,7 @@
 				BF59DE7623D496D70009A9A8 /* Model */,
 				BF7E986423C8E864002E722D /* View */,
 				BFAC857323C8C71400C1663F /* TodayViewController.swift */,
+				386BC8B725D2C57100D7A935 /* TodayViewControllerReactor.swift */,
 				BFF2A9AB23CCB5A800F3B071 /* TodayViewController_Alert.swift */,
 				BFDDF01223CB353200744F2C /* TodayViewController_Notification.swift */,
 			);
@@ -511,7 +518,9 @@
 			isa = PBXGroup;
 			children = (
 				BF44451023C8DF2900286305 /* TodayView.swift */,
-				BF44450723C8D5DC00286305 /* TodayOptionView.swift */,
+				38AAF7B025D2E1E100DF51B4 /* TodayViewReactor.swift */,
+				BF44450723C8D5DC00286305 /* OptionView.swift */,
+				386BC8BD25D2CD3300D7A935 /* TodayOptionViewReactor.swift */,
 				BF59DE7423D4943C0009A9A8 /* TodayButton.swift */,
 				BF44450B23C8D8FC00286305 /* TodayButtonsView.swift */,
 				BF44450E23C8DC7400286305 /* TodayTimerView.swift */,
@@ -965,7 +974,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFAC857B23C8C85400C1663F /* Logger.swift in Sources */,
-				BF44450823C8D5DC00286305 /* TodayOptionView.swift in Sources */,
+				BF44450823C8D5DC00286305 /* OptionView.swift in Sources */,
 				BF59DE7523D4943C0009A9A8 /* TodayButton.swift in Sources */,
 				BF65DD3023C985F600B3EA0B /* DayNameButton.swift in Sources */,
 				BFBCA15023C9C53300FC6774 /* SceneDelegate.swift in Sources */,
@@ -980,6 +989,7 @@
 				BF7E986823C8E8FA002E722D /* HistoryTableViewCell.swift in Sources */,
 				BF44450C23C8D8FC00286305 /* TodayButtonsView.swift in Sources */,
 				BF65DD3223C9A21900B3EA0B /* Setting_StackView.swift in Sources */,
+				386BC8B825D2C57100D7A935 /* TodayViewControllerReactor.swift in Sources */,
 				1C1AEB41234B572600FFB348 /* WorkRecord.swift in Sources */,
 				BF493FAE23EEEC3300CDB955 /* DetailMemoViewController.swift in Sources */,
 				BF427E8323D6086100F08943 /* HistoryDetail_TableView.swift in Sources */,
@@ -998,6 +1008,7 @@
 				BFB691C923D4A06900D24885 /* DatePickerView.swift in Sources */,
 				BFAC857723C8C75100C1663F /* BaseViewController.swift in Sources */,
 				BF44450F23C8DC7400286305 /* TodayTimerView.swift in Sources */,
+				38AAF7B125D2E1E100DF51B4 /* TodayViewReactor.swift in Sources */,
 				BFE16AAD234D109D006F94C1 /* Color.swift in Sources */,
 				BF7E986A23C8EA75002E722D /* UITableView.swift in Sources */,
 				BF7ECBC6234CF89B0078AE6C /* DebugPrint.swift in Sources */,
@@ -1023,6 +1034,7 @@
 				BFF2A9AC23CCB5A800F3B071 /* TodayViewController_Alert.swift in Sources */,
 				BF35EC0023F439F600E90665 /* String.swift in Sources */,
 				BF427E8C23D733D600F08943 /* HistoryDetailViewModel.swift in Sources */,
+				386BC8BE25D2CD3300D7A935 /* TodayOptionViewReactor.swift in Sources */,
 				BFAC857923C8C79D00C1663F /* HistoryViewController.swift in Sources */,
 				388836A225B40AD100015E50 /* BaseManager.swift in Sources */,
 				BF3D747923E1EE07004CF1F9 /* TutorialPageViewController.swift in Sources */,
