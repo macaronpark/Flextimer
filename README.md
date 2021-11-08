@@ -1,7 +1,7 @@
 # 자율출퇴근러 (Flextimer)
-⏲ 자율출퇴근러들을 위한 출퇴근시간관리앱<br>
-🖥 AppStore: [https://apps.apple.com/kr/app/자율출퇴근러/id1484457501](https://apps.apple.com/kr/app/자율출퇴근러/id1484457501)<br>
-🌳 gitRepository: [https://github.com/macaronpark/Flextimer](https://apps.apple.com/kr/app/자율출퇴근러/id1484457501)<br>
+⏲ 자율출퇴근러들을 위한 출퇴근시간관리앱<br>
+🖥 AppStore: [https://apps.apple.com/kr/app/자율출퇴근러/id1484457501](https://apps.apple.com/kr/app/자율출퇴근러/id1484457501)<br>
+🌳 gitRepository: [https://github.com/macaronpark/Flextimer](https://apps.apple.com/kr/app/자율출퇴근러/id1484457501)<br>
 
 <br>
 
